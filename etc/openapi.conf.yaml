@@ -1,0 +1,4 @@
+projectName: shield-python
+packageName: shield_api
+library: urllib3
+packageUrl: https://github.com/raystack/shield-python

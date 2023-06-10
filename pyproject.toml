@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "raystack-shield-api"
+version = "0.1.0"
+description = "Shield APIs"
+authors = ["Kush Sharma <thekushsharma@gmail.com>"]
+license = "Apache 2.0"
+readme = "README.md"
+packages = [{include = "shield_python"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
