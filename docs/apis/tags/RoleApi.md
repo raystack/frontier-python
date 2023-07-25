@@ -8,10 +8,10 @@ Method | HTTP request | Description
 [**admin_service_create_role**](#admin_service_create_role) | **post** /v1beta1/roles | Create platform role
 [**admin_service_delete_role**](#admin_service_delete_role) | **delete** /v1beta1/roles/{id} | Delete platform role
 [**shield_service_create_organization_role**](#shield_service_create_organization_role) | **post** /v1beta1/organizations/{orgId}/roles | Create organization role
-[**shield_service_delete_organization_role**](#shield_service_delete_organization_role) | **delete** /v1beta1/organizations/{orgId}/roles/{id} | Delete Organization Role
-[**shield_service_get_organization_role**](#shield_service_get_organization_role) | **get** /v1beta1/organizations/{orgId}/roles/{id} | Get Organization Role
+[**shield_service_delete_organization_role**](#shield_service_delete_organization_role) | **delete** /v1beta1/organizations/{orgId}/roles/{id} | Delete organization role
+[**shield_service_get_organization_role**](#shield_service_get_organization_role) | **get** /v1beta1/organizations/{orgId}/roles/{id} | Get organization role
 [**shield_service_list_organization_roles**](#shield_service_list_organization_roles) | **get** /v1beta1/organizations/{orgId}/roles | List organization roles
-[**shield_service_list_roles**](#shield_service_list_roles) | **get** /v1beta1/roles | List default roles
+[**shield_service_list_roles**](#shield_service_list_roles) | **get** /v1beta1/roles | List platform roles
 [**shield_service_update_organization_role**](#shield_service_update_organization_role) | **put** /v1beta1/organizations/{orgId}/roles/{id} | Update organization role
 
 # **admin_service_create_role**
@@ -24,6 +24,7 @@ Creates a platform wide role. It can be used to grant permissions to all the res
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import role_api
@@ -37,6 +38,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -185,7 +196,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -199,6 +210,7 @@ Delete a platform wide role and all of its relations.
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import role_api
@@ -210,6 +222,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -359,7 +381,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -373,6 +395,7 @@ Create a custom role under an organization. This custom role will only be availa
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import role_api
@@ -386,6 +409,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -553,7 +586,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -561,12 +594,13 @@ No authorization required
 <a id="shield_service_delete_organization_role"></a>
 > {str: (bool, date, datetime, dict, float, int, list, str, none_type)} shield_service_delete_organization_role(org_idid)
 
-Delete Organization Role
+Delete organization role
 
 Delete a custom role and all of its relations under an organization permanently.
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import role_api
@@ -578,6 +612,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -589,7 +633,7 @@ with shield_api.ApiClient(configuration) as api_client:
         'id': "id_example",
     }
     try:
-        # Delete Organization Role
+        # Delete organization role
         api_response = api_instance.shield_service_delete_organization_role(
             path_params=path_params,
         )
@@ -736,7 +780,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -744,12 +788,13 @@ No authorization required
 <a id="shield_service_get_organization_role"></a>
 > V1beta1GetOrganizationRoleResponse shield_service_get_organization_role(org_idid)
 
-Get Organization Role
+Get organization role
 
 Returns a custom role under an organization along with its associated permissions
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import role_api
@@ -762,6 +807,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -773,7 +828,7 @@ with shield_api.ApiClient(configuration) as api_client:
         'id': "id_example",
     }
     try:
-        # Get Organization Role
+        # Get organization role
         api_response = api_instance.shield_service_get_organization_role(
             path_params=path_params,
         )
@@ -919,7 +974,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -933,6 +988,7 @@ Returns a list of custom roles created under an organization with their associat
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import role_api
@@ -945,6 +1001,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1129,7 +1195,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -1137,12 +1203,13 @@ No authorization required
 <a id="shield_service_list_roles"></a>
 > V1beta1ListRolesResponse shield_service_list_roles()
 
-List default roles
+List platform roles
 
-Returns a list of Shield predefined roles with their associated permissions
+Returns a list of platform wide roles available in enitre Shield instance along with their associated permissions
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import role_api
@@ -1155,6 +1222,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1165,7 +1242,7 @@ with shield_api.ApiClient(configuration) as api_client:
         'state': "state_example",
     }
     try:
-        # List default roles
+        # List platform roles
         api_response = api_instance.shield_service_list_roles(
             query_params=query_params,
         )
@@ -1304,7 +1381,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -1318,6 +1395,7 @@ Update a custom role under an organization. This custom role will only be availa
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import role_api
@@ -1331,6 +1409,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1507,7 +1595,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 

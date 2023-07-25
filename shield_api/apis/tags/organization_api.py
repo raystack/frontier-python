@@ -24,6 +24,7 @@ from shield_api.paths.v1beta1_organizations_org_id_invitations_id.get import Shi
 from shield_api.paths.v1beta1_organizations_id_admins.get import ShieldServiceListOrganizationAdmins
 from shield_api.paths.v1beta1_organizations_org_id_invitations.get import ShieldServiceListOrganizationInvitations
 from shield_api.paths.v1beta1_organizations_id_projects.get import ShieldServiceListOrganizationProjects
+from shield_api.paths.v1beta1_organizations_id_serviceusers.get import ShieldServiceListOrganizationServiceUsers
 from shield_api.paths.v1beta1_organizations_id_users.get import ShieldServiceListOrganizationUsers
 from shield_api.paths.v1beta1_organizations.get import ShieldServiceListOrganizations
 from shield_api.paths.v1beta1_organizations_id_users_user_id.delete import ShieldServiceRemoveOrganizationUser
@@ -45,6 +46,7 @@ class OrganizationApi(
     ShieldServiceListOrganizationAdmins,
     ShieldServiceListOrganizationInvitations,
     ShieldServiceListOrganizationProjects,
+    ShieldServiceListOrganizationServiceUsers,
     ShieldServiceListOrganizationUsers,
     ShieldServiceListOrganizations,
     ShieldServiceRemoveOrganizationUser,

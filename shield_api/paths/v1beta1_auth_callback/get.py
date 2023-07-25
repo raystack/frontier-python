@@ -71,6 +71,9 @@ request_query_code = api_client.QueryParameter(
     schema=CodeSchema,
     explode=True,
 )
+_auth = [
+    'Basic',
+]
 SchemaFor200ResponseBodyApplicationJson = schemas.DictSchema
 
 
@@ -298,6 +301,7 @@ class BaseApi(api_client.Api):
             resource_path=used_path,
             method='get'.upper(),
             headers=_headers,
+            auth_settings=_auth,
             stream=stream,
             timeout=timeout,
         )

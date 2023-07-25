@@ -21,7 +21,7 @@ from .. import ApiTestMixin
 class TestV1beta1RelationsId(ApiTestMixin, unittest.TestCase):
     """
     V1beta1RelationsId unit test stubs
-        Get Relation by ID  # noqa: E501
+        Get relation  # noqa: E501
     """
     _configuration = configuration.Configuration()
 

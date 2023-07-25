@@ -5,22 +5,23 @@ All URIs are relative to *http://127.0.0.1:7400*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**admin_service_list_policies**](#admin_service_list_policies) | **get** /v1beta1/policies | Get all policies
+[**admin_service_list_policies**](#admin_service_list_policies) | **get** /v1beta1/policies | List all policies
 [**shield_service_create_policy**](#shield_service_create_policy) | **post** /v1beta1/policies | Create policy
 [**shield_service_delete_policy**](#shield_service_delete_policy) | **delete** /v1beta1/policies/{id} | Delete Policy
-[**shield_service_get_policy**](#shield_service_get_policy) | **get** /v1beta1/policies/{id} | Get policy by ID
-[**shield_service_update_policy**](#shield_service_update_policy) | **put** /v1beta1/policies/{id} | Update policy by ID
+[**shield_service_get_policy**](#shield_service_get_policy) | **get** /v1beta1/policies/{id} | Get policy
+[**shield_service_update_policy**](#shield_service_update_policy) | **put** /v1beta1/policies/{id} | Update policy
 
 # **admin_service_list_policies**
 <a id="admin_service_list_policies"></a>
 > V1beta1ListPoliciesResponse admin_service_list_policies()
 
-Get all policies
+List all policies
 
 Lists all the policies from all the organizations in a Shield instance. It can be filtered by organization, project, user, role and group.
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import policy_api
@@ -33,6 +34,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -47,7 +58,7 @@ with shield_api.ApiClient(configuration) as api_client:
         'groupId': "groupId_example",
     }
     try:
-        # Get all policies
+        # List all policies
         api_response = api_instance.admin_service_list_policies(
             query_params=query_params,
         )
@@ -218,7 +229,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -228,8 +239,11 @@ No authorization required
 
 Create policy
 
+Creates a policy 
+
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import policy_api
@@ -243,6 +257,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -390,7 +414,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -404,6 +428,7 @@ Delete a policy all of its relations permanently.
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import policy_api
@@ -415,6 +440,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -564,7 +599,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -572,10 +607,13 @@ No authorization required
 <a id="shield_service_get_policy"></a>
 > V1beta1GetPolicyResponse shield_service_get_policy(id)
 
-Get policy by ID
+Get policy
+
+Returns a policy by ID
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import policy_api
@@ -588,6 +626,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -598,7 +646,7 @@ with shield_api.ApiClient(configuration) as api_client:
         'id': "id_example",
     }
     try:
-        # Get policy by ID
+        # Get policy
         api_response = api_instance.shield_service_get_policy(
             path_params=path_params,
         )
@@ -736,7 +784,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -744,10 +792,13 @@ No authorization required
 <a id="shield_service_update_policy"></a>
 > V1beta1UpdatePolicyResponse shield_service_update_policy(idbody)
 
-Update policy by ID
+Update policy
+
+Updates a policy by ID
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import policy_api
@@ -761,6 +812,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -778,7 +839,7 @@ with shield_api.ApiClient(configuration) as api_client:
         metadata=dict(),
     )
     try:
-        # Update policy by ID
+        # Update policy
         api_response = api_instance.shield_service_update_policy(
             path_params=path_params,
             body=body,
@@ -927,7 +988,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 

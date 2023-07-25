@@ -71,6 +71,9 @@ request_path_user_id = api_client.PathParameter(
     schema=UserIdSchema,
     required=True,
 )
+_auth = [
+    'Basic',
+]
 SchemaFor200ResponseBodyApplicationJson = schemas.DictSchema
 
 
@@ -298,6 +301,7 @@ class BaseApi(api_client.Api):
             resource_path=used_path,
             method='delete'.upper(),
             headers=_headers,
+            auth_settings=_auth,
             stream=stream,
             timeout=timeout,
         )

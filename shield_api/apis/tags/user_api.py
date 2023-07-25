@@ -18,6 +18,8 @@ from shield_api.paths.v1beta1_users_id_enable.post import ShieldServiceEnableUse
 from shield_api.paths.v1beta1_users_self.get import ShieldServiceGetCurrentUser
 from shield_api.paths.v1beta1_users_self_organizations.get import ShieldServiceGetOrganizationsByCurrentUser
 from shield_api.paths.v1beta1_users_id_organizations.get import ShieldServiceGetOrganizationsByUser
+from shield_api.paths.v1beta1_users_self_projects.get import ShieldServiceGetProjectsByCurrentUser
+from shield_api.paths.v1beta1_users_id_projects.get import ShieldServiceGetProjectsByUser
 from shield_api.paths.v1beta1_users_id.get import ShieldServiceGetUser
 from shield_api.paths.v1beta1_users_self_groups.get import ShieldServiceListCurrentUserGroups
 from shield_api.paths.v1beta1_users_id_groups.get import ShieldServiceListUserGroups
@@ -36,6 +38,8 @@ class UserApi(
     ShieldServiceGetCurrentUser,
     ShieldServiceGetOrganizationsByCurrentUser,
     ShieldServiceGetOrganizationsByUser,
+    ShieldServiceGetProjectsByCurrentUser,
+    ShieldServiceGetProjectsByUser,
     ShieldServiceGetUser,
     ShieldServiceListCurrentUserGroups,
     ShieldServiceListUserGroups,

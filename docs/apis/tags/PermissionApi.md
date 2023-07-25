@@ -5,22 +5,23 @@ All URIs are relative to *http://127.0.0.1:7400*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**admin_service_create_permission**](#admin_service_create_permission) | **post** /v1beta1/permissions | Create permission
-[**admin_service_delete_permission**](#admin_service_delete_permission) | **delete** /v1beta1/permissions/{id} | Delete permission by ID
-[**admin_service_update_permission**](#admin_service_update_permission) | **put** /v1beta1/permissions/{id} | Update permission by ID
-[**shield_service_get_permission**](#shield_service_get_permission) | **get** /v1beta1/permissions/{id} | Get permission by ID
-[**shield_service_list_permissions**](#shield_service_list_permissions) | **get** /v1beta1/permissions | Get all Permissions
+[**admin_service_create_permission**](#admin_service_create_permission) | **post** /v1beta1/permissions | Create platform permission
+[**admin_service_delete_permission**](#admin_service_delete_permission) | **delete** /v1beta1/permissions/{id} | Delete platform permission
+[**admin_service_update_permission**](#admin_service_update_permission) | **put** /v1beta1/permissions/{id} | Update platform permission
+[**shield_service_get_permission**](#shield_service_get_permission) | **get** /v1beta1/permissions/{id} | Get permission
+[**shield_service_list_permissions**](#shield_service_list_permissions) | **get** /v1beta1/permissions | Get all permissions
 
 # **admin_service_create_permission**
 <a id="admin_service_create_permission"></a>
 > V1beta1CreatePermissionResponse admin_service_create_permission(body)
 
-Create permission
+Create platform permission
 
 Creates a permission. It can be used to grant permissions to all the resources in a Shield instance.
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import permission_api
@@ -34,6 +35,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -47,11 +58,12 @@ with shield_api.ApiClient(configuration) as api_client:
                 namespace="namespace_example",
                 metadata=dict(),
                 title="title_example",
+                key="compute.instance.get",
             )
         ],
     )
     try:
-        # Create permission
+        # Create platform permission
         api_response = api_instance.admin_service_create_permission(
             body=body,
         )
@@ -184,7 +196,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -192,10 +204,11 @@ No authorization required
 <a id="admin_service_delete_permission"></a>
 > {str: (bool, date, datetime, dict, float, int, list, str, none_type)} admin_service_delete_permission(id)
 
-Delete permission by ID
+Delete platform permission
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import permission_api
@@ -207,6 +220,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -217,7 +240,7 @@ with shield_api.ApiClient(configuration) as api_client:
         'id': "id_example",
     }
     try:
-        # Delete permission by ID
+        # Delete platform permission
         api_response = api_instance.admin_service_delete_permission(
             path_params=path_params,
         )
@@ -356,7 +379,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -364,12 +387,13 @@ No authorization required
 <a id="admin_service_update_permission"></a>
 > V1beta1UpdatePermissionResponse admin_service_update_permission(idbody)
 
-Update permission by ID
+Update platform permission
 
 Updates a permission by ID. It can be used to grant permissions to all the resources in a Shield instance.
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import permission_api
@@ -383,6 +407,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -397,9 +431,10 @@ with shield_api.ApiClient(configuration) as api_client:
         namespace="namespace_example",
         metadata=dict(),
         title="title_example",
+        key="compute.instance.get",
     )
     try:
-        # Update permission by ID
+        # Update platform permission
         api_response = api_instance.admin_service_update_permission(
             path_params=path_params,
             body=body,
@@ -548,7 +583,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -556,10 +591,13 @@ No authorization required
 <a id="shield_service_get_permission"></a>
 > V1beta1GetPermissionResponse shield_service_get_permission(id)
 
-Get permission by ID
+Get permission
+
+Returns a permission by ID
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import permission_api
@@ -572,6 +610,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -582,7 +630,7 @@ with shield_api.ApiClient(configuration) as api_client:
         'id': "id_example",
     }
     try:
-        # Get permission by ID
+        # Get permission
         api_response = api_instance.shield_service_get_permission(
             path_params=path_params,
         )
@@ -720,7 +768,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -728,10 +776,11 @@ No authorization required
 <a id="shield_service_list_permissions"></a>
 > V1beta1ListPermissionsResponse shield_service_list_permissions()
 
-Get all Permissions
+Get all permissions
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import permission_api
@@ -744,6 +793,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -751,7 +810,7 @@ with shield_api.ApiClient(configuration) as api_client:
 
     # example, this endpoint has no required or optional parameters
     try:
-        # Get all Permissions
+        # Get all permissions
         api_response = api_instance.shield_service_list_permissions()
         pprint(api_response)
     except shield_api.ApiException as e:
@@ -866,7 +925,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 

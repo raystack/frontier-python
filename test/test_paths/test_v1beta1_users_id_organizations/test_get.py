@@ -21,7 +21,7 @@ from .. import ApiTestMixin
 class TestV1beta1UsersIdOrganizations(ApiTestMixin, unittest.TestCase):
     """
     V1beta1UsersIdOrganizations unit test stubs
-        Get Organizations by User  # noqa: E501
+        Get user organizations  # noqa: E501
     """
     _configuration = configuration.Configuration()
 

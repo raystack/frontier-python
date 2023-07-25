@@ -5,32 +5,35 @@ All URIs are relative to *http://127.0.0.1:7400*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**admin_service_list_all_users**](#admin_service_list_all_users) | **get** /v1beta1/admin/users | Get all users
+[**admin_service_list_all_users**](#admin_service_list_all_users) | **get** /v1beta1/admin/users | List all users
 [**shield_service_create_user**](#shield_service_create_user) | **post** /v1beta1/users | Create user
 [**shield_service_delete_user**](#shield_service_delete_user) | **delete** /v1beta1/users/{id} | Delete user
 [**shield_service_disable_user**](#shield_service_disable_user) | **post** /v1beta1/users/{id}/disable | Disable user
 [**shield_service_enable_user**](#shield_service_enable_user) | **post** /v1beta1/users/{id}/enable | Enable user
 [**shield_service_get_current_user**](#shield_service_get_current_user) | **get** /v1beta1/users/self | Get current user
-[**shield_service_get_organizations_by_current_user**](#shield_service_get_organizations_by_current_user) | **get** /v1beta1/users/self/organizations | Get My Organizations
-[**shield_service_get_organizations_by_user**](#shield_service_get_organizations_by_user) | **get** /v1beta1/users/{id}/organizations | Get Organizations by User
-[**shield_service_get_user**](#shield_service_get_user) | **get** /v1beta1/users/{id} | Get a user by id
-[**shield_service_list_current_user_groups**](#shield_service_list_current_user_groups) | **get** /v1beta1/users/self/groups | List My Groups
-[**shield_service_list_user_groups**](#shield_service_list_user_groups) | **get** /v1beta1/users/{id}/groups | List Groups of a User
-[**shield_service_list_user_invitations**](#shield_service_list_user_invitations) | **get** /v1beta1/users/{id}/invitations | List User Invitations
+[**shield_service_get_organizations_by_current_user**](#shield_service_get_organizations_by_current_user) | **get** /v1beta1/users/self/organizations | Get my organizations
+[**shield_service_get_organizations_by_user**](#shield_service_get_organizations_by_user) | **get** /v1beta1/users/{id}/organizations | Get user organizations
+[**shield_service_get_projects_by_current_user**](#shield_service_get_projects_by_current_user) | **get** /v1beta1/users/self/projects | Get my projects
+[**shield_service_get_projects_by_user**](#shield_service_get_projects_by_user) | **get** /v1beta1/users/{id}/projects | Get user projects
+[**shield_service_get_user**](#shield_service_get_user) | **get** /v1beta1/users/{id} | Get user
+[**shield_service_list_current_user_groups**](#shield_service_list_current_user_groups) | **get** /v1beta1/users/self/groups | List my groups
+[**shield_service_list_user_groups**](#shield_service_list_user_groups) | **get** /v1beta1/users/{id}/groups | List user groups
+[**shield_service_list_user_invitations**](#shield_service_list_user_invitations) | **get** /v1beta1/users/{id}/invitations | List user invitations
 [**shield_service_list_users**](#shield_service_list_users) | **get** /v1beta1/users | List public users
-[**shield_service_update_current_user**](#shield_service_update_current_user) | **put** /v1beta1/users/self | Update current User
-[**shield_service_update_user**](#shield_service_update_user) | **put** /v1beta1/users/{id} | Update User by ID
+[**shield_service_update_current_user**](#shield_service_update_current_user) | **put** /v1beta1/users/self | Update current user
+[**shield_service_update_user**](#shield_service_update_user) | **put** /v1beta1/users/{id} | Update user
 
 # **admin_service_list_all_users**
 <a id="admin_service_list_all_users"></a>
 > V1beta1ListAllUsersResponse admin_service_list_all_users()
 
-Get all users
+List all users
 
 Lists all the users from all the organizations in a Shield instance. It can be filtered by keyword, organization, group and state.
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import user_api
@@ -43,6 +46,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -58,7 +71,7 @@ with shield_api.ApiClient(configuration) as api_client:
         'state': "state_example",
     }
     try:
-        # Get all users
+        # List all users
         api_response = api_instance.admin_service_list_all_users(
             query_params=query_params,
         )
@@ -237,7 +250,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -251,6 +264,7 @@ Create a user with the given details. A user is not attached to an organization 
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import user_api
@@ -264,6 +278,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -410,7 +434,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -424,6 +448,7 @@ Delete an user permanently forever and all of its relations (organizations, grou
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import user_api
@@ -435,6 +460,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -584,7 +619,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -598,6 +633,7 @@ Sets the state of the user as diabled.The user's membership to groups and organi
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import user_api
@@ -609,6 +645,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -771,7 +817,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -785,6 +831,7 @@ Sets the state of the user as enabled. The user will be able to log in and acces
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import user_api
@@ -796,6 +843,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -958,7 +1015,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -970,6 +1027,7 @@ Get current user
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import user_api
@@ -982,6 +1040,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1104,7 +1172,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -1112,12 +1180,13 @@ No authorization required
 <a id="shield_service_get_organizations_by_current_user"></a>
 > V1beta1GetOrganizationsByCurrentUserResponse shield_service_get_organizations_by_current_user()
 
-Get My Organizations
+Get my organizations
 
 Get all organizations the current user belongs to
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import user_api
@@ -1130,6 +1199,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1137,7 +1216,7 @@ with shield_api.ApiClient(configuration) as api_client:
 
     # example, this endpoint has no required or optional parameters
     try:
-        # Get My Organizations
+        # Get my organizations
         api_response = api_instance.shield_service_get_organizations_by_current_user()
         pprint(api_response)
     except shield_api.ApiException as e:
@@ -1252,7 +1331,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -1260,12 +1339,13 @@ No authorization required
 <a id="shield_service_get_organizations_by_user"></a>
 > V1beta1GetOrganizationsByUserResponse shield_service_get_organizations_by_user(id)
 
-Get Organizations by User
+Get user organizations
 
 Get all the organizations a user belongs to.
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import user_api
@@ -1278,6 +1358,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1288,7 +1378,7 @@ with shield_api.ApiClient(configuration) as api_client:
         'id': "id_example",
     }
     try:
-        # Get Organizations by User
+        # Get user organizations
         api_response = api_instance.shield_service_get_organizations_by_user(
             path_params=path_params,
         )
@@ -1426,7 +1516,351 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **shield_service_get_projects_by_current_user**
+<a id="shield_service_get_projects_by_current_user"></a>
+> V1beta1GetProjectsByCurrentUserResponse shield_service_get_projects_by_current_user()
+
+Get my projects
+
+Get all projects the current user belongs to
+
+### Example
+
+* Basic Authentication (Basic):
+```python
+import shield_api
+from shield_api.apis.tags import user_api
+from shield_api.model.rpc_status import RpcStatus
+from shield_api.model.v1beta1_get_projects_by_current_user_response import V1beta1GetProjectsByCurrentUserResponse
+from pprint import pprint
+# Defining the host is optional and defaults to http://127.0.0.1:7400
+# See configuration.py for a list of all supported configuration parameters.
+configuration = shield_api.Configuration(
+    host = "http://127.0.0.1:7400"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+# Enter a context with an instance of the API client
+with shield_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = user_api.UserApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
+    try:
+        # Get my projects
+        api_response = api_instance.shield_service_get_projects_by_current_user()
+        pprint(api_response)
+    except shield_api.ApiException as e:
+        print("Exception when calling UserApi->shield_service_get_projects_by_current_user: %s\n" % e)
+```
+### Parameters
+This endpoint does not need any parameter.
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#shield_service_get_projects_by_current_user.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#shield_service_get_projects_by_current_user.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#shield_service_get_projects_by_current_user.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#shield_service_get_projects_by_current_user.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#shield_service_get_projects_by_current_user.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#shield_service_get_projects_by_current_user.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
+default | [ApiResponseForDefault](#shield_service_get_projects_by_current_user.ApiResponseForDefault) | An unexpected error response.
+
+#### shield_service_get_projects_by_current_user.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**V1beta1GetProjectsByCurrentUserResponse**](../../models/V1beta1GetProjectsByCurrentUserResponse.md) |  | 
+
+
+#### shield_service_get_projects_by_current_user.ApiResponseFor400
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RpcStatus**](../../models/RpcStatus.md) |  | 
+
+
+#### shield_service_get_projects_by_current_user.ApiResponseFor401
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor401ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RpcStatus**](../../models/RpcStatus.md) |  | 
+
+
+#### shield_service_get_projects_by_current_user.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RpcStatus**](../../models/RpcStatus.md) |  | 
+
+
+#### shield_service_get_projects_by_current_user.ApiResponseFor404
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor404ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor404ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RpcStatus**](../../models/RpcStatus.md) |  | 
+
+
+#### shield_service_get_projects_by_current_user.ApiResponseFor500
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor500ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RpcStatus**](../../models/RpcStatus.md) |  | 
+
+
+#### shield_service_get_projects_by_current_user.ApiResponseForDefault
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor0ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RpcStatus**](../../models/RpcStatus.md) |  | 
+
+
+### Authorization
+
+[Basic](../../../README.md#Basic)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **shield_service_get_projects_by_user**
+<a id="shield_service_get_projects_by_user"></a>
+> V1beta1GetProjectsByUserResponse shield_service_get_projects_by_user(id)
+
+Get user projects
+
+Get all the projects a user belongs to.
+
+### Example
+
+* Basic Authentication (Basic):
+```python
+import shield_api
+from shield_api.apis.tags import user_api
+from shield_api.model.rpc_status import RpcStatus
+from shield_api.model.v1beta1_get_projects_by_user_response import V1beta1GetProjectsByUserResponse
+from pprint import pprint
+# Defining the host is optional and defaults to http://127.0.0.1:7400
+# See configuration.py for a list of all supported configuration parameters.
+configuration = shield_api.Configuration(
+    host = "http://127.0.0.1:7400"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+# Enter a context with an instance of the API client
+with shield_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = user_api.UserApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    path_params = {
+        'id': "id_example",
+    }
+    try:
+        # Get user projects
+        api_response = api_instance.shield_service_get_projects_by_user(
+            path_params=path_params,
+        )
+        pprint(api_response)
+    except shield_api.ApiException as e:
+        print("Exception when calling UserApi->shield_service_get_projects_by_user: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+path_params | RequestPathParams | |
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### path_params
+#### RequestPathParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+id | IdSchema | | 
+
+# IdSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#shield_service_get_projects_by_user.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#shield_service_get_projects_by_user.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#shield_service_get_projects_by_user.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#shield_service_get_projects_by_user.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#shield_service_get_projects_by_user.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#shield_service_get_projects_by_user.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
+default | [ApiResponseForDefault](#shield_service_get_projects_by_user.ApiResponseForDefault) | An unexpected error response.
+
+#### shield_service_get_projects_by_user.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**V1beta1GetProjectsByUserResponse**](../../models/V1beta1GetProjectsByUserResponse.md) |  | 
+
+
+#### shield_service_get_projects_by_user.ApiResponseFor400
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RpcStatus**](../../models/RpcStatus.md) |  | 
+
+
+#### shield_service_get_projects_by_user.ApiResponseFor401
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor401ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RpcStatus**](../../models/RpcStatus.md) |  | 
+
+
+#### shield_service_get_projects_by_user.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RpcStatus**](../../models/RpcStatus.md) |  | 
+
+
+#### shield_service_get_projects_by_user.ApiResponseFor404
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor404ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor404ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RpcStatus**](../../models/RpcStatus.md) |  | 
+
+
+#### shield_service_get_projects_by_user.ApiResponseFor500
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor500ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RpcStatus**](../../models/RpcStatus.md) |  | 
+
+
+#### shield_service_get_projects_by_user.ApiResponseForDefault
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor0ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RpcStatus**](../../models/RpcStatus.md) |  | 
+
+
+### Authorization
+
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -1434,12 +1868,13 @@ No authorization required
 <a id="shield_service_get_user"></a>
 > V1beta1GetUserResponse shield_service_get_user(id)
 
-Get a user by id
+Get user
 
 Get a user by id searched over all organizations in Shield.
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import user_api
@@ -1452,6 +1887,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1462,7 +1907,7 @@ with shield_api.ApiClient(configuration) as api_client:
         'id': "id_example",
     }
     try:
-        # Get a user by id
+        # Get user
         api_response = api_instance.shield_service_get_user(
             path_params=path_params,
         )
@@ -1600,7 +2045,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -1608,10 +2053,11 @@ No authorization required
 <a id="shield_service_list_current_user_groups"></a>
 > V1beta1ListCurrentUserGroupsResponse shield_service_list_current_user_groups()
 
-List My Groups
+List my groups
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import user_api
@@ -1624,6 +2070,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1631,7 +2087,7 @@ with shield_api.ApiClient(configuration) as api_client:
 
     # example, this endpoint has no required or optional parameters
     try:
-        # List My Groups
+        # List my groups
         api_response = api_instance.shield_service_list_current_user_groups()
         pprint(api_response)
     except shield_api.ApiException as e:
@@ -1746,7 +2202,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -1754,12 +2210,13 @@ No authorization required
 <a id="shield_service_list_user_groups"></a>
 > V1beta1ListUserGroupsResponse shield_service_list_user_groups(id)
 
-List Groups of a User
+List user groups
 
 Lists all the groups a user belongs to across all organization in Shield. To get the groups of a user in a specific organization, use the org_id filter in the query parameter.
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import user_api
@@ -1772,6 +2229,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1784,7 +2251,7 @@ with shield_api.ApiClient(configuration) as api_client:
     query_params = {
     }
     try:
-        # List Groups of a User
+        # List user groups
         api_response = api_instance.shield_service_list_user_groups(
             path_params=path_params,
             query_params=query_params,
@@ -1801,7 +2268,7 @@ with shield_api.ApiClient(configuration) as api_client:
         'orgId': "orgId_example",
     }
     try:
-        # List Groups of a User
+        # List user groups
         api_response = api_instance.shield_service_list_user_groups(
             path_params=path_params,
             query_params=query_params,
@@ -1956,7 +2423,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -1964,12 +2431,13 @@ No authorization required
 <a id="shield_service_list_user_invitations"></a>
 > V1beta1ListUserInvitationsResponse shield_service_list_user_invitations(id)
 
-List User Invitations
+List user invitations
 
 List all the invitations sent to a user.
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import user_api
@@ -1982,6 +2450,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1992,7 +2470,7 @@ with shield_api.ApiClient(configuration) as api_client:
         'id': "id_example",
     }
     try:
-        # List User Invitations
+        # List user invitations
         api_response = api_instance.shield_service_list_user_invitations(
             path_params=path_params,
         )
@@ -2130,7 +2608,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -2144,6 +2622,7 @@ Returns the users from all the organizations in a Shield instance. It can be fil
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import user_api
@@ -2156,6 +2635,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -2350,7 +2839,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -2358,10 +2847,11 @@ No authorization required
 <a id="shield_service_update_current_user"></a>
 > V1beta1UpdateCurrentUserResponse shield_service_update_current_user(body)
 
-Update current User
+Update current user
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import user_api
@@ -2375,6 +2865,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -2388,7 +2888,7 @@ with shield_api.ApiClient(configuration) as api_client:
         title="title_example",
     )
     try:
-        # Update current User
+        # Update current user
         api_response = api_instance.shield_service_update_current_user(
             body=body,
         )
@@ -2521,7 +3021,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -2529,10 +3029,11 @@ No authorization required
 <a id="shield_service_update_user"></a>
 > V1beta1UpdateUserResponse shield_service_update_user(idbody)
 
-Update User by ID
+Update user
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import user_api
@@ -2546,6 +3047,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -2562,7 +3073,7 @@ with shield_api.ApiClient(configuration) as api_client:
         title="title_example",
     )
     try:
-        # Update User by ID
+        # Update user
         api_response = api_instance.shield_service_update_user(
             path_params=path_params,
             body=body,
@@ -2711,7 +3222,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 

@@ -21,7 +21,7 @@ from .. import ApiTestMixin
 class TestV1beta1ServiceusersIdSecretsSecretId(ApiTestMixin, unittest.TestCase):
     """
     V1beta1ServiceusersIdSecretsSecretId unit test stubs
-        Delete a service user secret  # noqa: E501
+        Delete service user secret  # noqa: E501
     """
     _configuration = configuration.Configuration()
 

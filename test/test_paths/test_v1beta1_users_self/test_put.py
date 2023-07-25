@@ -21,7 +21,7 @@ from .. import ApiTestMixin
 class TestV1beta1UsersSelf(ApiTestMixin, unittest.TestCase):
     """
     V1beta1UsersSelf unit test stubs
-        Update current User  # noqa: E501
+        Update current user  # noqa: E501
     """
     _configuration = configuration.Configuration()
 

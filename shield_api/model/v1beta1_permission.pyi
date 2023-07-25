@@ -44,6 +44,7 @@ class V1beta1Permission(
             updatedAt = schemas.DateTimeSchema
             namespace = schemas.StrSchema
             metadata = schemas.DictSchema
+            key = schemas.StrSchema
             __annotations__ = {
                 "id": id,
                 "name": name,
@@ -52,6 +53,7 @@ class V1beta1Permission(
                 "updatedAt": updatedAt,
                 "namespace": namespace,
                 "metadata": metadata,
+                "key": key,
             }
     
     @typing.overload
@@ -76,9 +78,12 @@ class V1beta1Permission(
     def __getitem__(self, name: typing_extensions.Literal["metadata"]) -> MetaOapg.properties.metadata: ...
     
     @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["key"]) -> MetaOapg.properties.key: ...
+    
+    @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["id", "name", "title", "createdAt", "updatedAt", "namespace", "metadata", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["id", "name", "title", "createdAt", "updatedAt", "namespace", "metadata", "key", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -105,9 +110,12 @@ class V1beta1Permission(
     def get_item_oapg(self, name: typing_extensions.Literal["metadata"]) -> typing.Union[MetaOapg.properties.metadata, schemas.Unset]: ...
     
     @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["key"]) -> typing.Union[MetaOapg.properties.key, schemas.Unset]: ...
+    
+    @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["id", "name", "title", "createdAt", "updatedAt", "namespace", "metadata", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["id", "name", "title", "createdAt", "updatedAt", "namespace", "metadata", "key", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -121,6 +129,7 @@ class V1beta1Permission(
         updatedAt: typing.Union[MetaOapg.properties.updatedAt, str, datetime, schemas.Unset] = schemas.unset,
         namespace: typing.Union[MetaOapg.properties.namespace, str, schemas.Unset] = schemas.unset,
         metadata: typing.Union[MetaOapg.properties.metadata, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        key: typing.Union[MetaOapg.properties.key, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'V1beta1Permission':
@@ -134,6 +143,7 @@ class V1beta1Permission(
             updatedAt=updatedAt,
             namespace=namespace,
             metadata=metadata,
+            key=key,
             _configuration=_configuration,
             **kwargs,
         )

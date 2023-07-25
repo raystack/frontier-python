@@ -21,7 +21,7 @@ from .. import ApiTestMixin
 class TestV1beta1Namespaces(ApiTestMixin, unittest.TestCase):
     """
     V1beta1Namespaces unit test stubs
-        Get all Namespaces  # noqa: E501
+        Get all namespaces  # noqa: E501
     """
     _configuration = configuration.Configuration()
 

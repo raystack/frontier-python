@@ -96,6 +96,9 @@ request_query_state = api_client.QueryParameter(
     schema=StateSchema,
     explode=True,
 )
+_auth = [
+    'Basic',
+]
 SchemaFor200ResponseBodyApplicationJson = V1beta1ListUsersResponse
 
 
@@ -326,6 +329,7 @@ class BaseApi(api_client.Api):
             resource_path=used_path,
             method='get'.upper(),
             headers=_headers,
+            auth_settings=_auth,
             stream=stream,
             timeout=timeout,
         )

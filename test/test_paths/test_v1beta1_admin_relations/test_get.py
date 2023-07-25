@@ -21,7 +21,7 @@ from .. import ApiTestMixin
 class TestV1beta1AdminRelations(ApiTestMixin, unittest.TestCase):
     """
     V1beta1AdminRelations unit test stubs
-        Get all relations  # noqa: E501
+        List all relations  # noqa: E501
     """
     _configuration = configuration.Configuration()
 

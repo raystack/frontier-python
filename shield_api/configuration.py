@@ -77,6 +77,23 @@ class Configuration(object):
       string values to replace variables in templated server configuration.
       The validation of enums is performed for variables with defined enum values before.
 
+    :Example:
+
+    HTTP Basic Authentication Example.
+    Given the following security scheme in the OpenAPI specification:
+      components:
+        securitySchemes:
+          http_basic_auth:
+            type: http
+            scheme: basic
+
+    Configure API client with HTTP basic authentication:
+
+conf = shield_api.Configuration(
+    username='the-user',
+    password='the-password',
+)
+
     """
 
     _default = None
@@ -84,6 +101,8 @@ class Configuration(object):
     def __init__(
         self,
         host=None,
+        username=None,
+        password=None,
         discard_unknown_keys=False,
         disabled_client_side_validations="",
         server_index=None,
@@ -108,6 +127,13 @@ class Configuration(object):
         """Temp file folder for downloading files
         """
         # Authentication Settings
+        self.username = username
+        """Username for HTTP basic authentication
+        """
+        self.password = password
+        """Password for HTTP basic authentication
+        """
+        self.discard_unknown_keys = discard_unknown_keys
         self.disabled_client_side_validations = disabled_client_side_validations
         self.logger = {}
         """Logging Settings
@@ -350,6 +376,13 @@ class Configuration(object):
         :return: The Auth Settings information dict.
         """
         auth = {}
+        if self.username is not None and self.password is not None:
+            auth['Basic'] = {
+                'type': 'basic',
+                'in': 'header',
+                'key': 'Authorization',
+                'value': self.get_basic_auth_token()
+            }
         return auth
 
     def to_debug_report(self):

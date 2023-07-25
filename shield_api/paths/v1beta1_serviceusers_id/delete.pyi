@@ -27,6 +27,32 @@ from shield_api import schemas  # noqa: F401
 
 from shield_api.model.rpc_status import RpcStatus
 
+# Query params
+OrgIdSchema = schemas.StrSchema
+RequestRequiredQueryParams = typing_extensions.TypedDict(
+    'RequestRequiredQueryParams',
+    {
+    }
+)
+RequestOptionalQueryParams = typing_extensions.TypedDict(
+    'RequestOptionalQueryParams',
+    {
+        'orgId': typing.Union[OrgIdSchema, str, ],
+    },
+    total=False
+)
+
+
+class RequestQueryParams(RequestRequiredQueryParams, RequestOptionalQueryParams):
+    pass
+
+
+request_query_org_id = api_client.QueryParameter(
+    name="orgId",
+    style=api_client.ParameterStyle.FORM,
+    schema=OrgIdSchema,
+    explode=True,
+)
 # Path params
 IdSchema = schemas.StrSchema
 RequestRequiredPathParams = typing_extensions.TypedDict(
@@ -195,6 +221,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _shield_service_delete_service_user_oapg(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -209,6 +236,7 @@ class BaseApi(api_client.Api):
     def _shield_service_delete_service_user_oapg(
         self,
         skip_deserialization: typing_extensions.Literal[True],
+        query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -218,6 +246,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _shield_service_delete_service_user_oapg(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -231,6 +260,7 @@ class BaseApi(api_client.Api):
 
     def _shield_service_delete_service_user_oapg(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -238,11 +268,12 @@ class BaseApi(api_client.Api):
         skip_deserialization: bool = False,
     ):
         """
-        Delete a service user
+        Delete service user
         :param skip_deserialization: If true then api_response.response will be set but
             api_response.body and api_response.headers will not be deserialized into schema
             class instances
         """
+        self._verify_typed_dict_inputs_oapg(RequestQueryParams, query_params)
         self._verify_typed_dict_inputs_oapg(RequestPathParams, path_params)
         used_path = path.value
 
@@ -259,6 +290,19 @@ class BaseApi(api_client.Api):
         for k, v in _path_params.items():
             used_path = used_path.replace('{%s}' % k, v)
 
+        prefix_separator_iterator = None
+        for parameter in (
+            request_query_org_id,
+        ):
+            parameter_data = query_params.get(parameter.name, schemas.unset)
+            if parameter_data is schemas.unset:
+                continue
+            if prefix_separator_iterator is None:
+                prefix_separator_iterator = parameter.get_prefix_separator_iterator()
+            serialized_data = parameter.serialize(parameter_data, prefix_separator_iterator)
+            for serialized_value in serialized_data.values():
+                used_path += serialized_value
+
         _headers = HTTPHeaderDict()
         # TODO add cookie handling
         if accept_content_types:
@@ -269,6 +313,7 @@ class BaseApi(api_client.Api):
             resource_path=used_path,
             method='delete'.upper(),
             headers=_headers,
+            auth_settings=_auth,
             stream=stream,
             timeout=timeout,
         )
@@ -302,6 +347,7 @@ class ShieldServiceDeleteServiceUser(BaseApi):
     @typing.overload
     def shield_service_delete_service_user(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -316,6 +362,7 @@ class ShieldServiceDeleteServiceUser(BaseApi):
     def shield_service_delete_service_user(
         self,
         skip_deserialization: typing_extensions.Literal[True],
+        query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -325,6 +372,7 @@ class ShieldServiceDeleteServiceUser(BaseApi):
     @typing.overload
     def shield_service_delete_service_user(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -338,6 +386,7 @@ class ShieldServiceDeleteServiceUser(BaseApi):
 
     def shield_service_delete_service_user(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -345,6 +394,7 @@ class ShieldServiceDeleteServiceUser(BaseApi):
         skip_deserialization: bool = False,
     ):
         return self._shield_service_delete_service_user_oapg(
+            query_params=query_params,
             path_params=path_params,
             accept_content_types=accept_content_types,
             stream=stream,
@@ -359,6 +409,7 @@ class ApiFordelete(BaseApi):
     @typing.overload
     def delete(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -373,6 +424,7 @@ class ApiFordelete(BaseApi):
     def delete(
         self,
         skip_deserialization: typing_extensions.Literal[True],
+        query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -382,6 +434,7 @@ class ApiFordelete(BaseApi):
     @typing.overload
     def delete(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -395,6 +448,7 @@ class ApiFordelete(BaseApi):
 
     def delete(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -402,6 +456,7 @@ class ApiFordelete(BaseApi):
         skip_deserialization: bool = False,
     ):
         return self._shield_service_delete_service_user_oapg(
+            query_params=query_params,
             path_params=path_params,
             accept_content_types=accept_content_types,
             stream=stream,

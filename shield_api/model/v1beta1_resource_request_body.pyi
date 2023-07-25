@@ -43,11 +43,13 @@ class V1beta1ResourceRequestBody(
         class properties:
             name = schemas.StrSchema
             namespace = schemas.StrSchema
+            title = schemas.StrSchema
             principal = schemas.StrSchema
             metadata = schemas.DictSchema
             __annotations__ = {
                 "name": name,
                 "namespace": namespace,
+                "title": title,
                 "principal": principal,
                 "metadata": metadata,
             }
@@ -62,6 +64,9 @@ class V1beta1ResourceRequestBody(
     def __getitem__(self, name: typing_extensions.Literal["namespace"]) -> MetaOapg.properties.namespace: ...
     
     @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["title"]) -> MetaOapg.properties.title: ...
+    
+    @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["principal"]) -> MetaOapg.properties.principal: ...
     
     @typing.overload
@@ -70,7 +75,7 @@ class V1beta1ResourceRequestBody(
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["name", "namespace", "principal", "metadata", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["name", "namespace", "title", "principal", "metadata", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -82,6 +87,9 @@ class V1beta1ResourceRequestBody(
     def get_item_oapg(self, name: typing_extensions.Literal["namespace"]) -> MetaOapg.properties.namespace: ...
     
     @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["title"]) -> typing.Union[MetaOapg.properties.title, schemas.Unset]: ...
+    
+    @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["principal"]) -> typing.Union[MetaOapg.properties.principal, schemas.Unset]: ...
     
     @typing.overload
@@ -90,7 +98,7 @@ class V1beta1ResourceRequestBody(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["name", "namespace", "principal", "metadata", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["name", "namespace", "title", "principal", "metadata", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -99,6 +107,7 @@ class V1beta1ResourceRequestBody(
         *_args: typing.Union[dict, frozendict.frozendict, ],
         name: typing.Union[MetaOapg.properties.name, str, ],
         namespace: typing.Union[MetaOapg.properties.namespace, str, ],
+        title: typing.Union[MetaOapg.properties.title, str, schemas.Unset] = schemas.unset,
         principal: typing.Union[MetaOapg.properties.principal, str, schemas.Unset] = schemas.unset,
         metadata: typing.Union[MetaOapg.properties.metadata, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
@@ -109,6 +118,7 @@ class V1beta1ResourceRequestBody(
             *_args,
             name=name,
             namespace=namespace,
+            title=title,
             principal=principal,
             metadata=metadata,
             _configuration=_configuration,

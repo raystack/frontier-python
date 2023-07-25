@@ -21,7 +21,7 @@ from .. import ApiTestMixin
 class TestV1beta1AdminResources(ApiTestMixin, unittest.TestCase):
     """
     V1beta1AdminResources unit test stubs
-        Get all resources  # noqa: E501
+        List all resources  # noqa: E501
     """
     _configuration = configuration.Configuration()
 

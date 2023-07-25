@@ -21,7 +21,7 @@ from .. import ApiTestMixin
 class TestV1beta1RelationsRelationObjectObjectSubjectSubject(ApiTestMixin, unittest.TestCase):
     """
     V1beta1RelationsRelationObjectObjectSubjectSubject unit test stubs
-        Remove a subject having a relation from an object  # noqa: E501
+        Delete relation  # noqa: E501
     """
     _configuration = configuration.Configuration()
 

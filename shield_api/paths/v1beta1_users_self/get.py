@@ -30,6 +30,9 @@ from shield_api.model.v1beta1_get_current_user_response import V1beta1GetCurrent
 
 from . import path
 
+_auth = [
+    'Basic',
+]
 SchemaFor200ResponseBodyApplicationJson = V1beta1GetCurrentUserResponse
 
 
@@ -237,6 +240,7 @@ class BaseApi(api_client.Api):
             resource_path=used_path,
             method='get'.upper(),
             headers=_headers,
+            auth_settings=_auth,
             stream=stream,
             timeout=timeout,
         )

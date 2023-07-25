@@ -5,23 +5,24 @@ All URIs are relative to *http://127.0.0.1:7400*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**admin_service_list_resources**](#admin_service_list_resources) | **get** /v1beta1/admin/resources | Get all resources
-[**shield_service_create_project_resource**](#shield_service_create_project_resource) | **post** /v1beta1/projects/{projectId}/resources | Create Resource
-[**shield_service_delete_project_resource**](#shield_service_delete_project_resource) | **delete** /v1beta1/projects/{projectId}/resources/{id} | Delete a resource permanently forever
-[**shield_service_get_project_resource**](#shield_service_get_project_resource) | **get** /v1beta1/projects/{projectId}/resources/{id} | Get Resource by ID
+[**admin_service_list_resources**](#admin_service_list_resources) | **get** /v1beta1/admin/resources | List all resources
+[**shield_service_create_project_resource**](#shield_service_create_project_resource) | **post** /v1beta1/projects/{projectId}/resources | Create resource
+[**shield_service_delete_project_resource**](#shield_service_delete_project_resource) | **delete** /v1beta1/projects/{projectId}/resources/{id} | Delete resource
+[**shield_service_get_project_resource**](#shield_service_get_project_resource) | **get** /v1beta1/projects/{projectId}/resources/{id} | Get resource
 [**shield_service_list_project_resources**](#shield_service_list_project_resources) | **get** /v1beta1/projects/{projectId}/resources | Get all resources
-[**shield_service_update_project_resource**](#shield_service_update_project_resource) | **put** /v1beta1/projects/{projectId}/resources/{id} | Update Resource by ID
+[**shield_service_update_project_resource**](#shield_service_update_project_resource) | **put** /v1beta1/projects/{projectId}/resources/{id} | Update resource
 
 # **admin_service_list_resources**
 <a id="admin_service_list_resources"></a>
 > V1beta1ListResourcesResponse admin_service_list_resources()
 
-Get all resources
+List all resources
 
 Lists all the resources from all the organizations in a Shield instance. It can be filtered by user, project, organization and namespace.
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import resource_api
@@ -34,6 +35,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -47,7 +58,7 @@ with shield_api.ApiClient(configuration) as api_client:
         'namespace': "namespace_example",
     }
     try:
-        # Get all resources
+        # List all resources
         api_response = api_instance.admin_service_list_resources(
             query_params=query_params,
         )
@@ -210,7 +221,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -218,10 +229,13 @@ No authorization required
 <a id="shield_service_create_project_resource"></a>
 > V1beta1CreateProjectResourceResponse shield_service_create_project_resource(project_idbody)
 
-Create Resource
+Create resource
+
+Creates a resource in a project
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import resource_api
@@ -235,6 +249,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -248,12 +272,13 @@ with shield_api.ApiClient(configuration) as api_client:
     }
     body = V1beta1ResourceRequestBody(
         name="name_example",
+        title="title_example",
         namespace="namespace_example",
         principal="principal_example",
         metadata=dict(),
     )
     try:
-        # Create Resource
+        # Create resource
         api_response = api_instance.shield_service_create_project_resource(
             path_params=path_params,
             query_params=query_params,
@@ -272,12 +297,13 @@ with shield_api.ApiClient(configuration) as api_client:
     }
     body = V1beta1ResourceRequestBody(
         name="name_example",
+        title="title_example",
         namespace="namespace_example",
         principal="principal_example",
         metadata=dict(),
     )
     try:
-        # Create Resource
+        # Create resource
         api_response = api_instance.shield_service_create_project_resource(
             path_params=path_params,
             query_params=query_params,
@@ -443,7 +469,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -451,10 +477,13 @@ No authorization required
 <a id="shield_service_delete_project_resource"></a>
 > {str: (bool, date, datetime, dict, float, int, list, str, none_type)} shield_service_delete_project_resource(project_idid)
 
-Delete a resource permanently forever
+Delete resource
+
+Deletes a resource from a project permanently
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import resource_api
@@ -466,6 +495,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -477,7 +516,7 @@ with shield_api.ApiClient(configuration) as api_client:
         'id': "id_example",
     }
     try:
-        # Delete a resource permanently forever
+        # Delete resource
         api_response = api_instance.shield_service_delete_project_resource(
             path_params=path_params,
         )
@@ -624,7 +663,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -632,10 +671,13 @@ No authorization required
 <a id="shield_service_get_project_resource"></a>
 > V1beta1GetProjectResourceResponse shield_service_get_project_resource(project_idid)
 
-Get Resource by ID
+Get resource
+
+Returns a project resource by ID
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import resource_api
@@ -648,6 +690,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -659,7 +711,7 @@ with shield_api.ApiClient(configuration) as api_client:
         'id': "id_example",
     }
     try:
-        # Get Resource by ID
+        # Get resource
         api_response = api_instance.shield_service_get_project_resource(
             path_params=path_params,
         )
@@ -805,7 +857,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -817,6 +869,7 @@ Get all resources
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import resource_api
@@ -829,6 +882,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1013,7 +1076,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -1021,10 +1084,13 @@ No authorization required
 <a id="shield_service_update_project_resource"></a>
 > V1beta1UpdateProjectResourceResponse shield_service_update_project_resource(project_ididbody)
 
-Update Resource by ID
+Update resource
+
+Updates a resource in a project
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import resource_api
@@ -1038,6 +1104,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1050,12 +1126,13 @@ with shield_api.ApiClient(configuration) as api_client:
     }
     body = V1beta1ResourceRequestBody(
         name="name_example",
+        title="title_example",
         namespace="namespace_example",
         principal="principal_example",
         metadata=dict(),
     )
     try:
-        # Update Resource by ID
+        # Update resource
         api_response = api_instance.shield_service_update_project_resource(
             path_params=path_params,
             body=body,
@@ -1212,7 +1289,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 

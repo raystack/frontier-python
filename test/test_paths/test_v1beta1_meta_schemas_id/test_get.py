@@ -21,7 +21,7 @@ from .. import ApiTestMixin
 class TestV1beta1MetaSchemasId(ApiTestMixin, unittest.TestCase):
     """
     V1beta1MetaSchemasId unit test stubs
-        Get metaSchema  # noqa: E501
+        Get metaschema  # noqa: E501
     """
     _configuration = configuration.Configuration()
 

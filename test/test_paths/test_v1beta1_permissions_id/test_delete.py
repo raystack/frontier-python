@@ -21,7 +21,7 @@ from .. import ApiTestMixin
 class TestV1beta1PermissionsId(ApiTestMixin, unittest.TestCase):
     """
     V1beta1PermissionsId unit test stubs
-        Delete permission by ID  # noqa: E501
+        Delete platform permission  # noqa: E501
     """
     _configuration = configuration.Configuration()
 

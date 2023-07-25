@@ -21,7 +21,7 @@ from .. import ApiTestMixin
 class TestV1beta1Serviceusers(ApiTestMixin, unittest.TestCase):
     """
     V1beta1Serviceusers unit test stubs
-        List service users of an organization  # noqa: E501
+        List org service users  # noqa: E501
     """
     _configuration = configuration.Configuration()
 

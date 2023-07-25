@@ -21,7 +21,7 @@ from .. import ApiTestMixin
 class TestV1beta1Permissions(ApiTestMixin, unittest.TestCase):
     """
     V1beta1Permissions unit test stubs
-        Get all Permissions  # noqa: E501
+        Get all permissions  # noqa: E501
     """
     _configuration = configuration.Configuration()
 

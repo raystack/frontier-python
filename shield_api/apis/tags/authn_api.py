@@ -14,6 +14,7 @@ from shield_api.paths.v1beta1_auth_callback.get import ShieldServiceAuthCallback
 from shield_api.paths.v1beta1_auth_callback.post import ShieldServiceAuthCallback2
 from shield_api.paths.v1beta1_auth_logout.get import ShieldServiceAuthLogout
 from shield_api.paths.v1beta1_auth_logout.delete import ShieldServiceAuthLogout2
+from shield_api.paths.v1beta1_auth_token.post import ShieldServiceAuthToken
 from shield_api.paths.v1beta1_auth_register_strategy_name.get import ShieldServiceAuthenticate
 from shield_api.paths.v1beta1_auth_register_strategy_name.post import ShieldServiceAuthenticate2
 from shield_api.paths.v1beta1_auth.get import ShieldServiceListAuthStrategies
@@ -24,6 +25,7 @@ class AuthnApi(
     ShieldServiceAuthCallback2,
     ShieldServiceAuthLogout,
     ShieldServiceAuthLogout2,
+    ShieldServiceAuthToken,
     ShieldServiceAuthenticate,
     ShieldServiceAuthenticate2,
     ShieldServiceListAuthStrategies,

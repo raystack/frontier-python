@@ -21,7 +21,7 @@ from .. import ApiTestMixin
 class TestV1beta1OrganizationsOrgIdRolesId(ApiTestMixin, unittest.TestCase):
     """
     V1beta1OrganizationsOrgIdRolesId unit test stubs
-        Delete Organization Role  # noqa: E501
+        Delete organization role  # noqa: E501
     """
     _configuration = configuration.Configuration()
 

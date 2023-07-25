@@ -12,6 +12,7 @@ from shield_api.apis.tags.resource_api import ResourceApi
 from shield_api.apis.tags.policy_api import PolicyApi
 from shield_api.apis.tags.role_api import RoleApi
 from shield_api.apis.tags.permission_api import PermissionApi
+from shield_api.apis.tags.audit_log_api import AuditLogApi
 from shield_api.apis.tags.authn_api import AuthnApi
 from shield_api.apis.tags.authz_api import AuthzApi
 from shield_api.apis.tags.meta_schema_api import MetaSchemaApi
@@ -32,6 +33,7 @@ TagToApi = typing_extensions.TypedDict(
         TagValues.POLICY: PolicyApi,
         TagValues.ROLE: RoleApi,
         TagValues.PERMISSION: PermissionApi,
+        TagValues.AUDIT_LOG: AuditLogApi,
         TagValues.AUTHN: AuthnApi,
         TagValues.AUTHZ: AuthzApi,
         TagValues.META_SCHEMA: MetaSchemaApi,
@@ -53,6 +55,7 @@ tag_to_api = TagToApi(
         TagValues.POLICY: PolicyApi,
         TagValues.ROLE: RoleApi,
         TagValues.PERMISSION: PermissionApi,
+        TagValues.AUDIT_LOG: AuditLogApi,
         TagValues.AUTHN: AuthnApi,
         TagValues.AUTHZ: AuthzApi,
         TagValues.META_SCHEMA: MetaSchemaApi,

@@ -21,7 +21,7 @@ from .. import ApiTestMixin
 class TestV1beta1Relations(ApiTestMixin, unittest.TestCase):
     """
     V1beta1Relations unit test stubs
-        Create Relation  # noqa: E501
+        Create relation  # noqa: E501
     """
     _configuration = configuration.Configuration()
 

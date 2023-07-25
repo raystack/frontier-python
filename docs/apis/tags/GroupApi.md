@@ -5,28 +5,29 @@ All URIs are relative to *http://127.0.0.1:7400*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**admin_service_list_groups**](#admin_service_list_groups) | **get** /v1beta1/admin/groups | Get all groups
+[**admin_service_list_groups**](#admin_service_list_groups) | **get** /v1beta1/admin/groups | List all groups
 [**shield_service_add_group_users**](#shield_service_add_group_users) | **post** /v1beta1/organizations/{orgId}/groups/{id}/users | Add group user
-[**shield_service_create_group**](#shield_service_create_group) | **post** /v1beta1/organizations/{orgId}/groups | Create Group
+[**shield_service_create_group**](#shield_service_create_group) | **post** /v1beta1/organizations/{orgId}/groups | Create group
 [**shield_service_delete_group**](#shield_service_delete_group) | **delete** /v1beta1/organizations/{orgId}/groups/{id} | Delete group
 [**shield_service_disable_group**](#shield_service_disable_group) | **post** /v1beta1/organizations/{orgId}/groups/{id}/disable | Disable group
 [**shield_service_enable_group**](#shield_service_enable_group) | **post** /v1beta1/organizations/{orgId}/groups/{id}/enable | Enable group
-[**shield_service_get_group**](#shield_service_get_group) | **get** /v1beta1/organizations/{orgId}/groups/{id} | Get group by ID
+[**shield_service_get_group**](#shield_service_get_group) | **get** /v1beta1/organizations/{orgId}/groups/{id} | Get group
 [**shield_service_list_group_users**](#shield_service_list_group_users) | **get** /v1beta1/organizations/{orgId}/groups/{id}/users | List group users
-[**shield_service_list_organization_groups**](#shield_service_list_organization_groups) | **get** /v1beta1/organizations/{orgId}/groups | List Organization Groups
+[**shield_service_list_organization_groups**](#shield_service_list_organization_groups) | **get** /v1beta1/organizations/{orgId}/groups | List organization groups
 [**shield_service_remove_group_user**](#shield_service_remove_group_user) | **delete** /v1beta1/organizations/{orgId}/groups/{id}/users/{userId} | Remove group user
-[**shield_service_update_group**](#shield_service_update_group) | **put** /v1beta1/organizations/{orgId}/groups/{id} | Update group by ID
+[**shield_service_update_group**](#shield_service_update_group) | **put** /v1beta1/organizations/{orgId}/groups/{id} | Update group
 
 # **admin_service_list_groups**
 <a id="admin_service_list_groups"></a>
 > V1beta1ListGroupsResponse admin_service_list_groups()
 
-Get all groups
+List all groups
 
 Lists all the groups from all the organizations in a Shield instance. It can be filtered by organization and state.
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import group_api
@@ -39,6 +40,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -50,7 +61,7 @@ with shield_api.ApiClient(configuration) as api_client:
         'state': "state_example",
     }
     try:
-        # Get all groups
+        # List all groups
         api_response = api_instance.admin_service_list_groups(
             query_params=query_params,
         )
@@ -197,7 +208,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -211,6 +222,7 @@ Adds a principle(user and service-users) to a group, existing users in the group
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import group_api
@@ -222,6 +234,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -415,7 +437,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -423,12 +445,13 @@ No authorization required
 <a id="shield_service_create_group"></a>
 > V1beta1CreateGroupResponse shield_service_create_group(org_idbody)
 
-Create Group
+Create group
 
 Create a new group in an organization which serves as a container for users. The group can be assigned roles and permissions and can be used to manage access to resources. Also a group can also be assigned to other groups.
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import group_api
@@ -442,6 +465,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -457,7 +490,7 @@ with shield_api.ApiClient(configuration) as api_client:
         metadata=dict(),
     )
     try:
-        # Create Group
+        # Create group
         api_response = api_instance.shield_service_create_group(
             path_params=path_params,
             body=body,
@@ -606,7 +639,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -620,6 +653,7 @@ Delete an organization group permanently and all of its relations
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import group_api
@@ -631,6 +665,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -789,7 +833,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -803,6 +847,7 @@ Sets the state of the group as disabled. The group will not be available for acc
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import group_api
@@ -814,6 +859,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -985,7 +1040,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -999,6 +1054,7 @@ Sets the state of the group as enabled. The `enabled` flag is used to determine 
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import group_api
@@ -1010,6 +1066,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1181,7 +1247,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -1189,10 +1255,11 @@ No authorization required
 <a id="shield_service_get_group"></a>
 > V1beta1GetGroupResponse shield_service_get_group(org_idid)
 
-Get group by ID
+Get group
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import group_api
@@ -1205,6 +1272,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1216,7 +1293,7 @@ with shield_api.ApiClient(configuration) as api_client:
         'id': "id_example",
     }
     try:
-        # Get group by ID
+        # Get group
         api_response = api_instance.shield_service_get_group(
             path_params=path_params,
         )
@@ -1362,7 +1439,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -1376,6 +1453,7 @@ Returns a list of users that belong to a group.
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import group_api
@@ -1388,6 +1466,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1545,7 +1633,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -1553,12 +1641,13 @@ No authorization required
 <a id="shield_service_list_organization_groups"></a>
 > V1beta1ListOrganizationGroupsResponse shield_service_list_organization_groups(org_id)
 
-List Organization Groups
+List organization groups
 
 Get all groups that belong to an organization. The results can be filtered by state which can be either be enabled or disabled.
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import group_api
@@ -1571,6 +1660,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1583,7 +1682,7 @@ with shield_api.ApiClient(configuration) as api_client:
     query_params = {
     }
     try:
-        # List Organization Groups
+        # List organization groups
         api_response = api_instance.shield_service_list_organization_groups(
             path_params=path_params,
             query_params=query_params,
@@ -1600,7 +1699,7 @@ with shield_api.ApiClient(configuration) as api_client:
         'state': "state_example",
     }
     try:
-        # List Organization Groups
+        # List organization groups
         api_response = api_instance.shield_service_list_organization_groups(
             path_params=path_params,
             query_params=query_params,
@@ -1755,7 +1854,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -1769,6 +1868,7 @@ Removes a principle(user and service-users) from a group. If the user is not in 
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import group_api
@@ -1780,6 +1880,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1947,7 +2057,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -1955,10 +2065,11 @@ No authorization required
 <a id="shield_service_update_group"></a>
 > V1beta1UpdateGroupResponse shield_service_update_group(org_ididbody)
 
-Update group by ID
+Update group
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import group_api
@@ -1972,6 +2083,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1988,7 +2109,7 @@ with shield_api.ApiClient(configuration) as api_client:
         metadata=dict(),
     )
     try:
-        # Update group by ID
+        # Update group
         api_response = api_instance.shield_service_update_group(
             path_params=path_params,
             body=body,
@@ -2145,7 +2266,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 

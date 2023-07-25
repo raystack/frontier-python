@@ -21,7 +21,7 @@ from .. import ApiTestMixin
 class TestV1beta1Roles(ApiTestMixin, unittest.TestCase):
     """
     V1beta1Roles unit test stubs
-        List default roles  # noqa: E501
+        List platform roles  # noqa: E501
     """
     _configuration = configuration.Configuration()
 

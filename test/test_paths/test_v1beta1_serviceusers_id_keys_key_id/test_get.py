@@ -21,7 +21,7 @@ from .. import ApiTestMixin
 class TestV1beta1ServiceusersIdKeysKeyId(ApiTestMixin, unittest.TestCase):
     """
     V1beta1ServiceusersIdKeysKeyId unit test stubs
-        Get a service user key  # noqa: E501
+        Get service user key  # noqa: E501
     """
     _configuration = configuration.Configuration()
 

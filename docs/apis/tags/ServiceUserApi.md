@@ -5,28 +5,29 @@ All URIs are relative to *http://127.0.0.1:7400*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**shield_service_create_service_user**](#shield_service_create_service_user) | **post** /v1beta1/serviceusers | Create Service User
-[**shield_service_create_service_user_key**](#shield_service_create_service_user_key) | **post** /v1beta1/serviceusers/{id}/keys | Create a service user key
-[**shield_service_create_service_user_secret**](#shield_service_create_service_user_secret) | **post** /v1beta1/serviceusers/{id}/secrets | Create a service user secret
-[**shield_service_delete_service_user**](#shield_service_delete_service_user) | **delete** /v1beta1/serviceusers/{id} | Delete a service user
-[**shield_service_delete_service_user_key**](#shield_service_delete_service_user_key) | **delete** /v1beta1/serviceusers/{id}/keys/{keyId} | Delete a service user key
-[**shield_service_delete_service_user_secret**](#shield_service_delete_service_user_secret) | **delete** /v1beta1/serviceusers/{id}/secrets/{secretId} | Delete a service user secret
-[**shield_service_get_service_user**](#shield_service_get_service_user) | **get** /v1beta1/serviceusers/{id} | Get service user by id
-[**shield_service_get_service_user_key**](#shield_service_get_service_user_key) | **get** /v1beta1/serviceusers/{id}/keys/{keyId} | Get a service user key
+[**shield_service_create_service_user**](#shield_service_create_service_user) | **post** /v1beta1/serviceusers | Create service user
+[**shield_service_create_service_user_key**](#shield_service_create_service_user_key) | **post** /v1beta1/serviceusers/{id}/keys | Create service user key
+[**shield_service_create_service_user_secret**](#shield_service_create_service_user_secret) | **post** /v1beta1/serviceusers/{id}/secrets | Create service user secret
+[**shield_service_delete_service_user**](#shield_service_delete_service_user) | **delete** /v1beta1/serviceusers/{id} | Delete service user
+[**shield_service_delete_service_user_key**](#shield_service_delete_service_user_key) | **delete** /v1beta1/serviceusers/{id}/keys/{keyId} | Delete service user key
+[**shield_service_delete_service_user_secret**](#shield_service_delete_service_user_secret) | **delete** /v1beta1/serviceusers/{id}/secrets/{secretId} | Delete service user secret
+[**shield_service_get_service_user**](#shield_service_get_service_user) | **get** /v1beta1/serviceusers/{id} | Get service user
+[**shield_service_get_service_user_key**](#shield_service_get_service_user_key) | **get** /v1beta1/serviceusers/{id}/keys/{keyId} | Get service user key
 [**shield_service_list_service_user_keys**](#shield_service_list_service_user_keys) | **get** /v1beta1/serviceusers/{id}/keys | List service user keys
 [**shield_service_list_service_user_secrets**](#shield_service_list_service_user_secrets) | **get** /v1beta1/serviceusers/{id}/secrets | List service user secrets
-[**shield_service_list_service_users**](#shield_service_list_service_users) | **get** /v1beta1/serviceusers | List service users of an organization
+[**shield_service_list_service_users**](#shield_service_list_service_users) | **get** /v1beta1/serviceusers | List org service users
 
 # **shield_service_create_service_user**
 <a id="shield_service_create_service_user"></a>
 > V1beta1CreateServiceUserResponse shield_service_create_service_user(body)
 
-Create Service User
+Create service user
 
 Create a service user.
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import service_user_api
@@ -40,6 +41,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -54,7 +65,7 @@ with shield_api.ApiClient(configuration) as api_client:
         org_id="org_id_example",
     )
     try:
-        # Create Service User
+        # Create service user
         api_response = api_instance.shield_service_create_service_user(
             body=body,
         )
@@ -187,7 +198,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -195,12 +206,13 @@ No authorization required
 <a id="shield_service_create_service_user_key"></a>
 > V1beta1CreateServiceUserKeyResponse shield_service_create_service_user_key(idbody)
 
-Create a service user key
+Create service user key
 
 Generate a service user key and return it, the private key part of the response will not be persisted and should be kept securely by client.
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import service_user_api
@@ -213,6 +225,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -226,7 +248,7 @@ with shield_api.ApiClient(configuration) as api_client:
         title="title_example",
     )
     try:
-        # Create a service user key
+        # Create service user key
         api_response = api_instance.shield_service_create_service_user_key(
             path_params=path_params,
             body=body,
@@ -382,7 +404,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -390,12 +412,13 @@ No authorization required
 <a id="shield_service_create_service_user_secret"></a>
 > V1beta1CreateServiceUserSecretResponse shield_service_create_service_user_secret(idbody)
 
-Create a service user secret
+Create service user secret
 
 Generate a service user secret and return it. The secret value will not be persisted and should be securely stored by client.
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import service_user_api
@@ -408,6 +431,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -421,7 +454,7 @@ with shield_api.ApiClient(configuration) as api_client:
         title="title_example",
     )
     try:
-        # Create a service user secret
+        # Create service user secret
         api_response = api_instance.shield_service_create_service_user_secret(
             path_params=path_params,
             body=body,
@@ -577,7 +610,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -585,12 +618,13 @@ No authorization required
 <a id="shield_service_delete_service_user"></a>
 > {str: (bool, date, datetime, dict, float, int, list, str, none_type)} shield_service_delete_service_user(id)
 
-Delete a service user
+Delete service user
 
 Delete a service user permanently and all of its relations (keys, organizations, roles, etc)
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import service_user_api
@@ -602,6 +636,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -611,10 +655,30 @@ with shield_api.ApiClient(configuration) as api_client:
     path_params = {
         'id': "id_example",
     }
+    query_params = {
+    }
     try:
-        # Delete a service user
+        # Delete service user
         api_response = api_instance.shield_service_delete_service_user(
             path_params=path_params,
+            query_params=query_params,
+        )
+        pprint(api_response)
+    except shield_api.ApiException as e:
+        print("Exception when calling ServiceUserApi->shield_service_delete_service_user: %s\n" % e)
+
+    # example passing only optional values
+    path_params = {
+        'id': "id_example",
+    }
+    query_params = {
+        'orgId': "orgId_example",
+    }
+    try:
+        # Delete service user
+        api_response = api_instance.shield_service_delete_service_user(
+            path_params=path_params,
+            query_params=query_params,
         )
         pprint(api_response)
     except shield_api.ApiException as e:
@@ -624,11 +688,27 @@ with shield_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+query_params | RequestQueryParams | |
 path_params | RequestPathParams | |
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### query_params
+#### RequestQueryParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+orgId | OrgIdSchema | | optional
+
+
+# OrgIdSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
 
 ### path_params
 #### RequestPathParams
@@ -751,7 +831,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -759,12 +839,13 @@ No authorization required
 <a id="shield_service_delete_service_user_key"></a>
 > {str: (bool, date, datetime, dict, float, int, list, str, none_type)} shield_service_delete_service_user_key(idkey_id)
 
-Delete a service user key
+Delete service user key
 
 Delete a service user key permanently.
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import service_user_api
@@ -776,6 +857,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -787,7 +878,7 @@ with shield_api.ApiClient(configuration) as api_client:
         'keyId': "keyId_example",
     }
     try:
-        # Delete a service user key
+        # Delete service user key
         api_response = api_instance.shield_service_delete_service_user_key(
             path_params=path_params,
         )
@@ -934,7 +1025,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -942,12 +1033,13 @@ No authorization required
 <a id="shield_service_delete_service_user_secret"></a>
 > {str: (bool, date, datetime, dict, float, int, list, str, none_type)} shield_service_delete_service_user_secret(idsecret_id)
 
-Delete a service user secret
+Delete service user secret
 
 Delete a service user secret credential.
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import service_user_api
@@ -959,6 +1051,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -970,7 +1072,7 @@ with shield_api.ApiClient(configuration) as api_client:
         'secretId': "secretId_example",
     }
     try:
-        # Delete a service user secret
+        # Delete service user secret
         api_response = api_instance.shield_service_delete_service_user_secret(
             path_params=path_params,
         )
@@ -1117,7 +1219,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -1125,12 +1227,13 @@ No authorization required
 <a id="shield_service_get_service_user"></a>
 > V1beta1GetServiceUserResponse shield_service_get_service_user(id)
 
-Get service user by id
+Get service user
 
 Get service user details by its id.
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import service_user_api
@@ -1143,6 +1246,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1153,7 +1266,7 @@ with shield_api.ApiClient(configuration) as api_client:
         'id': "id_example",
     }
     try:
-        # Get service user by id
+        # Get service user
         api_response = api_instance.shield_service_get_service_user(
             path_params=path_params,
         )
@@ -1291,7 +1404,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -1299,12 +1412,13 @@ No authorization required
 <a id="shield_service_get_service_user_key"></a>
 > V1beta1GetServiceUserKeyResponse shield_service_get_service_user_key(idkey_id)
 
-Get a service user key
+Get service user key
 
 Get a service user public RSA JWK set.
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import service_user_api
@@ -1317,6 +1431,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1328,7 +1452,7 @@ with shield_api.ApiClient(configuration) as api_client:
         'keyId': "keyId_example",
     }
     try:
-        # Get a service user key
+        # Get service user key
         api_response = api_instance.shield_service_get_service_user_key(
             path_params=path_params,
         )
@@ -1474,7 +1598,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -1488,6 +1612,7 @@ List all the keys of a service user with its details except jwk.
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import service_user_api
@@ -1500,6 +1625,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1648,7 +1783,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -1662,6 +1797,7 @@ List all the secrets of a service user.
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import service_user_api
@@ -1674,6 +1810,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1822,7 +1968,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -1830,12 +1976,13 @@ No authorization required
 <a id="shield_service_list_service_users"></a>
 > V1beta1ListServiceUsersResponse shield_service_list_service_users(org_id)
 
-List service users of an organization
+List org service users
 
-Returns the users from all the organizations in a Shield instance. It can be filtered by keyword, organization, group and state. Additionally you can include page number and page size for pagination.
+Returns the service user of an organization in a Shield instance. It can be filter by it's state
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import service_user_api
@@ -1848,6 +1995,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1858,7 +2015,7 @@ with shield_api.ApiClient(configuration) as api_client:
         'orgId': "orgId_example",
     }
     try:
-        # List service users of an organization
+        # List org service users
         api_response = api_instance.shield_service_list_service_users(
             query_params=query_params,
         )
@@ -1872,7 +2029,7 @@ with shield_api.ApiClient(configuration) as api_client:
         'state': "state_example",
     }
     try:
-        # List service users of an organization
+        # List org service users
         api_response = api_instance.shield_service_list_service_users(
             query_params=query_params,
         )
@@ -2019,7 +2176,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 

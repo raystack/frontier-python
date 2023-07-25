@@ -9,7 +9,7 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **id** | str,  | str,  |  | [optional] 
-**name** | str,  | str,  |  | [optional] 
+**name** | str,  | str,  | Name of the resource. Must be unique within the project. | [optional] 
 **createdAt** | str, datetime,  | str,  | The time the resource was created. | [optional] value must conform to RFC-3339 date-time
 **updatedAt** | str, datetime,  | str,  | The time the resource was last updated. | [optional] value must conform to RFC-3339 date-time
 **urn** | str,  | str,  |  | [optional] 

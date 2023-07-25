@@ -21,7 +21,7 @@ from .. import ApiTestMixin
 class TestV1beta1AdminProjects(ApiTestMixin, unittest.TestCase):
     """
     V1beta1AdminProjects unit test stubs
-        Get all project  # noqa: E501
+        List all projects  # noqa: E501
     """
     _configuration = configuration.Configuration()
 

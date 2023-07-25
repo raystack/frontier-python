@@ -17,6 +17,7 @@ class TagValues(str, enum.Enum):
     POLICY = "Policy"
     ROLE = "Role"
     PERMISSION = "Permission"
+    AUDIT_LOG = "AuditLog"
     AUTHN = "Authn"
     AUTHZ = "Authz"
     META_SCHEMA = "MetaSchema"

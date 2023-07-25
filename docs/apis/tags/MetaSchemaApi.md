@@ -6,10 +6,10 @@ All URIs are relative to *http://127.0.0.1:7400*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**shield_service_create_meta_schema**](#shield_service_create_meta_schema) | **post** /v1beta1/meta/schemas | Create metaschema
-[**shield_service_delete_meta_schema**](#shield_service_delete_meta_schema) | **delete** /v1beta1/meta/schemas/{id} | Delete metaSchema
-[**shield_service_get_meta_schema**](#shield_service_get_meta_schema) | **get** /v1beta1/meta/schemas/{id} | Get metaSchema
+[**shield_service_delete_meta_schema**](#shield_service_delete_meta_schema) | **delete** /v1beta1/meta/schemas/{id} | Delete metaschema
+[**shield_service_get_meta_schema**](#shield_service_get_meta_schema) | **get** /v1beta1/meta/schemas/{id} | Get metaschema
 [**shield_service_list_meta_schemas**](#shield_service_list_meta_schemas) | **get** /v1beta1/meta/schemas | List metaschemas
-[**shield_service_update_meta_schema**](#shield_service_update_meta_schema) | **put** /v1beta1/meta/schemas/{id} | Update metaSchema
+[**shield_service_update_meta_schema**](#shield_service_update_meta_schema) | **put** /v1beta1/meta/schemas/{id} | Update metaschema
 
 # **shield_service_create_meta_schema**
 <a id="shield_service_create_meta_schema"></a>
@@ -21,6 +21,7 @@ Create a new metadata schema. The metaschema **name** must be unique within the 
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import meta_schema_api
@@ -34,6 +35,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -178,7 +189,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -186,12 +197,13 @@ No authorization required
 <a id="shield_service_delete_meta_schema"></a>
 > {str: (bool, date, datetime, dict, float, int, list, str, none_type)} shield_service_delete_meta_schema(id)
 
-Delete metaSchema
+Delete metaschema
 
 Delete a metadata schema permanently. Once deleted the metaschema won't be used to validate the metadata. For example, if a metaschema(with `label` and `description` fields) is used to validate the metadata of a user, then deleting the metaschema will not validate the metadata of the user and metadata field can contain any key-value pair(and say another field called `foo` can be inserted in a user's metadata).
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import meta_schema_api
@@ -203,6 +215,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -213,7 +235,7 @@ with shield_api.ApiClient(configuration) as api_client:
         'id': "id_example",
     }
     try:
-        # Delete metaSchema
+        # Delete metaschema
         api_response = api_instance.shield_service_delete_meta_schema(
             path_params=path_params,
         )
@@ -352,7 +374,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -360,12 +382,13 @@ No authorization required
 <a id="shield_service_get_meta_schema"></a>
 > V1beta1GetMetaSchemaResponse shield_service_get_meta_schema(id)
 
-Get metaSchema
+Get metaschema
 
 Get a metadata schema by ID.
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import meta_schema_api
@@ -378,6 +401,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -388,7 +421,7 @@ with shield_api.ApiClient(configuration) as api_client:
         'id': "id_example",
     }
     try:
-        # Get metaSchema
+        # Get metaschema
         api_response = api_instance.shield_service_get_meta_schema(
             path_params=path_params,
         )
@@ -526,7 +559,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -540,6 +573,7 @@ Returns a list of all metaschemas configured on an instance level in Shield. e.g
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import meta_schema_api
@@ -552,6 +586,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -674,7 +718,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -682,12 +726,13 @@ No authorization required
 <a id="shield_service_update_meta_schema"></a>
 > V1beta1UpdateMetaSchemaResponse shield_service_update_meta_schema(idbody)
 
-Update metaSchema
+Update metaschema
 
 Update a metadata schema. Only `schema` field of a metaschema can be updated. The metaschema `schema` must be a valid JSON schema.Please refer to https://json-schema.org/ to know more about json schema. <br/>*Example:* `{name:\"user\",schema:{\"type\":\"object\",\"properties\":{\"label\":{\"type\":\"object\",\"additionalProperties\":{\"type\":\"string\"}},\"description\":{\"type\":\"string\"}}}}`
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import meta_schema_api
@@ -701,6 +746,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -715,7 +770,7 @@ with shield_api.ApiClient(configuration) as api_client:
         schema="schema_example",
     )
     try:
-        # Update metaSchema
+        # Update metaschema
         api_response = api_instance.shield_service_update_meta_schema(
             path_params=path_params,
             body=body,
@@ -864,7 +919,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 

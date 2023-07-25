@@ -35,25 +35,20 @@ class V1beta1PermissionRequestBody(
 
 
     class MetaOapg:
-        required = {
-            "name",
-            "namespace",
-        }
         
         class properties:
             name = schemas.StrSchema
             namespace = schemas.StrSchema
             metadata = schemas.DictSchema
             title = schemas.StrSchema
+            key = schemas.StrSchema
             __annotations__ = {
                 "name": name,
                 "namespace": namespace,
                 "metadata": metadata,
                 "title": title,
+                "key": key,
             }
-    
-    name: MetaOapg.properties.name
-    namespace: MetaOapg.properties.namespace
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["name"]) -> MetaOapg.properties.name: ...
@@ -68,18 +63,21 @@ class V1beta1PermissionRequestBody(
     def __getitem__(self, name: typing_extensions.Literal["title"]) -> MetaOapg.properties.title: ...
     
     @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["key"]) -> MetaOapg.properties.key: ...
+    
+    @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["name", "namespace", "metadata", "title", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["name", "namespace", "metadata", "title", "key", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["name"]) -> MetaOapg.properties.name: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["name"]) -> typing.Union[MetaOapg.properties.name, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["namespace"]) -> MetaOapg.properties.namespace: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["namespace"]) -> typing.Union[MetaOapg.properties.namespace, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["metadata"]) -> typing.Union[MetaOapg.properties.metadata, schemas.Unset]: ...
@@ -88,19 +86,23 @@ class V1beta1PermissionRequestBody(
     def get_item_oapg(self, name: typing_extensions.Literal["title"]) -> typing.Union[MetaOapg.properties.title, schemas.Unset]: ...
     
     @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["key"]) -> typing.Union[MetaOapg.properties.key, schemas.Unset]: ...
+    
+    @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["name", "namespace", "metadata", "title", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["name", "namespace", "metadata", "title", "key", ], str]):
         return super().get_item_oapg(name)
     
 
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        name: typing.Union[MetaOapg.properties.name, str, ],
-        namespace: typing.Union[MetaOapg.properties.namespace, str, ],
+        name: typing.Union[MetaOapg.properties.name, str, schemas.Unset] = schemas.unset,
+        namespace: typing.Union[MetaOapg.properties.namespace, str, schemas.Unset] = schemas.unset,
         metadata: typing.Union[MetaOapg.properties.metadata, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         title: typing.Union[MetaOapg.properties.title, str, schemas.Unset] = schemas.unset,
+        key: typing.Union[MetaOapg.properties.key, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'V1beta1PermissionRequestBody':
@@ -111,6 +113,7 @@ class V1beta1PermissionRequestBody(
             namespace=namespace,
             metadata=metadata,
             title=title,
+            key=key,
             _configuration=_configuration,
             **kwargs,
         )

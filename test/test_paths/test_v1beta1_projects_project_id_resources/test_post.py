@@ -21,7 +21,7 @@ from .. import ApiTestMixin
 class TestV1beta1ProjectsProjectIdResources(ApiTestMixin, unittest.TestCase):
     """
     V1beta1ProjectsProjectIdResources unit test stubs
-        Create Resource  # noqa: E501
+        Create resource  # noqa: E501
     """
     _configuration = configuration.Configuration()
 

@@ -5,17 +5,20 @@ All URIs are relative to *http://127.0.0.1:7400*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**shield_service_get_namespace**](#shield_service_get_namespace) | **get** /v1beta1/namespaces/{id} | Get a Namespaces
-[**shield_service_list_namespaces**](#shield_service_list_namespaces) | **get** /v1beta1/namespaces | Get all Namespaces
+[**shield_service_get_namespace**](#shield_service_get_namespace) | **get** /v1beta1/namespaces/{id} | Get namespace
+[**shield_service_list_namespaces**](#shield_service_list_namespaces) | **get** /v1beta1/namespaces | Get all namespaces
 
 # **shield_service_get_namespace**
 <a id="shield_service_get_namespace"></a>
 > V1beta1GetNamespaceResponse shield_service_get_namespace(id)
 
-Get a Namespaces
+Get namespace
+
+Returns a namespace by ID
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import namespace_api
@@ -28,6 +31,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -38,7 +51,7 @@ with shield_api.ApiClient(configuration) as api_client:
         'id': "id_example",
     }
     try:
-        # Get a Namespaces
+        # Get namespace
         api_response = api_instance.shield_service_get_namespace(
             path_params=path_params,
         )
@@ -176,7 +189,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -184,10 +197,13 @@ No authorization required
 <a id="shield_service_list_namespaces"></a>
 > V1beta1ListNamespacesResponse shield_service_list_namespaces()
 
-Get all Namespaces
+Get all namespaces
+
+Returns the list of all namespaces in a Shield instance
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import namespace_api
@@ -200,6 +216,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -207,7 +233,7 @@ with shield_api.ApiClient(configuration) as api_client:
 
     # example, this endpoint has no required or optional parameters
     try:
-        # Get all Namespaces
+        # Get all namespaces
         api_response = api_instance.shield_service_list_namespaces()
         pprint(api_response)
     except shield_api.ApiException as e:
@@ -322,7 +348,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 

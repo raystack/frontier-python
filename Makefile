@@ -1,4 +1,4 @@
-PROTON_COMMIT := 86ad593dddfc078442c6bf6ca187bf25bbaee650
+PROTON_COMMIT := 7bbaf3c22f37e9c9db5fc7982483bc0a6bd6a050
 .PHONY: clean genclient genspec
 
 genclient: clean genspec ## Generate the client using openapi-generator

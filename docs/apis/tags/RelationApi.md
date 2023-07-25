@@ -5,19 +5,20 @@ All URIs are relative to *http://127.0.0.1:7400*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**admin_service_list_relations**](#admin_service_list_relations) | **get** /v1beta1/admin/relations | Get all relations
-[**shield_service_create_relation**](#shield_service_create_relation) | **post** /v1beta1/relations | Create Relation
-[**shield_service_delete_relation**](#shield_service_delete_relation) | **delete** /v1beta1/relations/{relation}/object/{object}/subject/{subject} | Remove a subject having a relation from an object
-[**shield_service_get_relation**](#shield_service_get_relation) | **get** /v1beta1/relations/{id} | Get Relation by ID
+[**admin_service_list_relations**](#admin_service_list_relations) | **get** /v1beta1/admin/relations | List all relations
+[**shield_service_create_relation**](#shield_service_create_relation) | **post** /v1beta1/relations | Create relation
+[**shield_service_delete_relation**](#shield_service_delete_relation) | **delete** /v1beta1/relations/{relation}/object/{object}/subject/{subject} | Delete relation
+[**shield_service_get_relation**](#shield_service_get_relation) | **get** /v1beta1/relations/{id} | Get relation
 
 # **admin_service_list_relations**
 <a id="admin_service_list_relations"></a>
 > V1beta1ListRelationsResponse admin_service_list_relations()
 
-Get all relations
+List all relations
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import relation_api
@@ -30,6 +31,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -37,7 +48,7 @@ with shield_api.ApiClient(configuration) as api_client:
 
     # example, this endpoint has no required or optional parameters
     try:
-        # Get all relations
+        # List all relations
         api_response = api_instance.admin_service_list_relations()
         pprint(api_response)
     except shield_api.ApiException as e:
@@ -152,7 +163,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -160,10 +171,11 @@ No authorization required
 <a id="shield_service_create_relation"></a>
 > V1beta1CreateRelationResponse shield_service_create_relation(body)
 
-Create Relation
+Create relation
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import relation_api
@@ -177,6 +189,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -190,7 +212,7 @@ with shield_api.ApiClient(configuration) as api_client:
         subject_sub_relation="subject_sub_relation_example",
     )
     try:
-        # Create Relation
+        # Create relation
         api_response = api_instance.shield_service_create_relation(
             body=body,
         )
@@ -323,7 +345,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -331,10 +353,13 @@ No authorization required
 <a id="shield_service_delete_relation"></a>
 > {str: (bool, date, datetime, dict, float, int, list, str, none_type)} shield_service_delete_relation(relationobjectsubject)
 
+Delete relation
+
 Remove a subject having a relation from an object
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import relation_api
@@ -346,6 +371,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -358,7 +393,7 @@ with shield_api.ApiClient(configuration) as api_client:
         'subject': "subject_example",
     }
     try:
-        # Remove a subject having a relation from an object
+        # Delete relation
         api_response = api_instance.shield_service_delete_relation(
             path_params=path_params,
         )
@@ -513,7 +548,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -521,10 +556,13 @@ No authorization required
 <a id="shield_service_get_relation"></a>
 > V1beta1GetRelationResponse shield_service_get_relation(id)
 
-Get Relation by ID
+Get relation
+
+Returns a relation by ID
 
 ### Example
 
+* Basic Authentication (Basic):
 ```python
 import shield_api
 from shield_api.apis.tags import relation_api
@@ -537,6 +575,16 @@ configuration = shield_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = shield_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 # Enter a context with an instance of the API client
 with shield_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -547,7 +595,7 @@ with shield_api.ApiClient(configuration) as api_client:
         'id': "id_example",
     }
     try:
-        # Get Relation by ID
+        # Get relation
         api_response = api_instance.shield_service_get_relation(
             path_params=path_params,
         )
@@ -685,7 +733,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Basic](../../../README.md#Basic)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 

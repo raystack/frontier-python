@@ -13,17 +13,21 @@ from shield_api.apis.paths.v1beta1_auth_callback import V1beta1AuthCallback
 from shield_api.apis.paths.v1beta1_auth_jwks import V1beta1AuthJwks
 from shield_api.apis.paths.v1beta1_auth_logout import V1beta1AuthLogout
 from shield_api.apis.paths.v1beta1_auth_register_strategy_name import V1beta1AuthRegisterStrategyName
+from shield_api.apis.paths.v1beta1_auth_token import V1beta1AuthToken
 from shield_api.apis.paths.v1beta1_check import V1beta1Check
 from shield_api.apis.paths.v1beta1_meta_schemas import V1beta1MetaSchemas
 from shield_api.apis.paths.v1beta1_meta_schemas_id import V1beta1MetaSchemasId
 from shield_api.apis.paths.v1beta1_namespaces import V1beta1Namespaces
 from shield_api.apis.paths.v1beta1_namespaces_id import V1beta1NamespacesId
+from shield_api.apis.paths.v1beta1_organization_org_id_auditlogs import V1beta1OrganizationOrgIdAuditlogs
+from shield_api.apis.paths.v1beta1_organization_org_id_auditlogs_id import V1beta1OrganizationOrgIdAuditlogsId
 from shield_api.apis.paths.v1beta1_organizations import V1beta1Organizations
 from shield_api.apis.paths.v1beta1_organizations_id import V1beta1OrganizationsId
 from shield_api.apis.paths.v1beta1_organizations_id_admins import V1beta1OrganizationsIdAdmins
 from shield_api.apis.paths.v1beta1_organizations_id_disable import V1beta1OrganizationsIdDisable
 from shield_api.apis.paths.v1beta1_organizations_id_enable import V1beta1OrganizationsIdEnable
 from shield_api.apis.paths.v1beta1_organizations_id_projects import V1beta1OrganizationsIdProjects
+from shield_api.apis.paths.v1beta1_organizations_id_serviceusers import V1beta1OrganizationsIdServiceusers
 from shield_api.apis.paths.v1beta1_organizations_id_users import V1beta1OrganizationsIdUsers
 from shield_api.apis.paths.v1beta1_organizations_id_users_user_id import V1beta1OrganizationsIdUsersUserId
 from shield_api.apis.paths.v1beta1_organizations_org_id_groups import V1beta1OrganizationsOrgIdGroups
@@ -67,9 +71,11 @@ from shield_api.apis.paths.v1beta1_users_id_enable import V1beta1UsersIdEnable
 from shield_api.apis.paths.v1beta1_users_id_groups import V1beta1UsersIdGroups
 from shield_api.apis.paths.v1beta1_users_id_invitations import V1beta1UsersIdInvitations
 from shield_api.apis.paths.v1beta1_users_id_organizations import V1beta1UsersIdOrganizations
+from shield_api.apis.paths.v1beta1_users_id_projects import V1beta1UsersIdProjects
 from shield_api.apis.paths.v1beta1_users_self import V1beta1UsersSelf
 from shield_api.apis.paths.v1beta1_users_self_groups import V1beta1UsersSelfGroups
 from shield_api.apis.paths.v1beta1_users_self_organizations import V1beta1UsersSelfOrganizations
+from shield_api.apis.paths.v1beta1_users_self_projects import V1beta1UsersSelfProjects
 
 PathToApi = typing_extensions.TypedDict(
     'PathToApi',
@@ -86,17 +92,21 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.V1BETA1_AUTH_JWKS: V1beta1AuthJwks,
         PathValues.V1BETA1_AUTH_LOGOUT: V1beta1AuthLogout,
         PathValues.V1BETA1_AUTH_REGISTER_STRATEGY_NAME: V1beta1AuthRegisterStrategyName,
+        PathValues.V1BETA1_AUTH_TOKEN: V1beta1AuthToken,
         PathValues.V1BETA1_CHECK: V1beta1Check,
         PathValues.V1BETA1_META_SCHEMAS: V1beta1MetaSchemas,
         PathValues.V1BETA1_META_SCHEMAS_ID: V1beta1MetaSchemasId,
         PathValues.V1BETA1_NAMESPACES: V1beta1Namespaces,
         PathValues.V1BETA1_NAMESPACES_ID: V1beta1NamespacesId,
+        PathValues.V1BETA1_ORGANIZATION_ORG_ID_AUDITLOGS: V1beta1OrganizationOrgIdAuditlogs,
+        PathValues.V1BETA1_ORGANIZATION_ORG_ID_AUDITLOGS_ID: V1beta1OrganizationOrgIdAuditlogsId,
         PathValues.V1BETA1_ORGANIZATIONS: V1beta1Organizations,
         PathValues.V1BETA1_ORGANIZATIONS_ID: V1beta1OrganizationsId,
         PathValues.V1BETA1_ORGANIZATIONS_ID_ADMINS: V1beta1OrganizationsIdAdmins,
         PathValues.V1BETA1_ORGANIZATIONS_ID_DISABLE: V1beta1OrganizationsIdDisable,
         PathValues.V1BETA1_ORGANIZATIONS_ID_ENABLE: V1beta1OrganizationsIdEnable,
         PathValues.V1BETA1_ORGANIZATIONS_ID_PROJECTS: V1beta1OrganizationsIdProjects,
+        PathValues.V1BETA1_ORGANIZATIONS_ID_SERVICEUSERS: V1beta1OrganizationsIdServiceusers,
         PathValues.V1BETA1_ORGANIZATIONS_ID_USERS: V1beta1OrganizationsIdUsers,
         PathValues.V1BETA1_ORGANIZATIONS_ID_USERS_USER_ID: V1beta1OrganizationsIdUsersUserId,
         PathValues.V1BETA1_ORGANIZATIONS_ORG_ID_GROUPS: V1beta1OrganizationsOrgIdGroups,
@@ -140,9 +150,11 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.V1BETA1_USERS_ID_GROUPS: V1beta1UsersIdGroups,
         PathValues.V1BETA1_USERS_ID_INVITATIONS: V1beta1UsersIdInvitations,
         PathValues.V1BETA1_USERS_ID_ORGANIZATIONS: V1beta1UsersIdOrganizations,
+        PathValues.V1BETA1_USERS_ID_PROJECTS: V1beta1UsersIdProjects,
         PathValues.V1BETA1_USERS_SELF: V1beta1UsersSelf,
         PathValues.V1BETA1_USERS_SELF_GROUPS: V1beta1UsersSelfGroups,
         PathValues.V1BETA1_USERS_SELF_ORGANIZATIONS: V1beta1UsersSelfOrganizations,
+        PathValues.V1BETA1_USERS_SELF_PROJECTS: V1beta1UsersSelfProjects,
     }
 )
 
@@ -160,17 +172,21 @@ path_to_api = PathToApi(
         PathValues.V1BETA1_AUTH_JWKS: V1beta1AuthJwks,
         PathValues.V1BETA1_AUTH_LOGOUT: V1beta1AuthLogout,
         PathValues.V1BETA1_AUTH_REGISTER_STRATEGY_NAME: V1beta1AuthRegisterStrategyName,
+        PathValues.V1BETA1_AUTH_TOKEN: V1beta1AuthToken,
         PathValues.V1BETA1_CHECK: V1beta1Check,
         PathValues.V1BETA1_META_SCHEMAS: V1beta1MetaSchemas,
         PathValues.V1BETA1_META_SCHEMAS_ID: V1beta1MetaSchemasId,
         PathValues.V1BETA1_NAMESPACES: V1beta1Namespaces,
         PathValues.V1BETA1_NAMESPACES_ID: V1beta1NamespacesId,
+        PathValues.V1BETA1_ORGANIZATION_ORG_ID_AUDITLOGS: V1beta1OrganizationOrgIdAuditlogs,
+        PathValues.V1BETA1_ORGANIZATION_ORG_ID_AUDITLOGS_ID: V1beta1OrganizationOrgIdAuditlogsId,
         PathValues.V1BETA1_ORGANIZATIONS: V1beta1Organizations,
         PathValues.V1BETA1_ORGANIZATIONS_ID: V1beta1OrganizationsId,
         PathValues.V1BETA1_ORGANIZATIONS_ID_ADMINS: V1beta1OrganizationsIdAdmins,
         PathValues.V1BETA1_ORGANIZATIONS_ID_DISABLE: V1beta1OrganizationsIdDisable,
         PathValues.V1BETA1_ORGANIZATIONS_ID_ENABLE: V1beta1OrganizationsIdEnable,
         PathValues.V1BETA1_ORGANIZATIONS_ID_PROJECTS: V1beta1OrganizationsIdProjects,
+        PathValues.V1BETA1_ORGANIZATIONS_ID_SERVICEUSERS: V1beta1OrganizationsIdServiceusers,
         PathValues.V1BETA1_ORGANIZATIONS_ID_USERS: V1beta1OrganizationsIdUsers,
         PathValues.V1BETA1_ORGANIZATIONS_ID_USERS_USER_ID: V1beta1OrganizationsIdUsersUserId,
         PathValues.V1BETA1_ORGANIZATIONS_ORG_ID_GROUPS: V1beta1OrganizationsOrgIdGroups,
@@ -214,8 +230,10 @@ path_to_api = PathToApi(
         PathValues.V1BETA1_USERS_ID_GROUPS: V1beta1UsersIdGroups,
         PathValues.V1BETA1_USERS_ID_INVITATIONS: V1beta1UsersIdInvitations,
         PathValues.V1BETA1_USERS_ID_ORGANIZATIONS: V1beta1UsersIdOrganizations,
+        PathValues.V1BETA1_USERS_ID_PROJECTS: V1beta1UsersIdProjects,
         PathValues.V1BETA1_USERS_SELF: V1beta1UsersSelf,
         PathValues.V1BETA1_USERS_SELF_GROUPS: V1beta1UsersSelfGroups,
         PathValues.V1BETA1_USERS_SELF_ORGANIZATIONS: V1beta1UsersSelfOrganizations,
+        PathValues.V1BETA1_USERS_SELF_PROJECTS: V1beta1UsersSelfProjects,
     }
 )

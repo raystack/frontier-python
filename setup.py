@@ -34,7 +34,7 @@ setup(
     name=NAME,
     version=VERSION,
     description="Shield Administration API",
-    author="Open DataOps Foundation",
+    author="Raystack Foundation",
     author_email="hello@raystack.org",
     url="https://github.com/raystack/shield-python",
     keywords=["OpenAPI", "OpenAPI-Generator", "Shield Administration API"],

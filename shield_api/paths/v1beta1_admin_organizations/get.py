@@ -64,6 +64,9 @@ request_query_state = api_client.QueryParameter(
     schema=StateSchema,
     explode=True,
 )
+_auth = [
+    'Basic',
+]
 SchemaFor200ResponseBodyApplicationJson = V1beta1ListAllOrganizationsResponse
 
 
@@ -258,7 +261,7 @@ class BaseApi(api_client.Api):
         skip_deserialization: bool = False,
     ):
         """
-        Get all organization
+        List all organizations
         :param skip_deserialization: If true then api_response.response will be set but
             api_response.body and api_response.headers will not be deserialized into schema
             class instances
@@ -290,6 +293,7 @@ class BaseApi(api_client.Api):
             resource_path=used_path,
             method='get'.upper(),
             headers=_headers,
+            auth_settings=_auth,
             stream=stream,
             timeout=timeout,
         )

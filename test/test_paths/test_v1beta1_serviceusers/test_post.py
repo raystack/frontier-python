@@ -21,7 +21,7 @@ from .. import ApiTestMixin
 class TestV1beta1Serviceusers(ApiTestMixin, unittest.TestCase):
     """
     V1beta1Serviceusers unit test stubs
-        Create Service User  # noqa: E501
+        Create service user  # noqa: E501
     """
     _configuration = configuration.Configuration()
 

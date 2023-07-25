@@ -21,7 +21,7 @@ from .. import ApiTestMixin
 class TestV1beta1UsersId(ApiTestMixin, unittest.TestCase):
     """
     V1beta1UsersId unit test stubs
-        Get a user by id  # noqa: E501
+        Get user  # noqa: E501
     """
     _configuration = configuration.Configuration()
 

@@ -15,6 +15,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **updatedAt** | str, datetime,  | str,  | The time the permission was last updated. | [optional] value must conform to RFC-3339 date-time
 **namespace** | str,  | str,  |  | [optional] 
 **[metadata](#metadata)** | dict, frozendict.frozendict,  | frozendict.frozendict,  |  | [optional] 
+**key** | str,  | str,  | Permission path key is composed of three parts, &#x27;service.resource.verb&#x27;. Where &#x27;service.resource&#x27; works as a namespace for the &#x27;verb&#x27;. | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # metadata

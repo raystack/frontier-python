@@ -21,7 +21,7 @@ from .. import ApiTestMixin
 class TestV1beta1Policies(ApiTestMixin, unittest.TestCase):
     """
     V1beta1Policies unit test stubs
-        Get all policies  # noqa: E501
+        List all policies  # noqa: E501
     """
     _configuration = configuration.Configuration()
 
