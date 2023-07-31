@@ -5,7 +5,7 @@ description = "Frontier APIs"
 authors = ["Kush Sharma <thekushsharma@gmail.com>"]
 license = "Apache 2.0"
 readme = "README.md"
-packages = [{include = "frontier_python"}]
+packages = [{include = "frontier_api"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
