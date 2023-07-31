@@ -1,4 +1,4 @@
-# shield_api.model.v1beta1_list_user_invitations_response.V1beta1ListUserInvitationsResponse
+# frontier_api.model.v1beta1_list_user_invitations_response.V1beta1ListUserInvitationsResponse
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

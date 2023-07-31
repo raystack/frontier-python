@@ -1,4 +1,4 @@
-# shield_api.model.v1beta1_service_user_request_body.V1beta1ServiceUserRequestBody
+# frontier_api.model.v1beta1_service_user_request_body.V1beta1ServiceUserRequestBody
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

@@ -1,4 +1,4 @@
-# shield_api.model.v1beta1_auth_token_response.V1beta1AuthTokenResponse
+# frontier_api.model.v1beta1_auth_token_response.V1beta1AuthTokenResponse
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

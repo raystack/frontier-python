@@ -1,4 +1,4 @@
-# shield_api.model.v1beta1_key_credential.V1beta1KeyCredential
+# frontier_api.model.v1beta1_key_credential.V1beta1KeyCredential
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

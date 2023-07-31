@@ -1,4 +1,4 @@
-# shield_api.model.v1beta1_get_policy_response.V1beta1GetPolicyResponse
+# frontier_api.model.v1beta1_get_policy_response.V1beta1GetPolicyResponse
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

@@ -1,4 +1,4 @@
-# shield_api.model.v1beta1_auth_callback_request.V1beta1AuthCallbackRequest
+# frontier_api.model.v1beta1_auth_callback_request.V1beta1AuthCallbackRequest
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

@@ -1,4 +1,4 @@
-# shield_api.model.v1beta1_permission_request_body.V1beta1PermissionRequestBody
+# frontier_api.model.v1beta1_permission_request_body.V1beta1PermissionRequestBody
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -8,7 +8,7 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**name** | str,  | str,  | The name of the permission. It should be unique across a Shield instance and can contain only alphanumeric characters. | [optional] 
+**name** | str,  | str,  | The name of the permission. It should be unique across a Frontier instance and can contain only alphanumeric characters. | [optional] 
 **namespace** | str,  | str,  | The namespace of the permission.The namespace should be in service/resource format.&lt;br/&gt;*Example:*&#x60;app/guardian&#x60; | [optional] 
 **[metadata](#metadata)** | dict, frozendict.frozendict,  | frozendict.frozendict,  | The metadata object for permissions that can hold key value pairs. | [optional] 
 **title** | str,  | str,  | The title can contain any UTF-8 character, used to provide a human-readable name for the permissions. Can also be left empty. | [optional] 

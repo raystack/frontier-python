@@ -1,4 +1,4 @@
-# shield_api.model.v1beta1_get_organizations_by_user_response.V1beta1GetOrganizationsByUserResponse
+# frontier_api.model.v1beta1_get_organizations_by_user_response.V1beta1GetOrganizationsByUserResponse
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

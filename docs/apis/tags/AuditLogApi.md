@@ -1,17 +1,17 @@
 <a id="__pageTop"></a>
-# shield_api.apis.tags.audit_log_api.AuditLogApi
+# frontier_api.apis.tags.audit_log_api.AuditLogApi
 
 All URIs are relative to *http://127.0.0.1:7400*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**shield_service_create_organization_audit_logs**](#shield_service_create_organization_audit_logs) | **post** /v1beta1/organization/{orgId}/auditlogs | Create audit log
-[**shield_service_get_organization_audit_log**](#shield_service_get_organization_audit_log) | **get** /v1beta1/organization/{orgId}/auditlogs/{id} | Get audit log
-[**shield_service_list_organization_audit_logs**](#shield_service_list_organization_audit_logs) | **get** /v1beta1/organization/{orgId}/auditlogs | List audit logs
+[**frontier_service_create_organization_audit_logs**](#frontier_service_create_organization_audit_logs) | **post** /v1beta1/organization/{orgId}/auditlogs | Create audit log
+[**frontier_service_get_organization_audit_log**](#frontier_service_get_organization_audit_log) | **get** /v1beta1/organization/{orgId}/auditlogs/{id} | Get audit log
+[**frontier_service_list_organization_audit_logs**](#frontier_service_list_organization_audit_logs) | **get** /v1beta1/organization/{orgId}/auditlogs | List audit logs
 
-# **shield_service_create_organization_audit_logs**
-<a id="shield_service_create_organization_audit_logs"></a>
-> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} shield_service_create_organization_audit_logs(org_idbody)
+# **frontier_service_create_organization_audit_logs**
+<a id="frontier_service_create_organization_audit_logs"></a>
+> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} frontier_service_create_organization_audit_logs(org_idbody)
 
 Create audit log
 
@@ -21,14 +21,14 @@ Create new audit logs in a batch.
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import audit_log_api
-from shield_api.model.v1beta1_audit_log import V1beta1AuditLog
-from shield_api.model.rpc_status import RpcStatus
+import frontier_api
+from frontier_api.apis.tags import audit_log_api
+from frontier_api.model.v1beta1_audit_log import V1beta1AuditLog
+from frontier_api.model.rpc_status import RpcStatus
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -38,12 +38,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = audit_log_api.AuditLogApi(api_client)
 
@@ -72,13 +72,13 @@ with shield_api.ApiClient(configuration) as api_client:
     )
     try:
         # Create audit log
-        api_response = api_instance.shield_service_create_organization_audit_logs(
+        api_response = api_instance.frontier_service_create_organization_audit_logs(
             path_params=path_params,
             body=body,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling AuditLogApi->shield_service_create_organization_audit_logs: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling AuditLogApi->frontier_service_create_organization_audit_logs: %s\n" % e)
 ```
 ### Parameters
 
@@ -138,15 +138,15 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_create_organization_audit_logs.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_create_organization_audit_logs.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_create_organization_audit_logs.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_create_organization_audit_logs.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_create_organization_audit_logs.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_create_organization_audit_logs.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_create_organization_audit_logs.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_create_organization_audit_logs.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_create_organization_audit_logs.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_create_organization_audit_logs.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_create_organization_audit_logs.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_create_organization_audit_logs.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_create_organization_audit_logs.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_create_organization_audit_logs.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_create_organization_audit_logs.ApiResponseFor200
+#### frontier_service_create_organization_audit_logs.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -160,7 +160,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
 
-#### shield_service_create_organization_audit_logs.ApiResponseFor400
+#### frontier_service_create_organization_audit_logs.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -173,7 +173,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_create_organization_audit_logs.ApiResponseFor401
+#### frontier_service_create_organization_audit_logs.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -186,7 +186,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_create_organization_audit_logs.ApiResponseFor403
+#### frontier_service_create_organization_audit_logs.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -199,7 +199,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_create_organization_audit_logs.ApiResponseFor404
+#### frontier_service_create_organization_audit_logs.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -212,7 +212,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_create_organization_audit_logs.ApiResponseFor500
+#### frontier_service_create_organization_audit_logs.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -225,7 +225,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_create_organization_audit_logs.ApiResponseForDefault
+#### frontier_service_create_organization_audit_logs.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -244,9 +244,9 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **shield_service_get_organization_audit_log**
-<a id="shield_service_get_organization_audit_log"></a>
-> V1beta1GetOrganizationAuditLogResponse shield_service_get_organization_audit_log(org_idid)
+# **frontier_service_get_organization_audit_log**
+<a id="frontier_service_get_organization_audit_log"></a>
+> V1beta1GetOrganizationAuditLogResponse frontier_service_get_organization_audit_log(org_idid)
 
 Get audit log
 
@@ -256,14 +256,14 @@ Get an audit log by ID.
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import audit_log_api
-from shield_api.model.v1beta1_get_organization_audit_log_response import V1beta1GetOrganizationAuditLogResponse
-from shield_api.model.rpc_status import RpcStatus
+import frontier_api
+from frontier_api.apis.tags import audit_log_api
+from frontier_api.model.rpc_status import RpcStatus
+from frontier_api.model.v1beta1_get_organization_audit_log_response import V1beta1GetOrganizationAuditLogResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -273,12 +273,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = audit_log_api.AuditLogApi(api_client)
 
@@ -289,12 +289,12 @@ with shield_api.ApiClient(configuration) as api_client:
     }
     try:
         # Get audit log
-        api_response = api_instance.shield_service_get_organization_audit_log(
+        api_response = api_instance.frontier_service_get_organization_audit_log(
             path_params=path_params,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling AuditLogApi->shield_service_get_organization_audit_log: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling AuditLogApi->frontier_service_get_organization_audit_log: %s\n" % e)
 ```
 ### Parameters
 
@@ -333,15 +333,15 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_get_organization_audit_log.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_get_organization_audit_log.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_get_organization_audit_log.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_get_organization_audit_log.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_get_organization_audit_log.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_get_organization_audit_log.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_get_organization_audit_log.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_get_organization_audit_log.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_get_organization_audit_log.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_get_organization_audit_log.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_get_organization_audit_log.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_get_organization_audit_log.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_get_organization_audit_log.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_get_organization_audit_log.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_get_organization_audit_log.ApiResponseFor200
+#### frontier_service_get_organization_audit_log.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -354,7 +354,7 @@ Type | Description  | Notes
 [**V1beta1GetOrganizationAuditLogResponse**](../../models/V1beta1GetOrganizationAuditLogResponse.md) |  | 
 
 
-#### shield_service_get_organization_audit_log.ApiResponseFor400
+#### frontier_service_get_organization_audit_log.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -367,7 +367,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_organization_audit_log.ApiResponseFor401
+#### frontier_service_get_organization_audit_log.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -380,7 +380,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_organization_audit_log.ApiResponseFor403
+#### frontier_service_get_organization_audit_log.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -393,7 +393,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_organization_audit_log.ApiResponseFor404
+#### frontier_service_get_organization_audit_log.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -406,7 +406,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_organization_audit_log.ApiResponseFor500
+#### frontier_service_get_organization_audit_log.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -419,7 +419,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_organization_audit_log.ApiResponseForDefault
+#### frontier_service_get_organization_audit_log.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -438,26 +438,26 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **shield_service_list_organization_audit_logs**
-<a id="shield_service_list_organization_audit_logs"></a>
-> V1beta1ListOrganizationAuditLogsResponse shield_service_list_organization_audit_logs(org_id)
+# **frontier_service_list_organization_audit_logs**
+<a id="frontier_service_list_organization_audit_logs"></a>
+> V1beta1ListOrganizationAuditLogsResponse frontier_service_list_organization_audit_logs(org_id)
 
 List audit logs
 
-Returns a list of audit logs of an organization in Shield.
+Returns a list of audit logs of an organization in Frontier.
 
 ### Example
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import audit_log_api
-from shield_api.model.v1beta1_list_organization_audit_logs_response import V1beta1ListOrganizationAuditLogsResponse
-from shield_api.model.rpc_status import RpcStatus
+import frontier_api
+from frontier_api.apis.tags import audit_log_api
+from frontier_api.model.rpc_status import RpcStatus
+from frontier_api.model.v1beta1_list_organization_audit_logs_response import V1beta1ListOrganizationAuditLogsResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -467,12 +467,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = audit_log_api.AuditLogApi(api_client)
 
@@ -484,13 +484,13 @@ with shield_api.ApiClient(configuration) as api_client:
     }
     try:
         # List audit logs
-        api_response = api_instance.shield_service_list_organization_audit_logs(
+        api_response = api_instance.frontier_service_list_organization_audit_logs(
             path_params=path_params,
             query_params=query_params,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling AuditLogApi->shield_service_list_organization_audit_logs: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling AuditLogApi->frontier_service_list_organization_audit_logs: %s\n" % e)
 
     # example passing only optional values
     path_params = {
@@ -504,13 +504,13 @@ with shield_api.ApiClient(configuration) as api_client:
     }
     try:
         # List audit logs
-        api_response = api_instance.shield_service_list_organization_audit_logs(
+        api_response = api_instance.frontier_service_list_organization_audit_logs(
             path_params=path_params,
             query_params=query_params,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling AuditLogApi->shield_service_list_organization_audit_logs: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling AuditLogApi->frontier_service_list_organization_audit_logs: %s\n" % e)
 ```
 ### Parameters
 
@@ -581,15 +581,15 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_list_organization_audit_logs.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_list_organization_audit_logs.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_list_organization_audit_logs.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_list_organization_audit_logs.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_list_organization_audit_logs.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_list_organization_audit_logs.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_list_organization_audit_logs.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_list_organization_audit_logs.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_list_organization_audit_logs.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_list_organization_audit_logs.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_list_organization_audit_logs.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_list_organization_audit_logs.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_list_organization_audit_logs.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_list_organization_audit_logs.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_list_organization_audit_logs.ApiResponseFor200
+#### frontier_service_list_organization_audit_logs.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -602,7 +602,7 @@ Type | Description  | Notes
 [**V1beta1ListOrganizationAuditLogsResponse**](../../models/V1beta1ListOrganizationAuditLogsResponse.md) |  | 
 
 
-#### shield_service_list_organization_audit_logs.ApiResponseFor400
+#### frontier_service_list_organization_audit_logs.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -615,7 +615,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_organization_audit_logs.ApiResponseFor401
+#### frontier_service_list_organization_audit_logs.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -628,7 +628,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_organization_audit_logs.ApiResponseFor403
+#### frontier_service_list_organization_audit_logs.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -641,7 +641,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_organization_audit_logs.ApiResponseFor404
+#### frontier_service_list_organization_audit_logs.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -654,7 +654,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_organization_audit_logs.ApiResponseFor500
+#### frontier_service_list_organization_audit_logs.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -667,7 +667,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_organization_audit_logs.ApiResponseForDefault
+#### frontier_service_list_organization_audit_logs.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

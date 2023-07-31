@@ -1,15 +1,15 @@
 <a id="__pageTop"></a>
-# shield_api.apis.tags.policy_api.PolicyApi
+# frontier_api.apis.tags.policy_api.PolicyApi
 
 All URIs are relative to *http://127.0.0.1:7400*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**admin_service_list_policies**](#admin_service_list_policies) | **get** /v1beta1/policies | List all policies
-[**shield_service_create_policy**](#shield_service_create_policy) | **post** /v1beta1/policies | Create policy
-[**shield_service_delete_policy**](#shield_service_delete_policy) | **delete** /v1beta1/policies/{id} | Delete Policy
-[**shield_service_get_policy**](#shield_service_get_policy) | **get** /v1beta1/policies/{id} | Get policy
-[**shield_service_update_policy**](#shield_service_update_policy) | **put** /v1beta1/policies/{id} | Update policy
+[**frontier_service_create_policy**](#frontier_service_create_policy) | **post** /v1beta1/policies | Create policy
+[**frontier_service_delete_policy**](#frontier_service_delete_policy) | **delete** /v1beta1/policies/{id} | Delete Policy
+[**frontier_service_get_policy**](#frontier_service_get_policy) | **get** /v1beta1/policies/{id} | Get policy
+[**frontier_service_update_policy**](#frontier_service_update_policy) | **put** /v1beta1/policies/{id} | Update policy
 
 # **admin_service_list_policies**
 <a id="admin_service_list_policies"></a>
@@ -17,20 +17,20 @@ Method | HTTP request | Description
 
 List all policies
 
-Lists all the policies from all the organizations in a Shield instance. It can be filtered by organization, project, user, role and group.
+Lists all the policies from all the organizations in a Frontier instance. It can be filtered by organization, project, user, role and group.
 
 ### Example
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import policy_api
-from shield_api.model.v1beta1_list_policies_response import V1beta1ListPoliciesResponse
-from shield_api.model.rpc_status import RpcStatus
+import frontier_api
+from frontier_api.apis.tags import policy_api
+from frontier_api.model.rpc_status import RpcStatus
+from frontier_api.model.v1beta1_list_policies_response import V1beta1ListPoliciesResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -40,12 +40,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = policy_api.PolicyApi(api_client)
 
@@ -63,7 +63,7 @@ with shield_api.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
+    except frontier_api.ApiException as e:
         print("Exception when calling PolicyApi->admin_service_list_policies: %s\n" % e)
 ```
 ### Parameters
@@ -133,7 +133,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 401 | [ApiResponseFor401](#admin_service_list_policies.ApiResponseFor401) | Unauthorized - Authentication is required
 403 | [ApiResponseFor403](#admin_service_list_policies.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
 404 | [ApiResponseFor404](#admin_service_list_policies.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#admin_service_list_policies.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
+500 | [ApiResponseFor500](#admin_service_list_policies.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
 default | [ApiResponseForDefault](#admin_service_list_policies.ApiResponseForDefault) | An unexpected error response.
 
 #### admin_service_list_policies.ApiResponseFor200
@@ -233,9 +233,9 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **shield_service_create_policy**
-<a id="shield_service_create_policy"></a>
-> V1beta1CreatePolicyResponse shield_service_create_policy(body)
+# **frontier_service_create_policy**
+<a id="frontier_service_create_policy"></a>
+> V1beta1CreatePolicyResponse frontier_service_create_policy(body)
 
 Create policy
 
@@ -245,15 +245,15 @@ Creates a policy
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import policy_api
-from shield_api.model.rpc_status import RpcStatus
-from shield_api.model.v1beta1_policy_request_body import V1beta1PolicyRequestBody
-from shield_api.model.v1beta1_create_policy_response import V1beta1CreatePolicyResponse
+import frontier_api
+from frontier_api.apis.tags import policy_api
+from frontier_api.model.rpc_status import RpcStatus
+from frontier_api.model.v1beta1_policy_request_body import V1beta1PolicyRequestBody
+from frontier_api.model.v1beta1_create_policy_response import V1beta1CreatePolicyResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -263,12 +263,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = policy_api.PolicyApi(api_client)
 
@@ -282,12 +282,12 @@ with shield_api.ApiClient(configuration) as api_client:
     )
     try:
         # Create policy
-        api_response = api_instance.shield_service_create_policy(
+        api_response = api_instance.frontier_service_create_policy(
             body=body,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling PolicyApi->shield_service_create_policy: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling PolicyApi->frontier_service_create_policy: %s\n" % e)
 ```
 ### Parameters
 
@@ -313,15 +313,15 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_create_policy.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_create_policy.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_create_policy.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_create_policy.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_create_policy.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_create_policy.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_create_policy.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_create_policy.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_create_policy.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_create_policy.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_create_policy.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_create_policy.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_create_policy.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_create_policy.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_create_policy.ApiResponseFor200
+#### frontier_service_create_policy.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -334,7 +334,7 @@ Type | Description  | Notes
 [**V1beta1CreatePolicyResponse**](../../models/V1beta1CreatePolicyResponse.md) |  | 
 
 
-#### shield_service_create_policy.ApiResponseFor400
+#### frontier_service_create_policy.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -347,7 +347,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_create_policy.ApiResponseFor401
+#### frontier_service_create_policy.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -360,7 +360,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_create_policy.ApiResponseFor403
+#### frontier_service_create_policy.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -373,7 +373,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_create_policy.ApiResponseFor404
+#### frontier_service_create_policy.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -386,7 +386,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_create_policy.ApiResponseFor500
+#### frontier_service_create_policy.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -399,7 +399,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_create_policy.ApiResponseForDefault
+#### frontier_service_create_policy.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -418,9 +418,9 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **shield_service_delete_policy**
-<a id="shield_service_delete_policy"></a>
-> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} shield_service_delete_policy(id)
+# **frontier_service_delete_policy**
+<a id="frontier_service_delete_policy"></a>
+> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} frontier_service_delete_policy(id)
 
 Delete Policy
 
@@ -430,13 +430,13 @@ Delete a policy all of its relations permanently.
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import policy_api
-from shield_api.model.rpc_status import RpcStatus
+import frontier_api
+from frontier_api.apis.tags import policy_api
+from frontier_api.model.rpc_status import RpcStatus
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -446,12 +446,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = policy_api.PolicyApi(api_client)
 
@@ -461,12 +461,12 @@ with shield_api.ApiClient(configuration) as api_client:
     }
     try:
         # Delete Policy
-        api_response = api_instance.shield_service_delete_policy(
+        api_response = api_instance.frontier_service_delete_policy(
             path_params=path_params,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling PolicyApi->shield_service_delete_policy: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling PolicyApi->frontier_service_delete_policy: %s\n" % e)
 ```
 ### Parameters
 
@@ -497,15 +497,15 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_delete_policy.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_delete_policy.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_delete_policy.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_delete_policy.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_delete_policy.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_delete_policy.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_delete_policy.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_delete_policy.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_delete_policy.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_delete_policy.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_delete_policy.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_delete_policy.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_delete_policy.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_delete_policy.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_delete_policy.ApiResponseFor200
+#### frontier_service_delete_policy.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -519,7 +519,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
 
-#### shield_service_delete_policy.ApiResponseFor400
+#### frontier_service_delete_policy.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -532,7 +532,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_delete_policy.ApiResponseFor401
+#### frontier_service_delete_policy.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -545,7 +545,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_delete_policy.ApiResponseFor403
+#### frontier_service_delete_policy.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -558,7 +558,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_delete_policy.ApiResponseFor404
+#### frontier_service_delete_policy.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -571,7 +571,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_delete_policy.ApiResponseFor500
+#### frontier_service_delete_policy.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -584,7 +584,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_delete_policy.ApiResponseForDefault
+#### frontier_service_delete_policy.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -603,9 +603,9 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **shield_service_get_policy**
-<a id="shield_service_get_policy"></a>
-> V1beta1GetPolicyResponse shield_service_get_policy(id)
+# **frontier_service_get_policy**
+<a id="frontier_service_get_policy"></a>
+> V1beta1GetPolicyResponse frontier_service_get_policy(id)
 
 Get policy
 
@@ -615,14 +615,14 @@ Returns a policy by ID
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import policy_api
-from shield_api.model.rpc_status import RpcStatus
-from shield_api.model.v1beta1_get_policy_response import V1beta1GetPolicyResponse
+import frontier_api
+from frontier_api.apis.tags import policy_api
+from frontier_api.model.v1beta1_get_policy_response import V1beta1GetPolicyResponse
+from frontier_api.model.rpc_status import RpcStatus
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -632,12 +632,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = policy_api.PolicyApi(api_client)
 
@@ -647,12 +647,12 @@ with shield_api.ApiClient(configuration) as api_client:
     }
     try:
         # Get policy
-        api_response = api_instance.shield_service_get_policy(
+        api_response = api_instance.frontier_service_get_policy(
             path_params=path_params,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling PolicyApi->shield_service_get_policy: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling PolicyApi->frontier_service_get_policy: %s\n" % e)
 ```
 ### Parameters
 
@@ -683,15 +683,15 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_get_policy.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_get_policy.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_get_policy.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_get_policy.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_get_policy.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_get_policy.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_get_policy.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_get_policy.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_get_policy.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_get_policy.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_get_policy.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_get_policy.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_get_policy.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_get_policy.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_get_policy.ApiResponseFor200
+#### frontier_service_get_policy.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -704,7 +704,7 @@ Type | Description  | Notes
 [**V1beta1GetPolicyResponse**](../../models/V1beta1GetPolicyResponse.md) |  | 
 
 
-#### shield_service_get_policy.ApiResponseFor400
+#### frontier_service_get_policy.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -717,7 +717,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_policy.ApiResponseFor401
+#### frontier_service_get_policy.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -730,7 +730,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_policy.ApiResponseFor403
+#### frontier_service_get_policy.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -743,7 +743,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_policy.ApiResponseFor404
+#### frontier_service_get_policy.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -756,7 +756,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_policy.ApiResponseFor500
+#### frontier_service_get_policy.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -769,7 +769,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_policy.ApiResponseForDefault
+#### frontier_service_get_policy.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -788,9 +788,9 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **shield_service_update_policy**
-<a id="shield_service_update_policy"></a>
-> V1beta1UpdatePolicyResponse shield_service_update_policy(idbody)
+# **frontier_service_update_policy**
+<a id="frontier_service_update_policy"></a>
+> V1beta1UpdatePolicyResponse frontier_service_update_policy(idbody)
 
 Update policy
 
@@ -800,15 +800,15 @@ Updates a policy by ID
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import policy_api
-from shield_api.model.v1beta1_update_policy_response import V1beta1UpdatePolicyResponse
-from shield_api.model.rpc_status import RpcStatus
-from shield_api.model.v1beta1_policy_request_body import V1beta1PolicyRequestBody
+import frontier_api
+from frontier_api.apis.tags import policy_api
+from frontier_api.model.rpc_status import RpcStatus
+from frontier_api.model.v1beta1_policy_request_body import V1beta1PolicyRequestBody
+from frontier_api.model.v1beta1_update_policy_response import V1beta1UpdatePolicyResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -818,12 +818,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = policy_api.PolicyApi(api_client)
 
@@ -840,13 +840,13 @@ with shield_api.ApiClient(configuration) as api_client:
     )
     try:
         # Update policy
-        api_response = api_instance.shield_service_update_policy(
+        api_response = api_instance.frontier_service_update_policy(
             path_params=path_params,
             body=body,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling PolicyApi->shield_service_update_policy: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling PolicyApi->frontier_service_update_policy: %s\n" % e)
 ```
 ### Parameters
 
@@ -887,15 +887,15 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_update_policy.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_update_policy.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_update_policy.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_update_policy.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_update_policy.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_update_policy.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_update_policy.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_update_policy.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_update_policy.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_update_policy.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_update_policy.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_update_policy.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_update_policy.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_update_policy.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_update_policy.ApiResponseFor200
+#### frontier_service_update_policy.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -908,7 +908,7 @@ Type | Description  | Notes
 [**V1beta1UpdatePolicyResponse**](../../models/V1beta1UpdatePolicyResponse.md) |  | 
 
 
-#### shield_service_update_policy.ApiResponseFor400
+#### frontier_service_update_policy.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -921,7 +921,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_update_policy.ApiResponseFor401
+#### frontier_service_update_policy.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -934,7 +934,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_update_policy.ApiResponseFor403
+#### frontier_service_update_policy.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -947,7 +947,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_update_policy.ApiResponseFor404
+#### frontier_service_update_policy.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -960,7 +960,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_update_policy.ApiResponseFor500
+#### frontier_service_update_policy.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -973,7 +973,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_update_policy.ApiResponseForDefault
+#### frontier_service_update_policy.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

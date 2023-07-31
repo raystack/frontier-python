@@ -1,4 +1,4 @@
-# shield_api.model.v1beta1_update_organization_role_response.V1beta1UpdateOrganizationRoleResponse
+# frontier_api.model.v1beta1_update_organization_role_response.V1beta1UpdateOrganizationRoleResponse
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

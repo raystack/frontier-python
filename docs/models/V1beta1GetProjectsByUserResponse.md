@@ -1,4 +1,4 @@
-# shield_api.model.v1beta1_get_projects_by_user_response.V1beta1GetProjectsByUserResponse
+# frontier_api.model.v1beta1_get_projects_by_user_response.V1beta1GetProjectsByUserResponse
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

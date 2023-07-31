@@ -1,4 +1,4 @@
-projectName: shield-python
-packageName: shield_api
+projectName: frontier-python
+packageName: frontier_api
 library: urllib3
-packageUrl: https://github.com/raystack/shield-python
+packageUrl: https://github.com/raystack/frontier-python

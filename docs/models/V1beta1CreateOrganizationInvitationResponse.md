@@ -1,4 +1,4 @@
-# shield_api.model.v1beta1_create_organization_invitation_response.V1beta1CreateOrganizationInvitationResponse
+# frontier_api.model.v1beta1_create_organization_invitation_response.V1beta1CreateOrganizationInvitationResponse
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

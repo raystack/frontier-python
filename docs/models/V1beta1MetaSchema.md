@@ -1,4 +1,4 @@
-# shield_api.model.v1beta1_meta_schema.V1beta1MetaSchema
+# frontier_api.model.v1beta1_meta_schema.V1beta1MetaSchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

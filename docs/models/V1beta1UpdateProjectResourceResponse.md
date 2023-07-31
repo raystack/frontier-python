@@ -1,4 +1,4 @@
-# shield_api.model.v1beta1_update_project_resource_response.V1beta1UpdateProjectResourceResponse
+# frontier_api.model.v1beta1_update_project_resource_response.V1beta1UpdateProjectResourceResponse
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

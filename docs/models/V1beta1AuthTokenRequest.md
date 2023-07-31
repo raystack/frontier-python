@@ -1,4 +1,4 @@
-# shield_api.model.v1beta1_auth_token_request.V1beta1AuthTokenRequest
+# frontier_api.model.v1beta1_auth_token_request.V1beta1AuthTokenRequest
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

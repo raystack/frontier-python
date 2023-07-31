@@ -1,4 +1,4 @@
-# shield_api.model.v1beta1_create_service_user_response.V1beta1CreateServiceUserResponse
+# frontier_api.model.v1beta1_create_service_user_response.V1beta1CreateServiceUserResponse
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

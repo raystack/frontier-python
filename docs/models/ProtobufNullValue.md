@@ -1,4 +1,4 @@
-# shield_api.model.protobuf_null_value.ProtobufNullValue
+# frontier_api.model.protobuf_null_value.ProtobufNullValue
 
 `NullValue` is a singleton enumeration to represent the null value for the `Value` type union.   The JSON representation for `NullValue` is JSON `null`.   - NULL_VALUE: Null value.
 

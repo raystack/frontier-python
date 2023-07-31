@@ -1,4 +1,4 @@
-# shield_api.model.v1beta1_list_service_user_secrets_response.V1beta1ListServiceUserSecretsResponse
+# frontier_api.model.v1beta1_list_service_user_secrets_response.V1beta1ListServiceUserSecretsResponse
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

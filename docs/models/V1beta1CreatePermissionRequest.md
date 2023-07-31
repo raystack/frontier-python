@@ -1,4 +1,4 @@
-# shield_api.model.v1beta1_create_permission_request.V1beta1CreatePermissionRequest
+# frontier_api.model.v1beta1_create_permission_request.V1beta1CreatePermissionRequest
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

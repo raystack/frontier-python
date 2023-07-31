@@ -1,4 +1,4 @@
-# shield_api.model.rpc_status.RpcStatus
+# frontier_api.model.rpc_status.RpcStatus
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

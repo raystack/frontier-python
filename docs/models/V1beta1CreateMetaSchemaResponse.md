@@ -1,4 +1,4 @@
-# shield_api.model.v1beta1_create_meta_schema_response.V1beta1CreateMetaSchemaResponse
+# frontier_api.model.v1beta1_create_meta_schema_response.V1beta1CreateMetaSchemaResponse
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

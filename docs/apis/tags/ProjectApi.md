@@ -1,19 +1,19 @@
 <a id="__pageTop"></a>
-# shield_api.apis.tags.project_api.ProjectApi
+# frontier_api.apis.tags.project_api.ProjectApi
 
 All URIs are relative to *http://127.0.0.1:7400*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**admin_service_list_projects**](#admin_service_list_projects) | **get** /v1beta1/admin/projects | List all projects
-[**shield_service_create_project**](#shield_service_create_project) | **post** /v1beta1/projects | Create project
-[**shield_service_delete_project**](#shield_service_delete_project) | **delete** /v1beta1/projects/{id} | Delete Project
-[**shield_service_disable_project**](#shield_service_disable_project) | **post** /v1beta1/projects/{id}/disable | Disable project
-[**shield_service_enable_project**](#shield_service_enable_project) | **post** /v1beta1/projects/{id}/enable | Enable project
-[**shield_service_get_project**](#shield_service_get_project) | **get** /v1beta1/projects/{id} | Get project
-[**shield_service_list_project_admins**](#shield_service_list_project_admins) | **get** /v1beta1/projects/{id}/admins | List project admins
-[**shield_service_list_project_users**](#shield_service_list_project_users) | **get** /v1beta1/projects/{id}/users | List project users
-[**shield_service_update_project**](#shield_service_update_project) | **put** /v1beta1/projects/{id} | Update project
+[**frontier_service_create_project**](#frontier_service_create_project) | **post** /v1beta1/projects | Create project
+[**frontier_service_delete_project**](#frontier_service_delete_project) | **delete** /v1beta1/projects/{id} | Delete Project
+[**frontier_service_disable_project**](#frontier_service_disable_project) | **post** /v1beta1/projects/{id}/disable | Disable project
+[**frontier_service_enable_project**](#frontier_service_enable_project) | **post** /v1beta1/projects/{id}/enable | Enable project
+[**frontier_service_get_project**](#frontier_service_get_project) | **get** /v1beta1/projects/{id} | Get project
+[**frontier_service_list_project_admins**](#frontier_service_list_project_admins) | **get** /v1beta1/projects/{id}/admins | List project admins
+[**frontier_service_list_project_users**](#frontier_service_list_project_users) | **get** /v1beta1/projects/{id}/users | List project users
+[**frontier_service_update_project**](#frontier_service_update_project) | **put** /v1beta1/projects/{id} | Update project
 
 # **admin_service_list_projects**
 <a id="admin_service_list_projects"></a>
@@ -21,20 +21,20 @@ Method | HTTP request | Description
 
 List all projects
 
-Lists all the projects from all the organizations in a Shield instance. It can be filtered by organization and state.
+Lists all the projects from all the organizations in a Frontier instance. It can be filtered by organization and state.
 
 ### Example
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import project_api
-from shield_api.model.v1beta1_list_projects_response import V1beta1ListProjectsResponse
-from shield_api.model.rpc_status import RpcStatus
+import frontier_api
+from frontier_api.apis.tags import project_api
+from frontier_api.model.rpc_status import RpcStatus
+from frontier_api.model.v1beta1_list_projects_response import V1beta1ListProjectsResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -44,12 +44,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_api.ProjectApi(api_client)
 
@@ -64,7 +64,7 @@ with shield_api.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
+    except frontier_api.ApiException as e:
         print("Exception when calling ProjectApi->admin_service_list_projects: %s\n" % e)
 ```
 ### Parameters
@@ -110,7 +110,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 401 | [ApiResponseFor401](#admin_service_list_projects.ApiResponseFor401) | Unauthorized - Authentication is required
 403 | [ApiResponseFor403](#admin_service_list_projects.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
 404 | [ApiResponseFor404](#admin_service_list_projects.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#admin_service_list_projects.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
+500 | [ApiResponseFor500](#admin_service_list_projects.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
 default | [ApiResponseForDefault](#admin_service_list_projects.ApiResponseForDefault) | An unexpected error response.
 
 #### admin_service_list_projects.ApiResponseFor200
@@ -210,9 +210,9 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **shield_service_create_project**
-<a id="shield_service_create_project"></a>
-> V1beta1CreateProjectResponse shield_service_create_project(body)
+# **frontier_service_create_project**
+<a id="frontier_service_create_project"></a>
+> V1beta1CreateProjectResponse frontier_service_create_project(body)
 
 Create project
 
@@ -220,15 +220,15 @@ Create project
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import project_api
-from shield_api.model.v1beta1_project_request_body import V1beta1ProjectRequestBody
-from shield_api.model.v1beta1_create_project_response import V1beta1CreateProjectResponse
-from shield_api.model.rpc_status import RpcStatus
+import frontier_api
+from frontier_api.apis.tags import project_api
+from frontier_api.model.rpc_status import RpcStatus
+from frontier_api.model.v1beta1_create_project_response import V1beta1CreateProjectResponse
+from frontier_api.model.v1beta1_project_request_body import V1beta1ProjectRequestBody
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -238,12 +238,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_api.ProjectApi(api_client)
 
@@ -256,12 +256,12 @@ with shield_api.ApiClient(configuration) as api_client:
     )
     try:
         # Create project
-        api_response = api_instance.shield_service_create_project(
+        api_response = api_instance.frontier_service_create_project(
             body=body,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling ProjectApi->shield_service_create_project: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling ProjectApi->frontier_service_create_project: %s\n" % e)
 ```
 ### Parameters
 
@@ -287,15 +287,15 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_create_project.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_create_project.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_create_project.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_create_project.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_create_project.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_create_project.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_create_project.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_create_project.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_create_project.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_create_project.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_create_project.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_create_project.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_create_project.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_create_project.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_create_project.ApiResponseFor200
+#### frontier_service_create_project.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -308,7 +308,7 @@ Type | Description  | Notes
 [**V1beta1CreateProjectResponse**](../../models/V1beta1CreateProjectResponse.md) |  | 
 
 
-#### shield_service_create_project.ApiResponseFor400
+#### frontier_service_create_project.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -321,7 +321,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_create_project.ApiResponseFor401
+#### frontier_service_create_project.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -334,7 +334,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_create_project.ApiResponseFor403
+#### frontier_service_create_project.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -347,7 +347,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_create_project.ApiResponseFor404
+#### frontier_service_create_project.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -360,7 +360,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_create_project.ApiResponseFor500
+#### frontier_service_create_project.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -373,7 +373,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_create_project.ApiResponseForDefault
+#### frontier_service_create_project.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -392,9 +392,9 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **shield_service_delete_project**
-<a id="shield_service_delete_project"></a>
-> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} shield_service_delete_project(id)
+# **frontier_service_delete_project**
+<a id="frontier_service_delete_project"></a>
+> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} frontier_service_delete_project(id)
 
 Delete Project
 
@@ -404,13 +404,13 @@ Delete a project all of its relations permanently.
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import project_api
-from shield_api.model.rpc_status import RpcStatus
+import frontier_api
+from frontier_api.apis.tags import project_api
+from frontier_api.model.rpc_status import RpcStatus
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -420,12 +420,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_api.ProjectApi(api_client)
 
@@ -435,12 +435,12 @@ with shield_api.ApiClient(configuration) as api_client:
     }
     try:
         # Delete Project
-        api_response = api_instance.shield_service_delete_project(
+        api_response = api_instance.frontier_service_delete_project(
             path_params=path_params,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling ProjectApi->shield_service_delete_project: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling ProjectApi->frontier_service_delete_project: %s\n" % e)
 ```
 ### Parameters
 
@@ -471,15 +471,15 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_delete_project.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_delete_project.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_delete_project.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_delete_project.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_delete_project.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_delete_project.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_delete_project.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_delete_project.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_delete_project.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_delete_project.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_delete_project.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_delete_project.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_delete_project.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_delete_project.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_delete_project.ApiResponseFor200
+#### frontier_service_delete_project.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -493,7 +493,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
 
-#### shield_service_delete_project.ApiResponseFor400
+#### frontier_service_delete_project.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -506,7 +506,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_delete_project.ApiResponseFor401
+#### frontier_service_delete_project.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -519,7 +519,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_delete_project.ApiResponseFor403
+#### frontier_service_delete_project.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -532,7 +532,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_delete_project.ApiResponseFor404
+#### frontier_service_delete_project.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -545,7 +545,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_delete_project.ApiResponseFor500
+#### frontier_service_delete_project.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -558,7 +558,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_delete_project.ApiResponseForDefault
+#### frontier_service_delete_project.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -577,9 +577,9 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **shield_service_disable_project**
-<a id="shield_service_disable_project"></a>
-> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} shield_service_disable_project(idbody)
+# **frontier_service_disable_project**
+<a id="frontier_service_disable_project"></a>
+> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} frontier_service_disable_project(idbody)
 
 Disable project
 
@@ -587,13 +587,13 @@ Disable project
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import project_api
-from shield_api.model.rpc_status import RpcStatus
+import frontier_api
+from frontier_api.apis.tags import project_api
+from frontier_api.model.rpc_status import RpcStatus
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -603,12 +603,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_api.ProjectApi(api_client)
 
@@ -619,13 +619,13 @@ with shield_api.ApiClient(configuration) as api_client:
     body = dict()
     try:
         # Disable project
-        api_response = api_instance.shield_service_disable_project(
+        api_response = api_instance.frontier_service_disable_project(
             path_params=path_params,
             body=body,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling ProjectApi->shield_service_disable_project: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling ProjectApi->frontier_service_disable_project: %s\n" % e)
 ```
 ### Parameters
 
@@ -667,15 +667,15 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_disable_project.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_disable_project.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_disable_project.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_disable_project.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_disable_project.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_disable_project.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_disable_project.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_disable_project.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_disable_project.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_disable_project.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_disable_project.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_disable_project.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_disable_project.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_disable_project.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_disable_project.ApiResponseFor200
+#### frontier_service_disable_project.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -689,7 +689,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
 
-#### shield_service_disable_project.ApiResponseFor400
+#### frontier_service_disable_project.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -702,7 +702,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_disable_project.ApiResponseFor401
+#### frontier_service_disable_project.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -715,7 +715,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_disable_project.ApiResponseFor403
+#### frontier_service_disable_project.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -728,7 +728,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_disable_project.ApiResponseFor404
+#### frontier_service_disable_project.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -741,7 +741,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_disable_project.ApiResponseFor500
+#### frontier_service_disable_project.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -754,7 +754,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_disable_project.ApiResponseForDefault
+#### frontier_service_disable_project.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -773,9 +773,9 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **shield_service_enable_project**
-<a id="shield_service_enable_project"></a>
-> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} shield_service_enable_project(idbody)
+# **frontier_service_enable_project**
+<a id="frontier_service_enable_project"></a>
+> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} frontier_service_enable_project(idbody)
 
 Enable project
 
@@ -783,13 +783,13 @@ Enable project
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import project_api
-from shield_api.model.rpc_status import RpcStatus
+import frontier_api
+from frontier_api.apis.tags import project_api
+from frontier_api.model.rpc_status import RpcStatus
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -799,12 +799,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_api.ProjectApi(api_client)
 
@@ -815,13 +815,13 @@ with shield_api.ApiClient(configuration) as api_client:
     body = dict()
     try:
         # Enable project
-        api_response = api_instance.shield_service_enable_project(
+        api_response = api_instance.frontier_service_enable_project(
             path_params=path_params,
             body=body,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling ProjectApi->shield_service_enable_project: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling ProjectApi->frontier_service_enable_project: %s\n" % e)
 ```
 ### Parameters
 
@@ -863,15 +863,15 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_enable_project.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_enable_project.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_enable_project.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_enable_project.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_enable_project.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_enable_project.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_enable_project.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_enable_project.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_enable_project.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_enable_project.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_enable_project.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_enable_project.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_enable_project.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_enable_project.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_enable_project.ApiResponseFor200
+#### frontier_service_enable_project.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -885,7 +885,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
 
-#### shield_service_enable_project.ApiResponseFor400
+#### frontier_service_enable_project.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -898,7 +898,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_enable_project.ApiResponseFor401
+#### frontier_service_enable_project.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -911,7 +911,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_enable_project.ApiResponseFor403
+#### frontier_service_enable_project.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -924,7 +924,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_enable_project.ApiResponseFor404
+#### frontier_service_enable_project.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -937,7 +937,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_enable_project.ApiResponseFor500
+#### frontier_service_enable_project.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -950,7 +950,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_enable_project.ApiResponseForDefault
+#### frontier_service_enable_project.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -969,9 +969,9 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **shield_service_get_project**
-<a id="shield_service_get_project"></a>
-> V1beta1GetProjectResponse shield_service_get_project(id)
+# **frontier_service_get_project**
+<a id="frontier_service_get_project"></a>
+> V1beta1GetProjectResponse frontier_service_get_project(id)
 
 Get project
 
@@ -981,14 +981,14 @@ Returns a project by ID
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import project_api
-from shield_api.model.v1beta1_get_project_response import V1beta1GetProjectResponse
-from shield_api.model.rpc_status import RpcStatus
+import frontier_api
+from frontier_api.apis.tags import project_api
+from frontier_api.model.rpc_status import RpcStatus
+from frontier_api.model.v1beta1_get_project_response import V1beta1GetProjectResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -998,12 +998,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_api.ProjectApi(api_client)
 
@@ -1013,12 +1013,12 @@ with shield_api.ApiClient(configuration) as api_client:
     }
     try:
         # Get project
-        api_response = api_instance.shield_service_get_project(
+        api_response = api_instance.frontier_service_get_project(
             path_params=path_params,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling ProjectApi->shield_service_get_project: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling ProjectApi->frontier_service_get_project: %s\n" % e)
 ```
 ### Parameters
 
@@ -1049,15 +1049,15 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_get_project.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_get_project.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_get_project.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_get_project.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_get_project.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_get_project.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_get_project.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_get_project.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_get_project.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_get_project.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_get_project.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_get_project.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_get_project.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_get_project.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_get_project.ApiResponseFor200
+#### frontier_service_get_project.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1070,7 +1070,7 @@ Type | Description  | Notes
 [**V1beta1GetProjectResponse**](../../models/V1beta1GetProjectResponse.md) |  | 
 
 
-#### shield_service_get_project.ApiResponseFor400
+#### frontier_service_get_project.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1083,7 +1083,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_project.ApiResponseFor401
+#### frontier_service_get_project.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1096,7 +1096,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_project.ApiResponseFor403
+#### frontier_service_get_project.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1109,7 +1109,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_project.ApiResponseFor404
+#### frontier_service_get_project.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1122,7 +1122,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_project.ApiResponseFor500
+#### frontier_service_get_project.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1135,7 +1135,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_project.ApiResponseForDefault
+#### frontier_service_get_project.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1154,9 +1154,9 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **shield_service_list_project_admins**
-<a id="shield_service_list_project_admins"></a>
-> V1beta1ListProjectAdminsResponse shield_service_list_project_admins(id)
+# **frontier_service_list_project_admins**
+<a id="frontier_service_list_project_admins"></a>
+> V1beta1ListProjectAdminsResponse frontier_service_list_project_admins(id)
 
 List project admins
 
@@ -1166,14 +1166,14 @@ Returns a collection of admins of a project
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import project_api
-from shield_api.model.v1beta1_list_project_admins_response import V1beta1ListProjectAdminsResponse
-from shield_api.model.rpc_status import RpcStatus
+import frontier_api
+from frontier_api.apis.tags import project_api
+from frontier_api.model.rpc_status import RpcStatus
+from frontier_api.model.v1beta1_list_project_admins_response import V1beta1ListProjectAdminsResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -1183,12 +1183,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_api.ProjectApi(api_client)
 
@@ -1198,12 +1198,12 @@ with shield_api.ApiClient(configuration) as api_client:
     }
     try:
         # List project admins
-        api_response = api_instance.shield_service_list_project_admins(
+        api_response = api_instance.frontier_service_list_project_admins(
             path_params=path_params,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling ProjectApi->shield_service_list_project_admins: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling ProjectApi->frontier_service_list_project_admins: %s\n" % e)
 ```
 ### Parameters
 
@@ -1234,15 +1234,15 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_list_project_admins.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_list_project_admins.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_list_project_admins.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_list_project_admins.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_list_project_admins.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_list_project_admins.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_list_project_admins.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_list_project_admins.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_list_project_admins.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_list_project_admins.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_list_project_admins.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_list_project_admins.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_list_project_admins.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_list_project_admins.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_list_project_admins.ApiResponseFor200
+#### frontier_service_list_project_admins.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1255,7 +1255,7 @@ Type | Description  | Notes
 [**V1beta1ListProjectAdminsResponse**](../../models/V1beta1ListProjectAdminsResponse.md) |  | 
 
 
-#### shield_service_list_project_admins.ApiResponseFor400
+#### frontier_service_list_project_admins.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1268,7 +1268,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_project_admins.ApiResponseFor401
+#### frontier_service_list_project_admins.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1281,7 +1281,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_project_admins.ApiResponseFor403
+#### frontier_service_list_project_admins.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1294,7 +1294,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_project_admins.ApiResponseFor404
+#### frontier_service_list_project_admins.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1307,7 +1307,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_project_admins.ApiResponseFor500
+#### frontier_service_list_project_admins.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1320,7 +1320,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_project_admins.ApiResponseForDefault
+#### frontier_service_list_project_admins.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1339,9 +1339,9 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **shield_service_list_project_users**
-<a id="shield_service_list_project_users"></a>
-> V1beta1ListProjectUsersResponse shield_service_list_project_users(id)
+# **frontier_service_list_project_users**
+<a id="frontier_service_list_project_users"></a>
+> V1beta1ListProjectUsersResponse frontier_service_list_project_users(id)
 
 List project users
 
@@ -1351,14 +1351,14 @@ Returns a collection of users of a project. Filter by user permissions is suppor
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import project_api
-from shield_api.model.v1beta1_list_project_users_response import V1beta1ListProjectUsersResponse
-from shield_api.model.rpc_status import RpcStatus
+import frontier_api
+from frontier_api.apis.tags import project_api
+from frontier_api.model.rpc_status import RpcStatus
+from frontier_api.model.v1beta1_list_project_users_response import V1beta1ListProjectUsersResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -1368,12 +1368,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_api.ProjectApi(api_client)
 
@@ -1385,13 +1385,13 @@ with shield_api.ApiClient(configuration) as api_client:
     }
     try:
         # List project users
-        api_response = api_instance.shield_service_list_project_users(
+        api_response = api_instance.frontier_service_list_project_users(
             path_params=path_params,
             query_params=query_params,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling ProjectApi->shield_service_list_project_users: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling ProjectApi->frontier_service_list_project_users: %s\n" % e)
 
     # example passing only optional values
     path_params = {
@@ -1402,13 +1402,13 @@ with shield_api.ApiClient(configuration) as api_client:
     }
     try:
         # List project users
-        api_response = api_instance.shield_service_list_project_users(
+        api_response = api_instance.frontier_service_list_project_users(
             path_params=path_params,
             query_params=query_params,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling ProjectApi->shield_service_list_project_users: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling ProjectApi->frontier_service_list_project_users: %s\n" % e)
 ```
 ### Parameters
 
@@ -1455,15 +1455,15 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_list_project_users.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_list_project_users.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_list_project_users.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_list_project_users.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_list_project_users.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_list_project_users.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_list_project_users.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_list_project_users.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_list_project_users.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_list_project_users.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_list_project_users.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_list_project_users.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_list_project_users.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_list_project_users.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_list_project_users.ApiResponseFor200
+#### frontier_service_list_project_users.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1476,7 +1476,7 @@ Type | Description  | Notes
 [**V1beta1ListProjectUsersResponse**](../../models/V1beta1ListProjectUsersResponse.md) |  | 
 
 
-#### shield_service_list_project_users.ApiResponseFor400
+#### frontier_service_list_project_users.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1489,7 +1489,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_project_users.ApiResponseFor401
+#### frontier_service_list_project_users.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1502,7 +1502,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_project_users.ApiResponseFor403
+#### frontier_service_list_project_users.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1515,7 +1515,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_project_users.ApiResponseFor404
+#### frontier_service_list_project_users.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1528,7 +1528,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_project_users.ApiResponseFor500
+#### frontier_service_list_project_users.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1541,7 +1541,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_project_users.ApiResponseForDefault
+#### frontier_service_list_project_users.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1560,9 +1560,9 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **shield_service_update_project**
-<a id="shield_service_update_project"></a>
-> V1beta1UpdateProjectResponse shield_service_update_project(idbody)
+# **frontier_service_update_project**
+<a id="frontier_service_update_project"></a>
+> V1beta1UpdateProjectResponse frontier_service_update_project(idbody)
 
 Update project
 
@@ -1572,15 +1572,15 @@ Updates a project by ID
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import project_api
-from shield_api.model.v1beta1_update_project_response import V1beta1UpdateProjectResponse
-from shield_api.model.v1beta1_project_request_body import V1beta1ProjectRequestBody
-from shield_api.model.rpc_status import RpcStatus
+import frontier_api
+from frontier_api.apis.tags import project_api
+from frontier_api.model.rpc_status import RpcStatus
+from frontier_api.model.v1beta1_project_request_body import V1beta1ProjectRequestBody
+from frontier_api.model.v1beta1_update_project_response import V1beta1UpdateProjectResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -1590,12 +1590,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_api.ProjectApi(api_client)
 
@@ -1611,13 +1611,13 @@ with shield_api.ApiClient(configuration) as api_client:
     )
     try:
         # Update project
-        api_response = api_instance.shield_service_update_project(
+        api_response = api_instance.frontier_service_update_project(
             path_params=path_params,
             body=body,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling ProjectApi->shield_service_update_project: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling ProjectApi->frontier_service_update_project: %s\n" % e)
 ```
 ### Parameters
 
@@ -1658,15 +1658,15 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_update_project.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_update_project.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_update_project.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_update_project.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_update_project.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_update_project.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_update_project.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_update_project.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_update_project.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_update_project.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_update_project.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_update_project.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_update_project.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_update_project.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_update_project.ApiResponseFor200
+#### frontier_service_update_project.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1679,7 +1679,7 @@ Type | Description  | Notes
 [**V1beta1UpdateProjectResponse**](../../models/V1beta1UpdateProjectResponse.md) |  | 
 
 
-#### shield_service_update_project.ApiResponseFor400
+#### frontier_service_update_project.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1692,7 +1692,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_update_project.ApiResponseFor401
+#### frontier_service_update_project.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1705,7 +1705,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_update_project.ApiResponseFor403
+#### frontier_service_update_project.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1718,7 +1718,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_update_project.ApiResponseFor404
+#### frontier_service_update_project.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1731,7 +1731,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_update_project.ApiResponseFor500
+#### frontier_service_update_project.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1744,7 +1744,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_update_project.ApiResponseForDefault
+#### frontier_service_update_project.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

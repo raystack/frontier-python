@@ -1,4 +1,4 @@
-# shield_api.model.v1beta1_get_service_user_response.V1beta1GetServiceUserResponse
+# frontier_api.model.v1beta1_get_service_user_response.V1beta1GetServiceUserResponse
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

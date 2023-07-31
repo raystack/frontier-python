@@ -1,4 +1,4 @@
-# shield_api.model.v1beta1_relation.V1beta1Relation
+# frontier_api.model.v1beta1_relation.V1beta1Relation
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

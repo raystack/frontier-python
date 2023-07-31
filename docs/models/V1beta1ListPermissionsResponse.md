@@ -1,4 +1,4 @@
-# shield_api.model.v1beta1_list_permissions_response.V1beta1ListPermissionsResponse
+# frontier_api.model.v1beta1_list_permissions_response.V1beta1ListPermissionsResponse
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

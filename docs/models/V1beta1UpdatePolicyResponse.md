@@ -1,4 +1,4 @@
-# shield_api.model.v1beta1_update_policy_response.V1beta1UpdatePolicyResponse
+# frontier_api.model.v1beta1_update_policy_response.V1beta1UpdatePolicyResponse
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

@@ -1,11 +1,11 @@
 [tool.poetry]
-name = "raystack-shield-api"
+name = "raystack-frontier-api"
 version = "0.1.0"
-description = "Shield APIs"
+description = "Frontier APIs"
 authors = ["Kush Sharma <thekushsharma@gmail.com>"]
 license = "Apache 2.0"
 readme = "README.md"
-packages = [{include = "shield_python"}]
+packages = [{include = "frontier_python"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"

@@ -1,4 +1,4 @@
-# shield_api.model.v1beta1_list_organization_admins_response.V1beta1ListOrganizationAdminsResponse
+# frontier_api.model.v1beta1_list_organization_admins_response.V1beta1ListOrganizationAdminsResponse
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

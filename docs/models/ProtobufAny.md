@@ -1,4 +1,4 @@
-# shield_api.model.protobuf_any.ProtobufAny
+# frontier_api.model.protobuf_any.ProtobufAny
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

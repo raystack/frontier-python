@@ -1,4 +1,4 @@
-# shield_api.model.v1beta1_create_service_user_request.V1beta1CreateServiceUserRequest
+# frontier_api.model.v1beta1_create_service_user_request.V1beta1CreateServiceUserRequest
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

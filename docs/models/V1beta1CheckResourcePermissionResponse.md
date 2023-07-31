@@ -1,4 +1,4 @@
-# shield_api.model.v1beta1_check_resource_permission_response.V1beta1CheckResourcePermissionResponse
+# frontier_api.model.v1beta1_check_resource_permission_response.V1beta1CheckResourcePermissionResponse
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

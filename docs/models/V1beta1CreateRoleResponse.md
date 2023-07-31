@@ -1,4 +1,4 @@
-# shield_api.model.v1beta1_create_role_response.V1beta1CreateRoleResponse
+# frontier_api.model.v1beta1_create_role_response.V1beta1CreateRoleResponse
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

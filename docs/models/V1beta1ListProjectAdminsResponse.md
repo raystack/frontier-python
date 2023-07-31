@@ -1,4 +1,4 @@
-# shield_api.model.v1beta1_list_project_admins_response.V1beta1ListProjectAdminsResponse
+# frontier_api.model.v1beta1_list_project_admins_response.V1beta1ListProjectAdminsResponse
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

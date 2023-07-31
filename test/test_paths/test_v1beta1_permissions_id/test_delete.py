@@ -11,9 +11,9 @@ from unittest.mock import patch
 
 import urllib3
 
-import shield_api
-from shield_api.paths.v1beta1_permissions_id import delete  # noqa: E501
-from shield_api import configuration, schemas, api_client
+import frontier_api
+from frontier_api.paths.v1beta1_permissions_id import delete  # noqa: E501
+from frontier_api import configuration, schemas, api_client
 
 from .. import ApiTestMixin
 

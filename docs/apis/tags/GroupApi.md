@@ -1,21 +1,21 @@
 <a id="__pageTop"></a>
-# shield_api.apis.tags.group_api.GroupApi
+# frontier_api.apis.tags.group_api.GroupApi
 
 All URIs are relative to *http://127.0.0.1:7400*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**admin_service_list_groups**](#admin_service_list_groups) | **get** /v1beta1/admin/groups | List all groups
-[**shield_service_add_group_users**](#shield_service_add_group_users) | **post** /v1beta1/organizations/{orgId}/groups/{id}/users | Add group user
-[**shield_service_create_group**](#shield_service_create_group) | **post** /v1beta1/organizations/{orgId}/groups | Create group
-[**shield_service_delete_group**](#shield_service_delete_group) | **delete** /v1beta1/organizations/{orgId}/groups/{id} | Delete group
-[**shield_service_disable_group**](#shield_service_disable_group) | **post** /v1beta1/organizations/{orgId}/groups/{id}/disable | Disable group
-[**shield_service_enable_group**](#shield_service_enable_group) | **post** /v1beta1/organizations/{orgId}/groups/{id}/enable | Enable group
-[**shield_service_get_group**](#shield_service_get_group) | **get** /v1beta1/organizations/{orgId}/groups/{id} | Get group
-[**shield_service_list_group_users**](#shield_service_list_group_users) | **get** /v1beta1/organizations/{orgId}/groups/{id}/users | List group users
-[**shield_service_list_organization_groups**](#shield_service_list_organization_groups) | **get** /v1beta1/organizations/{orgId}/groups | List organization groups
-[**shield_service_remove_group_user**](#shield_service_remove_group_user) | **delete** /v1beta1/organizations/{orgId}/groups/{id}/users/{userId} | Remove group user
-[**shield_service_update_group**](#shield_service_update_group) | **put** /v1beta1/organizations/{orgId}/groups/{id} | Update group
+[**frontier_service_add_group_users**](#frontier_service_add_group_users) | **post** /v1beta1/organizations/{orgId}/groups/{id}/users | Add group user
+[**frontier_service_create_group**](#frontier_service_create_group) | **post** /v1beta1/organizations/{orgId}/groups | Create group
+[**frontier_service_delete_group**](#frontier_service_delete_group) | **delete** /v1beta1/organizations/{orgId}/groups/{id} | Delete group
+[**frontier_service_disable_group**](#frontier_service_disable_group) | **post** /v1beta1/organizations/{orgId}/groups/{id}/disable | Disable group
+[**frontier_service_enable_group**](#frontier_service_enable_group) | **post** /v1beta1/organizations/{orgId}/groups/{id}/enable | Enable group
+[**frontier_service_get_group**](#frontier_service_get_group) | **get** /v1beta1/organizations/{orgId}/groups/{id} | Get group
+[**frontier_service_list_group_users**](#frontier_service_list_group_users) | **get** /v1beta1/organizations/{orgId}/groups/{id}/users | List group users
+[**frontier_service_list_organization_groups**](#frontier_service_list_organization_groups) | **get** /v1beta1/organizations/{orgId}/groups | List organization groups
+[**frontier_service_remove_group_user**](#frontier_service_remove_group_user) | **delete** /v1beta1/organizations/{orgId}/groups/{id}/users/{userId} | Remove group user
+[**frontier_service_update_group**](#frontier_service_update_group) | **put** /v1beta1/organizations/{orgId}/groups/{id} | Update group
 
 # **admin_service_list_groups**
 <a id="admin_service_list_groups"></a>
@@ -23,20 +23,20 @@ Method | HTTP request | Description
 
 List all groups
 
-Lists all the groups from all the organizations in a Shield instance. It can be filtered by organization and state.
+Lists all the groups from all the organizations in a Frontier instance. It can be filtered by organization and state.
 
 ### Example
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import group_api
-from shield_api.model.rpc_status import RpcStatus
-from shield_api.model.v1beta1_list_groups_response import V1beta1ListGroupsResponse
+import frontier_api
+from frontier_api.apis.tags import group_api
+from frontier_api.model.rpc_status import RpcStatus
+from frontier_api.model.v1beta1_list_groups_response import V1beta1ListGroupsResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -46,12 +46,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = group_api.GroupApi(api_client)
 
@@ -66,7 +66,7 @@ with shield_api.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
+    except frontier_api.ApiException as e:
         print("Exception when calling GroupApi->admin_service_list_groups: %s\n" % e)
 ```
 ### Parameters
@@ -112,7 +112,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 401 | [ApiResponseFor401](#admin_service_list_groups.ApiResponseFor401) | Unauthorized - Authentication is required
 403 | [ApiResponseFor403](#admin_service_list_groups.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
 404 | [ApiResponseFor404](#admin_service_list_groups.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#admin_service_list_groups.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
+500 | [ApiResponseFor500](#admin_service_list_groups.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
 default | [ApiResponseForDefault](#admin_service_list_groups.ApiResponseForDefault) | An unexpected error response.
 
 #### admin_service_list_groups.ApiResponseFor200
@@ -212,9 +212,9 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **shield_service_add_group_users**
-<a id="shield_service_add_group_users"></a>
-> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} shield_service_add_group_users(org_ididbody)
+# **frontier_service_add_group_users**
+<a id="frontier_service_add_group_users"></a>
+> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} frontier_service_add_group_users(org_ididbody)
 
 Add group user
 
@@ -224,13 +224,13 @@ Adds a principle(user and service-users) to a group, existing users in the group
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import group_api
-from shield_api.model.rpc_status import RpcStatus
+import frontier_api
+from frontier_api.apis.tags import group_api
+from frontier_api.model.rpc_status import RpcStatus
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -240,12 +240,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = group_api.GroupApi(api_client)
 
@@ -261,13 +261,13 @@ with shield_api.ApiClient(configuration) as api_client:
     )
     try:
         # Add group user
-        api_response = api_instance.shield_service_add_group_users(
+        api_response = api_instance.frontier_service_add_group_users(
             path_params=path_params,
             body=body,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling GroupApi->shield_service_add_group_users: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling GroupApi->frontier_service_add_group_users: %s\n" % e)
 ```
 ### Parameters
 
@@ -335,15 +335,15 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_add_group_users.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_add_group_users.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_add_group_users.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_add_group_users.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_add_group_users.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_add_group_users.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_add_group_users.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_add_group_users.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_add_group_users.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_add_group_users.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_add_group_users.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_add_group_users.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_add_group_users.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_add_group_users.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_add_group_users.ApiResponseFor200
+#### frontier_service_add_group_users.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -357,7 +357,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
 
-#### shield_service_add_group_users.ApiResponseFor400
+#### frontier_service_add_group_users.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -370,7 +370,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_add_group_users.ApiResponseFor401
+#### frontier_service_add_group_users.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -383,7 +383,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_add_group_users.ApiResponseFor403
+#### frontier_service_add_group_users.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -396,7 +396,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_add_group_users.ApiResponseFor404
+#### frontier_service_add_group_users.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -409,7 +409,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_add_group_users.ApiResponseFor500
+#### frontier_service_add_group_users.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -422,7 +422,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_add_group_users.ApiResponseForDefault
+#### frontier_service_add_group_users.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -441,9 +441,9 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **shield_service_create_group**
-<a id="shield_service_create_group"></a>
-> V1beta1CreateGroupResponse shield_service_create_group(org_idbody)
+# **frontier_service_create_group**
+<a id="frontier_service_create_group"></a>
+> V1beta1CreateGroupResponse frontier_service_create_group(org_idbody)
 
 Create group
 
@@ -453,15 +453,15 @@ Create a new group in an organization which serves as a container for users. The
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import group_api
-from shield_api.model.v1beta1_create_group_response import V1beta1CreateGroupResponse
-from shield_api.model.v1beta1_group_request_body import V1beta1GroupRequestBody
-from shield_api.model.rpc_status import RpcStatus
+import frontier_api
+from frontier_api.apis.tags import group_api
+from frontier_api.model.rpc_status import RpcStatus
+from frontier_api.model.v1beta1_group_request_body import V1beta1GroupRequestBody
+from frontier_api.model.v1beta1_create_group_response import V1beta1CreateGroupResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -471,12 +471,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = group_api.GroupApi(api_client)
 
@@ -491,13 +491,13 @@ with shield_api.ApiClient(configuration) as api_client:
     )
     try:
         # Create group
-        api_response = api_instance.shield_service_create_group(
+        api_response = api_instance.frontier_service_create_group(
             path_params=path_params,
             body=body,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling GroupApi->shield_service_create_group: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling GroupApi->frontier_service_create_group: %s\n" % e)
 ```
 ### Parameters
 
@@ -538,15 +538,15 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_create_group.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_create_group.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_create_group.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_create_group.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_create_group.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_create_group.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_create_group.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_create_group.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_create_group.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_create_group.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_create_group.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_create_group.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_create_group.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_create_group.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_create_group.ApiResponseFor200
+#### frontier_service_create_group.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -559,7 +559,7 @@ Type | Description  | Notes
 [**V1beta1CreateGroupResponse**](../../models/V1beta1CreateGroupResponse.md) |  | 
 
 
-#### shield_service_create_group.ApiResponseFor400
+#### frontier_service_create_group.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -572,7 +572,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_create_group.ApiResponseFor401
+#### frontier_service_create_group.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -585,7 +585,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_create_group.ApiResponseFor403
+#### frontier_service_create_group.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -598,7 +598,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_create_group.ApiResponseFor404
+#### frontier_service_create_group.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -611,7 +611,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_create_group.ApiResponseFor500
+#### frontier_service_create_group.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -624,7 +624,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_create_group.ApiResponseForDefault
+#### frontier_service_create_group.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -643,9 +643,9 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **shield_service_delete_group**
-<a id="shield_service_delete_group"></a>
-> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} shield_service_delete_group(org_idid)
+# **frontier_service_delete_group**
+<a id="frontier_service_delete_group"></a>
+> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} frontier_service_delete_group(org_idid)
 
 Delete group
 
@@ -655,13 +655,13 @@ Delete an organization group permanently and all of its relations
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import group_api
-from shield_api.model.rpc_status import RpcStatus
+import frontier_api
+from frontier_api.apis.tags import group_api
+from frontier_api.model.rpc_status import RpcStatus
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -671,12 +671,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = group_api.GroupApi(api_client)
 
@@ -687,12 +687,12 @@ with shield_api.ApiClient(configuration) as api_client:
     }
     try:
         # Delete group
-        api_response = api_instance.shield_service_delete_group(
+        api_response = api_instance.frontier_service_delete_group(
             path_params=path_params,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling GroupApi->shield_service_delete_group: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling GroupApi->frontier_service_delete_group: %s\n" % e)
 ```
 ### Parameters
 
@@ -731,15 +731,15 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_delete_group.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_delete_group.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_delete_group.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_delete_group.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_delete_group.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_delete_group.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_delete_group.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_delete_group.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_delete_group.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_delete_group.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_delete_group.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_delete_group.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_delete_group.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_delete_group.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_delete_group.ApiResponseFor200
+#### frontier_service_delete_group.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -753,7 +753,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
 
-#### shield_service_delete_group.ApiResponseFor400
+#### frontier_service_delete_group.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -766,7 +766,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_delete_group.ApiResponseFor401
+#### frontier_service_delete_group.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -779,7 +779,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_delete_group.ApiResponseFor403
+#### frontier_service_delete_group.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -792,7 +792,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_delete_group.ApiResponseFor404
+#### frontier_service_delete_group.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -805,7 +805,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_delete_group.ApiResponseFor500
+#### frontier_service_delete_group.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -818,7 +818,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_delete_group.ApiResponseForDefault
+#### frontier_service_delete_group.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -837,9 +837,9 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **shield_service_disable_group**
-<a id="shield_service_disable_group"></a>
-> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} shield_service_disable_group(org_ididbody)
+# **frontier_service_disable_group**
+<a id="frontier_service_disable_group"></a>
+> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} frontier_service_disable_group(org_ididbody)
 
 Disable group
 
@@ -849,13 +849,13 @@ Sets the state of the group as disabled. The group will not be available for acc
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import group_api
-from shield_api.model.rpc_status import RpcStatus
+import frontier_api
+from frontier_api.apis.tags import group_api
+from frontier_api.model.rpc_status import RpcStatus
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -865,12 +865,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = group_api.GroupApi(api_client)
 
@@ -882,13 +882,13 @@ with shield_api.ApiClient(configuration) as api_client:
     body = dict()
     try:
         # Disable group
-        api_response = api_instance.shield_service_disable_group(
+        api_response = api_instance.frontier_service_disable_group(
             path_params=path_params,
             body=body,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling GroupApi->shield_service_disable_group: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling GroupApi->frontier_service_disable_group: %s\n" % e)
 ```
 ### Parameters
 
@@ -938,15 +938,15 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_disable_group.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_disable_group.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_disable_group.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_disable_group.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_disable_group.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_disable_group.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_disable_group.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_disable_group.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_disable_group.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_disable_group.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_disable_group.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_disable_group.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_disable_group.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_disable_group.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_disable_group.ApiResponseFor200
+#### frontier_service_disable_group.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -960,7 +960,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
 
-#### shield_service_disable_group.ApiResponseFor400
+#### frontier_service_disable_group.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -973,7 +973,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_disable_group.ApiResponseFor401
+#### frontier_service_disable_group.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -986,7 +986,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_disable_group.ApiResponseFor403
+#### frontier_service_disable_group.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -999,7 +999,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_disable_group.ApiResponseFor404
+#### frontier_service_disable_group.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1012,7 +1012,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_disable_group.ApiResponseFor500
+#### frontier_service_disable_group.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1025,7 +1025,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_disable_group.ApiResponseForDefault
+#### frontier_service_disable_group.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1044,9 +1044,9 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **shield_service_enable_group**
-<a id="shield_service_enable_group"></a>
-> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} shield_service_enable_group(org_ididbody)
+# **frontier_service_enable_group**
+<a id="frontier_service_enable_group"></a>
+> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} frontier_service_enable_group(org_ididbody)
 
 Enable group
 
@@ -1056,13 +1056,13 @@ Sets the state of the group as enabled. The `enabled` flag is used to determine 
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import group_api
-from shield_api.model.rpc_status import RpcStatus
+import frontier_api
+from frontier_api.apis.tags import group_api
+from frontier_api.model.rpc_status import RpcStatus
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -1072,12 +1072,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = group_api.GroupApi(api_client)
 
@@ -1089,13 +1089,13 @@ with shield_api.ApiClient(configuration) as api_client:
     body = dict()
     try:
         # Enable group
-        api_response = api_instance.shield_service_enable_group(
+        api_response = api_instance.frontier_service_enable_group(
             path_params=path_params,
             body=body,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling GroupApi->shield_service_enable_group: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling GroupApi->frontier_service_enable_group: %s\n" % e)
 ```
 ### Parameters
 
@@ -1145,15 +1145,15 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_enable_group.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_enable_group.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_enable_group.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_enable_group.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_enable_group.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_enable_group.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_enable_group.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_enable_group.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_enable_group.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_enable_group.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_enable_group.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_enable_group.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_enable_group.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_enable_group.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_enable_group.ApiResponseFor200
+#### frontier_service_enable_group.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1167,7 +1167,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
 
-#### shield_service_enable_group.ApiResponseFor400
+#### frontier_service_enable_group.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1180,7 +1180,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_enable_group.ApiResponseFor401
+#### frontier_service_enable_group.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1193,7 +1193,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_enable_group.ApiResponseFor403
+#### frontier_service_enable_group.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1206,7 +1206,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_enable_group.ApiResponseFor404
+#### frontier_service_enable_group.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1219,7 +1219,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_enable_group.ApiResponseFor500
+#### frontier_service_enable_group.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1232,7 +1232,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_enable_group.ApiResponseForDefault
+#### frontier_service_enable_group.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1251,9 +1251,9 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **shield_service_get_group**
-<a id="shield_service_get_group"></a>
-> V1beta1GetGroupResponse shield_service_get_group(org_idid)
+# **frontier_service_get_group**
+<a id="frontier_service_get_group"></a>
+> V1beta1GetGroupResponse frontier_service_get_group(org_idid)
 
 Get group
 
@@ -1261,14 +1261,14 @@ Get group
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import group_api
-from shield_api.model.v1beta1_get_group_response import V1beta1GetGroupResponse
-from shield_api.model.rpc_status import RpcStatus
+import frontier_api
+from frontier_api.apis.tags import group_api
+from frontier_api.model.v1beta1_get_group_response import V1beta1GetGroupResponse
+from frontier_api.model.rpc_status import RpcStatus
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -1278,12 +1278,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = group_api.GroupApi(api_client)
 
@@ -1294,12 +1294,12 @@ with shield_api.ApiClient(configuration) as api_client:
     }
     try:
         # Get group
-        api_response = api_instance.shield_service_get_group(
+        api_response = api_instance.frontier_service_get_group(
             path_params=path_params,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling GroupApi->shield_service_get_group: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling GroupApi->frontier_service_get_group: %s\n" % e)
 ```
 ### Parameters
 
@@ -1338,15 +1338,15 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_get_group.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_get_group.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_get_group.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_get_group.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_get_group.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_get_group.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_get_group.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_get_group.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_get_group.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_get_group.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_get_group.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_get_group.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_get_group.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_get_group.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_get_group.ApiResponseFor200
+#### frontier_service_get_group.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1359,7 +1359,7 @@ Type | Description  | Notes
 [**V1beta1GetGroupResponse**](../../models/V1beta1GetGroupResponse.md) |  | 
 
 
-#### shield_service_get_group.ApiResponseFor400
+#### frontier_service_get_group.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1372,7 +1372,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_group.ApiResponseFor401
+#### frontier_service_get_group.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1385,7 +1385,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_group.ApiResponseFor403
+#### frontier_service_get_group.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1398,7 +1398,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_group.ApiResponseFor404
+#### frontier_service_get_group.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1411,7 +1411,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_group.ApiResponseFor500
+#### frontier_service_get_group.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1424,7 +1424,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_group.ApiResponseForDefault
+#### frontier_service_get_group.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1443,9 +1443,9 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **shield_service_list_group_users**
-<a id="shield_service_list_group_users"></a>
-> V1beta1ListGroupUsersResponse shield_service_list_group_users(org_idid)
+# **frontier_service_list_group_users**
+<a id="frontier_service_list_group_users"></a>
+> V1beta1ListGroupUsersResponse frontier_service_list_group_users(org_idid)
 
 List group users
 
@@ -1455,14 +1455,14 @@ Returns a list of users that belong to a group.
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import group_api
-from shield_api.model.v1beta1_list_group_users_response import V1beta1ListGroupUsersResponse
-from shield_api.model.rpc_status import RpcStatus
+import frontier_api
+from frontier_api.apis.tags import group_api
+from frontier_api.model.rpc_status import RpcStatus
+from frontier_api.model.v1beta1_list_group_users_response import V1beta1ListGroupUsersResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -1472,12 +1472,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = group_api.GroupApi(api_client)
 
@@ -1488,12 +1488,12 @@ with shield_api.ApiClient(configuration) as api_client:
     }
     try:
         # List group users
-        api_response = api_instance.shield_service_list_group_users(
+        api_response = api_instance.frontier_service_list_group_users(
             path_params=path_params,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling GroupApi->shield_service_list_group_users: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling GroupApi->frontier_service_list_group_users: %s\n" % e)
 ```
 ### Parameters
 
@@ -1532,15 +1532,15 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_list_group_users.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_list_group_users.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_list_group_users.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_list_group_users.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_list_group_users.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_list_group_users.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_list_group_users.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_list_group_users.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_list_group_users.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_list_group_users.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_list_group_users.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_list_group_users.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_list_group_users.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_list_group_users.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_list_group_users.ApiResponseFor200
+#### frontier_service_list_group_users.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1553,7 +1553,7 @@ Type | Description  | Notes
 [**V1beta1ListGroupUsersResponse**](../../models/V1beta1ListGroupUsersResponse.md) |  | 
 
 
-#### shield_service_list_group_users.ApiResponseFor400
+#### frontier_service_list_group_users.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1566,7 +1566,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_group_users.ApiResponseFor401
+#### frontier_service_list_group_users.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1579,7 +1579,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_group_users.ApiResponseFor403
+#### frontier_service_list_group_users.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1592,7 +1592,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_group_users.ApiResponseFor404
+#### frontier_service_list_group_users.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1605,7 +1605,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_group_users.ApiResponseFor500
+#### frontier_service_list_group_users.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1618,7 +1618,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_group_users.ApiResponseForDefault
+#### frontier_service_list_group_users.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1637,9 +1637,9 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **shield_service_list_organization_groups**
-<a id="shield_service_list_organization_groups"></a>
-> V1beta1ListOrganizationGroupsResponse shield_service_list_organization_groups(org_id)
+# **frontier_service_list_organization_groups**
+<a id="frontier_service_list_organization_groups"></a>
+> V1beta1ListOrganizationGroupsResponse frontier_service_list_organization_groups(org_id)
 
 List organization groups
 
@@ -1649,14 +1649,14 @@ Get all groups that belong to an organization. The results can be filtered by st
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import group_api
-from shield_api.model.v1beta1_list_organization_groups_response import V1beta1ListOrganizationGroupsResponse
-from shield_api.model.rpc_status import RpcStatus
+import frontier_api
+from frontier_api.apis.tags import group_api
+from frontier_api.model.rpc_status import RpcStatus
+from frontier_api.model.v1beta1_list_organization_groups_response import V1beta1ListOrganizationGroupsResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -1666,12 +1666,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = group_api.GroupApi(api_client)
 
@@ -1683,13 +1683,13 @@ with shield_api.ApiClient(configuration) as api_client:
     }
     try:
         # List organization groups
-        api_response = api_instance.shield_service_list_organization_groups(
+        api_response = api_instance.frontier_service_list_organization_groups(
             path_params=path_params,
             query_params=query_params,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling GroupApi->shield_service_list_organization_groups: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling GroupApi->frontier_service_list_organization_groups: %s\n" % e)
 
     # example passing only optional values
     path_params = {
@@ -1700,13 +1700,13 @@ with shield_api.ApiClient(configuration) as api_client:
     }
     try:
         # List organization groups
-        api_response = api_instance.shield_service_list_organization_groups(
+        api_response = api_instance.frontier_service_list_organization_groups(
             path_params=path_params,
             query_params=query_params,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling GroupApi->shield_service_list_organization_groups: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling GroupApi->frontier_service_list_organization_groups: %s\n" % e)
 ```
 ### Parameters
 
@@ -1753,15 +1753,15 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_list_organization_groups.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_list_organization_groups.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_list_organization_groups.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_list_organization_groups.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_list_organization_groups.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_list_organization_groups.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_list_organization_groups.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_list_organization_groups.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_list_organization_groups.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_list_organization_groups.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_list_organization_groups.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_list_organization_groups.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_list_organization_groups.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_list_organization_groups.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_list_organization_groups.ApiResponseFor200
+#### frontier_service_list_organization_groups.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1774,7 +1774,7 @@ Type | Description  | Notes
 [**V1beta1ListOrganizationGroupsResponse**](../../models/V1beta1ListOrganizationGroupsResponse.md) |  | 
 
 
-#### shield_service_list_organization_groups.ApiResponseFor400
+#### frontier_service_list_organization_groups.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1787,7 +1787,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_organization_groups.ApiResponseFor401
+#### frontier_service_list_organization_groups.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1800,7 +1800,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_organization_groups.ApiResponseFor403
+#### frontier_service_list_organization_groups.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1813,7 +1813,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_organization_groups.ApiResponseFor404
+#### frontier_service_list_organization_groups.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1826,7 +1826,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_organization_groups.ApiResponseFor500
+#### frontier_service_list_organization_groups.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1839,7 +1839,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_organization_groups.ApiResponseForDefault
+#### frontier_service_list_organization_groups.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1858,9 +1858,9 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **shield_service_remove_group_user**
-<a id="shield_service_remove_group_user"></a>
-> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} shield_service_remove_group_user(org_ididuser_id)
+# **frontier_service_remove_group_user**
+<a id="frontier_service_remove_group_user"></a>
+> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} frontier_service_remove_group_user(org_ididuser_id)
 
 Remove group user
 
@@ -1870,13 +1870,13 @@ Removes a principle(user and service-users) from a group. If the user is not in 
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import group_api
-from shield_api.model.rpc_status import RpcStatus
+import frontier_api
+from frontier_api.apis.tags import group_api
+from frontier_api.model.rpc_status import RpcStatus
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -1886,12 +1886,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = group_api.GroupApi(api_client)
 
@@ -1903,12 +1903,12 @@ with shield_api.ApiClient(configuration) as api_client:
     }
     try:
         # Remove group user
-        api_response = api_instance.shield_service_remove_group_user(
+        api_response = api_instance.frontier_service_remove_group_user(
             path_params=path_params,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling GroupApi->shield_service_remove_group_user: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling GroupApi->frontier_service_remove_group_user: %s\n" % e)
 ```
 ### Parameters
 
@@ -1955,15 +1955,15 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_remove_group_user.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_remove_group_user.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_remove_group_user.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_remove_group_user.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_remove_group_user.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_remove_group_user.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_remove_group_user.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_remove_group_user.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_remove_group_user.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_remove_group_user.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_remove_group_user.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_remove_group_user.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_remove_group_user.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_remove_group_user.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_remove_group_user.ApiResponseFor200
+#### frontier_service_remove_group_user.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1977,7 +1977,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
 
-#### shield_service_remove_group_user.ApiResponseFor400
+#### frontier_service_remove_group_user.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1990,7 +1990,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_remove_group_user.ApiResponseFor401
+#### frontier_service_remove_group_user.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -2003,7 +2003,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_remove_group_user.ApiResponseFor403
+#### frontier_service_remove_group_user.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -2016,7 +2016,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_remove_group_user.ApiResponseFor404
+#### frontier_service_remove_group_user.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -2029,7 +2029,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_remove_group_user.ApiResponseFor500
+#### frontier_service_remove_group_user.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -2042,7 +2042,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_remove_group_user.ApiResponseForDefault
+#### frontier_service_remove_group_user.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -2061,9 +2061,9 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **shield_service_update_group**
-<a id="shield_service_update_group"></a>
-> V1beta1UpdateGroupResponse shield_service_update_group(org_ididbody)
+# **frontier_service_update_group**
+<a id="frontier_service_update_group"></a>
+> V1beta1UpdateGroupResponse frontier_service_update_group(org_ididbody)
 
 Update group
 
@@ -2071,15 +2071,15 @@ Update group
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import group_api
-from shield_api.model.v1beta1_group_request_body import V1beta1GroupRequestBody
-from shield_api.model.rpc_status import RpcStatus
-from shield_api.model.v1beta1_update_group_response import V1beta1UpdateGroupResponse
+import frontier_api
+from frontier_api.apis.tags import group_api
+from frontier_api.model.rpc_status import RpcStatus
+from frontier_api.model.v1beta1_group_request_body import V1beta1GroupRequestBody
+from frontier_api.model.v1beta1_update_group_response import V1beta1UpdateGroupResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -2089,12 +2089,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = group_api.GroupApi(api_client)
 
@@ -2110,13 +2110,13 @@ with shield_api.ApiClient(configuration) as api_client:
     )
     try:
         # Update group
-        api_response = api_instance.shield_service_update_group(
+        api_response = api_instance.frontier_service_update_group(
             path_params=path_params,
             body=body,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling GroupApi->shield_service_update_group: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling GroupApi->frontier_service_update_group: %s\n" % e)
 ```
 ### Parameters
 
@@ -2165,15 +2165,15 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_update_group.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_update_group.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_update_group.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_update_group.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_update_group.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_update_group.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_update_group.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_update_group.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_update_group.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_update_group.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_update_group.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_update_group.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_update_group.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_update_group.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_update_group.ApiResponseFor200
+#### frontier_service_update_group.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -2186,7 +2186,7 @@ Type | Description  | Notes
 [**V1beta1UpdateGroupResponse**](../../models/V1beta1UpdateGroupResponse.md) |  | 
 
 
-#### shield_service_update_group.ApiResponseFor400
+#### frontier_service_update_group.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -2199,7 +2199,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_update_group.ApiResponseFor401
+#### frontier_service_update_group.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -2212,7 +2212,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_update_group.ApiResponseFor403
+#### frontier_service_update_group.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -2225,7 +2225,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_update_group.ApiResponseFor404
+#### frontier_service_update_group.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -2238,7 +2238,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_update_group.ApiResponseFor500
+#### frontier_service_update_group.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -2251,7 +2251,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_update_group.ApiResponseForDefault
+#### frontier_service_update_group.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

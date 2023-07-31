@@ -1,4 +1,4 @@
-# shield_api.model.v1beta1_role_request_body.V1beta1RoleRequestBody
+# frontier_api.model.v1beta1_role_request_body.V1beta1RoleRequestBody
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

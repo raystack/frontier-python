@@ -1,4 +1,4 @@
-# shield_api.model.v1beta1_list_organization_groups_response.V1beta1ListOrganizationGroupsResponse
+# frontier_api.model.v1beta1_list_organization_groups_response.V1beta1ListOrganizationGroupsResponse
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

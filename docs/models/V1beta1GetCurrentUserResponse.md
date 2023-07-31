@@ -1,4 +1,4 @@
-# shield_api.model.v1beta1_get_current_user_response.V1beta1GetCurrentUserResponse
+# frontier_api.model.v1beta1_get_current_user_response.V1beta1GetCurrentUserResponse
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

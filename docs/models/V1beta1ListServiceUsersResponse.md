@@ -1,4 +1,4 @@
-# shield_api.model.v1beta1_list_service_users_response.V1beta1ListServiceUsersResponse
+# frontier_api.model.v1beta1_list_service_users_response.V1beta1ListServiceUsersResponse
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

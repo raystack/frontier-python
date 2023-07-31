@@ -1,4 +1,4 @@
-# shield_api.model.v1beta1_namespace.V1beta1Namespace
+# frontier_api.model.v1beta1_namespace.V1beta1Namespace
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

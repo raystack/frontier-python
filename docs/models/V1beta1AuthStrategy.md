@@ -1,4 +1,4 @@
-# shield_api.model.v1beta1_auth_strategy.V1beta1AuthStrategy
+# frontier_api.model.v1beta1_auth_strategy.V1beta1AuthStrategy
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

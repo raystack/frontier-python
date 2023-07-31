@@ -1,5 +1,5 @@
 <a id="__pageTop"></a>
-# shield_api.apis.tags.permission_api.PermissionApi
+# frontier_api.apis.tags.permission_api.PermissionApi
 
 All URIs are relative to *http://127.0.0.1:7400*
 
@@ -8,8 +8,8 @@ Method | HTTP request | Description
 [**admin_service_create_permission**](#admin_service_create_permission) | **post** /v1beta1/permissions | Create platform permission
 [**admin_service_delete_permission**](#admin_service_delete_permission) | **delete** /v1beta1/permissions/{id} | Delete platform permission
 [**admin_service_update_permission**](#admin_service_update_permission) | **put** /v1beta1/permissions/{id} | Update platform permission
-[**shield_service_get_permission**](#shield_service_get_permission) | **get** /v1beta1/permissions/{id} | Get permission
-[**shield_service_list_permissions**](#shield_service_list_permissions) | **get** /v1beta1/permissions | Get all permissions
+[**frontier_service_get_permission**](#frontier_service_get_permission) | **get** /v1beta1/permissions/{id} | Get permission
+[**frontier_service_list_permissions**](#frontier_service_list_permissions) | **get** /v1beta1/permissions | Get all permissions
 
 # **admin_service_create_permission**
 <a id="admin_service_create_permission"></a>
@@ -17,21 +17,21 @@ Method | HTTP request | Description
 
 Create platform permission
 
-Creates a permission. It can be used to grant permissions to all the resources in a Shield instance.
+Creates a permission. It can be used to grant permissions to all the resources in a Frontier instance.
 
 ### Example
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import permission_api
-from shield_api.model.v1beta1_create_permission_response import V1beta1CreatePermissionResponse
-from shield_api.model.v1beta1_create_permission_request import V1beta1CreatePermissionRequest
-from shield_api.model.rpc_status import RpcStatus
+import frontier_api
+from frontier_api.apis.tags import permission_api
+from frontier_api.model.rpc_status import RpcStatus
+from frontier_api.model.v1beta1_create_permission_request import V1beta1CreatePermissionRequest
+from frontier_api.model.v1beta1_create_permission_response import V1beta1CreatePermissionResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -41,12 +41,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = permission_api.PermissionApi(api_client)
 
@@ -68,7 +68,7 @@ with shield_api.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
+    except frontier_api.ApiException as e:
         print("Exception when calling PermissionApi->admin_service_create_permission: %s\n" % e)
 ```
 ### Parameters
@@ -100,7 +100,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 401 | [ApiResponseFor401](#admin_service_create_permission.ApiResponseFor401) | Unauthorized - Authentication is required
 403 | [ApiResponseFor403](#admin_service_create_permission.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
 404 | [ApiResponseFor404](#admin_service_create_permission.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#admin_service_create_permission.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
+500 | [ApiResponseFor500](#admin_service_create_permission.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
 default | [ApiResponseForDefault](#admin_service_create_permission.ApiResponseForDefault) | An unexpected error response.
 
 #### admin_service_create_permission.ApiResponseFor200
@@ -210,13 +210,13 @@ Delete platform permission
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import permission_api
-from shield_api.model.rpc_status import RpcStatus
+import frontier_api
+from frontier_api.apis.tags import permission_api
+from frontier_api.model.rpc_status import RpcStatus
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -226,12 +226,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = permission_api.PermissionApi(api_client)
 
@@ -245,7 +245,7 @@ with shield_api.ApiClient(configuration) as api_client:
             path_params=path_params,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
+    except frontier_api.ApiException as e:
         print("Exception when calling PermissionApi->admin_service_delete_permission: %s\n" % e)
 ```
 ### Parameters
@@ -282,7 +282,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 401 | [ApiResponseFor401](#admin_service_delete_permission.ApiResponseFor401) | Unauthorized - Authentication is required
 403 | [ApiResponseFor403](#admin_service_delete_permission.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
 404 | [ApiResponseFor404](#admin_service_delete_permission.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#admin_service_delete_permission.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
+500 | [ApiResponseFor500](#admin_service_delete_permission.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
 default | [ApiResponseForDefault](#admin_service_delete_permission.ApiResponseForDefault) | An unexpected error response.
 
 #### admin_service_delete_permission.ApiResponseFor200
@@ -389,21 +389,21 @@ Type | Description  | Notes
 
 Update platform permission
 
-Updates a permission by ID. It can be used to grant permissions to all the resources in a Shield instance.
+Updates a permission by ID. It can be used to grant permissions to all the resources in a Frontier instance.
 
 ### Example
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import permission_api
-from shield_api.model.v1beta1_permission_request_body import V1beta1PermissionRequestBody
-from shield_api.model.v1beta1_update_permission_response import V1beta1UpdatePermissionResponse
-from shield_api.model.rpc_status import RpcStatus
+import frontier_api
+from frontier_api.apis.tags import permission_api
+from frontier_api.model.rpc_status import RpcStatus
+from frontier_api.model.v1beta1_permission_request_body import V1beta1PermissionRequestBody
+from frontier_api.model.v1beta1_update_permission_response import V1beta1UpdatePermissionResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -413,12 +413,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = permission_api.PermissionApi(api_client)
 
@@ -440,7 +440,7 @@ with shield_api.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
+    except frontier_api.ApiException as e:
         print("Exception when calling PermissionApi->admin_service_update_permission: %s\n" % e)
 ```
 ### Parameters
@@ -487,7 +487,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 401 | [ApiResponseFor401](#admin_service_update_permission.ApiResponseFor401) | Unauthorized - Authentication is required
 403 | [ApiResponseFor403](#admin_service_update_permission.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
 404 | [ApiResponseFor404](#admin_service_update_permission.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#admin_service_update_permission.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
+500 | [ApiResponseFor500](#admin_service_update_permission.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
 default | [ApiResponseForDefault](#admin_service_update_permission.ApiResponseForDefault) | An unexpected error response.
 
 #### admin_service_update_permission.ApiResponseFor200
@@ -587,9 +587,9 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **shield_service_get_permission**
-<a id="shield_service_get_permission"></a>
-> V1beta1GetPermissionResponse shield_service_get_permission(id)
+# **frontier_service_get_permission**
+<a id="frontier_service_get_permission"></a>
+> V1beta1GetPermissionResponse frontier_service_get_permission(id)
 
 Get permission
 
@@ -599,14 +599,14 @@ Returns a permission by ID
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import permission_api
-from shield_api.model.rpc_status import RpcStatus
-from shield_api.model.v1beta1_get_permission_response import V1beta1GetPermissionResponse
+import frontier_api
+from frontier_api.apis.tags import permission_api
+from frontier_api.model.rpc_status import RpcStatus
+from frontier_api.model.v1beta1_get_permission_response import V1beta1GetPermissionResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -616,12 +616,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = permission_api.PermissionApi(api_client)
 
@@ -631,12 +631,12 @@ with shield_api.ApiClient(configuration) as api_client:
     }
     try:
         # Get permission
-        api_response = api_instance.shield_service_get_permission(
+        api_response = api_instance.frontier_service_get_permission(
             path_params=path_params,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling PermissionApi->shield_service_get_permission: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling PermissionApi->frontier_service_get_permission: %s\n" % e)
 ```
 ### Parameters
 
@@ -667,15 +667,15 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_get_permission.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_get_permission.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_get_permission.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_get_permission.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_get_permission.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_get_permission.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_get_permission.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_get_permission.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_get_permission.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_get_permission.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_get_permission.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_get_permission.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_get_permission.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_get_permission.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_get_permission.ApiResponseFor200
+#### frontier_service_get_permission.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -688,7 +688,7 @@ Type | Description  | Notes
 [**V1beta1GetPermissionResponse**](../../models/V1beta1GetPermissionResponse.md) |  | 
 
 
-#### shield_service_get_permission.ApiResponseFor400
+#### frontier_service_get_permission.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -701,7 +701,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_permission.ApiResponseFor401
+#### frontier_service_get_permission.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -714,7 +714,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_permission.ApiResponseFor403
+#### frontier_service_get_permission.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -727,7 +727,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_permission.ApiResponseFor404
+#### frontier_service_get_permission.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -740,7 +740,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_permission.ApiResponseFor500
+#### frontier_service_get_permission.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -753,7 +753,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_permission.ApiResponseForDefault
+#### frontier_service_get_permission.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -772,9 +772,9 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **shield_service_list_permissions**
-<a id="shield_service_list_permissions"></a>
-> V1beta1ListPermissionsResponse shield_service_list_permissions()
+# **frontier_service_list_permissions**
+<a id="frontier_service_list_permissions"></a>
+> V1beta1ListPermissionsResponse frontier_service_list_permissions()
 
 Get all permissions
 
@@ -782,14 +782,14 @@ Get all permissions
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import permission_api
-from shield_api.model.v1beta1_list_permissions_response import V1beta1ListPermissionsResponse
-from shield_api.model.rpc_status import RpcStatus
+import frontier_api
+from frontier_api.apis.tags import permission_api
+from frontier_api.model.rpc_status import RpcStatus
+from frontier_api.model.v1beta1_list_permissions_response import V1beta1ListPermissionsResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -799,22 +799,22 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = permission_api.PermissionApi(api_client)
 
     # example, this endpoint has no required or optional parameters
     try:
         # Get all permissions
-        api_response = api_instance.shield_service_list_permissions()
+        api_response = api_instance.frontier_service_list_permissions()
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling PermissionApi->shield_service_list_permissions: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling PermissionApi->frontier_service_list_permissions: %s\n" % e)
 ```
 ### Parameters
 This endpoint does not need any parameter.
@@ -824,15 +824,15 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_list_permissions.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_list_permissions.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_list_permissions.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_list_permissions.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_list_permissions.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_list_permissions.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_list_permissions.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_list_permissions.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_list_permissions.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_list_permissions.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_list_permissions.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_list_permissions.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_list_permissions.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_list_permissions.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_list_permissions.ApiResponseFor200
+#### frontier_service_list_permissions.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -845,7 +845,7 @@ Type | Description  | Notes
 [**V1beta1ListPermissionsResponse**](../../models/V1beta1ListPermissionsResponse.md) |  | 
 
 
-#### shield_service_list_permissions.ApiResponseFor400
+#### frontier_service_list_permissions.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -858,7 +858,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_permissions.ApiResponseFor401
+#### frontier_service_list_permissions.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -871,7 +871,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_permissions.ApiResponseFor403
+#### frontier_service_list_permissions.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -884,7 +884,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_permissions.ApiResponseFor404
+#### frontier_service_list_permissions.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -897,7 +897,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_permissions.ApiResponseFor500
+#### frontier_service_list_permissions.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -910,7 +910,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_permissions.ApiResponseForDefault
+#### frontier_service_list_permissions.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

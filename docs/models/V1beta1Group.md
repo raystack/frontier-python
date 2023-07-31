@@ -1,4 +1,4 @@
-# shield_api.model.v1beta1_group.V1beta1Group
+# frontier_api.model.v1beta1_group.V1beta1Group
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

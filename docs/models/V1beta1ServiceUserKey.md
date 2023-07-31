@@ -1,4 +1,4 @@
-# shield_api.model.v1beta1_service_user_key.V1beta1ServiceUserKey
+# frontier_api.model.v1beta1_service_user_key.V1beta1ServiceUserKey
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

@@ -1,4 +1,4 @@
-# shield_api.model.v1beta1_get_jwks_response.V1beta1GetJWKsResponse
+# frontier_api.model.v1beta1_get_jwks_response.V1beta1GetJWKsResponse
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

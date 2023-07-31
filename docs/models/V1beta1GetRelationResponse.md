@@ -1,4 +1,4 @@
-# shield_api.model.v1beta1_get_relation_response.V1beta1GetRelationResponse
+# frontier_api.model.v1beta1_get_relation_response.V1beta1GetRelationResponse
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

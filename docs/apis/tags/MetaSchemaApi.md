@@ -1,37 +1,37 @@
 <a id="__pageTop"></a>
-# shield_api.apis.tags.meta_schema_api.MetaSchemaApi
+# frontier_api.apis.tags.meta_schema_api.MetaSchemaApi
 
 All URIs are relative to *http://127.0.0.1:7400*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**shield_service_create_meta_schema**](#shield_service_create_meta_schema) | **post** /v1beta1/meta/schemas | Create metaschema
-[**shield_service_delete_meta_schema**](#shield_service_delete_meta_schema) | **delete** /v1beta1/meta/schemas/{id} | Delete metaschema
-[**shield_service_get_meta_schema**](#shield_service_get_meta_schema) | **get** /v1beta1/meta/schemas/{id} | Get metaschema
-[**shield_service_list_meta_schemas**](#shield_service_list_meta_schemas) | **get** /v1beta1/meta/schemas | List metaschemas
-[**shield_service_update_meta_schema**](#shield_service_update_meta_schema) | **put** /v1beta1/meta/schemas/{id} | Update metaschema
+[**frontier_service_create_meta_schema**](#frontier_service_create_meta_schema) | **post** /v1beta1/meta/schemas | Create metaschema
+[**frontier_service_delete_meta_schema**](#frontier_service_delete_meta_schema) | **delete** /v1beta1/meta/schemas/{id} | Delete metaschema
+[**frontier_service_get_meta_schema**](#frontier_service_get_meta_schema) | **get** /v1beta1/meta/schemas/{id} | Get metaschema
+[**frontier_service_list_meta_schemas**](#frontier_service_list_meta_schemas) | **get** /v1beta1/meta/schemas | List metaschemas
+[**frontier_service_update_meta_schema**](#frontier_service_update_meta_schema) | **put** /v1beta1/meta/schemas/{id} | Update metaschema
 
-# **shield_service_create_meta_schema**
-<a id="shield_service_create_meta_schema"></a>
-> V1beta1CreateMetaSchemaResponse shield_service_create_meta_schema(body)
+# **frontier_service_create_meta_schema**
+<a id="frontier_service_create_meta_schema"></a>
+> V1beta1CreateMetaSchemaResponse frontier_service_create_meta_schema(body)
 
 Create metaschema
 
-Create a new metadata schema. The metaschema **name** must be unique within the entire Shield instance and can contain only alphanumeric characters, dashes and underscores. The metaschema **schema** must be a valid JSON schema.Please refer to https://json-schema.org/ to know more about json schema. <br/>*Example:* `{name:\"user\",schema:{\"type\":\"object\",\"properties\":{\"label\":{\"type\":\"object\",\"additionalProperties\":{\"type\":\"string\"}},\"description\":{\"type\":\"string\"}}}}`
+Create a new metadata schema. The metaschema **name** must be unique within the entire Frontier instance and can contain only alphanumeric characters, dashes and underscores. The metaschema **schema** must be a valid JSON schema.Please refer to https://json-schema.org/ to know more about json schema. <br/>*Example:* `{name:\"user\",schema:{\"type\":\"object\",\"properties\":{\"label\":{\"type\":\"object\",\"additionalProperties\":{\"type\":\"string\"}},\"description\":{\"type\":\"string\"}}}}`
 
 ### Example
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import meta_schema_api
-from shield_api.model.v1beta1_meta_schema_request_body import V1beta1MetaSchemaRequestBody
-from shield_api.model.v1beta1_create_meta_schema_response import V1beta1CreateMetaSchemaResponse
-from shield_api.model.rpc_status import RpcStatus
+import frontier_api
+from frontier_api.apis.tags import meta_schema_api
+from frontier_api.model.rpc_status import RpcStatus
+from frontier_api.model.v1beta1_create_meta_schema_response import V1beta1CreateMetaSchemaResponse
+from frontier_api.model.v1beta1_meta_schema_request_body import V1beta1MetaSchemaRequestBody
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -41,12 +41,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = meta_schema_api.MetaSchemaApi(api_client)
 
@@ -57,12 +57,12 @@ with shield_api.ApiClient(configuration) as api_client:
     )
     try:
         # Create metaschema
-        api_response = api_instance.shield_service_create_meta_schema(
+        api_response = api_instance.frontier_service_create_meta_schema(
             body=body,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling MetaSchemaApi->shield_service_create_meta_schema: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling MetaSchemaApi->frontier_service_create_meta_schema: %s\n" % e)
 ```
 ### Parameters
 
@@ -88,15 +88,15 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_create_meta_schema.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_create_meta_schema.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_create_meta_schema.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_create_meta_schema.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_create_meta_schema.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_create_meta_schema.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_create_meta_schema.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_create_meta_schema.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_create_meta_schema.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_create_meta_schema.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_create_meta_schema.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_create_meta_schema.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_create_meta_schema.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_create_meta_schema.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_create_meta_schema.ApiResponseFor200
+#### frontier_service_create_meta_schema.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -109,7 +109,7 @@ Type | Description  | Notes
 [**V1beta1CreateMetaSchemaResponse**](../../models/V1beta1CreateMetaSchemaResponse.md) |  | 
 
 
-#### shield_service_create_meta_schema.ApiResponseFor400
+#### frontier_service_create_meta_schema.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -122,7 +122,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_create_meta_schema.ApiResponseFor401
+#### frontier_service_create_meta_schema.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -135,7 +135,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_create_meta_schema.ApiResponseFor403
+#### frontier_service_create_meta_schema.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -148,7 +148,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_create_meta_schema.ApiResponseFor404
+#### frontier_service_create_meta_schema.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -161,7 +161,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_create_meta_schema.ApiResponseFor500
+#### frontier_service_create_meta_schema.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -174,7 +174,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_create_meta_schema.ApiResponseForDefault
+#### frontier_service_create_meta_schema.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -193,9 +193,9 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **shield_service_delete_meta_schema**
-<a id="shield_service_delete_meta_schema"></a>
-> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} shield_service_delete_meta_schema(id)
+# **frontier_service_delete_meta_schema**
+<a id="frontier_service_delete_meta_schema"></a>
+> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} frontier_service_delete_meta_schema(id)
 
 Delete metaschema
 
@@ -205,13 +205,13 @@ Delete a metadata schema permanently. Once deleted the metaschema won't be used 
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import meta_schema_api
-from shield_api.model.rpc_status import RpcStatus
+import frontier_api
+from frontier_api.apis.tags import meta_schema_api
+from frontier_api.model.rpc_status import RpcStatus
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -221,12 +221,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = meta_schema_api.MetaSchemaApi(api_client)
 
@@ -236,12 +236,12 @@ with shield_api.ApiClient(configuration) as api_client:
     }
     try:
         # Delete metaschema
-        api_response = api_instance.shield_service_delete_meta_schema(
+        api_response = api_instance.frontier_service_delete_meta_schema(
             path_params=path_params,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling MetaSchemaApi->shield_service_delete_meta_schema: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling MetaSchemaApi->frontier_service_delete_meta_schema: %s\n" % e)
 ```
 ### Parameters
 
@@ -272,15 +272,15 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_delete_meta_schema.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_delete_meta_schema.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_delete_meta_schema.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_delete_meta_schema.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_delete_meta_schema.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_delete_meta_schema.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_delete_meta_schema.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_delete_meta_schema.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_delete_meta_schema.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_delete_meta_schema.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_delete_meta_schema.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_delete_meta_schema.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_delete_meta_schema.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_delete_meta_schema.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_delete_meta_schema.ApiResponseFor200
+#### frontier_service_delete_meta_schema.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -294,7 +294,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
 
-#### shield_service_delete_meta_schema.ApiResponseFor400
+#### frontier_service_delete_meta_schema.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -307,7 +307,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_delete_meta_schema.ApiResponseFor401
+#### frontier_service_delete_meta_schema.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -320,7 +320,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_delete_meta_schema.ApiResponseFor403
+#### frontier_service_delete_meta_schema.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -333,7 +333,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_delete_meta_schema.ApiResponseFor404
+#### frontier_service_delete_meta_schema.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -346,7 +346,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_delete_meta_schema.ApiResponseFor500
+#### frontier_service_delete_meta_schema.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -359,7 +359,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_delete_meta_schema.ApiResponseForDefault
+#### frontier_service_delete_meta_schema.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -378,9 +378,9 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **shield_service_get_meta_schema**
-<a id="shield_service_get_meta_schema"></a>
-> V1beta1GetMetaSchemaResponse shield_service_get_meta_schema(id)
+# **frontier_service_get_meta_schema**
+<a id="frontier_service_get_meta_schema"></a>
+> V1beta1GetMetaSchemaResponse frontier_service_get_meta_schema(id)
 
 Get metaschema
 
@@ -390,14 +390,14 @@ Get a metadata schema by ID.
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import meta_schema_api
-from shield_api.model.v1beta1_get_meta_schema_response import V1beta1GetMetaSchemaResponse
-from shield_api.model.rpc_status import RpcStatus
+import frontier_api
+from frontier_api.apis.tags import meta_schema_api
+from frontier_api.model.rpc_status import RpcStatus
+from frontier_api.model.v1beta1_get_meta_schema_response import V1beta1GetMetaSchemaResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -407,12 +407,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = meta_schema_api.MetaSchemaApi(api_client)
 
@@ -422,12 +422,12 @@ with shield_api.ApiClient(configuration) as api_client:
     }
     try:
         # Get metaschema
-        api_response = api_instance.shield_service_get_meta_schema(
+        api_response = api_instance.frontier_service_get_meta_schema(
             path_params=path_params,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling MetaSchemaApi->shield_service_get_meta_schema: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling MetaSchemaApi->frontier_service_get_meta_schema: %s\n" % e)
 ```
 ### Parameters
 
@@ -458,15 +458,15 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_get_meta_schema.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_get_meta_schema.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_get_meta_schema.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_get_meta_schema.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_get_meta_schema.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_get_meta_schema.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_get_meta_schema.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_get_meta_schema.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_get_meta_schema.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_get_meta_schema.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_get_meta_schema.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_get_meta_schema.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_get_meta_schema.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_get_meta_schema.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_get_meta_schema.ApiResponseFor200
+#### frontier_service_get_meta_schema.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -479,7 +479,7 @@ Type | Description  | Notes
 [**V1beta1GetMetaSchemaResponse**](../../models/V1beta1GetMetaSchemaResponse.md) |  | 
 
 
-#### shield_service_get_meta_schema.ApiResponseFor400
+#### frontier_service_get_meta_schema.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -492,7 +492,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_meta_schema.ApiResponseFor401
+#### frontier_service_get_meta_schema.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -505,7 +505,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_meta_schema.ApiResponseFor403
+#### frontier_service_get_meta_schema.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -518,7 +518,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_meta_schema.ApiResponseFor404
+#### frontier_service_get_meta_schema.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -531,7 +531,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_meta_schema.ApiResponseFor500
+#### frontier_service_get_meta_schema.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -544,7 +544,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_meta_schema.ApiResponseForDefault
+#### frontier_service_get_meta_schema.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -563,26 +563,26 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **shield_service_list_meta_schemas**
-<a id="shield_service_list_meta_schemas"></a>
-> V1beta1ListMetaSchemasResponse shield_service_list_meta_schemas()
+# **frontier_service_list_meta_schemas**
+<a id="frontier_service_list_meta_schemas"></a>
+> V1beta1ListMetaSchemasResponse frontier_service_list_meta_schemas()
 
 List metaschemas
 
-Returns a list of all metaschemas configured on an instance level in Shield. e.g user, project, organization etc
+Returns a list of all metaschemas configured on an instance level in Frontier. e.g user, project, organization etc
 
 ### Example
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import meta_schema_api
-from shield_api.model.v1beta1_list_meta_schemas_response import V1beta1ListMetaSchemasResponse
-from shield_api.model.rpc_status import RpcStatus
+import frontier_api
+from frontier_api.apis.tags import meta_schema_api
+from frontier_api.model.rpc_status import RpcStatus
+from frontier_api.model.v1beta1_list_meta_schemas_response import V1beta1ListMetaSchemasResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -592,22 +592,22 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = meta_schema_api.MetaSchemaApi(api_client)
 
     # example, this endpoint has no required or optional parameters
     try:
         # List metaschemas
-        api_response = api_instance.shield_service_list_meta_schemas()
+        api_response = api_instance.frontier_service_list_meta_schemas()
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling MetaSchemaApi->shield_service_list_meta_schemas: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling MetaSchemaApi->frontier_service_list_meta_schemas: %s\n" % e)
 ```
 ### Parameters
 This endpoint does not need any parameter.
@@ -617,15 +617,15 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_list_meta_schemas.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_list_meta_schemas.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_list_meta_schemas.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_list_meta_schemas.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_list_meta_schemas.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_list_meta_schemas.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_list_meta_schemas.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_list_meta_schemas.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_list_meta_schemas.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_list_meta_schemas.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_list_meta_schemas.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_list_meta_schemas.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_list_meta_schemas.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_list_meta_schemas.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_list_meta_schemas.ApiResponseFor200
+#### frontier_service_list_meta_schemas.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -638,7 +638,7 @@ Type | Description  | Notes
 [**V1beta1ListMetaSchemasResponse**](../../models/V1beta1ListMetaSchemasResponse.md) |  | 
 
 
-#### shield_service_list_meta_schemas.ApiResponseFor400
+#### frontier_service_list_meta_schemas.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -651,7 +651,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_meta_schemas.ApiResponseFor401
+#### frontier_service_list_meta_schemas.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -664,7 +664,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_meta_schemas.ApiResponseFor403
+#### frontier_service_list_meta_schemas.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -677,7 +677,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_meta_schemas.ApiResponseFor404
+#### frontier_service_list_meta_schemas.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -690,7 +690,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_meta_schemas.ApiResponseFor500
+#### frontier_service_list_meta_schemas.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -703,7 +703,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_meta_schemas.ApiResponseForDefault
+#### frontier_service_list_meta_schemas.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -722,9 +722,9 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **shield_service_update_meta_schema**
-<a id="shield_service_update_meta_schema"></a>
-> V1beta1UpdateMetaSchemaResponse shield_service_update_meta_schema(idbody)
+# **frontier_service_update_meta_schema**
+<a id="frontier_service_update_meta_schema"></a>
+> V1beta1UpdateMetaSchemaResponse frontier_service_update_meta_schema(idbody)
 
 Update metaschema
 
@@ -734,15 +734,15 @@ Update a metadata schema. Only `schema` field of a metaschema can be updated. Th
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import meta_schema_api
-from shield_api.model.v1beta1_meta_schema_request_body import V1beta1MetaSchemaRequestBody
-from shield_api.model.rpc_status import RpcStatus
-from shield_api.model.v1beta1_update_meta_schema_response import V1beta1UpdateMetaSchemaResponse
+import frontier_api
+from frontier_api.apis.tags import meta_schema_api
+from frontier_api.model.rpc_status import RpcStatus
+from frontier_api.model.v1beta1_update_meta_schema_response import V1beta1UpdateMetaSchemaResponse
+from frontier_api.model.v1beta1_meta_schema_request_body import V1beta1MetaSchemaRequestBody
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -752,12 +752,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = meta_schema_api.MetaSchemaApi(api_client)
 
@@ -771,13 +771,13 @@ with shield_api.ApiClient(configuration) as api_client:
     )
     try:
         # Update metaschema
-        api_response = api_instance.shield_service_update_meta_schema(
+        api_response = api_instance.frontier_service_update_meta_schema(
             path_params=path_params,
             body=body,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling MetaSchemaApi->shield_service_update_meta_schema: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling MetaSchemaApi->frontier_service_update_meta_schema: %s\n" % e)
 ```
 ### Parameters
 
@@ -818,15 +818,15 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_update_meta_schema.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_update_meta_schema.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_update_meta_schema.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_update_meta_schema.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_update_meta_schema.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_update_meta_schema.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_update_meta_schema.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_update_meta_schema.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_update_meta_schema.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_update_meta_schema.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_update_meta_schema.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_update_meta_schema.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_update_meta_schema.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_update_meta_schema.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_update_meta_schema.ApiResponseFor200
+#### frontier_service_update_meta_schema.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -839,7 +839,7 @@ Type | Description  | Notes
 [**V1beta1UpdateMetaSchemaResponse**](../../models/V1beta1UpdateMetaSchemaResponse.md) |  | 
 
 
-#### shield_service_update_meta_schema.ApiResponseFor400
+#### frontier_service_update_meta_schema.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -852,7 +852,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_update_meta_schema.ApiResponseFor401
+#### frontier_service_update_meta_schema.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -865,7 +865,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_update_meta_schema.ApiResponseFor403
+#### frontier_service_update_meta_schema.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -878,7 +878,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_update_meta_schema.ApiResponseFor404
+#### frontier_service_update_meta_schema.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -891,7 +891,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_update_meta_schema.ApiResponseFor500
+#### frontier_service_update_meta_schema.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -904,7 +904,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_update_meta_schema.ApiResponseForDefault
+#### frontier_service_update_meta_schema.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

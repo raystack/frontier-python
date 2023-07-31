@@ -1,4 +1,4 @@
-# shield_api.model.v1beta1_json_web_key.V1beta1JSONWebKey
+# frontier_api.model.v1beta1_json_web_key.V1beta1JSONWebKey
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

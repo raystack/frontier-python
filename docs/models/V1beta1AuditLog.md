@@ -1,4 +1,4 @@
-# shield_api.model.v1beta1_audit_log.V1beta1AuditLog
+# frontier_api.model.v1beta1_audit_log.V1beta1AuditLog
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

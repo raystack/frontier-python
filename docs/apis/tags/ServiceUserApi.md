@@ -1,25 +1,25 @@
 <a id="__pageTop"></a>
-# shield_api.apis.tags.service_user_api.ServiceUserApi
+# frontier_api.apis.tags.service_user_api.ServiceUserApi
 
 All URIs are relative to *http://127.0.0.1:7400*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**shield_service_create_service_user**](#shield_service_create_service_user) | **post** /v1beta1/serviceusers | Create service user
-[**shield_service_create_service_user_key**](#shield_service_create_service_user_key) | **post** /v1beta1/serviceusers/{id}/keys | Create service user key
-[**shield_service_create_service_user_secret**](#shield_service_create_service_user_secret) | **post** /v1beta1/serviceusers/{id}/secrets | Create service user secret
-[**shield_service_delete_service_user**](#shield_service_delete_service_user) | **delete** /v1beta1/serviceusers/{id} | Delete service user
-[**shield_service_delete_service_user_key**](#shield_service_delete_service_user_key) | **delete** /v1beta1/serviceusers/{id}/keys/{keyId} | Delete service user key
-[**shield_service_delete_service_user_secret**](#shield_service_delete_service_user_secret) | **delete** /v1beta1/serviceusers/{id}/secrets/{secretId} | Delete service user secret
-[**shield_service_get_service_user**](#shield_service_get_service_user) | **get** /v1beta1/serviceusers/{id} | Get service user
-[**shield_service_get_service_user_key**](#shield_service_get_service_user_key) | **get** /v1beta1/serviceusers/{id}/keys/{keyId} | Get service user key
-[**shield_service_list_service_user_keys**](#shield_service_list_service_user_keys) | **get** /v1beta1/serviceusers/{id}/keys | List service user keys
-[**shield_service_list_service_user_secrets**](#shield_service_list_service_user_secrets) | **get** /v1beta1/serviceusers/{id}/secrets | List service user secrets
-[**shield_service_list_service_users**](#shield_service_list_service_users) | **get** /v1beta1/serviceusers | List org service users
+[**frontier_service_create_service_user**](#frontier_service_create_service_user) | **post** /v1beta1/serviceusers | Create service user
+[**frontier_service_create_service_user_key**](#frontier_service_create_service_user_key) | **post** /v1beta1/serviceusers/{id}/keys | Create service user key
+[**frontier_service_create_service_user_secret**](#frontier_service_create_service_user_secret) | **post** /v1beta1/serviceusers/{id}/secrets | Create service user secret
+[**frontier_service_delete_service_user**](#frontier_service_delete_service_user) | **delete** /v1beta1/serviceusers/{id} | Delete service user
+[**frontier_service_delete_service_user_key**](#frontier_service_delete_service_user_key) | **delete** /v1beta1/serviceusers/{id}/keys/{keyId} | Delete service user key
+[**frontier_service_delete_service_user_secret**](#frontier_service_delete_service_user_secret) | **delete** /v1beta1/serviceusers/{id}/secrets/{secretId} | Delete service user secret
+[**frontier_service_get_service_user**](#frontier_service_get_service_user) | **get** /v1beta1/serviceusers/{id} | Get service user
+[**frontier_service_get_service_user_key**](#frontier_service_get_service_user_key) | **get** /v1beta1/serviceusers/{id}/keys/{keyId} | Get service user key
+[**frontier_service_list_service_user_keys**](#frontier_service_list_service_user_keys) | **get** /v1beta1/serviceusers/{id}/keys | List service user keys
+[**frontier_service_list_service_user_secrets**](#frontier_service_list_service_user_secrets) | **get** /v1beta1/serviceusers/{id}/secrets | List service user secrets
+[**frontier_service_list_service_users**](#frontier_service_list_service_users) | **get** /v1beta1/serviceusers | List org service users
 
-# **shield_service_create_service_user**
-<a id="shield_service_create_service_user"></a>
-> V1beta1CreateServiceUserResponse shield_service_create_service_user(body)
+# **frontier_service_create_service_user**
+<a id="frontier_service_create_service_user"></a>
+> V1beta1CreateServiceUserResponse frontier_service_create_service_user(body)
 
 Create service user
 
@@ -29,15 +29,15 @@ Create a service user.
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import service_user_api
-from shield_api.model.v1beta1_create_service_user_response import V1beta1CreateServiceUserResponse
-from shield_api.model.v1beta1_create_service_user_request import V1beta1CreateServiceUserRequest
-from shield_api.model.rpc_status import RpcStatus
+import frontier_api
+from frontier_api.apis.tags import service_user_api
+from frontier_api.model.v1beta1_create_service_user_request import V1beta1CreateServiceUserRequest
+from frontier_api.model.rpc_status import RpcStatus
+from frontier_api.model.v1beta1_create_service_user_response import V1beta1CreateServiceUserResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -47,12 +47,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = service_user_api.ServiceUserApi(api_client)
 
@@ -66,12 +66,12 @@ with shield_api.ApiClient(configuration) as api_client:
     )
     try:
         # Create service user
-        api_response = api_instance.shield_service_create_service_user(
+        api_response = api_instance.frontier_service_create_service_user(
             body=body,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling ServiceUserApi->shield_service_create_service_user: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling ServiceUserApi->frontier_service_create_service_user: %s\n" % e)
 ```
 ### Parameters
 
@@ -97,15 +97,15 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_create_service_user.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_create_service_user.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_create_service_user.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_create_service_user.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_create_service_user.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_create_service_user.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_create_service_user.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_create_service_user.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_create_service_user.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_create_service_user.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_create_service_user.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_create_service_user.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_create_service_user.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_create_service_user.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_create_service_user.ApiResponseFor200
+#### frontier_service_create_service_user.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -118,7 +118,7 @@ Type | Description  | Notes
 [**V1beta1CreateServiceUserResponse**](../../models/V1beta1CreateServiceUserResponse.md) |  | 
 
 
-#### shield_service_create_service_user.ApiResponseFor400
+#### frontier_service_create_service_user.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -131,7 +131,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_create_service_user.ApiResponseFor401
+#### frontier_service_create_service_user.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -144,7 +144,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_create_service_user.ApiResponseFor403
+#### frontier_service_create_service_user.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -157,7 +157,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_create_service_user.ApiResponseFor404
+#### frontier_service_create_service_user.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -170,7 +170,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_create_service_user.ApiResponseFor500
+#### frontier_service_create_service_user.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -183,7 +183,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_create_service_user.ApiResponseForDefault
+#### frontier_service_create_service_user.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -202,9 +202,9 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **shield_service_create_service_user_key**
-<a id="shield_service_create_service_user_key"></a>
-> V1beta1CreateServiceUserKeyResponse shield_service_create_service_user_key(idbody)
+# **frontier_service_create_service_user_key**
+<a id="frontier_service_create_service_user_key"></a>
+> V1beta1CreateServiceUserKeyResponse frontier_service_create_service_user_key(idbody)
 
 Create service user key
 
@@ -214,14 +214,14 @@ Generate a service user key and return it, the private key part of the response 
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import service_user_api
-from shield_api.model.rpc_status import RpcStatus
-from shield_api.model.v1beta1_create_service_user_key_response import V1beta1CreateServiceUserKeyResponse
+import frontier_api
+from frontier_api.apis.tags import service_user_api
+from frontier_api.model.rpc_status import RpcStatus
+from frontier_api.model.v1beta1_create_service_user_key_response import V1beta1CreateServiceUserKeyResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -231,12 +231,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = service_user_api.ServiceUserApi(api_client)
 
@@ -249,13 +249,13 @@ with shield_api.ApiClient(configuration) as api_client:
     )
     try:
         # Create service user key
-        api_response = api_instance.shield_service_create_service_user_key(
+        api_response = api_instance.frontier_service_create_service_user_key(
             path_params=path_params,
             body=body,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling ServiceUserApi->shield_service_create_service_user_key: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling ServiceUserApi->frontier_service_create_service_user_key: %s\n" % e)
 ```
 ### Parameters
 
@@ -303,15 +303,15 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_create_service_user_key.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_create_service_user_key.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_create_service_user_key.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_create_service_user_key.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_create_service_user_key.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_create_service_user_key.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_create_service_user_key.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_create_service_user_key.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_create_service_user_key.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_create_service_user_key.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_create_service_user_key.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_create_service_user_key.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_create_service_user_key.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_create_service_user_key.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_create_service_user_key.ApiResponseFor200
+#### frontier_service_create_service_user_key.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -324,7 +324,7 @@ Type | Description  | Notes
 [**V1beta1CreateServiceUserKeyResponse**](../../models/V1beta1CreateServiceUserKeyResponse.md) |  | 
 
 
-#### shield_service_create_service_user_key.ApiResponseFor400
+#### frontier_service_create_service_user_key.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -337,7 +337,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_create_service_user_key.ApiResponseFor401
+#### frontier_service_create_service_user_key.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -350,7 +350,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_create_service_user_key.ApiResponseFor403
+#### frontier_service_create_service_user_key.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -363,7 +363,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_create_service_user_key.ApiResponseFor404
+#### frontier_service_create_service_user_key.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -376,7 +376,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_create_service_user_key.ApiResponseFor500
+#### frontier_service_create_service_user_key.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -389,7 +389,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_create_service_user_key.ApiResponseForDefault
+#### frontier_service_create_service_user_key.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -408,9 +408,9 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **shield_service_create_service_user_secret**
-<a id="shield_service_create_service_user_secret"></a>
-> V1beta1CreateServiceUserSecretResponse shield_service_create_service_user_secret(idbody)
+# **frontier_service_create_service_user_secret**
+<a id="frontier_service_create_service_user_secret"></a>
+> V1beta1CreateServiceUserSecretResponse frontier_service_create_service_user_secret(idbody)
 
 Create service user secret
 
@@ -420,14 +420,14 @@ Generate a service user secret and return it. The secret value will not be persi
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import service_user_api
-from shield_api.model.v1beta1_create_service_user_secret_response import V1beta1CreateServiceUserSecretResponse
-from shield_api.model.rpc_status import RpcStatus
+import frontier_api
+from frontier_api.apis.tags import service_user_api
+from frontier_api.model.rpc_status import RpcStatus
+from frontier_api.model.v1beta1_create_service_user_secret_response import V1beta1CreateServiceUserSecretResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -437,12 +437,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = service_user_api.ServiceUserApi(api_client)
 
@@ -455,13 +455,13 @@ with shield_api.ApiClient(configuration) as api_client:
     )
     try:
         # Create service user secret
-        api_response = api_instance.shield_service_create_service_user_secret(
+        api_response = api_instance.frontier_service_create_service_user_secret(
             path_params=path_params,
             body=body,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling ServiceUserApi->shield_service_create_service_user_secret: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling ServiceUserApi->frontier_service_create_service_user_secret: %s\n" % e)
 ```
 ### Parameters
 
@@ -509,15 +509,15 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_create_service_user_secret.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_create_service_user_secret.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_create_service_user_secret.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_create_service_user_secret.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_create_service_user_secret.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_create_service_user_secret.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_create_service_user_secret.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_create_service_user_secret.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_create_service_user_secret.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_create_service_user_secret.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_create_service_user_secret.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_create_service_user_secret.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_create_service_user_secret.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_create_service_user_secret.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_create_service_user_secret.ApiResponseFor200
+#### frontier_service_create_service_user_secret.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -530,7 +530,7 @@ Type | Description  | Notes
 [**V1beta1CreateServiceUserSecretResponse**](../../models/V1beta1CreateServiceUserSecretResponse.md) |  | 
 
 
-#### shield_service_create_service_user_secret.ApiResponseFor400
+#### frontier_service_create_service_user_secret.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -543,7 +543,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_create_service_user_secret.ApiResponseFor401
+#### frontier_service_create_service_user_secret.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -556,7 +556,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_create_service_user_secret.ApiResponseFor403
+#### frontier_service_create_service_user_secret.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -569,7 +569,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_create_service_user_secret.ApiResponseFor404
+#### frontier_service_create_service_user_secret.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -582,7 +582,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_create_service_user_secret.ApiResponseFor500
+#### frontier_service_create_service_user_secret.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -595,7 +595,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_create_service_user_secret.ApiResponseForDefault
+#### frontier_service_create_service_user_secret.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -614,9 +614,9 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **shield_service_delete_service_user**
-<a id="shield_service_delete_service_user"></a>
-> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} shield_service_delete_service_user(id)
+# **frontier_service_delete_service_user**
+<a id="frontier_service_delete_service_user"></a>
+> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} frontier_service_delete_service_user(id)
 
 Delete service user
 
@@ -626,13 +626,13 @@ Delete a service user permanently and all of its relations (keys, organizations,
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import service_user_api
-from shield_api.model.rpc_status import RpcStatus
+import frontier_api
+from frontier_api.apis.tags import service_user_api
+from frontier_api.model.rpc_status import RpcStatus
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -642,12 +642,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = service_user_api.ServiceUserApi(api_client)
 
@@ -659,13 +659,13 @@ with shield_api.ApiClient(configuration) as api_client:
     }
     try:
         # Delete service user
-        api_response = api_instance.shield_service_delete_service_user(
+        api_response = api_instance.frontier_service_delete_service_user(
             path_params=path_params,
             query_params=query_params,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling ServiceUserApi->shield_service_delete_service_user: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling ServiceUserApi->frontier_service_delete_service_user: %s\n" % e)
 
     # example passing only optional values
     path_params = {
@@ -676,13 +676,13 @@ with shield_api.ApiClient(configuration) as api_client:
     }
     try:
         # Delete service user
-        api_response = api_instance.shield_service_delete_service_user(
+        api_response = api_instance.frontier_service_delete_service_user(
             path_params=path_params,
             query_params=query_params,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling ServiceUserApi->shield_service_delete_service_user: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling ServiceUserApi->frontier_service_delete_service_user: %s\n" % e)
 ```
 ### Parameters
 
@@ -729,15 +729,15 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_delete_service_user.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_delete_service_user.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_delete_service_user.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_delete_service_user.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_delete_service_user.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_delete_service_user.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_delete_service_user.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_delete_service_user.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_delete_service_user.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_delete_service_user.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_delete_service_user.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_delete_service_user.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_delete_service_user.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_delete_service_user.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_delete_service_user.ApiResponseFor200
+#### frontier_service_delete_service_user.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -751,7 +751,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
 
-#### shield_service_delete_service_user.ApiResponseFor400
+#### frontier_service_delete_service_user.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -764,7 +764,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_delete_service_user.ApiResponseFor401
+#### frontier_service_delete_service_user.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -777,7 +777,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_delete_service_user.ApiResponseFor403
+#### frontier_service_delete_service_user.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -790,7 +790,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_delete_service_user.ApiResponseFor404
+#### frontier_service_delete_service_user.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -803,7 +803,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_delete_service_user.ApiResponseFor500
+#### frontier_service_delete_service_user.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -816,7 +816,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_delete_service_user.ApiResponseForDefault
+#### frontier_service_delete_service_user.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -835,9 +835,9 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **shield_service_delete_service_user_key**
-<a id="shield_service_delete_service_user_key"></a>
-> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} shield_service_delete_service_user_key(idkey_id)
+# **frontier_service_delete_service_user_key**
+<a id="frontier_service_delete_service_user_key"></a>
+> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} frontier_service_delete_service_user_key(idkey_id)
 
 Delete service user key
 
@@ -847,13 +847,13 @@ Delete a service user key permanently.
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import service_user_api
-from shield_api.model.rpc_status import RpcStatus
+import frontier_api
+from frontier_api.apis.tags import service_user_api
+from frontier_api.model.rpc_status import RpcStatus
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -863,12 +863,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = service_user_api.ServiceUserApi(api_client)
 
@@ -879,12 +879,12 @@ with shield_api.ApiClient(configuration) as api_client:
     }
     try:
         # Delete service user key
-        api_response = api_instance.shield_service_delete_service_user_key(
+        api_response = api_instance.frontier_service_delete_service_user_key(
             path_params=path_params,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling ServiceUserApi->shield_service_delete_service_user_key: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling ServiceUserApi->frontier_service_delete_service_user_key: %s\n" % e)
 ```
 ### Parameters
 
@@ -923,15 +923,15 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_delete_service_user_key.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_delete_service_user_key.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_delete_service_user_key.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_delete_service_user_key.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_delete_service_user_key.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_delete_service_user_key.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_delete_service_user_key.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_delete_service_user_key.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_delete_service_user_key.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_delete_service_user_key.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_delete_service_user_key.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_delete_service_user_key.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_delete_service_user_key.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_delete_service_user_key.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_delete_service_user_key.ApiResponseFor200
+#### frontier_service_delete_service_user_key.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -945,7 +945,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
 
-#### shield_service_delete_service_user_key.ApiResponseFor400
+#### frontier_service_delete_service_user_key.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -958,7 +958,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_delete_service_user_key.ApiResponseFor401
+#### frontier_service_delete_service_user_key.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -971,7 +971,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_delete_service_user_key.ApiResponseFor403
+#### frontier_service_delete_service_user_key.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -984,7 +984,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_delete_service_user_key.ApiResponseFor404
+#### frontier_service_delete_service_user_key.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -997,7 +997,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_delete_service_user_key.ApiResponseFor500
+#### frontier_service_delete_service_user_key.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1010,7 +1010,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_delete_service_user_key.ApiResponseForDefault
+#### frontier_service_delete_service_user_key.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1029,9 +1029,9 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **shield_service_delete_service_user_secret**
-<a id="shield_service_delete_service_user_secret"></a>
-> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} shield_service_delete_service_user_secret(idsecret_id)
+# **frontier_service_delete_service_user_secret**
+<a id="frontier_service_delete_service_user_secret"></a>
+> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} frontier_service_delete_service_user_secret(idsecret_id)
 
 Delete service user secret
 
@@ -1041,13 +1041,13 @@ Delete a service user secret credential.
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import service_user_api
-from shield_api.model.rpc_status import RpcStatus
+import frontier_api
+from frontier_api.apis.tags import service_user_api
+from frontier_api.model.rpc_status import RpcStatus
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -1057,12 +1057,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = service_user_api.ServiceUserApi(api_client)
 
@@ -1073,12 +1073,12 @@ with shield_api.ApiClient(configuration) as api_client:
     }
     try:
         # Delete service user secret
-        api_response = api_instance.shield_service_delete_service_user_secret(
+        api_response = api_instance.frontier_service_delete_service_user_secret(
             path_params=path_params,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling ServiceUserApi->shield_service_delete_service_user_secret: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling ServiceUserApi->frontier_service_delete_service_user_secret: %s\n" % e)
 ```
 ### Parameters
 
@@ -1117,15 +1117,15 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_delete_service_user_secret.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_delete_service_user_secret.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_delete_service_user_secret.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_delete_service_user_secret.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_delete_service_user_secret.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_delete_service_user_secret.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_delete_service_user_secret.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_delete_service_user_secret.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_delete_service_user_secret.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_delete_service_user_secret.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_delete_service_user_secret.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_delete_service_user_secret.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_delete_service_user_secret.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_delete_service_user_secret.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_delete_service_user_secret.ApiResponseFor200
+#### frontier_service_delete_service_user_secret.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1139,7 +1139,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
 
-#### shield_service_delete_service_user_secret.ApiResponseFor400
+#### frontier_service_delete_service_user_secret.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1152,7 +1152,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_delete_service_user_secret.ApiResponseFor401
+#### frontier_service_delete_service_user_secret.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1165,7 +1165,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_delete_service_user_secret.ApiResponseFor403
+#### frontier_service_delete_service_user_secret.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1178,7 +1178,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_delete_service_user_secret.ApiResponseFor404
+#### frontier_service_delete_service_user_secret.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1191,7 +1191,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_delete_service_user_secret.ApiResponseFor500
+#### frontier_service_delete_service_user_secret.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1204,7 +1204,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_delete_service_user_secret.ApiResponseForDefault
+#### frontier_service_delete_service_user_secret.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1223,9 +1223,9 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **shield_service_get_service_user**
-<a id="shield_service_get_service_user"></a>
-> V1beta1GetServiceUserResponse shield_service_get_service_user(id)
+# **frontier_service_get_service_user**
+<a id="frontier_service_get_service_user"></a>
+> V1beta1GetServiceUserResponse frontier_service_get_service_user(id)
 
 Get service user
 
@@ -1235,14 +1235,14 @@ Get service user details by its id.
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import service_user_api
-from shield_api.model.rpc_status import RpcStatus
-from shield_api.model.v1beta1_get_service_user_response import V1beta1GetServiceUserResponse
+import frontier_api
+from frontier_api.apis.tags import service_user_api
+from frontier_api.model.rpc_status import RpcStatus
+from frontier_api.model.v1beta1_get_service_user_response import V1beta1GetServiceUserResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -1252,12 +1252,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = service_user_api.ServiceUserApi(api_client)
 
@@ -1267,12 +1267,12 @@ with shield_api.ApiClient(configuration) as api_client:
     }
     try:
         # Get service user
-        api_response = api_instance.shield_service_get_service_user(
+        api_response = api_instance.frontier_service_get_service_user(
             path_params=path_params,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling ServiceUserApi->shield_service_get_service_user: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling ServiceUserApi->frontier_service_get_service_user: %s\n" % e)
 ```
 ### Parameters
 
@@ -1303,15 +1303,15 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_get_service_user.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_get_service_user.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_get_service_user.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_get_service_user.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_get_service_user.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_get_service_user.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_get_service_user.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_get_service_user.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_get_service_user.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_get_service_user.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_get_service_user.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_get_service_user.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_get_service_user.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_get_service_user.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_get_service_user.ApiResponseFor200
+#### frontier_service_get_service_user.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1324,7 +1324,7 @@ Type | Description  | Notes
 [**V1beta1GetServiceUserResponse**](../../models/V1beta1GetServiceUserResponse.md) |  | 
 
 
-#### shield_service_get_service_user.ApiResponseFor400
+#### frontier_service_get_service_user.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1337,7 +1337,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_service_user.ApiResponseFor401
+#### frontier_service_get_service_user.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1350,7 +1350,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_service_user.ApiResponseFor403
+#### frontier_service_get_service_user.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1363,7 +1363,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_service_user.ApiResponseFor404
+#### frontier_service_get_service_user.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1376,7 +1376,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_service_user.ApiResponseFor500
+#### frontier_service_get_service_user.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1389,7 +1389,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_service_user.ApiResponseForDefault
+#### frontier_service_get_service_user.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1408,9 +1408,9 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **shield_service_get_service_user_key**
-<a id="shield_service_get_service_user_key"></a>
-> V1beta1GetServiceUserKeyResponse shield_service_get_service_user_key(idkey_id)
+# **frontier_service_get_service_user_key**
+<a id="frontier_service_get_service_user_key"></a>
+> V1beta1GetServiceUserKeyResponse frontier_service_get_service_user_key(idkey_id)
 
 Get service user key
 
@@ -1420,14 +1420,14 @@ Get a service user public RSA JWK set.
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import service_user_api
-from shield_api.model.v1beta1_get_service_user_key_response import V1beta1GetServiceUserKeyResponse
-from shield_api.model.rpc_status import RpcStatus
+import frontier_api
+from frontier_api.apis.tags import service_user_api
+from frontier_api.model.rpc_status import RpcStatus
+from frontier_api.model.v1beta1_get_service_user_key_response import V1beta1GetServiceUserKeyResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -1437,12 +1437,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = service_user_api.ServiceUserApi(api_client)
 
@@ -1453,12 +1453,12 @@ with shield_api.ApiClient(configuration) as api_client:
     }
     try:
         # Get service user key
-        api_response = api_instance.shield_service_get_service_user_key(
+        api_response = api_instance.frontier_service_get_service_user_key(
             path_params=path_params,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling ServiceUserApi->shield_service_get_service_user_key: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling ServiceUserApi->frontier_service_get_service_user_key: %s\n" % e)
 ```
 ### Parameters
 
@@ -1497,15 +1497,15 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_get_service_user_key.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_get_service_user_key.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_get_service_user_key.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_get_service_user_key.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_get_service_user_key.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_get_service_user_key.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_get_service_user_key.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_get_service_user_key.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_get_service_user_key.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_get_service_user_key.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_get_service_user_key.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_get_service_user_key.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_get_service_user_key.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_get_service_user_key.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_get_service_user_key.ApiResponseFor200
+#### frontier_service_get_service_user_key.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1518,7 +1518,7 @@ Type | Description  | Notes
 [**V1beta1GetServiceUserKeyResponse**](../../models/V1beta1GetServiceUserKeyResponse.md) |  | 
 
 
-#### shield_service_get_service_user_key.ApiResponseFor400
+#### frontier_service_get_service_user_key.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1531,7 +1531,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_service_user_key.ApiResponseFor401
+#### frontier_service_get_service_user_key.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1544,7 +1544,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_service_user_key.ApiResponseFor403
+#### frontier_service_get_service_user_key.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1557,7 +1557,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_service_user_key.ApiResponseFor404
+#### frontier_service_get_service_user_key.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1570,7 +1570,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_service_user_key.ApiResponseFor500
+#### frontier_service_get_service_user_key.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1583,7 +1583,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_service_user_key.ApiResponseForDefault
+#### frontier_service_get_service_user_key.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1602,9 +1602,9 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **shield_service_list_service_user_keys**
-<a id="shield_service_list_service_user_keys"></a>
-> V1beta1ListServiceUserKeysResponse shield_service_list_service_user_keys(id)
+# **frontier_service_list_service_user_keys**
+<a id="frontier_service_list_service_user_keys"></a>
+> V1beta1ListServiceUserKeysResponse frontier_service_list_service_user_keys(id)
 
 List service user keys
 
@@ -1614,14 +1614,14 @@ List all the keys of a service user with its details except jwk.
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import service_user_api
-from shield_api.model.v1beta1_list_service_user_keys_response import V1beta1ListServiceUserKeysResponse
-from shield_api.model.rpc_status import RpcStatus
+import frontier_api
+from frontier_api.apis.tags import service_user_api
+from frontier_api.model.rpc_status import RpcStatus
+from frontier_api.model.v1beta1_list_service_user_keys_response import V1beta1ListServiceUserKeysResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -1631,12 +1631,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = service_user_api.ServiceUserApi(api_client)
 
@@ -1646,12 +1646,12 @@ with shield_api.ApiClient(configuration) as api_client:
     }
     try:
         # List service user keys
-        api_response = api_instance.shield_service_list_service_user_keys(
+        api_response = api_instance.frontier_service_list_service_user_keys(
             path_params=path_params,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling ServiceUserApi->shield_service_list_service_user_keys: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling ServiceUserApi->frontier_service_list_service_user_keys: %s\n" % e)
 ```
 ### Parameters
 
@@ -1682,15 +1682,15 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_list_service_user_keys.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_list_service_user_keys.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_list_service_user_keys.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_list_service_user_keys.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_list_service_user_keys.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_list_service_user_keys.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_list_service_user_keys.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_list_service_user_keys.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_list_service_user_keys.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_list_service_user_keys.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_list_service_user_keys.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_list_service_user_keys.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_list_service_user_keys.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_list_service_user_keys.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_list_service_user_keys.ApiResponseFor200
+#### frontier_service_list_service_user_keys.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1703,7 +1703,7 @@ Type | Description  | Notes
 [**V1beta1ListServiceUserKeysResponse**](../../models/V1beta1ListServiceUserKeysResponse.md) |  | 
 
 
-#### shield_service_list_service_user_keys.ApiResponseFor400
+#### frontier_service_list_service_user_keys.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1716,7 +1716,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_service_user_keys.ApiResponseFor401
+#### frontier_service_list_service_user_keys.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1729,7 +1729,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_service_user_keys.ApiResponseFor403
+#### frontier_service_list_service_user_keys.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1742,7 +1742,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_service_user_keys.ApiResponseFor404
+#### frontier_service_list_service_user_keys.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1755,7 +1755,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_service_user_keys.ApiResponseFor500
+#### frontier_service_list_service_user_keys.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1768,7 +1768,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_service_user_keys.ApiResponseForDefault
+#### frontier_service_list_service_user_keys.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1787,9 +1787,9 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **shield_service_list_service_user_secrets**
-<a id="shield_service_list_service_user_secrets"></a>
-> V1beta1ListServiceUserSecretsResponse shield_service_list_service_user_secrets(id)
+# **frontier_service_list_service_user_secrets**
+<a id="frontier_service_list_service_user_secrets"></a>
+> V1beta1ListServiceUserSecretsResponse frontier_service_list_service_user_secrets(id)
 
 List service user secrets
 
@@ -1799,14 +1799,14 @@ List all the secrets of a service user.
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import service_user_api
-from shield_api.model.v1beta1_list_service_user_secrets_response import V1beta1ListServiceUserSecretsResponse
-from shield_api.model.rpc_status import RpcStatus
+import frontier_api
+from frontier_api.apis.tags import service_user_api
+from frontier_api.model.rpc_status import RpcStatus
+from frontier_api.model.v1beta1_list_service_user_secrets_response import V1beta1ListServiceUserSecretsResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -1816,12 +1816,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = service_user_api.ServiceUserApi(api_client)
 
@@ -1831,12 +1831,12 @@ with shield_api.ApiClient(configuration) as api_client:
     }
     try:
         # List service user secrets
-        api_response = api_instance.shield_service_list_service_user_secrets(
+        api_response = api_instance.frontier_service_list_service_user_secrets(
             path_params=path_params,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling ServiceUserApi->shield_service_list_service_user_secrets: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling ServiceUserApi->frontier_service_list_service_user_secrets: %s\n" % e)
 ```
 ### Parameters
 
@@ -1867,15 +1867,15 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_list_service_user_secrets.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_list_service_user_secrets.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_list_service_user_secrets.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_list_service_user_secrets.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_list_service_user_secrets.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_list_service_user_secrets.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_list_service_user_secrets.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_list_service_user_secrets.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_list_service_user_secrets.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_list_service_user_secrets.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_list_service_user_secrets.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_list_service_user_secrets.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_list_service_user_secrets.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_list_service_user_secrets.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_list_service_user_secrets.ApiResponseFor200
+#### frontier_service_list_service_user_secrets.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1888,7 +1888,7 @@ Type | Description  | Notes
 [**V1beta1ListServiceUserSecretsResponse**](../../models/V1beta1ListServiceUserSecretsResponse.md) |  | 
 
 
-#### shield_service_list_service_user_secrets.ApiResponseFor400
+#### frontier_service_list_service_user_secrets.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1901,7 +1901,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_service_user_secrets.ApiResponseFor401
+#### frontier_service_list_service_user_secrets.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1914,7 +1914,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_service_user_secrets.ApiResponseFor403
+#### frontier_service_list_service_user_secrets.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1927,7 +1927,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_service_user_secrets.ApiResponseFor404
+#### frontier_service_list_service_user_secrets.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1940,7 +1940,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_service_user_secrets.ApiResponseFor500
+#### frontier_service_list_service_user_secrets.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1953,7 +1953,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_service_user_secrets.ApiResponseForDefault
+#### frontier_service_list_service_user_secrets.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1972,26 +1972,26 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **shield_service_list_service_users**
-<a id="shield_service_list_service_users"></a>
-> V1beta1ListServiceUsersResponse shield_service_list_service_users(org_id)
+# **frontier_service_list_service_users**
+<a id="frontier_service_list_service_users"></a>
+> V1beta1ListServiceUsersResponse frontier_service_list_service_users(org_id)
 
 List org service users
 
-Returns the service user of an organization in a Shield instance. It can be filter by it's state
+Returns the service user of an organization in a Frontier instance. It can be filter by it's state
 
 ### Example
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import service_user_api
-from shield_api.model.v1beta1_list_service_users_response import V1beta1ListServiceUsersResponse
-from shield_api.model.rpc_status import RpcStatus
+import frontier_api
+from frontier_api.apis.tags import service_user_api
+from frontier_api.model.rpc_status import RpcStatus
+from frontier_api.model.v1beta1_list_service_users_response import V1beta1ListServiceUsersResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -2001,12 +2001,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = service_user_api.ServiceUserApi(api_client)
 
@@ -2016,12 +2016,12 @@ with shield_api.ApiClient(configuration) as api_client:
     }
     try:
         # List org service users
-        api_response = api_instance.shield_service_list_service_users(
+        api_response = api_instance.frontier_service_list_service_users(
             query_params=query_params,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling ServiceUserApi->shield_service_list_service_users: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling ServiceUserApi->frontier_service_list_service_users: %s\n" % e)
 
     # example passing only optional values
     query_params = {
@@ -2030,12 +2030,12 @@ with shield_api.ApiClient(configuration) as api_client:
     }
     try:
         # List org service users
-        api_response = api_instance.shield_service_list_service_users(
+        api_response = api_instance.frontier_service_list_service_users(
             query_params=query_params,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling ServiceUserApi->shield_service_list_service_users: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling ServiceUserApi->frontier_service_list_service_users: %s\n" % e)
 ```
 ### Parameters
 
@@ -2075,15 +2075,15 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_list_service_users.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_list_service_users.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_list_service_users.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_list_service_users.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_list_service_users.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_list_service_users.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_list_service_users.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_list_service_users.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_list_service_users.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_list_service_users.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_list_service_users.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_list_service_users.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_list_service_users.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_list_service_users.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_list_service_users.ApiResponseFor200
+#### frontier_service_list_service_users.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -2096,7 +2096,7 @@ Type | Description  | Notes
 [**V1beta1ListServiceUsersResponse**](../../models/V1beta1ListServiceUsersResponse.md) |  | 
 
 
-#### shield_service_list_service_users.ApiResponseFor400
+#### frontier_service_list_service_users.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -2109,7 +2109,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_service_users.ApiResponseFor401
+#### frontier_service_list_service_users.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -2122,7 +2122,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_service_users.ApiResponseFor403
+#### frontier_service_list_service_users.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -2135,7 +2135,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_service_users.ApiResponseFor404
+#### frontier_service_list_service_users.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -2148,7 +2148,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_service_users.ApiResponseFor500
+#### frontier_service_list_service_users.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -2161,7 +2161,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_list_service_users.ApiResponseForDefault
+#### frontier_service_list_service_users.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

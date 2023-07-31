@@ -1,4 +1,4 @@
-# shield_api.model.v1beta1_list_namespaces_response.V1beta1ListNamespacesResponse
+# frontier_api.model.v1beta1_list_namespaces_response.V1beta1ListNamespacesResponse
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

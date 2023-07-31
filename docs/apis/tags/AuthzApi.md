@@ -1,35 +1,35 @@
 <a id="__pageTop"></a>
-# shield_api.apis.tags.authz_api.AuthzApi
+# frontier_api.apis.tags.authz_api.AuthzApi
 
 All URIs are relative to *http://127.0.0.1:7400*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**shield_service_check_resource_permission**](#shield_service_check_resource_permission) | **post** /v1beta1/check | Check
-[**shield_service_get_jwks**](#shield_service_get_jwks) | **get** /v1beta1/auth/jwks | Get well known JWKs
-[**shield_service_get_jwks2**](#shield_service_get_jwks2) | **get** /.well-known/jwks.json | Get well known JWKs
+[**frontier_service_check_resource_permission**](#frontier_service_check_resource_permission) | **post** /v1beta1/check | Check
+[**frontier_service_get_jwks**](#frontier_service_get_jwks) | **get** /v1beta1/auth/jwks | Get well known JWKs
+[**frontier_service_get_jwks2**](#frontier_service_get_jwks2) | **get** /.well-known/jwks.json | Get well known JWKs
 
-# **shield_service_check_resource_permission**
-<a id="shield_service_check_resource_permission"></a>
-> V1beta1CheckResourcePermissionResponse shield_service_check_resource_permission(body)
+# **frontier_service_check_resource_permission**
+<a id="frontier_service_check_resource_permission"></a>
+> V1beta1CheckResourcePermissionResponse frontier_service_check_resource_permission(body)
 
 Check
 
-Returns true if a principal has required permissions to access a resource and false otherwise.<br/> Note the principal can be a user or a service account, and Shield will the credentials from the current logged in principal from the session cookie (if any), or the client id and secret (in case of service users) or the access token (in case of human user accounts).
+Returns true if a principal has required permissions to access a resource and false otherwise.<br/> Note the principal can be a user or a service account, and Frontier will the credentials from the current logged in principal from the session cookie (if any), or the client id and secret (in case of service users) or the access token (in case of human user accounts).
 
 ### Example
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import authz_api
-from shield_api.model.v1beta1_check_resource_permission_request import V1beta1CheckResourcePermissionRequest
-from shield_api.model.rpc_status import RpcStatus
-from shield_api.model.v1beta1_check_resource_permission_response import V1beta1CheckResourcePermissionResponse
+import frontier_api
+from frontier_api.apis.tags import authz_api
+from frontier_api.model.v1beta1_check_resource_permission_request import V1beta1CheckResourcePermissionRequest
+from frontier_api.model.rpc_status import RpcStatus
+from frontier_api.model.v1beta1_check_resource_permission_response import V1beta1CheckResourcePermissionResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -39,12 +39,12 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = authz_api.AuthzApi(api_client)
 
@@ -57,12 +57,12 @@ with shield_api.ApiClient(configuration) as api_client:
     )
     try:
         # Check
-        api_response = api_instance.shield_service_check_resource_permission(
+        api_response = api_instance.frontier_service_check_resource_permission(
             body=body,
         )
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling AuthzApi->shield_service_check_resource_permission: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling AuthzApi->frontier_service_check_resource_permission: %s\n" % e)
 ```
 ### Parameters
 
@@ -88,15 +88,15 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_check_resource_permission.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_check_resource_permission.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_check_resource_permission.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_check_resource_permission.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_check_resource_permission.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_check_resource_permission.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_check_resource_permission.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_check_resource_permission.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_check_resource_permission.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_check_resource_permission.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_check_resource_permission.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_check_resource_permission.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_check_resource_permission.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_check_resource_permission.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_check_resource_permission.ApiResponseFor200
+#### frontier_service_check_resource_permission.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -109,7 +109,7 @@ Type | Description  | Notes
 [**V1beta1CheckResourcePermissionResponse**](../../models/V1beta1CheckResourcePermissionResponse.md) |  | 
 
 
-#### shield_service_check_resource_permission.ApiResponseFor400
+#### frontier_service_check_resource_permission.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -122,7 +122,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_check_resource_permission.ApiResponseFor401
+#### frontier_service_check_resource_permission.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -135,7 +135,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_check_resource_permission.ApiResponseFor403
+#### frontier_service_check_resource_permission.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -148,7 +148,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_check_resource_permission.ApiResponseFor404
+#### frontier_service_check_resource_permission.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -161,7 +161,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_check_resource_permission.ApiResponseFor500
+#### frontier_service_check_resource_permission.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -174,7 +174,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_check_resource_permission.ApiResponseForDefault
+#### frontier_service_check_resource_permission.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -193,9 +193,9 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **shield_service_get_jwks**
-<a id="shield_service_get_jwks"></a>
-> V1beta1GetJWKsResponse shield_service_get_jwks()
+# **frontier_service_get_jwks**
+<a id="frontier_service_get_jwks"></a>
+> V1beta1GetJWKsResponse frontier_service_get_jwks()
 
 Get well known JWKs
 
@@ -203,14 +203,14 @@ Get well known JWKs
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import authz_api
-from shield_api.model.v1beta1_get_jwks_response import V1beta1GetJWKsResponse
-from shield_api.model.rpc_status import RpcStatus
+import frontier_api
+from frontier_api.apis.tags import authz_api
+from frontier_api.model.rpc_status import RpcStatus
+from frontier_api.model.v1beta1_get_jwks_response import V1beta1GetJWKsResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -220,22 +220,22 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = authz_api.AuthzApi(api_client)
 
     # example, this endpoint has no required or optional parameters
     try:
         # Get well known JWKs
-        api_response = api_instance.shield_service_get_jwks()
+        api_response = api_instance.frontier_service_get_jwks()
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling AuthzApi->shield_service_get_jwks: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling AuthzApi->frontier_service_get_jwks: %s\n" % e)
 ```
 ### Parameters
 This endpoint does not need any parameter.
@@ -245,15 +245,15 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_get_jwks.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_get_jwks.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_get_jwks.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_get_jwks.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_get_jwks.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_get_jwks.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_get_jwks.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_get_jwks.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_get_jwks.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_get_jwks.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_get_jwks.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_get_jwks.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_get_jwks.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_get_jwks.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_get_jwks.ApiResponseFor200
+#### frontier_service_get_jwks.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -266,7 +266,7 @@ Type | Description  | Notes
 [**V1beta1GetJWKsResponse**](../../models/V1beta1GetJWKsResponse.md) |  | 
 
 
-#### shield_service_get_jwks.ApiResponseFor400
+#### frontier_service_get_jwks.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -279,7 +279,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_jwks.ApiResponseFor401
+#### frontier_service_get_jwks.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -292,7 +292,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_jwks.ApiResponseFor403
+#### frontier_service_get_jwks.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -305,7 +305,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_jwks.ApiResponseFor404
+#### frontier_service_get_jwks.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -318,7 +318,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_jwks.ApiResponseFor500
+#### frontier_service_get_jwks.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -331,7 +331,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_jwks.ApiResponseForDefault
+#### frontier_service_get_jwks.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -350,9 +350,9 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **shield_service_get_jwks2**
-<a id="shield_service_get_jwks2"></a>
-> V1beta1GetJWKsResponse shield_service_get_jwks2()
+# **frontier_service_get_jwks2**
+<a id="frontier_service_get_jwks2"></a>
+> V1beta1GetJWKsResponse frontier_service_get_jwks2()
 
 Get well known JWKs
 
@@ -360,14 +360,14 @@ Get well known JWKs
 
 * Basic Authentication (Basic):
 ```python
-import shield_api
-from shield_api.apis.tags import authz_api
-from shield_api.model.v1beta1_get_jwks_response import V1beta1GetJWKsResponse
-from shield_api.model.rpc_status import RpcStatus
+import frontier_api
+from frontier_api.apis.tags import authz_api
+from frontier_api.model.rpc_status import RpcStatus
+from frontier_api.model.v1beta1_get_jwks_response import V1beta1GetJWKsResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://127.0.0.1:7400
 # See configuration.py for a list of all supported configuration parameters.
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     host = "http://127.0.0.1:7400"
 )
 
@@ -377,22 +377,22 @@ configuration = shield_api.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: Basic
-configuration = shield_api.Configuration(
+configuration = frontier_api.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 # Enter a context with an instance of the API client
-with shield_api.ApiClient(configuration) as api_client:
+with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = authz_api.AuthzApi(api_client)
 
     # example, this endpoint has no required or optional parameters
     try:
         # Get well known JWKs
-        api_response = api_instance.shield_service_get_jwks2()
+        api_response = api_instance.frontier_service_get_jwks2()
         pprint(api_response)
-    except shield_api.ApiException as e:
-        print("Exception when calling AuthzApi->shield_service_get_jwks2: %s\n" % e)
+    except frontier_api.ApiException as e:
+        print("Exception when calling AuthzApi->frontier_service_get_jwks2: %s\n" % e)
 ```
 ### Parameters
 This endpoint does not need any parameter.
@@ -402,15 +402,15 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#shield_service_get_jwks2.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#shield_service_get_jwks2.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#shield_service_get_jwks2.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#shield_service_get_jwks2.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#shield_service_get_jwks2.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#shield_service_get_jwks2.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Shield server.
-default | [ApiResponseForDefault](#shield_service_get_jwks2.ApiResponseForDefault) | An unexpected error response.
+200 | [ApiResponseFor200](#frontier_service_get_jwks2.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_get_jwks2.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_get_jwks2.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_get_jwks2.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_get_jwks2.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_get_jwks2.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_get_jwks2.ApiResponseForDefault) | An unexpected error response.
 
-#### shield_service_get_jwks2.ApiResponseFor200
+#### frontier_service_get_jwks2.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -423,7 +423,7 @@ Type | Description  | Notes
 [**V1beta1GetJWKsResponse**](../../models/V1beta1GetJWKsResponse.md) |  | 
 
 
-#### shield_service_get_jwks2.ApiResponseFor400
+#### frontier_service_get_jwks2.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -436,7 +436,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_jwks2.ApiResponseFor401
+#### frontier_service_get_jwks2.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -449,7 +449,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_jwks2.ApiResponseFor403
+#### frontier_service_get_jwks2.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -462,7 +462,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_jwks2.ApiResponseFor404
+#### frontier_service_get_jwks2.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -475,7 +475,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_jwks2.ApiResponseFor500
+#### frontier_service_get_jwks2.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -488,7 +488,7 @@ Type | Description  | Notes
 [**RpcStatus**](../../models/RpcStatus.md) |  | 
 
 
-#### shield_service_get_jwks2.ApiResponseForDefault
+#### frontier_service_get_jwks2.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

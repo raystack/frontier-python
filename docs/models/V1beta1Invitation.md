@@ -1,4 +1,4 @@
-# shield_api.model.v1beta1_invitation.V1beta1Invitation
+# frontier_api.model.v1beta1_invitation.V1beta1Invitation
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

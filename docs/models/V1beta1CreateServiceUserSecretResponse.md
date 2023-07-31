@@ -1,4 +1,4 @@
-# shield_api.model.v1beta1_create_service_user_secret_response.V1beta1CreateServiceUserSecretResponse
+# frontier_api.model.v1beta1_create_service_user_secret_response.V1beta1CreateServiceUserSecretResponse
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
