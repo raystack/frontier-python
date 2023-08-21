@@ -66,6 +66,29 @@ class V1beta1Invitation(
             metadata = schemas.DictSchema
             createdAt = schemas.DateTimeSchema
             expiresAt = schemas.DateTimeSchema
+            
+            
+            class roleIds(
+                schemas.ListSchema
+            ):
+            
+            
+                class MetaOapg:
+                    items = schemas.StrSchema
+            
+                def __new__(
+                    cls,
+                    _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
+                    _configuration: typing.Optional[schemas.Configuration] = None,
+                ) -> 'roleIds':
+                    return super().__new__(
+                        cls,
+                        _arg,
+                        _configuration=_configuration,
+                    )
+            
+                def __getitem__(self, i: int) -> MetaOapg.items:
+                    return super().__getitem__(i)
             __annotations__ = {
                 "id": id,
                 "userId": userId,
@@ -74,6 +97,7 @@ class V1beta1Invitation(
                 "metadata": metadata,
                 "createdAt": createdAt,
                 "expiresAt": expiresAt,
+                "roleIds": roleIds,
             }
     
     @typing.overload
@@ -98,9 +122,12 @@ class V1beta1Invitation(
     def __getitem__(self, name: typing_extensions.Literal["expiresAt"]) -> MetaOapg.properties.expiresAt: ...
     
     @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["roleIds"]) -> MetaOapg.properties.roleIds: ...
+    
+    @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["id", "userId", "orgId", "groupIds", "metadata", "createdAt", "expiresAt", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["id", "userId", "orgId", "groupIds", "metadata", "createdAt", "expiresAt", "roleIds", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -127,9 +154,12 @@ class V1beta1Invitation(
     def get_item_oapg(self, name: typing_extensions.Literal["expiresAt"]) -> typing.Union[MetaOapg.properties.expiresAt, schemas.Unset]: ...
     
     @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["roleIds"]) -> typing.Union[MetaOapg.properties.roleIds, schemas.Unset]: ...
+    
+    @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["id", "userId", "orgId", "groupIds", "metadata", "createdAt", "expiresAt", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["id", "userId", "orgId", "groupIds", "metadata", "createdAt", "expiresAt", "roleIds", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -143,6 +173,7 @@ class V1beta1Invitation(
         metadata: typing.Union[MetaOapg.properties.metadata, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         createdAt: typing.Union[MetaOapg.properties.createdAt, str, datetime, schemas.Unset] = schemas.unset,
         expiresAt: typing.Union[MetaOapg.properties.expiresAt, str, datetime, schemas.Unset] = schemas.unset,
+        roleIds: typing.Union[MetaOapg.properties.roleIds, list, tuple, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'V1beta1Invitation':
@@ -156,6 +187,7 @@ class V1beta1Invitation(
             metadata=metadata,
             createdAt=createdAt,
             expiresAt=expiresAt,
+            roleIds=roleIds,
             _configuration=_configuration,
             **kwargs,
         )

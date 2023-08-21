@@ -17,6 +17,7 @@ from frontier_api.apis.tags.authn_api import AuthnApi
 from frontier_api.apis.tags.authz_api import AuthzApi
 from frontier_api.apis.tags.meta_schema_api import MetaSchemaApi
 from frontier_api.apis.tags.namespace_api import NamespaceApi
+from frontier_api.apis.tags.preference_api import PreferenceApi
 from frontier_api.apis.tags.service_user_api import ServiceUserApi
 
 TagToApi = typing_extensions.TypedDict(
@@ -38,6 +39,7 @@ TagToApi = typing_extensions.TypedDict(
         TagValues.AUTHZ: AuthzApi,
         TagValues.META_SCHEMA: MetaSchemaApi,
         TagValues.NAMESPACE: NamespaceApi,
+        TagValues.PREFERENCE: PreferenceApi,
         TagValues.SERVICE_USER: ServiceUserApi,
     }
 )
@@ -60,6 +62,7 @@ tag_to_api = TagToApi(
         TagValues.AUTHZ: AuthzApi,
         TagValues.META_SCHEMA: MetaSchemaApi,
         TagValues.NAMESPACE: NamespaceApi,
+        TagValues.PREFERENCE: PreferenceApi,
         TagValues.SERVICE_USER: ServiceUserApi,
     }
 )

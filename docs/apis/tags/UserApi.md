@@ -1182,7 +1182,7 @@ Type | Description  | Notes
 
 Get my organizations
 
-Get all organizations the current user belongs to
+This API returns two list of organizations for the current logged in user. i) The list of orgs which the current user is already a part of ii) The list of organizations the user can join directly (based on domain whitelisted and verified by the org). This list will also contain orgs of which user is already a part of. Note: the domain needs to be verified by the org before the it is returned as one of the joinable orgs by domain
 
 ### Example
 
@@ -1341,7 +1341,7 @@ Type | Description  | Notes
 
 Get user organizations
 
-Get all the organizations a user belongs to.
+This API returns two list of organizations for the user. i) The list of orgs which the current user is already a part of ii) The list of organizations the user can join directly (based on domain whitelisted and verified by the org). This list will also contain orgs of which user is already a part of. Note: the domain needs to be verified by the org before the it is returned as one of the joinable orgs by domain
 
 ### Example
 

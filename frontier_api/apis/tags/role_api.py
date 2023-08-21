@@ -12,6 +12,7 @@
 
 from frontier_api.paths.v1beta1_roles.post import AdminServiceCreateRole
 from frontier_api.paths.v1beta1_roles_id.delete import AdminServiceDeleteRole
+from frontier_api.paths.v1beta1_roles_id.put import AdminServiceUpdateRole
 from frontier_api.paths.v1beta1_organizations_org_id_roles.post import FrontierServiceCreateOrganizationRole
 from frontier_api.paths.v1beta1_organizations_org_id_roles_id.delete import FrontierServiceDeleteOrganizationRole
 from frontier_api.paths.v1beta1_organizations_org_id_roles_id.get import FrontierServiceGetOrganizationRole
@@ -23,6 +24,7 @@ from frontier_api.paths.v1beta1_organizations_org_id_roles_id.put import Frontie
 class RoleApi(
     AdminServiceCreateRole,
     AdminServiceDeleteRole,
+    AdminServiceUpdateRole,
     FrontierServiceCreateOrganizationRole,
     FrontierServiceDeleteOrganizationRole,
     FrontierServiceGetOrganizationRole,

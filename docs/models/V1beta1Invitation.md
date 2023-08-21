@@ -15,6 +15,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **[metadata](#metadata)** | dict, frozendict.frozendict,  | frozendict.frozendict,  | The metadata of the invitation. | [optional] 
 **createdAt** | str, datetime,  | str,  | The time when the invitation was created. | [optional] value must conform to RFC-3339 date-time
 **expiresAt** | str, datetime,  | str,  | The time when the invitation expires. | [optional] value must conform to RFC-3339 date-time
+**[roleIds](#roleIds)** | list, tuple,  | tuple,  | The list of role ids to which the user is invited in an organization. | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # groupIds
@@ -39,6 +40,20 @@ The metadata of the invitation.
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  | The metadata of the invitation. | 
+
+# roleIds
+
+The list of role ids to which the user is invited in an organization.
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | The list of role ids to which the user is invited in an organization. | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  |  | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

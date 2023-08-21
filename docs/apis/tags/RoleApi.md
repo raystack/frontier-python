@@ -7,6 +7,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**admin_service_create_role**](#admin_service_create_role) | **post** /v1beta1/roles | Create platform role
 [**admin_service_delete_role**](#admin_service_delete_role) | **delete** /v1beta1/roles/{id} | Delete platform role
+[**admin_service_update_role**](#admin_service_update_role) | **put** /v1beta1/roles/{id} | Update role
 [**frontier_service_create_organization_role**](#frontier_service_create_organization_role) | **post** /v1beta1/organizations/{orgId}/roles | Create organization role
 [**frontier_service_delete_organization_role**](#frontier_service_delete_organization_role) | **delete** /v1beta1/organizations/{orgId}/roles/{id} | Delete organization role
 [**frontier_service_get_organization_role**](#frontier_service_get_organization_role) | **get** /v1beta1/organizations/{orgId}/roles/{id} | Get organization role
@@ -367,6 +368,211 @@ Type | Description  | Notes
 
 
 #### admin_service_delete_role.ApiResponseForDefault
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor0ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RpcStatus**](../../models/RpcStatus.md) |  | 
+
+
+### Authorization
+
+[Basic](../../../README.md#Basic)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **admin_service_update_role**
+<a id="admin_service_update_role"></a>
+> V1beta1UpdateRoleResponse admin_service_update_role(idbody)
+
+Update role
+
+Update a role title, description and permissions.
+
+### Example
+
+* Basic Authentication (Basic):
+```python
+import frontier_api
+from frontier_api.apis.tags import role_api
+from frontier_api.model.rpc_status import RpcStatus
+from frontier_api.model.v1beta1_update_role_response import V1beta1UpdateRoleResponse
+from frontier_api.model.v1beta1_role_request_body import V1beta1RoleRequestBody
+from pprint import pprint
+# Defining the host is optional and defaults to http://127.0.0.1:7400
+# See configuration.py for a list of all supported configuration parameters.
+configuration = frontier_api.Configuration(
+    host = "http://127.0.0.1:7400"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = frontier_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+# Enter a context with an instance of the API client
+with frontier_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = role_api.RoleApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    path_params = {
+        'id': "id_example",
+    }
+    body = V1beta1RoleRequestBody(
+        name="name_example",
+        permissions=[
+            "permissions_example"
+        ],
+        metadata=dict(),
+        title="title_example",
+    )
+    try:
+        # Update role
+        api_response = api_instance.admin_service_update_role(
+            path_params=path_params,
+            body=body,
+        )
+        pprint(api_response)
+    except frontier_api.ApiException as e:
+        print("Exception when calling RoleApi->admin_service_update_role: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+path_params | RequestPathParams | |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### body
+
+# SchemaForRequestBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**V1beta1RoleRequestBody**](../../models/V1beta1RoleRequestBody.md) |  | 
+
+
+### path_params
+#### RequestPathParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+id | IdSchema | | 
+
+# IdSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#admin_service_update_role.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#admin_service_update_role.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#admin_service_update_role.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#admin_service_update_role.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#admin_service_update_role.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#admin_service_update_role.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#admin_service_update_role.ApiResponseForDefault) | An unexpected error response.
+
+#### admin_service_update_role.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**V1beta1UpdateRoleResponse**](../../models/V1beta1UpdateRoleResponse.md) |  | 
+
+
+#### admin_service_update_role.ApiResponseFor400
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RpcStatus**](../../models/RpcStatus.md) |  | 
+
+
+#### admin_service_update_role.ApiResponseFor401
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor401ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RpcStatus**](../../models/RpcStatus.md) |  | 
+
+
+#### admin_service_update_role.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RpcStatus**](../../models/RpcStatus.md) |  | 
+
+
+#### admin_service_update_role.ApiResponseFor404
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor404ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor404ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RpcStatus**](../../models/RpcStatus.md) |  | 
+
+
+#### admin_service_update_role.ApiResponseFor500
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor500ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RpcStatus**](../../models/RpcStatus.md) |  | 
+
+
+#### admin_service_update_role.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

@@ -29,9 +29,10 @@ from frontier_api.model.rpc_status import RpcStatus
 from frontier_api.model.v1beta1_authenticate_response import V1beta1AuthenticateResponse
 
 # Query params
-RedirectSchema = schemas.BoolSchema
+RedirectOnstartSchema = schemas.BoolSchema
 ReturnToSchema = schemas.StrSchema
 EmailSchema = schemas.StrSchema
+CallbackUrlSchema = schemas.StrSchema
 RequestRequiredQueryParams = typing_extensions.TypedDict(
     'RequestRequiredQueryParams',
     {
@@ -40,9 +41,10 @@ RequestRequiredQueryParams = typing_extensions.TypedDict(
 RequestOptionalQueryParams = typing_extensions.TypedDict(
     'RequestOptionalQueryParams',
     {
-        'redirect': typing.Union[RedirectSchema, bool, ],
+        'redirectOnstart': typing.Union[RedirectOnstartSchema, bool, ],
         'returnTo': typing.Union[ReturnToSchema, str, ],
         'email': typing.Union[EmailSchema, str, ],
+        'callbackUrl': typing.Union[CallbackUrlSchema, str, ],
     },
     total=False
 )
@@ -52,10 +54,10 @@ class RequestQueryParams(RequestRequiredQueryParams, RequestOptionalQueryParams)
     pass
 
 
-request_query_redirect = api_client.QueryParameter(
-    name="redirect",
+request_query_redirect_onstart = api_client.QueryParameter(
+    name="redirectOnstart",
     style=api_client.ParameterStyle.FORM,
-    schema=RedirectSchema,
+    schema=RedirectOnstartSchema,
     explode=True,
 )
 request_query_return_to = api_client.QueryParameter(
@@ -68,6 +70,12 @@ request_query_email = api_client.QueryParameter(
     name="email",
     style=api_client.ParameterStyle.FORM,
     schema=EmailSchema,
+    explode=True,
+)
+request_query_callback_url = api_client.QueryParameter(
+    name="callbackUrl",
+    style=api_client.ParameterStyle.FORM,
+    schema=CallbackUrlSchema,
     explode=True,
 )
 # Path params
@@ -309,9 +317,10 @@ class BaseApi(api_client.Api):
 
         prefix_separator_iterator = None
         for parameter in (
-            request_query_redirect,
+            request_query_redirect_onstart,
             request_query_return_to,
             request_query_email,
+            request_query_callback_url,
         ):
             parameter_data = query_params.get(parameter.name, schemas.unset)
             if parameter_data is schemas.unset:

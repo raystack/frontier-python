@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "raystack-frontier-api"
-version = "0.1.0"
+version = "0.1.1"
 description = "Frontier APIs"
 authors = ["Kush Sharma <thekushsharma@gmail.com>"]
 license = "Apache 2.0"
@@ -11,7 +11,7 @@ packages = [{include = "frontier_api"}]
 python = "^3.10"
 certifi = ">= 14.5.14"
 frozendict = "~2.3.4"
-python-dateutil = "~2.7.0"
+python-dateutil = ">= 2.7.0"
 setuptools = ">= 21.0.0"
 typing_extensions = "^4.3.0"
 urllib3 = "~1.26.7"

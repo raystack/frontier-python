@@ -238,14 +238,19 @@ Class | Method | HTTP request | Description
 *OrganizationApi* | [**frontier_service_accept_organization_invitation**](docs/apis/tags/OrganizationApi.md#frontier_service_accept_organization_invitation) | **post** /v1beta1/organizations/{orgId}/invitations/{id}/accept | Accept pending invitation
 *OrganizationApi* | [**frontier_service_add_organization_users**](docs/apis/tags/OrganizationApi.md#frontier_service_add_organization_users) | **post** /v1beta1/organizations/{id}/users | Add organization user
 *OrganizationApi* | [**frontier_service_create_organization**](docs/apis/tags/OrganizationApi.md#frontier_service_create_organization) | **post** /v1beta1/organizations | Create organization
+*OrganizationApi* | [**frontier_service_create_organization_domain**](docs/apis/tags/OrganizationApi.md#frontier_service_create_organization_domain) | **post** /v1beta1/organizations/{orgId}/domains | Create org domain
 *OrganizationApi* | [**frontier_service_create_organization_invitation**](docs/apis/tags/OrganizationApi.md#frontier_service_create_organization_invitation) | **post** /v1beta1/organizations/{orgId}/invitations | Invite user
 *OrganizationApi* | [**frontier_service_delete_organization**](docs/apis/tags/OrganizationApi.md#frontier_service_delete_organization) | **delete** /v1beta1/organizations/{id} | Delete organization
+*OrganizationApi* | [**frontier_service_delete_organization_domain**](docs/apis/tags/OrganizationApi.md#frontier_service_delete_organization_domain) | **delete** /v1beta1/organizations/{orgId}/domains/{id} | Delete org domain
 *OrganizationApi* | [**frontier_service_delete_organization_invitation**](docs/apis/tags/OrganizationApi.md#frontier_service_delete_organization_invitation) | **delete** /v1beta1/organizations/{orgId}/invitations/{id} | Delete pending invitation
 *OrganizationApi* | [**frontier_service_disable_organization**](docs/apis/tags/OrganizationApi.md#frontier_service_disable_organization) | **post** /v1beta1/organizations/{id}/disable | Disable organization
 *OrganizationApi* | [**frontier_service_enable_organization**](docs/apis/tags/OrganizationApi.md#frontier_service_enable_organization) | **post** /v1beta1/organizations/{id}/enable | Enable organization
 *OrganizationApi* | [**frontier_service_get_organization**](docs/apis/tags/OrganizationApi.md#frontier_service_get_organization) | **get** /v1beta1/organizations/{id} | Get organization
+*OrganizationApi* | [**frontier_service_get_organization_domain**](docs/apis/tags/OrganizationApi.md#frontier_service_get_organization_domain) | **get** /v1beta1/organizations/{orgId}/domains/{id} | Get org domain
 *OrganizationApi* | [**frontier_service_get_organization_invitation**](docs/apis/tags/OrganizationApi.md#frontier_service_get_organization_invitation) | **get** /v1beta1/organizations/{orgId}/invitations/{id} | Get pending invitation
+*OrganizationApi* | [**frontier_service_join_organization**](docs/apis/tags/OrganizationApi.md#frontier_service_join_organization) | **post** /v1beta1/organizations/{orgId}/join | Join organization
 *OrganizationApi* | [**frontier_service_list_organization_admins**](docs/apis/tags/OrganizationApi.md#frontier_service_list_organization_admins) | **get** /v1beta1/organizations/{id}/admins | List organization admins
+*OrganizationApi* | [**frontier_service_list_organization_domains**](docs/apis/tags/OrganizationApi.md#frontier_service_list_organization_domains) | **get** /v1beta1/organizations/{orgId}/domains | List org domains
 *OrganizationApi* | [**frontier_service_list_organization_invitations**](docs/apis/tags/OrganizationApi.md#frontier_service_list_organization_invitations) | **get** /v1beta1/organizations/{orgId}/invitations | List pending invitations
 *OrganizationApi* | [**frontier_service_list_organization_projects**](docs/apis/tags/OrganizationApi.md#frontier_service_list_organization_projects) | **get** /v1beta1/organizations/{id}/projects | Get organization projects
 *OrganizationApi* | [**frontier_service_list_organization_service_users**](docs/apis/tags/OrganizationApi.md#frontier_service_list_organization_service_users) | **get** /v1beta1/organizations/{id}/serviceusers | List organization service users
@@ -253,6 +258,7 @@ Class | Method | HTTP request | Description
 *OrganizationApi* | [**frontier_service_list_organizations**](docs/apis/tags/OrganizationApi.md#frontier_service_list_organizations) | **get** /v1beta1/organizations | List organizations
 *OrganizationApi* | [**frontier_service_remove_organization_user**](docs/apis/tags/OrganizationApi.md#frontier_service_remove_organization_user) | **delete** /v1beta1/organizations/{id}/users/{userId} | Remove organization user
 *OrganizationApi* | [**frontier_service_update_organization**](docs/apis/tags/OrganizationApi.md#frontier_service_update_organization) | **put** /v1beta1/organizations/{id} | Update organization
+*OrganizationApi* | [**frontier_service_verify_organization_domain**](docs/apis/tags/OrganizationApi.md#frontier_service_verify_organization_domain) | **post** /v1beta1/organizations/{orgId}/domains/{id}/verify | Verify org domain
 *PermissionApi* | [**admin_service_create_permission**](docs/apis/tags/PermissionApi.md#admin_service_create_permission) | **post** /v1beta1/permissions | Create platform permission
 *PermissionApi* | [**admin_service_delete_permission**](docs/apis/tags/PermissionApi.md#admin_service_delete_permission) | **delete** /v1beta1/permissions/{id} | Delete platform permission
 *PermissionApi* | [**admin_service_update_permission**](docs/apis/tags/PermissionApi.md#admin_service_update_permission) | **put** /v1beta1/permissions/{id} | Update platform permission
@@ -263,6 +269,19 @@ Class | Method | HTTP request | Description
 *PolicyApi* | [**frontier_service_delete_policy**](docs/apis/tags/PolicyApi.md#frontier_service_delete_policy) | **delete** /v1beta1/policies/{id} | Delete Policy
 *PolicyApi* | [**frontier_service_get_policy**](docs/apis/tags/PolicyApi.md#frontier_service_get_policy) | **get** /v1beta1/policies/{id} | Get policy
 *PolicyApi* | [**frontier_service_update_policy**](docs/apis/tags/PolicyApi.md#frontier_service_update_policy) | **put** /v1beta1/policies/{id} | Update policy
+*PreferenceApi* | [**admin_service_create_preferences**](docs/apis/tags/PreferenceApi.md#admin_service_create_preferences) | **post** /v1beta1/preferences | Create platform preferences
+*PreferenceApi* | [**admin_service_list_preferences**](docs/apis/tags/PreferenceApi.md#admin_service_list_preferences) | **get** /v1beta1/preferences | List platform preferences
+*PreferenceApi* | [**frontier_service_create_current_user_preferences**](docs/apis/tags/PreferenceApi.md#frontier_service_create_current_user_preferences) | **post** /v1beta1/users/self/preferences | Create current user preferences
+*PreferenceApi* | [**frontier_service_create_group_preferences**](docs/apis/tags/PreferenceApi.md#frontier_service_create_group_preferences) | **post** /v1beta1/groups/{id}/preferences | Create group preferences
+*PreferenceApi* | [**frontier_service_create_organization_preferences**](docs/apis/tags/PreferenceApi.md#frontier_service_create_organization_preferences) | **post** /v1beta1/organizations/{id}/preferences | Create organization preferences
+*PreferenceApi* | [**frontier_service_create_project_preferences**](docs/apis/tags/PreferenceApi.md#frontier_service_create_project_preferences) | **post** /v1beta1/projects/{id}/preferences | Create project preferences
+*PreferenceApi* | [**frontier_service_create_user_preferences**](docs/apis/tags/PreferenceApi.md#frontier_service_create_user_preferences) | **post** /v1beta1/users/{id}/preferences | Create user preferences
+*PreferenceApi* | [**frontier_service_describe_preferences**](docs/apis/tags/PreferenceApi.md#frontier_service_describe_preferences) | **get** /v1beta1/preferences/traits | Describe preferences
+*PreferenceApi* | [**frontier_service_list_current_user_preferences**](docs/apis/tags/PreferenceApi.md#frontier_service_list_current_user_preferences) | **get** /v1beta1/users/self/preferences | List current user preferences
+*PreferenceApi* | [**frontier_service_list_group_preferences**](docs/apis/tags/PreferenceApi.md#frontier_service_list_group_preferences) | **get** /v1beta1/groups/{id}/preferences | List group preferences
+*PreferenceApi* | [**frontier_service_list_organization_preferences**](docs/apis/tags/PreferenceApi.md#frontier_service_list_organization_preferences) | **get** /v1beta1/organizations/{id}/preferences | List organization preferences
+*PreferenceApi* | [**frontier_service_list_project_preferences**](docs/apis/tags/PreferenceApi.md#frontier_service_list_project_preferences) | **get** /v1beta1/projects/{id}/preferences | List project preferences
+*PreferenceApi* | [**frontier_service_list_user_preferences**](docs/apis/tags/PreferenceApi.md#frontier_service_list_user_preferences) | **get** /v1beta1/users/{id}/preferences | List user preferences
 *ProjectApi* | [**admin_service_list_projects**](docs/apis/tags/ProjectApi.md#admin_service_list_projects) | **get** /v1beta1/admin/projects | List all projects
 *ProjectApi* | [**frontier_service_create_project**](docs/apis/tags/ProjectApi.md#frontier_service_create_project) | **post** /v1beta1/projects | Create project
 *ProjectApi* | [**frontier_service_delete_project**](docs/apis/tags/ProjectApi.md#frontier_service_delete_project) | **delete** /v1beta1/projects/{id} | Delete Project
@@ -284,6 +303,7 @@ Class | Method | HTTP request | Description
 *ResourceApi* | [**frontier_service_update_project_resource**](docs/apis/tags/ResourceApi.md#frontier_service_update_project_resource) | **put** /v1beta1/projects/{projectId}/resources/{id} | Update resource
 *RoleApi* | [**admin_service_create_role**](docs/apis/tags/RoleApi.md#admin_service_create_role) | **post** /v1beta1/roles | Create platform role
 *RoleApi* | [**admin_service_delete_role**](docs/apis/tags/RoleApi.md#admin_service_delete_role) | **delete** /v1beta1/roles/{id} | Delete platform role
+*RoleApi* | [**admin_service_update_role**](docs/apis/tags/RoleApi.md#admin_service_update_role) | **put** /v1beta1/roles/{id} | Update role
 *RoleApi* | [**frontier_service_create_organization_role**](docs/apis/tags/RoleApi.md#frontier_service_create_organization_role) | **post** /v1beta1/organizations/{orgId}/roles | Create organization role
 *RoleApi* | [**frontier_service_delete_organization_role**](docs/apis/tags/RoleApi.md#frontier_service_delete_organization_role) | **delete** /v1beta1/organizations/{orgId}/roles/{id} | Delete organization role
 *RoleApi* | [**frontier_service_get_organization_role**](docs/apis/tags/RoleApi.md#frontier_service_get_organization_role) | **get** /v1beta1/organizations/{orgId}/roles/{id} | Get organization role
@@ -334,14 +354,22 @@ Class | Method | HTTP request | Description
  - [V1beta1AuthenticateResponse](docs/models/V1beta1AuthenticateResponse.md)
  - [V1beta1CheckResourcePermissionRequest](docs/models/V1beta1CheckResourcePermissionRequest.md)
  - [V1beta1CheckResourcePermissionResponse](docs/models/V1beta1CheckResourcePermissionResponse.md)
+ - [V1beta1CreateCurrentUserPreferencesRequest](docs/models/V1beta1CreateCurrentUserPreferencesRequest.md)
+ - [V1beta1CreateCurrentUserPreferencesResponse](docs/models/V1beta1CreateCurrentUserPreferencesResponse.md)
+ - [V1beta1CreateGroupPreferencesResponse](docs/models/V1beta1CreateGroupPreferencesResponse.md)
  - [V1beta1CreateGroupResponse](docs/models/V1beta1CreateGroupResponse.md)
  - [V1beta1CreateMetaSchemaResponse](docs/models/V1beta1CreateMetaSchemaResponse.md)
+ - [V1beta1CreateOrganizationDomainResponse](docs/models/V1beta1CreateOrganizationDomainResponse.md)
  - [V1beta1CreateOrganizationInvitationResponse](docs/models/V1beta1CreateOrganizationInvitationResponse.md)
+ - [V1beta1CreateOrganizationPreferencesResponse](docs/models/V1beta1CreateOrganizationPreferencesResponse.md)
  - [V1beta1CreateOrganizationResponse](docs/models/V1beta1CreateOrganizationResponse.md)
  - [V1beta1CreateOrganizationRoleResponse](docs/models/V1beta1CreateOrganizationRoleResponse.md)
  - [V1beta1CreatePermissionRequest](docs/models/V1beta1CreatePermissionRequest.md)
  - [V1beta1CreatePermissionResponse](docs/models/V1beta1CreatePermissionResponse.md)
  - [V1beta1CreatePolicyResponse](docs/models/V1beta1CreatePolicyResponse.md)
+ - [V1beta1CreatePreferencesRequest](docs/models/V1beta1CreatePreferencesRequest.md)
+ - [V1beta1CreatePreferencesResponse](docs/models/V1beta1CreatePreferencesResponse.md)
+ - [V1beta1CreateProjectPreferencesResponse](docs/models/V1beta1CreateProjectPreferencesResponse.md)
  - [V1beta1CreateProjectResourceResponse](docs/models/V1beta1CreateProjectResourceResponse.md)
  - [V1beta1CreateProjectResponse](docs/models/V1beta1CreateProjectResponse.md)
  - [V1beta1CreateRelationResponse](docs/models/V1beta1CreateRelationResponse.md)
@@ -350,13 +378,17 @@ Class | Method | HTTP request | Description
  - [V1beta1CreateServiceUserRequest](docs/models/V1beta1CreateServiceUserRequest.md)
  - [V1beta1CreateServiceUserResponse](docs/models/V1beta1CreateServiceUserResponse.md)
  - [V1beta1CreateServiceUserSecretResponse](docs/models/V1beta1CreateServiceUserSecretResponse.md)
+ - [V1beta1CreateUserPreferencesResponse](docs/models/V1beta1CreateUserPreferencesResponse.md)
  - [V1beta1CreateUserResponse](docs/models/V1beta1CreateUserResponse.md)
+ - [V1beta1DescribePreferencesResponse](docs/models/V1beta1DescribePreferencesResponse.md)
+ - [V1beta1Domain](docs/models/V1beta1Domain.md)
  - [V1beta1GetCurrentUserResponse](docs/models/V1beta1GetCurrentUserResponse.md)
  - [V1beta1GetGroupResponse](docs/models/V1beta1GetGroupResponse.md)
  - [V1beta1GetJWKsResponse](docs/models/V1beta1GetJWKsResponse.md)
  - [V1beta1GetMetaSchemaResponse](docs/models/V1beta1GetMetaSchemaResponse.md)
  - [V1beta1GetNamespaceResponse](docs/models/V1beta1GetNamespaceResponse.md)
  - [V1beta1GetOrganizationAuditLogResponse](docs/models/V1beta1GetOrganizationAuditLogResponse.md)
+ - [V1beta1GetOrganizationDomainResponse](docs/models/V1beta1GetOrganizationDomainResponse.md)
  - [V1beta1GetOrganizationInvitationResponse](docs/models/V1beta1GetOrganizationInvitationResponse.md)
  - [V1beta1GetOrganizationResponse](docs/models/V1beta1GetOrganizationResponse.md)
  - [V1beta1GetOrganizationRoleResponse](docs/models/V1beta1GetOrganizationRoleResponse.md)
@@ -381,14 +413,18 @@ Class | Method | HTTP request | Description
  - [V1beta1ListAllUsersResponse](docs/models/V1beta1ListAllUsersResponse.md)
  - [V1beta1ListAuthStrategiesResponse](docs/models/V1beta1ListAuthStrategiesResponse.md)
  - [V1beta1ListCurrentUserGroupsResponse](docs/models/V1beta1ListCurrentUserGroupsResponse.md)
+ - [V1beta1ListCurrentUserPreferencesResponse](docs/models/V1beta1ListCurrentUserPreferencesResponse.md)
+ - [V1beta1ListGroupPreferencesResponse](docs/models/V1beta1ListGroupPreferencesResponse.md)
  - [V1beta1ListGroupUsersResponse](docs/models/V1beta1ListGroupUsersResponse.md)
  - [V1beta1ListGroupsResponse](docs/models/V1beta1ListGroupsResponse.md)
  - [V1beta1ListMetaSchemasResponse](docs/models/V1beta1ListMetaSchemasResponse.md)
  - [V1beta1ListNamespacesResponse](docs/models/V1beta1ListNamespacesResponse.md)
  - [V1beta1ListOrganizationAdminsResponse](docs/models/V1beta1ListOrganizationAdminsResponse.md)
  - [V1beta1ListOrganizationAuditLogsResponse](docs/models/V1beta1ListOrganizationAuditLogsResponse.md)
+ - [V1beta1ListOrganizationDomainsResponse](docs/models/V1beta1ListOrganizationDomainsResponse.md)
  - [V1beta1ListOrganizationGroupsResponse](docs/models/V1beta1ListOrganizationGroupsResponse.md)
  - [V1beta1ListOrganizationInvitationsResponse](docs/models/V1beta1ListOrganizationInvitationsResponse.md)
+ - [V1beta1ListOrganizationPreferencesResponse](docs/models/V1beta1ListOrganizationPreferencesResponse.md)
  - [V1beta1ListOrganizationProjectsResponse](docs/models/V1beta1ListOrganizationProjectsResponse.md)
  - [V1beta1ListOrganizationRolesResponse](docs/models/V1beta1ListOrganizationRolesResponse.md)
  - [V1beta1ListOrganizationServiceUsersResponse](docs/models/V1beta1ListOrganizationServiceUsersResponse.md)
@@ -396,7 +432,9 @@ Class | Method | HTTP request | Description
  - [V1beta1ListOrganizationsResponse](docs/models/V1beta1ListOrganizationsResponse.md)
  - [V1beta1ListPermissionsResponse](docs/models/V1beta1ListPermissionsResponse.md)
  - [V1beta1ListPoliciesResponse](docs/models/V1beta1ListPoliciesResponse.md)
+ - [V1beta1ListPreferencesResponse](docs/models/V1beta1ListPreferencesResponse.md)
  - [V1beta1ListProjectAdminsResponse](docs/models/V1beta1ListProjectAdminsResponse.md)
+ - [V1beta1ListProjectPreferencesResponse](docs/models/V1beta1ListProjectPreferencesResponse.md)
  - [V1beta1ListProjectResourcesResponse](docs/models/V1beta1ListProjectResourcesResponse.md)
  - [V1beta1ListProjectUsersResponse](docs/models/V1beta1ListProjectUsersResponse.md)
  - [V1beta1ListProjectsResponse](docs/models/V1beta1ListProjectsResponse.md)
@@ -408,6 +446,7 @@ Class | Method | HTTP request | Description
  - [V1beta1ListServiceUsersResponse](docs/models/V1beta1ListServiceUsersResponse.md)
  - [V1beta1ListUserGroupsResponse](docs/models/V1beta1ListUserGroupsResponse.md)
  - [V1beta1ListUserInvitationsResponse](docs/models/V1beta1ListUserInvitationsResponse.md)
+ - [V1beta1ListUserPreferencesResponse](docs/models/V1beta1ListUserPreferencesResponse.md)
  - [V1beta1ListUsersResponse](docs/models/V1beta1ListUsersResponse.md)
  - [V1beta1MetaSchema](docs/models/V1beta1MetaSchema.md)
  - [V1beta1MetaSchemaRequestBody](docs/models/V1beta1MetaSchemaRequestBody.md)
@@ -418,6 +457,9 @@ Class | Method | HTTP request | Description
  - [V1beta1PermissionRequestBody](docs/models/V1beta1PermissionRequestBody.md)
  - [V1beta1Policy](docs/models/V1beta1Policy.md)
  - [V1beta1PolicyRequestBody](docs/models/V1beta1PolicyRequestBody.md)
+ - [V1beta1Preference](docs/models/V1beta1Preference.md)
+ - [V1beta1PreferenceRequestBody](docs/models/V1beta1PreferenceRequestBody.md)
+ - [V1beta1PreferenceTrait](docs/models/V1beta1PreferenceTrait.md)
  - [V1beta1Project](docs/models/V1beta1Project.md)
  - [V1beta1ProjectRequestBody](docs/models/V1beta1ProjectRequestBody.md)
  - [V1beta1Relation](docs/models/V1beta1Relation.md)
@@ -439,9 +481,11 @@ Class | Method | HTTP request | Description
  - [V1beta1UpdatePolicyResponse](docs/models/V1beta1UpdatePolicyResponse.md)
  - [V1beta1UpdateProjectResourceResponse](docs/models/V1beta1UpdateProjectResourceResponse.md)
  - [V1beta1UpdateProjectResponse](docs/models/V1beta1UpdateProjectResponse.md)
+ - [V1beta1UpdateRoleResponse](docs/models/V1beta1UpdateRoleResponse.md)
  - [V1beta1UpdateUserResponse](docs/models/V1beta1UpdateUserResponse.md)
  - [V1beta1User](docs/models/V1beta1User.md)
  - [V1beta1UserRequestBody](docs/models/V1beta1UserRequestBody.md)
+ - [V1beta1VerifyOrganizationDomainResponse](docs/models/V1beta1VerifyOrganizationDomainResponse.md)
 
 ## Documentation For Authorization
 
@@ -450,11 +494,6 @@ Authentication schemes defined for the API:
 ### Basic
 
 - **Type**: HTTP basic authentication
-
-
-## Author
-
-hello@raystack.org
 
 
 ## Notes for Large OpenAPI documents

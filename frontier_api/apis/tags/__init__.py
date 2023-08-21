@@ -22,4 +22,5 @@ class TagValues(str, enum.Enum):
     AUTHZ = "Authz"
     META_SCHEMA = "MetaSchema"
     NAMESPACE = "Namespace"
+    PREFERENCE = "Preference"
     SERVICE_USER = "ServiceUser"

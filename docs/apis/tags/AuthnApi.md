@@ -958,9 +958,10 @@ with frontier_api.ApiClient(configuration) as api_client:
         'strategyName': "strategyName_example",
     }
     query_params = {
-        'redirect': True,
+        'redirectOnstart': True,
         'returnTo': "returnTo_example",
         'email': "email_example",
+        'callbackUrl': "callbackUrl_example",
     }
     try:
         # Authenticate with a strategy
@@ -988,12 +989,13 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-redirect | RedirectSchema | | optional
+redirectOnstart | RedirectOnstartSchema | | optional
 returnTo | ReturnToSchema | | optional
 email | EmailSchema | | optional
+callbackUrl | CallbackUrlSchema | | optional
 
 
-# RedirectSchema
+# RedirectOnstartSchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1008,6 +1010,13 @@ Input Type | Accessed Type | Description | Notes
 str,  | str,  |  | 
 
 # EmailSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+# CallbackUrlSchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1181,9 +1190,10 @@ with frontier_api.ApiClient(configuration) as api_client:
         'strategyName': "strategyName_example",
     }
     body = dict(
-        redirect=True,
+        redirect_onstart=True,
         return_to="return_to_example",
         email="email_example",
+        callback_url="callback_url_example",
     )
     try:
         # Authenticate with a strategy
@@ -1219,9 +1229,10 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**redirect** | bool,  | BoolClass,  | If set to true, location header will be set for redirect | [optional] 
+**redirectOnstart** | bool,  | BoolClass,  | If set to true, location header will be set for redirect to start auth flow | [optional] 
 **returnTo** | str,  | str,  | URL to redirect after successful authentication.&lt;br/&gt; *Example:*&#x60;\&quot;https://frontier.example.com\&quot;&#x60; | [optional] 
 **email** | str,  | str,  | Email of the user to authenticate. Used for magic links.&lt;br/&gt; *Example:*&#x60;example@acme.org&#x60; | [optional] 
+**callbackUrl** | str,  | str,  | Host which should handle the call to finish authentication flow, for most cases it could be host of frontier but in case of proxies, this will be proxy public endpoint.&lt;br/&gt; *Example:*&#x60;https://frontier.example.com/v1beta1/auth/callback&#x60; | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 ### path_params

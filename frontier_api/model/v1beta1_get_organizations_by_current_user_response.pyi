@@ -63,17 +63,47 @@ class V1beta1GetOrganizationsByCurrentUserResponse(
             
                 def __getitem__(self, i: int) -> 'V1beta1Organization':
                     return super().__getitem__(i)
+            
+            
+            class joinableViaDomain(
+                schemas.ListSchema
+            ):
+            
+            
+                class MetaOapg:
+                    
+                    @staticmethod
+                    def items() -> typing.Type['V1beta1Organization']:
+                        return V1beta1Organization
+            
+                def __new__(
+                    cls,
+                    _arg: typing.Union[typing.Tuple['V1beta1Organization'], typing.List['V1beta1Organization']],
+                    _configuration: typing.Optional[schemas.Configuration] = None,
+                ) -> 'joinableViaDomain':
+                    return super().__new__(
+                        cls,
+                        _arg,
+                        _configuration=_configuration,
+                    )
+            
+                def __getitem__(self, i: int) -> 'V1beta1Organization':
+                    return super().__getitem__(i)
             __annotations__ = {
                 "organizations": organizations,
+                "joinableViaDomain": joinableViaDomain,
             }
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["organizations"]) -> MetaOapg.properties.organizations: ...
     
     @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["joinableViaDomain"]) -> MetaOapg.properties.joinableViaDomain: ...
+    
+    @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["organizations", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["organizations", "joinableViaDomain", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -82,9 +112,12 @@ class V1beta1GetOrganizationsByCurrentUserResponse(
     def get_item_oapg(self, name: typing_extensions.Literal["organizations"]) -> typing.Union[MetaOapg.properties.organizations, schemas.Unset]: ...
     
     @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["joinableViaDomain"]) -> typing.Union[MetaOapg.properties.joinableViaDomain, schemas.Unset]: ...
+    
+    @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["organizations", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["organizations", "joinableViaDomain", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -92,6 +125,7 @@ class V1beta1GetOrganizationsByCurrentUserResponse(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
         organizations: typing.Union[MetaOapg.properties.organizations, list, tuple, schemas.Unset] = schemas.unset,
+        joinableViaDomain: typing.Union[MetaOapg.properties.joinableViaDomain, list, tuple, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'V1beta1GetOrganizationsByCurrentUserResponse':
@@ -99,6 +133,7 @@ class V1beta1GetOrganizationsByCurrentUserResponse(
             cls,
             *_args,
             organizations=organizations,
+            joinableViaDomain=joinableViaDomain,
             _configuration=_configuration,
             **kwargs,
         )

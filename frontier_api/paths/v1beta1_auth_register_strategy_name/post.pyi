@@ -65,17 +65,19 @@ class SchemaForRequestBodyApplicationJson(
     class MetaOapg:
         
         class properties:
-            redirect = schemas.BoolSchema
+            redirectOnstart = schemas.BoolSchema
             returnTo = schemas.StrSchema
             email = schemas.StrSchema
+            callbackUrl = schemas.StrSchema
             __annotations__ = {
-                "redirect": redirect,
+                "redirectOnstart": redirectOnstart,
                 "returnTo": returnTo,
                 "email": email,
+                "callbackUrl": callbackUrl,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["redirect"]) -> MetaOapg.properties.redirect: ...
+    def __getitem__(self, name: typing_extensions.Literal["redirectOnstart"]) -> MetaOapg.properties.redirectOnstart: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["returnTo"]) -> MetaOapg.properties.returnTo: ...
@@ -84,15 +86,18 @@ class SchemaForRequestBodyApplicationJson(
     def __getitem__(self, name: typing_extensions.Literal["email"]) -> MetaOapg.properties.email: ...
     
     @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["callbackUrl"]) -> MetaOapg.properties.callbackUrl: ...
+    
+    @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["redirect", "returnTo", "email", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["redirectOnstart", "returnTo", "email", "callbackUrl", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["redirect"]) -> typing.Union[MetaOapg.properties.redirect, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["redirectOnstart"]) -> typing.Union[MetaOapg.properties.redirectOnstart, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["returnTo"]) -> typing.Union[MetaOapg.properties.returnTo, schemas.Unset]: ...
@@ -101,27 +106,32 @@ class SchemaForRequestBodyApplicationJson(
     def get_item_oapg(self, name: typing_extensions.Literal["email"]) -> typing.Union[MetaOapg.properties.email, schemas.Unset]: ...
     
     @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["callbackUrl"]) -> typing.Union[MetaOapg.properties.callbackUrl, schemas.Unset]: ...
+    
+    @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["redirect", "returnTo", "email", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["redirectOnstart", "returnTo", "email", "callbackUrl", ], str]):
         return super().get_item_oapg(name)
     
 
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        redirect: typing.Union[MetaOapg.properties.redirect, bool, schemas.Unset] = schemas.unset,
+        redirectOnstart: typing.Union[MetaOapg.properties.redirectOnstart, bool, schemas.Unset] = schemas.unset,
         returnTo: typing.Union[MetaOapg.properties.returnTo, str, schemas.Unset] = schemas.unset,
         email: typing.Union[MetaOapg.properties.email, str, schemas.Unset] = schemas.unset,
+        callbackUrl: typing.Union[MetaOapg.properties.callbackUrl, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'SchemaForRequestBodyApplicationJson':
         return super().__new__(
             cls,
             *_args,
-            redirect=redirect,
+            redirectOnstart=redirectOnstart,
             returnTo=returnTo,
             email=email,
+            callbackUrl=callbackUrl,
             _configuration=_configuration,
             **kwargs,
         )
