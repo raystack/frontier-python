@@ -63,17 +63,47 @@ class V1beta1ListCurrentUserGroupsResponse(
             
                 def __getitem__(self, i: int) -> 'V1beta1Group':
                     return super().__getitem__(i)
+            
+            
+            class accessPairs(
+                schemas.ListSchema
+            ):
+            
+            
+                class MetaOapg:
+                    
+                    @staticmethod
+                    def items() -> typing.Type['V1beta1ListCurrentUserGroupsResponseAccessPair']:
+                        return V1beta1ListCurrentUserGroupsResponseAccessPair
+            
+                def __new__(
+                    cls,
+                    _arg: typing.Union[typing.Tuple['V1beta1ListCurrentUserGroupsResponseAccessPair'], typing.List['V1beta1ListCurrentUserGroupsResponseAccessPair']],
+                    _configuration: typing.Optional[schemas.Configuration] = None,
+                ) -> 'accessPairs':
+                    return super().__new__(
+                        cls,
+                        _arg,
+                        _configuration=_configuration,
+                    )
+            
+                def __getitem__(self, i: int) -> 'V1beta1ListCurrentUserGroupsResponseAccessPair':
+                    return super().__getitem__(i)
             __annotations__ = {
                 "groups": groups,
+                "accessPairs": accessPairs,
             }
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["groups"]) -> MetaOapg.properties.groups: ...
     
     @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["accessPairs"]) -> MetaOapg.properties.accessPairs: ...
+    
+    @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["groups", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["groups", "accessPairs", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -82,9 +112,12 @@ class V1beta1ListCurrentUserGroupsResponse(
     def get_item_oapg(self, name: typing_extensions.Literal["groups"]) -> typing.Union[MetaOapg.properties.groups, schemas.Unset]: ...
     
     @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["accessPairs"]) -> typing.Union[MetaOapg.properties.accessPairs, schemas.Unset]: ...
+    
+    @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["groups", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["groups", "accessPairs", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -92,6 +125,7 @@ class V1beta1ListCurrentUserGroupsResponse(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
         groups: typing.Union[MetaOapg.properties.groups, list, tuple, schemas.Unset] = schemas.unset,
+        accessPairs: typing.Union[MetaOapg.properties.accessPairs, list, tuple, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'V1beta1ListCurrentUserGroupsResponse':
@@ -99,8 +133,10 @@ class V1beta1ListCurrentUserGroupsResponse(
             cls,
             *_args,
             groups=groups,
+            accessPairs=accessPairs,
             _configuration=_configuration,
             **kwargs,
         )
 
 from frontier_api.model.v1beta1_group import V1beta1Group
+from frontier_api.model.v1beta1_list_current_user_groups_response_access_pair import V1beta1ListCurrentUserGroupsResponseAccessPair

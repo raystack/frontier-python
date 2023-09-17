@@ -684,6 +684,7 @@ with frontier_api.ApiClient(configuration) as api_client:
         name="name_example",
         title="title_example",
         metadata=dict(),
+        avatar="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAA",
     )
     try:
         # Create organization
@@ -4700,6 +4701,7 @@ with frontier_api.ApiClient(configuration) as api_client:
         name="name_example",
         title="title_example",
         metadata=dict(),
+        avatar="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAA",
     )
     try:
         # Update organization

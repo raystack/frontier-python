@@ -25,15 +25,71 @@ import frozendict  # noqa: F401
 
 from frontier_api import schemas  # noqa: F401
 
+from frontier_api.model.v1beta1_list_projects_by_current_user_response import V1beta1ListProjectsByCurrentUserResponse
 from frontier_api.model.rpc_status import RpcStatus
-from frontier_api.model.v1beta1_get_projects_by_current_user_response import V1beta1GetProjectsByCurrentUserResponse
 
 from . import path
 
+# Query params
+OrgIdSchema = schemas.StrSchema
+
+
+class WithPermissionsSchema(
+    schemas.ListSchema
+):
+
+
+    class MetaOapg:
+        items = schemas.StrSchema
+
+    def __new__(
+        cls,
+        _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
+        _configuration: typing.Optional[schemas.Configuration] = None,
+    ) -> 'WithPermissionsSchema':
+        return super().__new__(
+            cls,
+            _arg,
+            _configuration=_configuration,
+        )
+
+    def __getitem__(self, i: int) -> MetaOapg.items:
+        return super().__getitem__(i)
+RequestRequiredQueryParams = typing_extensions.TypedDict(
+    'RequestRequiredQueryParams',
+    {
+    }
+)
+RequestOptionalQueryParams = typing_extensions.TypedDict(
+    'RequestOptionalQueryParams',
+    {
+        'orgId': typing.Union[OrgIdSchema, str, ],
+        'withPermissions': typing.Union[WithPermissionsSchema, list, tuple, ],
+    },
+    total=False
+)
+
+
+class RequestQueryParams(RequestRequiredQueryParams, RequestOptionalQueryParams):
+    pass
+
+
+request_query_org_id = api_client.QueryParameter(
+    name="orgId",
+    style=api_client.ParameterStyle.FORM,
+    schema=OrgIdSchema,
+    explode=True,
+)
+request_query_with_permissions = api_client.QueryParameter(
+    name="withPermissions",
+    style=api_client.ParameterStyle.FORM,
+    schema=WithPermissionsSchema,
+    explode=True,
+)
 _auth = [
     'Basic',
 ]
-SchemaFor200ResponseBodyApplicationJson = V1beta1GetProjectsByCurrentUserResponse
+SchemaFor200ResponseBodyApplicationJson = V1beta1ListProjectsByCurrentUserResponse
 
 
 @dataclass
@@ -182,8 +238,9 @@ _all_accept_content_types = (
 
 class BaseApi(api_client.Api):
     @typing.overload
-    def _frontier_service_get_projects_by_current_user_oapg(
+    def _frontier_service_list_projects_by_current_user_oapg(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -194,17 +251,19 @@ class BaseApi(api_client.Api):
     ]: ...
 
     @typing.overload
-    def _frontier_service_get_projects_by_current_user_oapg(
+    def _frontier_service_list_projects_by_current_user_oapg(
         self,
         skip_deserialization: typing_extensions.Literal[True],
+        query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def _frontier_service_get_projects_by_current_user_oapg(
+    def _frontier_service_list_projects_by_current_user_oapg(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -215,8 +274,9 @@ class BaseApi(api_client.Api):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def _frontier_service_get_projects_by_current_user_oapg(
+    def _frontier_service_list_projects_by_current_user_oapg(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -228,7 +288,22 @@ class BaseApi(api_client.Api):
             api_response.body and api_response.headers will not be deserialized into schema
             class instances
         """
+        self._verify_typed_dict_inputs_oapg(RequestQueryParams, query_params)
         used_path = path.value
+
+        prefix_separator_iterator = None
+        for parameter in (
+            request_query_org_id,
+            request_query_with_permissions,
+        ):
+            parameter_data = query_params.get(parameter.name, schemas.unset)
+            if parameter_data is schemas.unset:
+                continue
+            if prefix_separator_iterator is None:
+                prefix_separator_iterator = parameter.get_prefix_separator_iterator()
+            serialized_data = parameter.serialize(parameter_data, prefix_separator_iterator)
+            for serialized_value in serialized_data.values():
+                used_path += serialized_value
 
         _headers = HTTPHeaderDict()
         # TODO add cookie handling
@@ -268,12 +343,13 @@ class BaseApi(api_client.Api):
         return api_response
 
 
-class FrontierServiceGetProjectsByCurrentUser(BaseApi):
+class FrontierServiceListProjectsByCurrentUser(BaseApi):
     # this class is used by api classes that refer to endpoints with operationId fn names
 
     @typing.overload
-    def frontier_service_get_projects_by_current_user(
+    def frontier_service_list_projects_by_current_user(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -284,17 +360,19 @@ class FrontierServiceGetProjectsByCurrentUser(BaseApi):
     ]: ...
 
     @typing.overload
-    def frontier_service_get_projects_by_current_user(
+    def frontier_service_list_projects_by_current_user(
         self,
         skip_deserialization: typing_extensions.Literal[True],
+        query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def frontier_service_get_projects_by_current_user(
+    def frontier_service_list_projects_by_current_user(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -305,14 +383,16 @@ class FrontierServiceGetProjectsByCurrentUser(BaseApi):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def frontier_service_get_projects_by_current_user(
+    def frontier_service_list_projects_by_current_user(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._frontier_service_get_projects_by_current_user_oapg(
+        return self._frontier_service_list_projects_by_current_user_oapg(
+            query_params=query_params,
             accept_content_types=accept_content_types,
             stream=stream,
             timeout=timeout,
@@ -326,6 +406,7 @@ class ApiForget(BaseApi):
     @typing.overload
     def get(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -339,6 +420,7 @@ class ApiForget(BaseApi):
     def get(
         self,
         skip_deserialization: typing_extensions.Literal[True],
+        query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -347,6 +429,7 @@ class ApiForget(BaseApi):
     @typing.overload
     def get(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -359,12 +442,14 @@ class ApiForget(BaseApi):
 
     def get(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._frontier_service_get_projects_by_current_user_oapg(
+        return self._frontier_service_list_projects_by_current_user_oapg(
+            query_params=query_params,
             accept_content_types=accept_content_types,
             stream=stream,
             timeout=timeout,

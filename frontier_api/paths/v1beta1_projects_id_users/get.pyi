@@ -30,6 +30,7 @@ from frontier_api.model.v1beta1_list_project_users_response import V1beta1ListPr
 
 # Query params
 PermissionFilterSchema = schemas.StrSchema
+WithRolesSchema = schemas.BoolSchema
 RequestRequiredQueryParams = typing_extensions.TypedDict(
     'RequestRequiredQueryParams',
     {
@@ -39,6 +40,7 @@ RequestOptionalQueryParams = typing_extensions.TypedDict(
     'RequestOptionalQueryParams',
     {
         'permissionFilter': typing.Union[PermissionFilterSchema, str, ],
+        'withRoles': typing.Union[WithRolesSchema, bool, ],
     },
     total=False
 )
@@ -52,6 +54,12 @@ request_query_permission_filter = api_client.QueryParameter(
     name="permissionFilter",
     style=api_client.ParameterStyle.FORM,
     schema=PermissionFilterSchema,
+    explode=True,
+)
+request_query_with_roles = api_client.QueryParameter(
+    name="withRoles",
+    style=api_client.ParameterStyle.FORM,
+    schema=WithRolesSchema,
     explode=True,
 )
 # Path params
@@ -294,6 +302,7 @@ class BaseApi(api_client.Api):
         prefix_separator_iterator = None
         for parameter in (
             request_query_permission_filter,
+            request_query_with_roles,
         ):
             parameter_data = query_params.get(parameter.name, schemas.unset)
             if parameter_data is schemas.unset:

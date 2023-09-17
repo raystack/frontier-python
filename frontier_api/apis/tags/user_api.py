@@ -16,12 +16,12 @@ from frontier_api.paths.v1beta1_users_id.delete import FrontierServiceDeleteUser
 from frontier_api.paths.v1beta1_users_id_disable.post import FrontierServiceDisableUser
 from frontier_api.paths.v1beta1_users_id_enable.post import FrontierServiceEnableUser
 from frontier_api.paths.v1beta1_users_self.get import FrontierServiceGetCurrentUser
-from frontier_api.paths.v1beta1_users_self_organizations.get import FrontierServiceGetOrganizationsByCurrentUser
-from frontier_api.paths.v1beta1_users_id_organizations.get import FrontierServiceGetOrganizationsByUser
-from frontier_api.paths.v1beta1_users_self_projects.get import FrontierServiceGetProjectsByCurrentUser
-from frontier_api.paths.v1beta1_users_id_projects.get import FrontierServiceGetProjectsByUser
 from frontier_api.paths.v1beta1_users_id.get import FrontierServiceGetUser
 from frontier_api.paths.v1beta1_users_self_groups.get import FrontierServiceListCurrentUserGroups
+from frontier_api.paths.v1beta1_users_self_organizations.get import FrontierServiceListOrganizationsByCurrentUser
+from frontier_api.paths.v1beta1_users_id_organizations.get import FrontierServiceListOrganizationsByUser
+from frontier_api.paths.v1beta1_users_self_projects.get import FrontierServiceListProjectsByCurrentUser
+from frontier_api.paths.v1beta1_users_id_projects.get import FrontierServiceListProjectsByUser
 from frontier_api.paths.v1beta1_users_id_groups.get import FrontierServiceListUserGroups
 from frontier_api.paths.v1beta1_users_id_invitations.get import FrontierServiceListUserInvitations
 from frontier_api.paths.v1beta1_users.get import FrontierServiceListUsers
@@ -36,12 +36,12 @@ class UserApi(
     FrontierServiceDisableUser,
     FrontierServiceEnableUser,
     FrontierServiceGetCurrentUser,
-    FrontierServiceGetOrganizationsByCurrentUser,
-    FrontierServiceGetOrganizationsByUser,
-    FrontierServiceGetProjectsByCurrentUser,
-    FrontierServiceGetProjectsByUser,
     FrontierServiceGetUser,
     FrontierServiceListCurrentUserGroups,
+    FrontierServiceListOrganizationsByCurrentUser,
+    FrontierServiceListOrganizationsByUser,
+    FrontierServiceListProjectsByCurrentUser,
+    FrontierServiceListProjectsByUser,
     FrontierServiceListUserGroups,
     FrontierServiceListUserInvitations,
     FrontierServiceListUsers,

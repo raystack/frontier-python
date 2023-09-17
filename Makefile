@@ -1,4 +1,4 @@
-PROTON_COMMIT := db4f5dc1389949c2643d220559aa20c3c337bfd6
+FRONTIER_COMMIT := 11a2df9abfee551997256fe9a0f3b10356cfc283
 .PHONY: clean genclient genspec
 
 genclient: clean genspec ## Generate the client using openapi-generator
@@ -21,5 +21,5 @@ clean:
 genspec: ## Generate the openapi v3 spec using raystack/frontier generated v2 spec
 	@echo " > generating openapiv3 spec"
 	@curl -X 'GET' \
-  'https://converter.swagger.io/api/convert?url=https%3A%2F%2Fraw.githubusercontent.com%2Fraystack%2Ffrontier%2F${PROTON_COMMIT}%2Fproto%2Fapidocs.swagger.yaml' \
+  'https://converter.swagger.io/api/convert?url=https%3A%2F%2Fraw.githubusercontent.com%2Fraystack%2Ffrontier%2F${FRONTIER_COMMIT}%2Fproto%2Fapidocs.swagger.yaml' \
   -H 'accept: application/json' > ./etc/openapi.json

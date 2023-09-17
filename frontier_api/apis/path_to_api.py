@@ -14,6 +14,7 @@ from frontier_api.apis.paths.v1beta1_auth_jwks import V1beta1AuthJwks
 from frontier_api.apis.paths.v1beta1_auth_logout import V1beta1AuthLogout
 from frontier_api.apis.paths.v1beta1_auth_register_strategy_name import V1beta1AuthRegisterStrategyName
 from frontier_api.apis.paths.v1beta1_auth_token import V1beta1AuthToken
+from frontier_api.apis.paths.v1beta1_batchcheck import V1beta1Batchcheck
 from frontier_api.apis.paths.v1beta1_check import V1beta1Check
 from frontier_api.apis.paths.v1beta1_groups_id_preferences import V1beta1GroupsIdPreferences
 from frontier_api.apis.paths.v1beta1_meta_schemas import V1beta1MetaSchemas
@@ -59,6 +60,7 @@ from frontier_api.apis.paths.v1beta1_projects_id_admins import V1beta1ProjectsId
 from frontier_api.apis.paths.v1beta1_projects_id_disable import V1beta1ProjectsIdDisable
 from frontier_api.apis.paths.v1beta1_projects_id_enable import V1beta1ProjectsIdEnable
 from frontier_api.apis.paths.v1beta1_projects_id_preferences import V1beta1ProjectsIdPreferences
+from frontier_api.apis.paths.v1beta1_projects_id_serviceusers import V1beta1ProjectsIdServiceusers
 from frontier_api.apis.paths.v1beta1_projects_id_users import V1beta1ProjectsIdUsers
 from frontier_api.apis.paths.v1beta1_projects_project_id_resources import V1beta1ProjectsProjectIdResources
 from frontier_api.apis.paths.v1beta1_projects_project_id_resources_id import V1beta1ProjectsProjectIdResourcesId
@@ -104,6 +106,7 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.V1BETA1_AUTH_LOGOUT: V1beta1AuthLogout,
         PathValues.V1BETA1_AUTH_REGISTER_STRATEGY_NAME: V1beta1AuthRegisterStrategyName,
         PathValues.V1BETA1_AUTH_TOKEN: V1beta1AuthToken,
+        PathValues.V1BETA1_BATCHCHECK: V1beta1Batchcheck,
         PathValues.V1BETA1_CHECK: V1beta1Check,
         PathValues.V1BETA1_GROUPS_ID_PREFERENCES: V1beta1GroupsIdPreferences,
         PathValues.V1BETA1_META_SCHEMAS: V1beta1MetaSchemas,
@@ -149,6 +152,7 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.V1BETA1_PROJECTS_ID_DISABLE: V1beta1ProjectsIdDisable,
         PathValues.V1BETA1_PROJECTS_ID_ENABLE: V1beta1ProjectsIdEnable,
         PathValues.V1BETA1_PROJECTS_ID_PREFERENCES: V1beta1ProjectsIdPreferences,
+        PathValues.V1BETA1_PROJECTS_ID_SERVICEUSERS: V1beta1ProjectsIdServiceusers,
         PathValues.V1BETA1_PROJECTS_ID_USERS: V1beta1ProjectsIdUsers,
         PathValues.V1BETA1_PROJECTS_PROJECT_ID_RESOURCES: V1beta1ProjectsProjectIdResources,
         PathValues.V1BETA1_PROJECTS_PROJECT_ID_RESOURCES_ID: V1beta1ProjectsProjectIdResourcesId,
@@ -195,6 +199,7 @@ path_to_api = PathToApi(
         PathValues.V1BETA1_AUTH_LOGOUT: V1beta1AuthLogout,
         PathValues.V1BETA1_AUTH_REGISTER_STRATEGY_NAME: V1beta1AuthRegisterStrategyName,
         PathValues.V1BETA1_AUTH_TOKEN: V1beta1AuthToken,
+        PathValues.V1BETA1_BATCHCHECK: V1beta1Batchcheck,
         PathValues.V1BETA1_CHECK: V1beta1Check,
         PathValues.V1BETA1_GROUPS_ID_PREFERENCES: V1beta1GroupsIdPreferences,
         PathValues.V1BETA1_META_SCHEMAS: V1beta1MetaSchemas,
@@ -240,6 +245,7 @@ path_to_api = PathToApi(
         PathValues.V1BETA1_PROJECTS_ID_DISABLE: V1beta1ProjectsIdDisable,
         PathValues.V1BETA1_PROJECTS_ID_ENABLE: V1beta1ProjectsIdEnable,
         PathValues.V1BETA1_PROJECTS_ID_PREFERENCES: V1beta1ProjectsIdPreferences,
+        PathValues.V1BETA1_PROJECTS_ID_SERVICEUSERS: V1beta1ProjectsIdServiceusers,
         PathValues.V1BETA1_PROJECTS_ID_USERS: V1beta1ProjectsIdUsers,
         PathValues.V1BETA1_PROJECTS_PROJECT_ID_RESOURCES: V1beta1ProjectsProjectIdResources,
         PathValues.V1BETA1_PROJECTS_PROJECT_ID_RESOURCES_ID: V1beta1ProjectsProjectIdResourcesId,

@@ -213,6 +213,7 @@ Class | Method | HTTP request | Description
 *AuthnApi* | [**frontier_service_authenticate**](docs/apis/tags/AuthnApi.md#frontier_service_authenticate) | **get** /v1beta1/auth/register/{strategyName} | Authenticate with a strategy
 *AuthnApi* | [**frontier_service_authenticate2**](docs/apis/tags/AuthnApi.md#frontier_service_authenticate2) | **post** /v1beta1/auth/register/{strategyName} | Authenticate with a strategy
 *AuthnApi* | [**frontier_service_list_auth_strategies**](docs/apis/tags/AuthnApi.md#frontier_service_list_auth_strategies) | **get** /v1beta1/auth | List authentication strategies
+*AuthzApi* | [**frontier_service_batch_check_permission**](docs/apis/tags/AuthzApi.md#frontier_service_batch_check_permission) | **post** /v1beta1/batchcheck | Batch check
 *AuthzApi* | [**frontier_service_check_resource_permission**](docs/apis/tags/AuthzApi.md#frontier_service_check_resource_permission) | **post** /v1beta1/check | Check
 *AuthzApi* | [**frontier_service_get_jwks**](docs/apis/tags/AuthzApi.md#frontier_service_get_jwks) | **get** /v1beta1/auth/jwks | Get well known JWKs
 *AuthzApi* | [**frontier_service_get_jwks2**](docs/apis/tags/AuthzApi.md#frontier_service_get_jwks2) | **get** /.well-known/jwks.json | Get well known JWKs
@@ -289,6 +290,7 @@ Class | Method | HTTP request | Description
 *ProjectApi* | [**frontier_service_enable_project**](docs/apis/tags/ProjectApi.md#frontier_service_enable_project) | **post** /v1beta1/projects/{id}/enable | Enable project
 *ProjectApi* | [**frontier_service_get_project**](docs/apis/tags/ProjectApi.md#frontier_service_get_project) | **get** /v1beta1/projects/{id} | Get project
 *ProjectApi* | [**frontier_service_list_project_admins**](docs/apis/tags/ProjectApi.md#frontier_service_list_project_admins) | **get** /v1beta1/projects/{id}/admins | List project admins
+*ProjectApi* | [**frontier_service_list_project_service_users**](docs/apis/tags/ProjectApi.md#frontier_service_list_project_service_users) | **get** /v1beta1/projects/{id}/serviceusers | List project serviceusers
 *ProjectApi* | [**frontier_service_list_project_users**](docs/apis/tags/ProjectApi.md#frontier_service_list_project_users) | **get** /v1beta1/projects/{id}/users | List project users
 *ProjectApi* | [**frontier_service_update_project**](docs/apis/tags/ProjectApi.md#frontier_service_update_project) | **put** /v1beta1/projects/{id} | Update project
 *RelationApi* | [**admin_service_list_relations**](docs/apis/tags/RelationApi.md#admin_service_list_relations) | **get** /v1beta1/admin/relations | List all relations
@@ -327,12 +329,12 @@ Class | Method | HTTP request | Description
 *UserApi* | [**frontier_service_disable_user**](docs/apis/tags/UserApi.md#frontier_service_disable_user) | **post** /v1beta1/users/{id}/disable | Disable user
 *UserApi* | [**frontier_service_enable_user**](docs/apis/tags/UserApi.md#frontier_service_enable_user) | **post** /v1beta1/users/{id}/enable | Enable user
 *UserApi* | [**frontier_service_get_current_user**](docs/apis/tags/UserApi.md#frontier_service_get_current_user) | **get** /v1beta1/users/self | Get current user
-*UserApi* | [**frontier_service_get_organizations_by_current_user**](docs/apis/tags/UserApi.md#frontier_service_get_organizations_by_current_user) | **get** /v1beta1/users/self/organizations | Get my organizations
-*UserApi* | [**frontier_service_get_organizations_by_user**](docs/apis/tags/UserApi.md#frontier_service_get_organizations_by_user) | **get** /v1beta1/users/{id}/organizations | Get user organizations
-*UserApi* | [**frontier_service_get_projects_by_current_user**](docs/apis/tags/UserApi.md#frontier_service_get_projects_by_current_user) | **get** /v1beta1/users/self/projects | Get my projects
-*UserApi* | [**frontier_service_get_projects_by_user**](docs/apis/tags/UserApi.md#frontier_service_get_projects_by_user) | **get** /v1beta1/users/{id}/projects | Get user projects
 *UserApi* | [**frontier_service_get_user**](docs/apis/tags/UserApi.md#frontier_service_get_user) | **get** /v1beta1/users/{id} | Get user
 *UserApi* | [**frontier_service_list_current_user_groups**](docs/apis/tags/UserApi.md#frontier_service_list_current_user_groups) | **get** /v1beta1/users/self/groups | List my groups
+*UserApi* | [**frontier_service_list_organizations_by_current_user**](docs/apis/tags/UserApi.md#frontier_service_list_organizations_by_current_user) | **get** /v1beta1/users/self/organizations | Get my organizations
+*UserApi* | [**frontier_service_list_organizations_by_user**](docs/apis/tags/UserApi.md#frontier_service_list_organizations_by_user) | **get** /v1beta1/users/{id}/organizations | Get user organizations
+*UserApi* | [**frontier_service_list_projects_by_current_user**](docs/apis/tags/UserApi.md#frontier_service_list_projects_by_current_user) | **get** /v1beta1/users/self/projects | Get my projects
+*UserApi* | [**frontier_service_list_projects_by_user**](docs/apis/tags/UserApi.md#frontier_service_list_projects_by_user) | **get** /v1beta1/users/{id}/projects | Get user projects
 *UserApi* | [**frontier_service_list_user_groups**](docs/apis/tags/UserApi.md#frontier_service_list_user_groups) | **get** /v1beta1/users/{id}/groups | List user groups
 *UserApi* | [**frontier_service_list_user_invitations**](docs/apis/tags/UserApi.md#frontier_service_list_user_invitations) | **get** /v1beta1/users/{id}/invitations | List user invitations
 *UserApi* | [**frontier_service_list_users**](docs/apis/tags/UserApi.md#frontier_service_list_users) | **get** /v1beta1/users | List public users
@@ -352,6 +354,10 @@ Class | Method | HTTP request | Description
  - [V1beta1AuthTokenRequest](docs/models/V1beta1AuthTokenRequest.md)
  - [V1beta1AuthTokenResponse](docs/models/V1beta1AuthTokenResponse.md)
  - [V1beta1AuthenticateResponse](docs/models/V1beta1AuthenticateResponse.md)
+ - [V1beta1BatchCheckPermissionBody](docs/models/V1beta1BatchCheckPermissionBody.md)
+ - [V1beta1BatchCheckPermissionRequest](docs/models/V1beta1BatchCheckPermissionRequest.md)
+ - [V1beta1BatchCheckPermissionResponse](docs/models/V1beta1BatchCheckPermissionResponse.md)
+ - [V1beta1BatchCheckPermissionResponsePair](docs/models/V1beta1BatchCheckPermissionResponsePair.md)
  - [V1beta1CheckResourcePermissionRequest](docs/models/V1beta1CheckResourcePermissionRequest.md)
  - [V1beta1CheckResourcePermissionResponse](docs/models/V1beta1CheckResourcePermissionResponse.md)
  - [V1beta1CreateCurrentUserPreferencesRequest](docs/models/V1beta1CreateCurrentUserPreferencesRequest.md)
@@ -392,14 +398,10 @@ Class | Method | HTTP request | Description
  - [V1beta1GetOrganizationInvitationResponse](docs/models/V1beta1GetOrganizationInvitationResponse.md)
  - [V1beta1GetOrganizationResponse](docs/models/V1beta1GetOrganizationResponse.md)
  - [V1beta1GetOrganizationRoleResponse](docs/models/V1beta1GetOrganizationRoleResponse.md)
- - [V1beta1GetOrganizationsByCurrentUserResponse](docs/models/V1beta1GetOrganizationsByCurrentUserResponse.md)
- - [V1beta1GetOrganizationsByUserResponse](docs/models/V1beta1GetOrganizationsByUserResponse.md)
  - [V1beta1GetPermissionResponse](docs/models/V1beta1GetPermissionResponse.md)
  - [V1beta1GetPolicyResponse](docs/models/V1beta1GetPolicyResponse.md)
  - [V1beta1GetProjectResourceResponse](docs/models/V1beta1GetProjectResourceResponse.md)
  - [V1beta1GetProjectResponse](docs/models/V1beta1GetProjectResponse.md)
- - [V1beta1GetProjectsByCurrentUserResponse](docs/models/V1beta1GetProjectsByCurrentUserResponse.md)
- - [V1beta1GetProjectsByUserResponse](docs/models/V1beta1GetProjectsByUserResponse.md)
  - [V1beta1GetRelationResponse](docs/models/V1beta1GetRelationResponse.md)
  - [V1beta1GetServiceUserKeyResponse](docs/models/V1beta1GetServiceUserKeyResponse.md)
  - [V1beta1GetServiceUserResponse](docs/models/V1beta1GetServiceUserResponse.md)
@@ -413,9 +415,11 @@ Class | Method | HTTP request | Description
  - [V1beta1ListAllUsersResponse](docs/models/V1beta1ListAllUsersResponse.md)
  - [V1beta1ListAuthStrategiesResponse](docs/models/V1beta1ListAuthStrategiesResponse.md)
  - [V1beta1ListCurrentUserGroupsResponse](docs/models/V1beta1ListCurrentUserGroupsResponse.md)
+ - [V1beta1ListCurrentUserGroupsResponseAccessPair](docs/models/V1beta1ListCurrentUserGroupsResponseAccessPair.md)
  - [V1beta1ListCurrentUserPreferencesResponse](docs/models/V1beta1ListCurrentUserPreferencesResponse.md)
  - [V1beta1ListGroupPreferencesResponse](docs/models/V1beta1ListGroupPreferencesResponse.md)
  - [V1beta1ListGroupUsersResponse](docs/models/V1beta1ListGroupUsersResponse.md)
+ - [V1beta1ListGroupUsersResponseRolePair](docs/models/V1beta1ListGroupUsersResponseRolePair.md)
  - [V1beta1ListGroupsResponse](docs/models/V1beta1ListGroupsResponse.md)
  - [V1beta1ListMetaSchemasResponse](docs/models/V1beta1ListMetaSchemasResponse.md)
  - [V1beta1ListNamespacesResponse](docs/models/V1beta1ListNamespacesResponse.md)
@@ -429,6 +433,8 @@ Class | Method | HTTP request | Description
  - [V1beta1ListOrganizationRolesResponse](docs/models/V1beta1ListOrganizationRolesResponse.md)
  - [V1beta1ListOrganizationServiceUsersResponse](docs/models/V1beta1ListOrganizationServiceUsersResponse.md)
  - [V1beta1ListOrganizationUsersResponse](docs/models/V1beta1ListOrganizationUsersResponse.md)
+ - [V1beta1ListOrganizationsByCurrentUserResponse](docs/models/V1beta1ListOrganizationsByCurrentUserResponse.md)
+ - [V1beta1ListOrganizationsByUserResponse](docs/models/V1beta1ListOrganizationsByUserResponse.md)
  - [V1beta1ListOrganizationsResponse](docs/models/V1beta1ListOrganizationsResponse.md)
  - [V1beta1ListPermissionsResponse](docs/models/V1beta1ListPermissionsResponse.md)
  - [V1beta1ListPoliciesResponse](docs/models/V1beta1ListPoliciesResponse.md)
@@ -436,7 +442,13 @@ Class | Method | HTTP request | Description
  - [V1beta1ListProjectAdminsResponse](docs/models/V1beta1ListProjectAdminsResponse.md)
  - [V1beta1ListProjectPreferencesResponse](docs/models/V1beta1ListProjectPreferencesResponse.md)
  - [V1beta1ListProjectResourcesResponse](docs/models/V1beta1ListProjectResourcesResponse.md)
+ - [V1beta1ListProjectServiceUsersResponse](docs/models/V1beta1ListProjectServiceUsersResponse.md)
+ - [V1beta1ListProjectServiceUsersResponseRolePair](docs/models/V1beta1ListProjectServiceUsersResponseRolePair.md)
  - [V1beta1ListProjectUsersResponse](docs/models/V1beta1ListProjectUsersResponse.md)
+ - [V1beta1ListProjectUsersResponseRolePair](docs/models/V1beta1ListProjectUsersResponseRolePair.md)
+ - [V1beta1ListProjectsByCurrentUserResponse](docs/models/V1beta1ListProjectsByCurrentUserResponse.md)
+ - [V1beta1ListProjectsByCurrentUserResponseAccessPair](docs/models/V1beta1ListProjectsByCurrentUserResponseAccessPair.md)
+ - [V1beta1ListProjectsByUserResponse](docs/models/V1beta1ListProjectsByUserResponse.md)
  - [V1beta1ListProjectsResponse](docs/models/V1beta1ListProjectsResponse.md)
  - [V1beta1ListRelationsResponse](docs/models/V1beta1ListRelationsResponse.md)
  - [V1beta1ListResourcesResponse](docs/models/V1beta1ListResourcesResponse.md)
@@ -495,6 +507,10 @@ Authentication schemes defined for the API:
 
 - **Type**: HTTP basic authentication
 
+
+## Author
+
+hello@raystack.or
 
 ## Notes for Large OpenAPI documents
 If the OpenAPI document is large, imports in frontier_api.apis and frontier_api.models may fail with a

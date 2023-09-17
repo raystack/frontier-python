@@ -11,12 +11,12 @@ Method | HTTP request | Description
 [**frontier_service_disable_user**](#frontier_service_disable_user) | **post** /v1beta1/users/{id}/disable | Disable user
 [**frontier_service_enable_user**](#frontier_service_enable_user) | **post** /v1beta1/users/{id}/enable | Enable user
 [**frontier_service_get_current_user**](#frontier_service_get_current_user) | **get** /v1beta1/users/self | Get current user
-[**frontier_service_get_organizations_by_current_user**](#frontier_service_get_organizations_by_current_user) | **get** /v1beta1/users/self/organizations | Get my organizations
-[**frontier_service_get_organizations_by_user**](#frontier_service_get_organizations_by_user) | **get** /v1beta1/users/{id}/organizations | Get user organizations
-[**frontier_service_get_projects_by_current_user**](#frontier_service_get_projects_by_current_user) | **get** /v1beta1/users/self/projects | Get my projects
-[**frontier_service_get_projects_by_user**](#frontier_service_get_projects_by_user) | **get** /v1beta1/users/{id}/projects | Get user projects
 [**frontier_service_get_user**](#frontier_service_get_user) | **get** /v1beta1/users/{id} | Get user
 [**frontier_service_list_current_user_groups**](#frontier_service_list_current_user_groups) | **get** /v1beta1/users/self/groups | List my groups
+[**frontier_service_list_organizations_by_current_user**](#frontier_service_list_organizations_by_current_user) | **get** /v1beta1/users/self/organizations | Get my organizations
+[**frontier_service_list_organizations_by_user**](#frontier_service_list_organizations_by_user) | **get** /v1beta1/users/{id}/organizations | Get user organizations
+[**frontier_service_list_projects_by_current_user**](#frontier_service_list_projects_by_current_user) | **get** /v1beta1/users/self/projects | Get my projects
+[**frontier_service_list_projects_by_user**](#frontier_service_list_projects_by_user) | **get** /v1beta1/users/{id}/projects | Get user projects
 [**frontier_service_list_user_groups**](#frontier_service_list_user_groups) | **get** /v1beta1/users/{id}/groups | List user groups
 [**frontier_service_list_user_invitations**](#frontier_service_list_user_invitations) | **get** /v1beta1/users/{id}/invitations | List user invitations
 [**frontier_service_list_users**](#frontier_service_list_users) | **get** /v1beta1/users | List public users
@@ -299,6 +299,7 @@ with frontier_api.ApiClient(configuration) as api_client:
         email="email_example",
         metadata=dict(),
         title="title_example",
+        avatar="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAA",
     )
     try:
         # Create user
@@ -1176,694 +1177,6 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **frontier_service_get_organizations_by_current_user**
-<a id="frontier_service_get_organizations_by_current_user"></a>
-> V1beta1GetOrganizationsByCurrentUserResponse frontier_service_get_organizations_by_current_user()
-
-Get my organizations
-
-This API returns two list of organizations for the current logged in user. i) The list of orgs which the current user is already a part of ii) The list of organizations the user can join directly (based on domain whitelisted and verified by the org). This list will also contain orgs of which user is already a part of. Note: the domain needs to be verified by the org before the it is returned as one of the joinable orgs by domain
-
-### Example
-
-* Basic Authentication (Basic):
-```python
-import frontier_api
-from frontier_api.apis.tags import user_api
-from frontier_api.model.rpc_status import RpcStatus
-from frontier_api.model.v1beta1_get_organizations_by_current_user_response import V1beta1GetOrganizationsByCurrentUserResponse
-from pprint import pprint
-# Defining the host is optional and defaults to http://127.0.0.1:7400
-# See configuration.py for a list of all supported configuration parameters.
-configuration = frontier_api.Configuration(
-    host = "http://127.0.0.1:7400"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: Basic
-configuration = frontier_api.Configuration(
-    username = 'YOUR_USERNAME',
-    password = 'YOUR_PASSWORD'
-)
-# Enter a context with an instance of the API client
-with frontier_api.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = user_api.UserApi(api_client)
-
-    # example, this endpoint has no required or optional parameters
-    try:
-        # Get my organizations
-        api_response = api_instance.frontier_service_get_organizations_by_current_user()
-        pprint(api_response)
-    except frontier_api.ApiException as e:
-        print("Exception when calling UserApi->frontier_service_get_organizations_by_current_user: %s\n" % e)
-```
-### Parameters
-This endpoint does not need any parameter.
-
-### Return Types, Responses
-
-Code | Class | Description
-------------- | ------------- | -------------
-n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#frontier_service_get_organizations_by_current_user.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#frontier_service_get_organizations_by_current_user.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#frontier_service_get_organizations_by_current_user.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#frontier_service_get_organizations_by_current_user.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#frontier_service_get_organizations_by_current_user.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#frontier_service_get_organizations_by_current_user.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
-default | [ApiResponseForDefault](#frontier_service_get_organizations_by_current_user.ApiResponseForDefault) | An unexpected error response.
-
-#### frontier_service_get_organizations_by_current_user.ApiResponseFor200
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor200ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**V1beta1GetOrganizationsByCurrentUserResponse**](../../models/V1beta1GetOrganizationsByCurrentUserResponse.md) |  | 
-
-
-#### frontier_service_get_organizations_by_current_user.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**RpcStatus**](../../models/RpcStatus.md) |  | 
-
-
-#### frontier_service_get_organizations_by_current_user.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**RpcStatus**](../../models/RpcStatus.md) |  | 
-
-
-#### frontier_service_get_organizations_by_current_user.ApiResponseFor403
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor403ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor403ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**RpcStatus**](../../models/RpcStatus.md) |  | 
-
-
-#### frontier_service_get_organizations_by_current_user.ApiResponseFor404
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor404ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor404ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**RpcStatus**](../../models/RpcStatus.md) |  | 
-
-
-#### frontier_service_get_organizations_by_current_user.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**RpcStatus**](../../models/RpcStatus.md) |  | 
-
-
-#### frontier_service_get_organizations_by_current_user.ApiResponseForDefault
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor0ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**RpcStatus**](../../models/RpcStatus.md) |  | 
-
-
-### Authorization
-
-[Basic](../../../README.md#Basic)
-
-[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
-
-# **frontier_service_get_organizations_by_user**
-<a id="frontier_service_get_organizations_by_user"></a>
-> V1beta1GetOrganizationsByUserResponse frontier_service_get_organizations_by_user(id)
-
-Get user organizations
-
-This API returns two list of organizations for the user. i) The list of orgs which the current user is already a part of ii) The list of organizations the user can join directly (based on domain whitelisted and verified by the org). This list will also contain orgs of which user is already a part of. Note: the domain needs to be verified by the org before the it is returned as one of the joinable orgs by domain
-
-### Example
-
-* Basic Authentication (Basic):
-```python
-import frontier_api
-from frontier_api.apis.tags import user_api
-from frontier_api.model.rpc_status import RpcStatus
-from frontier_api.model.v1beta1_get_organizations_by_user_response import V1beta1GetOrganizationsByUserResponse
-from pprint import pprint
-# Defining the host is optional and defaults to http://127.0.0.1:7400
-# See configuration.py for a list of all supported configuration parameters.
-configuration = frontier_api.Configuration(
-    host = "http://127.0.0.1:7400"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: Basic
-configuration = frontier_api.Configuration(
-    username = 'YOUR_USERNAME',
-    password = 'YOUR_PASSWORD'
-)
-# Enter a context with an instance of the API client
-with frontier_api.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = user_api.UserApi(api_client)
-
-    # example passing only required values which don't have defaults set
-    path_params = {
-        'id': "id_example",
-    }
-    try:
-        # Get user organizations
-        api_response = api_instance.frontier_service_get_organizations_by_user(
-            path_params=path_params,
-        )
-        pprint(api_response)
-    except frontier_api.ApiException as e:
-        print("Exception when calling UserApi->frontier_service_get_organizations_by_user: %s\n" % e)
-```
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-path_params | RequestPathParams | |
-accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
-stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
-timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
-skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
-
-### path_params
-#### RequestPathParams
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-id | IdSchema | | 
-
-# IdSchema
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  | 
-
-### Return Types, Responses
-
-Code | Class | Description
-------------- | ------------- | -------------
-n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#frontier_service_get_organizations_by_user.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#frontier_service_get_organizations_by_user.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#frontier_service_get_organizations_by_user.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#frontier_service_get_organizations_by_user.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#frontier_service_get_organizations_by_user.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#frontier_service_get_organizations_by_user.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
-default | [ApiResponseForDefault](#frontier_service_get_organizations_by_user.ApiResponseForDefault) | An unexpected error response.
-
-#### frontier_service_get_organizations_by_user.ApiResponseFor200
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor200ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**V1beta1GetOrganizationsByUserResponse**](../../models/V1beta1GetOrganizationsByUserResponse.md) |  | 
-
-
-#### frontier_service_get_organizations_by_user.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**RpcStatus**](../../models/RpcStatus.md) |  | 
-
-
-#### frontier_service_get_organizations_by_user.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**RpcStatus**](../../models/RpcStatus.md) |  | 
-
-
-#### frontier_service_get_organizations_by_user.ApiResponseFor403
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor403ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor403ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**RpcStatus**](../../models/RpcStatus.md) |  | 
-
-
-#### frontier_service_get_organizations_by_user.ApiResponseFor404
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor404ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor404ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**RpcStatus**](../../models/RpcStatus.md) |  | 
-
-
-#### frontier_service_get_organizations_by_user.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**RpcStatus**](../../models/RpcStatus.md) |  | 
-
-
-#### frontier_service_get_organizations_by_user.ApiResponseForDefault
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor0ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**RpcStatus**](../../models/RpcStatus.md) |  | 
-
-
-### Authorization
-
-[Basic](../../../README.md#Basic)
-
-[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
-
-# **frontier_service_get_projects_by_current_user**
-<a id="frontier_service_get_projects_by_current_user"></a>
-> V1beta1GetProjectsByCurrentUserResponse frontier_service_get_projects_by_current_user()
-
-Get my projects
-
-Get all projects the current user belongs to
-
-### Example
-
-* Basic Authentication (Basic):
-```python
-import frontier_api
-from frontier_api.apis.tags import user_api
-from frontier_api.model.rpc_status import RpcStatus
-from frontier_api.model.v1beta1_get_projects_by_current_user_response import V1beta1GetProjectsByCurrentUserResponse
-from pprint import pprint
-# Defining the host is optional and defaults to http://127.0.0.1:7400
-# See configuration.py for a list of all supported configuration parameters.
-configuration = frontier_api.Configuration(
-    host = "http://127.0.0.1:7400"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: Basic
-configuration = frontier_api.Configuration(
-    username = 'YOUR_USERNAME',
-    password = 'YOUR_PASSWORD'
-)
-# Enter a context with an instance of the API client
-with frontier_api.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = user_api.UserApi(api_client)
-
-    # example, this endpoint has no required or optional parameters
-    try:
-        # Get my projects
-        api_response = api_instance.frontier_service_get_projects_by_current_user()
-        pprint(api_response)
-    except frontier_api.ApiException as e:
-        print("Exception when calling UserApi->frontier_service_get_projects_by_current_user: %s\n" % e)
-```
-### Parameters
-This endpoint does not need any parameter.
-
-### Return Types, Responses
-
-Code | Class | Description
-------------- | ------------- | -------------
-n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#frontier_service_get_projects_by_current_user.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#frontier_service_get_projects_by_current_user.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#frontier_service_get_projects_by_current_user.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#frontier_service_get_projects_by_current_user.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#frontier_service_get_projects_by_current_user.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#frontier_service_get_projects_by_current_user.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
-default | [ApiResponseForDefault](#frontier_service_get_projects_by_current_user.ApiResponseForDefault) | An unexpected error response.
-
-#### frontier_service_get_projects_by_current_user.ApiResponseFor200
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor200ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**V1beta1GetProjectsByCurrentUserResponse**](../../models/V1beta1GetProjectsByCurrentUserResponse.md) |  | 
-
-
-#### frontier_service_get_projects_by_current_user.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**RpcStatus**](../../models/RpcStatus.md) |  | 
-
-
-#### frontier_service_get_projects_by_current_user.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**RpcStatus**](../../models/RpcStatus.md) |  | 
-
-
-#### frontier_service_get_projects_by_current_user.ApiResponseFor403
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor403ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor403ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**RpcStatus**](../../models/RpcStatus.md) |  | 
-
-
-#### frontier_service_get_projects_by_current_user.ApiResponseFor404
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor404ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor404ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**RpcStatus**](../../models/RpcStatus.md) |  | 
-
-
-#### frontier_service_get_projects_by_current_user.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**RpcStatus**](../../models/RpcStatus.md) |  | 
-
-
-#### frontier_service_get_projects_by_current_user.ApiResponseForDefault
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor0ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**RpcStatus**](../../models/RpcStatus.md) |  | 
-
-
-### Authorization
-
-[Basic](../../../README.md#Basic)
-
-[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
-
-# **frontier_service_get_projects_by_user**
-<a id="frontier_service_get_projects_by_user"></a>
-> V1beta1GetProjectsByUserResponse frontier_service_get_projects_by_user(id)
-
-Get user projects
-
-Get all the projects a user belongs to.
-
-### Example
-
-* Basic Authentication (Basic):
-```python
-import frontier_api
-from frontier_api.apis.tags import user_api
-from frontier_api.model.rpc_status import RpcStatus
-from frontier_api.model.v1beta1_get_projects_by_user_response import V1beta1GetProjectsByUserResponse
-from pprint import pprint
-# Defining the host is optional and defaults to http://127.0.0.1:7400
-# See configuration.py for a list of all supported configuration parameters.
-configuration = frontier_api.Configuration(
-    host = "http://127.0.0.1:7400"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: Basic
-configuration = frontier_api.Configuration(
-    username = 'YOUR_USERNAME',
-    password = 'YOUR_PASSWORD'
-)
-# Enter a context with an instance of the API client
-with frontier_api.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = user_api.UserApi(api_client)
-
-    # example passing only required values which don't have defaults set
-    path_params = {
-        'id': "id_example",
-    }
-    try:
-        # Get user projects
-        api_response = api_instance.frontier_service_get_projects_by_user(
-            path_params=path_params,
-        )
-        pprint(api_response)
-    except frontier_api.ApiException as e:
-        print("Exception when calling UserApi->frontier_service_get_projects_by_user: %s\n" % e)
-```
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-path_params | RequestPathParams | |
-accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
-stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
-timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
-skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
-
-### path_params
-#### RequestPathParams
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-id | IdSchema | | 
-
-# IdSchema
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  | 
-
-### Return Types, Responses
-
-Code | Class | Description
-------------- | ------------- | -------------
-n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#frontier_service_get_projects_by_user.ApiResponseFor200) | A successful response.
-400 | [ApiResponseFor400](#frontier_service_get_projects_by_user.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
-401 | [ApiResponseFor401](#frontier_service_get_projects_by_user.ApiResponseFor401) | Unauthorized - Authentication is required
-403 | [ApiResponseFor403](#frontier_service_get_projects_by_user.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
-404 | [ApiResponseFor404](#frontier_service_get_projects_by_user.ApiResponseFor404) | Not Found - The requested resource was not found
-500 | [ApiResponseFor500](#frontier_service_get_projects_by_user.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
-default | [ApiResponseForDefault](#frontier_service_get_projects_by_user.ApiResponseForDefault) | An unexpected error response.
-
-#### frontier_service_get_projects_by_user.ApiResponseFor200
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor200ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**V1beta1GetProjectsByUserResponse**](../../models/V1beta1GetProjectsByUserResponse.md) |  | 
-
-
-#### frontier_service_get_projects_by_user.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**RpcStatus**](../../models/RpcStatus.md) |  | 
-
-
-#### frontier_service_get_projects_by_user.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**RpcStatus**](../../models/RpcStatus.md) |  | 
-
-
-#### frontier_service_get_projects_by_user.ApiResponseFor403
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor403ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor403ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**RpcStatus**](../../models/RpcStatus.md) |  | 
-
-
-#### frontier_service_get_projects_by_user.ApiResponseFor404
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor404ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor404ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**RpcStatus**](../../models/RpcStatus.md) |  | 
-
-
-#### frontier_service_get_projects_by_user.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**RpcStatus**](../../models/RpcStatus.md) |  | 
-
-
-#### frontier_service_get_projects_by_user.ApiResponseForDefault
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor0ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**RpcStatus**](../../models/RpcStatus.md) |  | 
-
-
-### Authorization
-
-[Basic](../../../README.md#Basic)
-
-[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
-
 # **frontier_service_get_user**
 <a id="frontier_service_get_user"></a>
 > V1beta1GetUserResponse frontier_service_get_user(id)
@@ -2085,16 +1398,59 @@ with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = user_api.UserApi(api_client)
 
-    # example, this endpoint has no required or optional parameters
+    # example passing only optional values
+    query_params = {
+        'orgId': "orgId_example",
+        'withPermissions': [
+        "withPermissions_example"
+    ],
+    }
     try:
         # List my groups
-        api_response = api_instance.frontier_service_list_current_user_groups()
+        api_response = api_instance.frontier_service_list_current_user_groups(
+            query_params=query_params,
+        )
         pprint(api_response)
     except frontier_api.ApiException as e:
         print("Exception when calling UserApi->frontier_service_list_current_user_groups: %s\n" % e)
 ```
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+query_params | RequestQueryParams | |
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### query_params
+#### RequestQueryParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+orgId | OrgIdSchema | | optional
+withPermissions | WithPermissionsSchema | | optional
+
+
+# OrgIdSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+# WithPermissionsSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  |  | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  |  | 
 
 ### Return Types, Responses
 
@@ -2188,6 +1544,737 @@ Type | Description  | Notes
 
 
 #### frontier_service_list_current_user_groups.ApiResponseForDefault
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor0ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RpcStatus**](../../models/RpcStatus.md) |  | 
+
+
+### Authorization
+
+[Basic](../../../README.md#Basic)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **frontier_service_list_organizations_by_current_user**
+<a id="frontier_service_list_organizations_by_current_user"></a>
+> V1beta1ListOrganizationsByCurrentUserResponse frontier_service_list_organizations_by_current_user()
+
+Get my organizations
+
+This API returns two list of organizations for the current logged in user. i) The list of orgs which the current user is already a part of ii) The list of organizations the user can join directly (based on domain whitelisted and verified by the org). This list will also contain orgs of which user is already a part of. Note: the domain needs to be verified by the org before the it is returned as one of the joinable orgs by domain
+
+### Example
+
+* Basic Authentication (Basic):
+```python
+import frontier_api
+from frontier_api.apis.tags import user_api
+from frontier_api.model.rpc_status import RpcStatus
+from frontier_api.model.v1beta1_list_organizations_by_current_user_response import V1beta1ListOrganizationsByCurrentUserResponse
+from pprint import pprint
+# Defining the host is optional and defaults to http://127.0.0.1:7400
+# See configuration.py for a list of all supported configuration parameters.
+configuration = frontier_api.Configuration(
+    host = "http://127.0.0.1:7400"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = frontier_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+# Enter a context with an instance of the API client
+with frontier_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = user_api.UserApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
+    try:
+        # Get my organizations
+        api_response = api_instance.frontier_service_list_organizations_by_current_user()
+        pprint(api_response)
+    except frontier_api.ApiException as e:
+        print("Exception when calling UserApi->frontier_service_list_organizations_by_current_user: %s\n" % e)
+```
+### Parameters
+This endpoint does not need any parameter.
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#frontier_service_list_organizations_by_current_user.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_list_organizations_by_current_user.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_list_organizations_by_current_user.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_list_organizations_by_current_user.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_list_organizations_by_current_user.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_list_organizations_by_current_user.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_list_organizations_by_current_user.ApiResponseForDefault) | An unexpected error response.
+
+#### frontier_service_list_organizations_by_current_user.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**V1beta1ListOrganizationsByCurrentUserResponse**](../../models/V1beta1ListOrganizationsByCurrentUserResponse.md) |  | 
+
+
+#### frontier_service_list_organizations_by_current_user.ApiResponseFor400
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RpcStatus**](../../models/RpcStatus.md) |  | 
+
+
+#### frontier_service_list_organizations_by_current_user.ApiResponseFor401
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor401ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RpcStatus**](../../models/RpcStatus.md) |  | 
+
+
+#### frontier_service_list_organizations_by_current_user.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RpcStatus**](../../models/RpcStatus.md) |  | 
+
+
+#### frontier_service_list_organizations_by_current_user.ApiResponseFor404
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor404ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor404ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RpcStatus**](../../models/RpcStatus.md) |  | 
+
+
+#### frontier_service_list_organizations_by_current_user.ApiResponseFor500
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor500ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RpcStatus**](../../models/RpcStatus.md) |  | 
+
+
+#### frontier_service_list_organizations_by_current_user.ApiResponseForDefault
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor0ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RpcStatus**](../../models/RpcStatus.md) |  | 
+
+
+### Authorization
+
+[Basic](../../../README.md#Basic)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **frontier_service_list_organizations_by_user**
+<a id="frontier_service_list_organizations_by_user"></a>
+> V1beta1ListOrganizationsByUserResponse frontier_service_list_organizations_by_user(id)
+
+Get user organizations
+
+This API returns two list of organizations for the user. i) The list of orgs which the current user is already a part of ii) The list of organizations the user can join directly (based on domain whitelisted and verified by the org). This list will also contain orgs of which user is already a part of. Note: the domain needs to be verified by the org before the it is returned as one of the joinable orgs by domain
+
+### Example
+
+* Basic Authentication (Basic):
+```python
+import frontier_api
+from frontier_api.apis.tags import user_api
+from frontier_api.model.rpc_status import RpcStatus
+from frontier_api.model.v1beta1_list_organizations_by_user_response import V1beta1ListOrganizationsByUserResponse
+from pprint import pprint
+# Defining the host is optional and defaults to http://127.0.0.1:7400
+# See configuration.py for a list of all supported configuration parameters.
+configuration = frontier_api.Configuration(
+    host = "http://127.0.0.1:7400"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = frontier_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+# Enter a context with an instance of the API client
+with frontier_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = user_api.UserApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    path_params = {
+        'id': "id_example",
+    }
+    try:
+        # Get user organizations
+        api_response = api_instance.frontier_service_list_organizations_by_user(
+            path_params=path_params,
+        )
+        pprint(api_response)
+    except frontier_api.ApiException as e:
+        print("Exception when calling UserApi->frontier_service_list_organizations_by_user: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+path_params | RequestPathParams | |
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### path_params
+#### RequestPathParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+id | IdSchema | | 
+
+# IdSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#frontier_service_list_organizations_by_user.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_list_organizations_by_user.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_list_organizations_by_user.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_list_organizations_by_user.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_list_organizations_by_user.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_list_organizations_by_user.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_list_organizations_by_user.ApiResponseForDefault) | An unexpected error response.
+
+#### frontier_service_list_organizations_by_user.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**V1beta1ListOrganizationsByUserResponse**](../../models/V1beta1ListOrganizationsByUserResponse.md) |  | 
+
+
+#### frontier_service_list_organizations_by_user.ApiResponseFor400
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RpcStatus**](../../models/RpcStatus.md) |  | 
+
+
+#### frontier_service_list_organizations_by_user.ApiResponseFor401
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor401ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RpcStatus**](../../models/RpcStatus.md) |  | 
+
+
+#### frontier_service_list_organizations_by_user.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RpcStatus**](../../models/RpcStatus.md) |  | 
+
+
+#### frontier_service_list_organizations_by_user.ApiResponseFor404
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor404ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor404ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RpcStatus**](../../models/RpcStatus.md) |  | 
+
+
+#### frontier_service_list_organizations_by_user.ApiResponseFor500
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor500ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RpcStatus**](../../models/RpcStatus.md) |  | 
+
+
+#### frontier_service_list_organizations_by_user.ApiResponseForDefault
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor0ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RpcStatus**](../../models/RpcStatus.md) |  | 
+
+
+### Authorization
+
+[Basic](../../../README.md#Basic)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **frontier_service_list_projects_by_current_user**
+<a id="frontier_service_list_projects_by_current_user"></a>
+> V1beta1ListProjectsByCurrentUserResponse frontier_service_list_projects_by_current_user()
+
+Get my projects
+
+Get all projects the current user belongs to
+
+### Example
+
+* Basic Authentication (Basic):
+```python
+import frontier_api
+from frontier_api.apis.tags import user_api
+from frontier_api.model.v1beta1_list_projects_by_current_user_response import V1beta1ListProjectsByCurrentUserResponse
+from frontier_api.model.rpc_status import RpcStatus
+from pprint import pprint
+# Defining the host is optional and defaults to http://127.0.0.1:7400
+# See configuration.py for a list of all supported configuration parameters.
+configuration = frontier_api.Configuration(
+    host = "http://127.0.0.1:7400"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = frontier_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+# Enter a context with an instance of the API client
+with frontier_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = user_api.UserApi(api_client)
+
+    # example passing only optional values
+    query_params = {
+        'orgId': "orgId_example",
+        'withPermissions': [
+        "withPermissions_example"
+    ],
+    }
+    try:
+        # Get my projects
+        api_response = api_instance.frontier_service_list_projects_by_current_user(
+            query_params=query_params,
+        )
+        pprint(api_response)
+    except frontier_api.ApiException as e:
+        print("Exception when calling UserApi->frontier_service_list_projects_by_current_user: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+query_params | RequestQueryParams | |
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### query_params
+#### RequestQueryParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+orgId | OrgIdSchema | | optional
+withPermissions | WithPermissionsSchema | | optional
+
+
+# OrgIdSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+# WithPermissionsSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  |  | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  |  | 
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#frontier_service_list_projects_by_current_user.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_list_projects_by_current_user.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_list_projects_by_current_user.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_list_projects_by_current_user.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_list_projects_by_current_user.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_list_projects_by_current_user.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_list_projects_by_current_user.ApiResponseForDefault) | An unexpected error response.
+
+#### frontier_service_list_projects_by_current_user.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**V1beta1ListProjectsByCurrentUserResponse**](../../models/V1beta1ListProjectsByCurrentUserResponse.md) |  | 
+
+
+#### frontier_service_list_projects_by_current_user.ApiResponseFor400
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RpcStatus**](../../models/RpcStatus.md) |  | 
+
+
+#### frontier_service_list_projects_by_current_user.ApiResponseFor401
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor401ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RpcStatus**](../../models/RpcStatus.md) |  | 
+
+
+#### frontier_service_list_projects_by_current_user.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RpcStatus**](../../models/RpcStatus.md) |  | 
+
+
+#### frontier_service_list_projects_by_current_user.ApiResponseFor404
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor404ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor404ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RpcStatus**](../../models/RpcStatus.md) |  | 
+
+
+#### frontier_service_list_projects_by_current_user.ApiResponseFor500
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor500ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RpcStatus**](../../models/RpcStatus.md) |  | 
+
+
+#### frontier_service_list_projects_by_current_user.ApiResponseForDefault
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor0ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RpcStatus**](../../models/RpcStatus.md) |  | 
+
+
+### Authorization
+
+[Basic](../../../README.md#Basic)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **frontier_service_list_projects_by_user**
+<a id="frontier_service_list_projects_by_user"></a>
+> V1beta1ListProjectsByUserResponse frontier_service_list_projects_by_user(id)
+
+Get user projects
+
+Get all the projects a user belongs to.
+
+### Example
+
+* Basic Authentication (Basic):
+```python
+import frontier_api
+from frontier_api.apis.tags import user_api
+from frontier_api.model.rpc_status import RpcStatus
+from frontier_api.model.v1beta1_list_projects_by_user_response import V1beta1ListProjectsByUserResponse
+from pprint import pprint
+# Defining the host is optional and defaults to http://127.0.0.1:7400
+# See configuration.py for a list of all supported configuration parameters.
+configuration = frontier_api.Configuration(
+    host = "http://127.0.0.1:7400"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: Basic
+configuration = frontier_api.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+# Enter a context with an instance of the API client
+with frontier_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = user_api.UserApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    path_params = {
+        'id': "id_example",
+    }
+    try:
+        # Get user projects
+        api_response = api_instance.frontier_service_list_projects_by_user(
+            path_params=path_params,
+        )
+        pprint(api_response)
+    except frontier_api.ApiException as e:
+        print("Exception when calling UserApi->frontier_service_list_projects_by_user: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+path_params | RequestPathParams | |
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### path_params
+#### RequestPathParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+id | IdSchema | | 
+
+# IdSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#frontier_service_list_projects_by_user.ApiResponseFor200) | A successful response.
+400 | [ApiResponseFor400](#frontier_service_list_projects_by_user.ApiResponseFor400) | Bad Request - The request was malformed or contained invalid parameters.
+401 | [ApiResponseFor401](#frontier_service_list_projects_by_user.ApiResponseFor401) | Unauthorized - Authentication is required
+403 | [ApiResponseFor403](#frontier_service_list_projects_by_user.ApiResponseFor403) | Forbidden - User does not have permission to access the resource
+404 | [ApiResponseFor404](#frontier_service_list_projects_by_user.ApiResponseFor404) | Not Found - The requested resource was not found
+500 | [ApiResponseFor500](#frontier_service_list_projects_by_user.ApiResponseFor500) | Internal Server Error. Returned when theres is something wrong with Frontier server.
+default | [ApiResponseForDefault](#frontier_service_list_projects_by_user.ApiResponseForDefault) | An unexpected error response.
+
+#### frontier_service_list_projects_by_user.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**V1beta1ListProjectsByUserResponse**](../../models/V1beta1ListProjectsByUserResponse.md) |  | 
+
+
+#### frontier_service_list_projects_by_user.ApiResponseFor400
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RpcStatus**](../../models/RpcStatus.md) |  | 
+
+
+#### frontier_service_list_projects_by_user.ApiResponseFor401
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor401ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RpcStatus**](../../models/RpcStatus.md) |  | 
+
+
+#### frontier_service_list_projects_by_user.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RpcStatus**](../../models/RpcStatus.md) |  | 
+
+
+#### frontier_service_list_projects_by_user.ApiResponseFor404
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor404ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor404ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RpcStatus**](../../models/RpcStatus.md) |  | 
+
+
+#### frontier_service_list_projects_by_user.ApiResponseFor500
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor500ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RpcStatus**](../../models/RpcStatus.md) |  | 
+
+
+#### frontier_service_list_projects_by_user.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -2886,6 +2973,7 @@ with frontier_api.ApiClient(configuration) as api_client:
         email="email_example",
         metadata=dict(),
         title="title_example",
+        avatar="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAA",
     )
     try:
         # Update current user
@@ -3071,6 +3159,7 @@ with frontier_api.ApiClient(configuration) as api_client:
         email="email_example",
         metadata=dict(),
         title="title_example",
+        avatar="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAA",
     )
     try:
         # Update user

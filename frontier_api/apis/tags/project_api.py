@@ -17,6 +17,7 @@ from frontier_api.paths.v1beta1_projects_id_disable.post import FrontierServiceD
 from frontier_api.paths.v1beta1_projects_id_enable.post import FrontierServiceEnableProject
 from frontier_api.paths.v1beta1_projects_id.get import FrontierServiceGetProject
 from frontier_api.paths.v1beta1_projects_id_admins.get import FrontierServiceListProjectAdmins
+from frontier_api.paths.v1beta1_projects_id_serviceusers.get import FrontierServiceListProjectServiceUsers
 from frontier_api.paths.v1beta1_projects_id_users.get import FrontierServiceListProjectUsers
 from frontier_api.paths.v1beta1_projects_id.put import FrontierServiceUpdateProject
 
@@ -29,6 +30,7 @@ class ProjectApi(
     FrontierServiceEnableProject,
     FrontierServiceGetProject,
     FrontierServiceListProjectAdmins,
+    FrontierServiceListProjectServiceUsers,
     FrontierServiceListProjectUsers,
     FrontierServiceUpdateProject,
 ):

@@ -45,6 +45,7 @@ class V1beta1User(
             createdAt = schemas.DateTimeSchema
             updatedAt = schemas.DateTimeSchema
             state = schemas.StrSchema
+            avatar = schemas.StrSchema
             __annotations__ = {
                 "id": id,
                 "name": name,
@@ -54,6 +55,7 @@ class V1beta1User(
                 "createdAt": createdAt,
                 "updatedAt": updatedAt,
                 "state": state,
+                "avatar": avatar,
             }
     
     @typing.overload
@@ -81,9 +83,12 @@ class V1beta1User(
     def __getitem__(self, name: typing_extensions.Literal["state"]) -> MetaOapg.properties.state: ...
     
     @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["avatar"]) -> MetaOapg.properties.avatar: ...
+    
+    @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["id", "name", "title", "email", "metadata", "createdAt", "updatedAt", "state", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["id", "name", "title", "email", "metadata", "createdAt", "updatedAt", "state", "avatar", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -113,9 +118,12 @@ class V1beta1User(
     def get_item_oapg(self, name: typing_extensions.Literal["state"]) -> typing.Union[MetaOapg.properties.state, schemas.Unset]: ...
     
     @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["avatar"]) -> typing.Union[MetaOapg.properties.avatar, schemas.Unset]: ...
+    
+    @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["id", "name", "title", "email", "metadata", "createdAt", "updatedAt", "state", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["id", "name", "title", "email", "metadata", "createdAt", "updatedAt", "state", "avatar", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -130,6 +138,7 @@ class V1beta1User(
         createdAt: typing.Union[MetaOapg.properties.createdAt, str, datetime, schemas.Unset] = schemas.unset,
         updatedAt: typing.Union[MetaOapg.properties.updatedAt, str, datetime, schemas.Unset] = schemas.unset,
         state: typing.Union[MetaOapg.properties.state, str, schemas.Unset] = schemas.unset,
+        avatar: typing.Union[MetaOapg.properties.avatar, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'V1beta1User':
@@ -144,6 +153,7 @@ class V1beta1User(
             createdAt=createdAt,
             updatedAt=updatedAt,
             state=state,
+            avatar=avatar,
             _configuration=_configuration,
             **kwargs,
         )

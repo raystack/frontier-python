@@ -26,7 +26,7 @@ import frozendict  # noqa: F401
 from frontier_api import schemas  # noqa: F401
 
 from frontier_api.model.rpc_status import RpcStatus
-from frontier_api.model.v1beta1_get_organizations_by_user_response import V1beta1GetOrganizationsByUserResponse
+from frontier_api.model.v1beta1_list_organizations_by_user_response import V1beta1ListOrganizationsByUserResponse
 
 from . import path
 
@@ -59,7 +59,7 @@ request_path_id = api_client.PathParameter(
 _auth = [
     'Basic',
 ]
-SchemaFor200ResponseBodyApplicationJson = V1beta1GetOrganizationsByUserResponse
+SchemaFor200ResponseBodyApplicationJson = V1beta1ListOrganizationsByUserResponse
 
 
 @dataclass
@@ -208,7 +208,7 @@ _all_accept_content_types = (
 
 class BaseApi(api_client.Api):
     @typing.overload
-    def _frontier_service_get_organizations_by_user_oapg(
+    def _frontier_service_list_organizations_by_user_oapg(
         self,
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -221,7 +221,7 @@ class BaseApi(api_client.Api):
     ]: ...
 
     @typing.overload
-    def _frontier_service_get_organizations_by_user_oapg(
+    def _frontier_service_list_organizations_by_user_oapg(
         self,
         skip_deserialization: typing_extensions.Literal[True],
         path_params: RequestPathParams = frozendict.frozendict(),
@@ -231,7 +231,7 @@ class BaseApi(api_client.Api):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def _frontier_service_get_organizations_by_user_oapg(
+    def _frontier_service_list_organizations_by_user_oapg(
         self,
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -244,7 +244,7 @@ class BaseApi(api_client.Api):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def _frontier_service_get_organizations_by_user_oapg(
+    def _frontier_service_list_organizations_by_user_oapg(
         self,
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -312,11 +312,11 @@ class BaseApi(api_client.Api):
         return api_response
 
 
-class FrontierServiceGetOrganizationsByUser(BaseApi):
+class FrontierServiceListOrganizationsByUser(BaseApi):
     # this class is used by api classes that refer to endpoints with operationId fn names
 
     @typing.overload
-    def frontier_service_get_organizations_by_user(
+    def frontier_service_list_organizations_by_user(
         self,
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -329,7 +329,7 @@ class FrontierServiceGetOrganizationsByUser(BaseApi):
     ]: ...
 
     @typing.overload
-    def frontier_service_get_organizations_by_user(
+    def frontier_service_list_organizations_by_user(
         self,
         skip_deserialization: typing_extensions.Literal[True],
         path_params: RequestPathParams = frozendict.frozendict(),
@@ -339,7 +339,7 @@ class FrontierServiceGetOrganizationsByUser(BaseApi):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def frontier_service_get_organizations_by_user(
+    def frontier_service_list_organizations_by_user(
         self,
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -352,7 +352,7 @@ class FrontierServiceGetOrganizationsByUser(BaseApi):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def frontier_service_get_organizations_by_user(
+    def frontier_service_list_organizations_by_user(
         self,
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -360,7 +360,7 @@ class FrontierServiceGetOrganizationsByUser(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._frontier_service_get_organizations_by_user_oapg(
+        return self._frontier_service_list_organizations_by_user_oapg(
             path_params=path_params,
             accept_content_types=accept_content_types,
             stream=stream,
@@ -417,7 +417,7 @@ class ApiForget(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._frontier_service_get_organizations_by_user_oapg(
+        return self._frontier_service_list_organizations_by_user_oapg(
             path_params=path_params,
             accept_content_types=accept_content_types,
             stream=stream,

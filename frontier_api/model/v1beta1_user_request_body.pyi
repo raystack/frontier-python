@@ -44,11 +44,13 @@ class V1beta1UserRequestBody(
             name = schemas.StrSchema
             metadata = schemas.DictSchema
             title = schemas.StrSchema
+            avatar = schemas.StrSchema
             __annotations__ = {
                 "email": email,
                 "name": name,
                 "metadata": metadata,
                 "title": title,
+                "avatar": avatar,
             }
     
     email: MetaOapg.properties.email
@@ -66,9 +68,12 @@ class V1beta1UserRequestBody(
     def __getitem__(self, name: typing_extensions.Literal["title"]) -> MetaOapg.properties.title: ...
     
     @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["avatar"]) -> MetaOapg.properties.avatar: ...
+    
+    @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["email", "name", "metadata", "title", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["email", "name", "metadata", "title", "avatar", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -86,9 +91,12 @@ class V1beta1UserRequestBody(
     def get_item_oapg(self, name: typing_extensions.Literal["title"]) -> typing.Union[MetaOapg.properties.title, schemas.Unset]: ...
     
     @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["avatar"]) -> typing.Union[MetaOapg.properties.avatar, schemas.Unset]: ...
+    
+    @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["email", "name", "metadata", "title", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["email", "name", "metadata", "title", "avatar", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -99,6 +107,7 @@ class V1beta1UserRequestBody(
         name: typing.Union[MetaOapg.properties.name, str, schemas.Unset] = schemas.unset,
         metadata: typing.Union[MetaOapg.properties.metadata, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         title: typing.Union[MetaOapg.properties.title, str, schemas.Unset] = schemas.unset,
+        avatar: typing.Union[MetaOapg.properties.avatar, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'V1beta1UserRequestBody':
@@ -109,6 +118,7 @@ class V1beta1UserRequestBody(
             name=name,
             metadata=metadata,
             title=title,
+            avatar=avatar,
             _configuration=_configuration,
             **kwargs,
         )
