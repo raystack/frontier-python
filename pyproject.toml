@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "raystack-frontier-api"
-version = "0.1.2"
+version = "0.1.3"
 description = "Frontier APIs"
 authors = ["Kush Sharma <thekushsharma@gmail.com>"]
 license = "Apache 2.0"

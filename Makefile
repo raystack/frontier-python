@@ -1,4 +1,4 @@
-FRONTIER_COMMIT := 11a2df9abfee551997256fe9a0f3b10356cfc283
+FRONTIER_COMMIT := df8151fb7b24a0c2f2072257bd82516b816cdd30
 .PHONY: clean genclient genspec
 
 genclient: clean genspec ## Generate the client using openapi-generator
