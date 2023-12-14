@@ -1,4 +1,5 @@
-"""Python Flask API Auth0 integration example
+"""
+Python Flask API Auth0 integration example
 """
 
 from functools import wraps
