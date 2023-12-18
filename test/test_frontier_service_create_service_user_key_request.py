@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.frontier_service_create_service_user_key_request import FrontierServiceCreateServiceUserKeyRequest
+from frontier_api.models.frontier_service_create_service_user_key_request import FrontierServiceCreateServiceUserKeyRequest  # noqa: E501
 
 class TestFrontierServiceCreateServiceUserKeyRequest(unittest.TestCase):
     """FrontierServiceCreateServiceUserKeyRequest unit test stubs"""
@@ -34,7 +34,7 @@ class TestFrontierServiceCreateServiceUserKeyRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `FrontierServiceCreateServiceUserKeyRequest`
         """
-        model = FrontierServiceCreateServiceUserKeyRequest()
+        model = FrontierServiceCreateServiceUserKeyRequest()  # noqa: E501
         if include_optional:
             return FrontierServiceCreateServiceUserKeyRequest(
                 title = ''

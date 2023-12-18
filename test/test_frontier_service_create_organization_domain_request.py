@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.frontier_service_create_organization_domain_request import FrontierServiceCreateOrganizationDomainRequest
+from frontier_api.models.frontier_service_create_organization_domain_request import FrontierServiceCreateOrganizationDomainRequest  # noqa: E501
 
 class TestFrontierServiceCreateOrganizationDomainRequest(unittest.TestCase):
     """FrontierServiceCreateOrganizationDomainRequest unit test stubs"""
@@ -34,7 +34,7 @@ class TestFrontierServiceCreateOrganizationDomainRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `FrontierServiceCreateOrganizationDomainRequest`
         """
-        model = FrontierServiceCreateOrganizationDomainRequest()
+        model = FrontierServiceCreateOrganizationDomainRequest()  # noqa: E501
         if include_optional:
             return FrontierServiceCreateOrganizationDomainRequest(
                 domain = ''

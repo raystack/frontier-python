@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **admin_service_list_relations**
-> V1beta1ListRelationsResponse admin_service_list_relations()
+> V1beta1ListRelationsResponse admin_service_list_relations(subject=subject, object=object)
 
 List all relations
 
@@ -47,10 +47,12 @@ configuration = frontier_api.Configuration(
 with frontier_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = frontier_api.RelationApi(api_client)
+    subject = 'subject_example' # str | The subject to filter by. (optional)
+    object = 'object_example' # str | The object to filter by. (optional)
 
     try:
         # List all relations
-        api_response = api_instance.admin_service_list_relations()
+        api_response = api_instance.admin_service_list_relations(subject=subject, object=object)
         print("The response of RelationApi->admin_service_list_relations:\n")
         pprint(api_response)
     except Exception as e:
@@ -60,7 +62,11 @@ with frontier_api.ApiClient(configuration) as api_client:
 
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **subject** | **str**| The subject to filter by. | [optional] 
+ **object** | **str**| The object to filter by. | [optional] 
 
 ### Return type
 

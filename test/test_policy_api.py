@@ -15,14 +15,14 @@
 
 import unittest
 
-from frontier_api.api.policy_api import PolicyApi
+from frontier_api.api.policy_api import PolicyApi  # noqa: E501
 
 
 class TestPolicyApi(unittest.TestCase):
     """PolicyApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = PolicyApi()
+        self.api = PolicyApi()  # noqa: E501
 
     def tearDown(self) -> None:
         pass
@@ -30,35 +30,35 @@ class TestPolicyApi(unittest.TestCase):
     def test_frontier_service_create_policy(self) -> None:
         """Test case for frontier_service_create_policy
 
-        Create policy
+        Create policy  # noqa: E501
         """
         pass
 
     def test_frontier_service_delete_policy(self) -> None:
         """Test case for frontier_service_delete_policy
 
-        Delete Policy
+        Delete Policy  # noqa: E501
         """
         pass
 
     def test_frontier_service_get_policy(self) -> None:
         """Test case for frontier_service_get_policy
 
-        Get policy
+        Get policy  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_policies(self) -> None:
         """Test case for frontier_service_list_policies
 
-        List all policies
+        List all policies  # noqa: E501
         """
         pass
 
     def test_frontier_service_update_policy(self) -> None:
         """Test case for frontier_service_update_policy
 
-        Update policy
+        Update policy  # noqa: E501
         """
         pass
 

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.v1beta1_list_group_users_response_role_pair import V1beta1ListGroupUsersResponseRolePair
+from frontier_api.models.v1beta1_list_group_users_response_role_pair import V1beta1ListGroupUsersResponseRolePair  # noqa: E501
 
 class TestV1beta1ListGroupUsersResponseRolePair(unittest.TestCase):
     """V1beta1ListGroupUsersResponseRolePair unit test stubs"""
@@ -34,7 +34,7 @@ class TestV1beta1ListGroupUsersResponseRolePair(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `V1beta1ListGroupUsersResponseRolePair`
         """
-        model = V1beta1ListGroupUsersResponseRolePair()
+        model = V1beta1ListGroupUsersResponseRolePair()  # noqa: E501
         if include_optional:
             return V1beta1ListGroupUsersResponseRolePair(
                 user_id = '',

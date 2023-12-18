@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.v1beta1_permission_request_body import V1beta1PermissionRequestBody
+from frontier_api.models.v1beta1_permission_request_body import V1beta1PermissionRequestBody  # noqa: E501
 
 class TestV1beta1PermissionRequestBody(unittest.TestCase):
     """V1beta1PermissionRequestBody unit test stubs"""
@@ -34,7 +34,7 @@ class TestV1beta1PermissionRequestBody(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `V1beta1PermissionRequestBody`
         """
-        model = V1beta1PermissionRequestBody()
+        model = V1beta1PermissionRequestBody()  # noqa: E501
         if include_optional:
             return V1beta1PermissionRequestBody(
                 name = '',

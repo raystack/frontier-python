@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **metadata** | **object** |  | [optional] 
 **created_at** | **datetime** | The time the project was created. | [optional] 
 **updated_at** | **datetime** | The time the project was last updated. | [optional] 
+**members_count** | **int** | The number of members explicitly added in the project. | [optional] [readonly] 
 
 ## Example
 

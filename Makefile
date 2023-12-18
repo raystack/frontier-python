@@ -1,4 +1,4 @@
-FRONTIER_COMMIT := df8151fb7b24a0c2f2072257bd82516b816cdd30
+FRONTIER_COMMIT := 553c3384828abfc7fa68d67fd04ac0b14520cb0a
 .PHONY: clean genclient genspec
 
 genclient: clean genspec ## Generate the client using openapi-generator
@@ -23,3 +23,9 @@ genspec: ## Generate the openapi v3 spec using raystack/frontier generated v2 sp
 	@curl -X 'GET' \
   'https://converter.swagger.io/api/convert?url=https%3A%2F%2Fraw.githubusercontent.com%2Fraystack%2Ffrontier%2F${FRONTIER_COMMIT}%2Fproto%2Fapidocs.swagger.yaml' \
   -H 'accept: application/json' > ./etc/openapi.json
+
+install-openapi-generator: ## Install openapi-generator
+	@echo " > installing openapi-generator"
+	@curl https://raw.githubusercontent.com/Homebrew/homebrew-core/73338e79c4dffa794560535b642a2e0eccd78a9b/Formula/o/openapi-generator.rb > ./openapi-generator.rb
+	@brew install ./openapi-generator.rb
+	@rm ./openapi-generator.rb

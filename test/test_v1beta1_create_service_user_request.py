@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.v1beta1_create_service_user_request import V1beta1CreateServiceUserRequest
+from frontier_api.models.v1beta1_create_service_user_request import V1beta1CreateServiceUserRequest  # noqa: E501
 
 class TestV1beta1CreateServiceUserRequest(unittest.TestCase):
     """V1beta1CreateServiceUserRequest unit test stubs"""
@@ -34,7 +34,7 @@ class TestV1beta1CreateServiceUserRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `V1beta1CreateServiceUserRequest`
         """
-        model = V1beta1CreateServiceUserRequest()
+        model = V1beta1CreateServiceUserRequest()  # noqa: E501
         if include_optional:
             return V1beta1CreateServiceUserRequest(
                 body = frontier_api.models.v1beta1_service_user_request_body.v1beta1ServiceUserRequestBody(

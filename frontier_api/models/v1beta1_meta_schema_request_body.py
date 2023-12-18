@@ -19,72 +19,55 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, ClassVar, Dict, List
-from pydantic import BaseModel, StrictStr
-from pydantic import Field
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+
+from pydantic import BaseModel, Field, StrictStr
 
 class V1beta1MetaSchemaRequestBody(BaseModel):
     """
     V1beta1MetaSchemaRequestBody
-    """ # noqa: E501
-    name: StrictStr = Field(description="The name of the metaschema. The name must be unique within the entire Frontier instance. The name can contain only alphanumeric characters, dashes and underscores.")
-    var_schema: StrictStr = Field(description="The schema of the metaschema. The schema must be a valid JSON schema.Please refer to https://json-schema.org/ to know more about json schema.", alias="schema")
-    __properties: ClassVar[List[str]] = ["name", "schema"]
+    """
+    name: StrictStr = Field(..., description="The name of the metaschema. The name must be unique within the entire Frontier instance. The name can contain only alphanumeric characters, dashes and underscores.")
+    var_schema: StrictStr = Field(..., alias="schema", description="The schema of the metaschema. The schema must be a valid JSON schema.Please refer to https://json-schema.org/ to know more about json schema.")
+    __properties = ["name", "schema"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True
-    }
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> V1beta1MetaSchemaRequestBody:
         """Create an instance of V1beta1MetaSchemaRequestBody from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude={
-            },
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: dict) -> V1beta1MetaSchemaRequestBody:
         """Create an instance of V1beta1MetaSchemaRequestBody from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return V1beta1MetaSchemaRequestBody.parse_obj(obj)
 
-        _obj = cls.model_validate({
+        _obj = V1beta1MetaSchemaRequestBody.parse_obj({
             "name": obj.get("name"),
-            "schema": obj.get("schema")
+            "var_schema": obj.get("schema")
         })
         return _obj
 

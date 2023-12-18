@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.v1beta1_create_organization_domain_response import V1beta1CreateOrganizationDomainResponse
+from frontier_api.models.v1beta1_create_organization_domain_response import V1beta1CreateOrganizationDomainResponse  # noqa: E501
 
 class TestV1beta1CreateOrganizationDomainResponse(unittest.TestCase):
     """V1beta1CreateOrganizationDomainResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestV1beta1CreateOrganizationDomainResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `V1beta1CreateOrganizationDomainResponse`
         """
-        model = V1beta1CreateOrganizationDomainResponse()
+        model = V1beta1CreateOrganizationDomainResponse()  # noqa: E501
         if include_optional:
             return V1beta1CreateOrganizationDomainResponse(
                 domain = frontier_api.models.v1beta1_domain.v1beta1Domain(

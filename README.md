@@ -119,6 +119,7 @@ Class | Method | HTTP request | Description
 *BillingApi* | [**frontier_service_get_billing_balance**](docs/BillingApi.md#frontier_service_get_billing_balance) | **GET** /v1beta1/organizations/{orgId}/billing/{id}/balance | Get billing balance
 *BillingApi* | [**frontier_service_list_billing_accounts**](docs/BillingApi.md#frontier_service_list_billing_accounts) | **GET** /v1beta1/organizations/{orgId}/billing | List billing accounts
 *BillingApi* | [**frontier_service_update_billing_account**](docs/BillingApi.md#frontier_service_update_billing_account) | **PUT** /v1beta1/organizations/{orgId}/billing/{id} | Update billing account
+*CheckoutApi* | [**admin_service_delegated_checkout**](docs/CheckoutApi.md#admin_service_delegated_checkout) | **POST** /v1beta1/admin/organizations/{orgId}/billing/{billingId}/checkouts | Checkout a feature or subscription
 *CheckoutApi* | [**frontier_service_create_checkout**](docs/CheckoutApi.md#frontier_service_create_checkout) | **POST** /v1beta1/organizations/{orgId}/billing/{billingId}/checkouts | Checkout a feature or subscription
 *CheckoutApi* | [**frontier_service_list_checkouts**](docs/CheckoutApi.md#frontier_service_list_checkouts) | **GET** /v1beta1/organizations/{orgId}/billing/{billingId}/checkouts | List checkouts
 *EntitlementApi* | [**frontier_service_check_feature_entitlement**](docs/EntitlementApi.md#frontier_service_check_feature_entitlement) | **POST** /v1beta1/organizations/{orgId}/billing/{billingId}/check | Check entitlement
@@ -179,6 +180,7 @@ Class | Method | HTTP request | Description
 *PlanApi* | [**frontier_service_list_plans**](docs/PlanApi.md#frontier_service_list_plans) | **GET** /v1beta1/billing/plans | List plans
 *PlanApi* | [**frontier_service_update_plan**](docs/PlanApi.md#frontier_service_update_plan) | **PUT** /v1beta1/billing/plans/{id} | Update plan
 *PlatformApi* | [**admin_service_add_platform_user**](docs/PlatformApi.md#admin_service_add_platform_user) | **POST** /v1beta1/admin/platform/users | Add platform user
+*PlatformApi* | [**admin_service_list_platform_users**](docs/PlatformApi.md#admin_service_list_platform_users) | **GET** /v1beta1/admin/platform/users | List platform users
 *PolicyApi* | [**frontier_service_create_policy**](docs/PolicyApi.md#frontier_service_create_policy) | **POST** /v1beta1/policies | Create policy
 *PolicyApi* | [**frontier_service_delete_policy**](docs/PolicyApi.md#frontier_service_delete_policy) | **DELETE** /v1beta1/policies/{id} | Delete Policy
 *PolicyApi* | [**frontier_service_get_policy**](docs/PolicyApi.md#frontier_service_get_policy) | **GET** /v1beta1/policies/{id} | Get policy
@@ -266,6 +268,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [AdminServiceDelegatedCheckoutRequest](docs/AdminServiceDelegatedCheckoutRequest.md)
  - [BillingAccountAddress](docs/BillingAccountAddress.md)
  - [BillingAccountBalance](docs/BillingAccountBalance.md)
  - [FrontierServiceAddGroupUsersRequest](docs/FrontierServiceAddGroupUsersRequest.md)
@@ -342,6 +345,7 @@ Class | Method | HTTP request | Description
  - [V1beta1CreateServiceUserSecretResponse](docs/V1beta1CreateServiceUserSecretResponse.md)
  - [V1beta1CreateUserPreferencesResponse](docs/V1beta1CreateUserPreferencesResponse.md)
  - [V1beta1CreateUserResponse](docs/V1beta1CreateUserResponse.md)
+ - [V1beta1DelegatedCheckoutResponse](docs/V1beta1DelegatedCheckoutResponse.md)
  - [V1beta1DescribePreferencesResponse](docs/V1beta1DescribePreferencesResponse.md)
  - [V1beta1Domain](docs/V1beta1Domain.md)
  - [V1beta1Feature](docs/V1beta1Feature.md)
@@ -407,6 +411,7 @@ Class | Method | HTTP request | Description
  - [V1beta1ListOrganizationsResponse](docs/V1beta1ListOrganizationsResponse.md)
  - [V1beta1ListPermissionsResponse](docs/V1beta1ListPermissionsResponse.md)
  - [V1beta1ListPlansResponse](docs/V1beta1ListPlansResponse.md)
+ - [V1beta1ListPlatformUsersResponse](docs/V1beta1ListPlatformUsersResponse.md)
  - [V1beta1ListPoliciesResponse](docs/V1beta1ListPoliciesResponse.md)
  - [V1beta1ListPreferencesResponse](docs/V1beta1ListPreferencesResponse.md)
  - [V1beta1ListProjectAdminsResponse](docs/V1beta1ListProjectAdminsResponse.md)

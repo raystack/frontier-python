@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.v1beta1_create_service_user_secret_response import V1beta1CreateServiceUserSecretResponse
+from frontier_api.models.v1beta1_create_service_user_secret_response import V1beta1CreateServiceUserSecretResponse  # noqa: E501
 
 class TestV1beta1CreateServiceUserSecretResponse(unittest.TestCase):
     """V1beta1CreateServiceUserSecretResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestV1beta1CreateServiceUserSecretResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `V1beta1CreateServiceUserSecretResponse`
         """
-        model = V1beta1CreateServiceUserSecretResponse()
+        model = V1beta1CreateServiceUserSecretResponse()  # noqa: E501
         if include_optional:
             return V1beta1CreateServiceUserSecretResponse(
                 secret = frontier_api.models.v1beta1_secret_credential.v1beta1SecretCredential(

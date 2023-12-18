@@ -19,67 +19,51 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from typing import Any, ClassVar, Dict, List, Optional, Union
-from pydantic import BaseModel, StrictStr
-from pydantic import Field
+from typing import Any, Dict, List, Optional
+from pydantic import BaseModel, Field, StrictInt, StrictStr, conlist
 from frontier_api.models.v1beta1_user import V1beta1User
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
 
 class V1beta1Group(BaseModel):
     """
     V1beta1Group
-    """ # noqa: E501
+    """
     id: Optional[StrictStr] = None
     name: Optional[StrictStr] = None
     title: Optional[StrictStr] = None
-    org_id: Optional[StrictStr] = Field(default=None, alias="orgId")
-    metadata: Optional[Union[str, Any]] = None
-    created_at: Optional[datetime] = Field(default=None, description="The time the group was created.", alias="createdAt")
-    updated_at: Optional[datetime] = Field(default=None, description="The time the group was last updated.", alias="updatedAt")
-    users: Optional[List[V1beta1User]] = None
-    __properties: ClassVar[List[str]] = ["id", "name", "title", "orgId", "metadata", "createdAt", "updatedAt", "users"]
+    org_id: Optional[StrictStr] = Field(None, alias="orgId")
+    metadata: Optional[Dict[str, Any]] = None
+    created_at: Optional[datetime] = Field(None, alias="createdAt", description="The time the group was created.")
+    updated_at: Optional[datetime] = Field(None, alias="updatedAt", description="The time the group was last updated.")
+    users: Optional[conlist(V1beta1User)] = None
+    members_count: Optional[StrictInt] = Field(None, alias="membersCount", description="The number of members explicitly added in the project.")
+    __properties = ["id", "name", "title", "orgId", "metadata", "createdAt", "updatedAt", "users", "membersCount"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True
-    }
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> V1beta1Group:
         """Create an instance of V1beta1Group from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        * OpenAPI `readOnly` fields are excluded.
-        """
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude={
-                "users",
-            },
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                            "users",
+                            "members_count",
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in users (list)
         _items = []
         if self.users:
@@ -90,23 +74,24 @@ class V1beta1Group(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: dict) -> V1beta1Group:
         """Create an instance of V1beta1Group from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return V1beta1Group.parse_obj(obj)
 
-        _obj = cls.model_validate({
+        _obj = V1beta1Group.parse_obj({
             "id": obj.get("id"),
             "name": obj.get("name"),
             "title": obj.get("title"),
-            "orgId": obj.get("orgId"),
+            "org_id": obj.get("orgId"),
             "metadata": obj.get("metadata"),
-            "createdAt": obj.get("createdAt"),
-            "updatedAt": obj.get("updatedAt"),
-            "users": [V1beta1User.from_dict(_item) for _item in obj.get("users")] if obj.get("users") is not None else None
+            "created_at": obj.get("createdAt"),
+            "updated_at": obj.get("updatedAt"),
+            "users": [V1beta1User.from_dict(_item) for _item in obj.get("users")] if obj.get("users") is not None else None,
+            "members_count": obj.get("membersCount")
         })
         return _obj
 

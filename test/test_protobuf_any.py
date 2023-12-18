@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.protobuf_any import ProtobufAny
+from frontier_api.models.protobuf_any import ProtobufAny  # noqa: E501
 
 class TestProtobufAny(unittest.TestCase):
     """ProtobufAny unit test stubs"""
@@ -34,7 +34,7 @@ class TestProtobufAny(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ProtobufAny`
         """
-        model = ProtobufAny()
+        model = ProtobufAny()  # noqa: E501
         if include_optional:
             return ProtobufAny(
                 type = ''

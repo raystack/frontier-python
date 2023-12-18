@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.v1beta1_create_checkout_response import V1beta1CreateCheckoutResponse
+from frontier_api.models.v1beta1_create_checkout_response import V1beta1CreateCheckoutResponse  # noqa: E501
 
 class TestV1beta1CreateCheckoutResponse(unittest.TestCase):
     """V1beta1CreateCheckoutResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestV1beta1CreateCheckoutResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `V1beta1CreateCheckoutResponse`
         """
-        model = V1beta1CreateCheckoutResponse()
+        model = V1beta1CreateCheckoutResponse()  # noqa: E501
         if include_optional:
             return V1beta1CreateCheckoutResponse(
                 checkout_session = frontier_api.models.v1beta1_checkout_session.v1beta1CheckoutSession(

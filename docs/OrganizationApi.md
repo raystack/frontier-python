@@ -1564,7 +1564,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **frontier_service_list_organization_projects**
-> V1beta1ListOrganizationProjectsResponse frontier_service_list_organization_projects(id, state=state)
+> V1beta1ListOrganizationProjectsResponse frontier_service_list_organization_projects(id, state=state, with_member_count=with_member_count)
 
 Get organization projects
 
@@ -1604,10 +1604,11 @@ with frontier_api.ApiClient(configuration) as api_client:
     api_instance = frontier_api.OrganizationApi(api_client)
     id = 'id_example' # str | 
     state = 'state_example' # str | Filter projects by state. If not specified, all projects are returned. <br/> *Possible values:* `enabled` or `disabled` (optional)
+    with_member_count = True # bool |  (optional)
 
     try:
         # Get organization projects
-        api_response = api_instance.frontier_service_list_organization_projects(id, state=state)
+        api_response = api_instance.frontier_service_list_organization_projects(id, state=state, with_member_count=with_member_count)
         print("The response of OrganizationApi->frontier_service_list_organization_projects:\n")
         pprint(api_response)
     except Exception as e:
@@ -1622,6 +1623,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
  **state** | **str**| Filter projects by state. If not specified, all projects are returned. &lt;br/&gt; *Possible values:* &#x60;enabled&#x60; or &#x60;disabled&#x60; | [optional] 
+ **with_member_count** | **bool**|  | [optional] 
 
 ### Return type
 

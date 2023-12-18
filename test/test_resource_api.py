@@ -15,14 +15,14 @@
 
 import unittest
 
-from frontier_api.api.resource_api import ResourceApi
+from frontier_api.api.resource_api import ResourceApi  # noqa: E501
 
 
 class TestResourceApi(unittest.TestCase):
     """ResourceApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ResourceApi()
+        self.api = ResourceApi()  # noqa: E501
 
     def tearDown(self) -> None:
         pass
@@ -30,42 +30,42 @@ class TestResourceApi(unittest.TestCase):
     def test_admin_service_list_resources(self) -> None:
         """Test case for admin_service_list_resources
 
-        List all resources
+        List all resources  # noqa: E501
         """
         pass
 
     def test_frontier_service_create_project_resource(self) -> None:
         """Test case for frontier_service_create_project_resource
 
-        Create resource
+        Create resource  # noqa: E501
         """
         pass
 
     def test_frontier_service_delete_project_resource(self) -> None:
         """Test case for frontier_service_delete_project_resource
 
-        Delete resource
+        Delete resource  # noqa: E501
         """
         pass
 
     def test_frontier_service_get_project_resource(self) -> None:
         """Test case for frontier_service_get_project_resource
 
-        Get resource
+        Get resource  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_project_resources(self) -> None:
         """Test case for frontier_service_list_project_resources
 
-        Get all resources
+        Get all resources  # noqa: E501
         """
         pass
 
     def test_frontier_service_update_project_resource(self) -> None:
         """Test case for frontier_service_update_project_resource
 
-        Update resource
+        Update resource  # noqa: E501
         """
         pass
 

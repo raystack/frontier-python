@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.billing_account_address import BillingAccountAddress
+from frontier_api.models.billing_account_address import BillingAccountAddress  # noqa: E501
 
 class TestBillingAccountAddress(unittest.TestCase):
     """BillingAccountAddress unit test stubs"""
@@ -34,7 +34,7 @@ class TestBillingAccountAddress(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `BillingAccountAddress`
         """
-        model = BillingAccountAddress()
+        model = BillingAccountAddress()  # noqa: E501
         if include_optional:
             return BillingAccountAddress(
                 line1 = '',

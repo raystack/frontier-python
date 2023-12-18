@@ -15,14 +15,14 @@
 
 import unittest
 
-from frontier_api.api.project_api import ProjectApi
+from frontier_api.api.project_api import ProjectApi  # noqa: E501
 
 
 class TestProjectApi(unittest.TestCase):
     """ProjectApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ProjectApi()
+        self.api = ProjectApi()  # noqa: E501
 
     def tearDown(self) -> None:
         pass
@@ -30,77 +30,77 @@ class TestProjectApi(unittest.TestCase):
     def test_admin_service_list_projects(self) -> None:
         """Test case for admin_service_list_projects
 
-        List all projects
+        List all projects  # noqa: E501
         """
         pass
 
     def test_frontier_service_create_project(self) -> None:
         """Test case for frontier_service_create_project
 
-        Create project
+        Create project  # noqa: E501
         """
         pass
 
     def test_frontier_service_delete_project(self) -> None:
         """Test case for frontier_service_delete_project
 
-        Delete Project
+        Delete Project  # noqa: E501
         """
         pass
 
     def test_frontier_service_disable_project(self) -> None:
         """Test case for frontier_service_disable_project
 
-        Disable project
+        Disable project  # noqa: E501
         """
         pass
 
     def test_frontier_service_enable_project(self) -> None:
         """Test case for frontier_service_enable_project
 
-        Enable project
+        Enable project  # noqa: E501
         """
         pass
 
     def test_frontier_service_get_project(self) -> None:
         """Test case for frontier_service_get_project
 
-        Get project
+        Get project  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_project_admins(self) -> None:
         """Test case for frontier_service_list_project_admins
 
-        List project admins
+        List project admins  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_project_groups(self) -> None:
         """Test case for frontier_service_list_project_groups
 
-        List project groups
+        List project groups  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_project_service_users(self) -> None:
         """Test case for frontier_service_list_project_service_users
 
-        List project serviceusers
+        List project serviceusers  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_project_users(self) -> None:
         """Test case for frontier_service_list_project_users
 
-        List project users
+        List project users  # noqa: E501
         """
         pass
 
     def test_frontier_service_update_project(self) -> None:
         """Test case for frontier_service_update_project
 
-        Update project
+        Update project  # noqa: E501
         """
         pass
 

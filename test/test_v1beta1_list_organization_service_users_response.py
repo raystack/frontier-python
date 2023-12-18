@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.v1beta1_list_organization_service_users_response import V1beta1ListOrganizationServiceUsersResponse
+from frontier_api.models.v1beta1_list_organization_service_users_response import V1beta1ListOrganizationServiceUsersResponse  # noqa: E501
 
 class TestV1beta1ListOrganizationServiceUsersResponse(unittest.TestCase):
     """V1beta1ListOrganizationServiceUsersResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestV1beta1ListOrganizationServiceUsersResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `V1beta1ListOrganizationServiceUsersResponse`
         """
-        model = V1beta1ListOrganizationServiceUsersResponse()
+        model = V1beta1ListOrganizationServiceUsersResponse()  # noqa: E501
         if include_optional:
             return V1beta1ListOrganizationServiceUsersResponse(
                 serviceusers = [

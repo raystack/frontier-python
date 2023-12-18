@@ -15,14 +15,14 @@
 
 import unittest
 
-from frontier_api.api.transaction_api import TransactionApi
+from frontier_api.api.transaction_api import TransactionApi  # noqa: E501
 
 
 class TestTransactionApi(unittest.TestCase):
     """TransactionApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = TransactionApi()
+        self.api = TransactionApi()  # noqa: E501
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestTransactionApi(unittest.TestCase):
     def test_frontier_service_list_billing_transactions(self) -> None:
         """Test case for frontier_service_list_billing_transactions
 
-        List billing transactions
+        List billing transactions  # noqa: E501
         """
         pass
 

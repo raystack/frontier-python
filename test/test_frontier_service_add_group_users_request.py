@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.frontier_service_add_group_users_request import FrontierServiceAddGroupUsersRequest
+from frontier_api.models.frontier_service_add_group_users_request import FrontierServiceAddGroupUsersRequest  # noqa: E501
 
 class TestFrontierServiceAddGroupUsersRequest(unittest.TestCase):
     """FrontierServiceAddGroupUsersRequest unit test stubs"""
@@ -34,7 +34,7 @@ class TestFrontierServiceAddGroupUsersRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `FrontierServiceAddGroupUsersRequest`
         """
-        model = FrontierServiceAddGroupUsersRequest()
+        model = FrontierServiceAddGroupUsersRequest()  # noqa: E501
         if include_optional:
             return FrontierServiceAddGroupUsersRequest(
                 user_ids = [

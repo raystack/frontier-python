@@ -19,72 +19,56 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Optional
 from pydantic import BaseModel
 from frontier_api.models.v1beta1_audit_log import V1beta1AuditLog
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
 
 class V1beta1GetOrganizationAuditLogResponse(BaseModel):
     """
     V1beta1GetOrganizationAuditLogResponse
-    """ # noqa: E501
+    """
     log: Optional[V1beta1AuditLog] = None
-    __properties: ClassVar[List[str]] = ["log"]
+    __properties = ["log"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True
-    }
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> V1beta1GetOrganizationAuditLogResponse:
         """Create an instance of V1beta1GetOrganizationAuditLogResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude={
-            },
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of log
         if self.log:
             _dict['log'] = self.log.to_dict()
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: dict) -> V1beta1GetOrganizationAuditLogResponse:
         """Create an instance of V1beta1GetOrganizationAuditLogResponse from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return V1beta1GetOrganizationAuditLogResponse.parse_obj(obj)
 
-        _obj = cls.model_validate({
+        _obj = V1beta1GetOrganizationAuditLogResponse.parse_obj({
             "log": V1beta1AuditLog.from_dict(obj.get("log")) if obj.get("log") is not None else None
         })
         return _obj

@@ -15,14 +15,14 @@
 
 import unittest
 
-from frontier_api.api.meta_schema_api import MetaSchemaApi
+from frontier_api.api.meta_schema_api import MetaSchemaApi  # noqa: E501
 
 
 class TestMetaSchemaApi(unittest.TestCase):
     """MetaSchemaApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = MetaSchemaApi()
+        self.api = MetaSchemaApi()  # noqa: E501
 
     def tearDown(self) -> None:
         pass
@@ -30,35 +30,35 @@ class TestMetaSchemaApi(unittest.TestCase):
     def test_frontier_service_create_meta_schema(self) -> None:
         """Test case for frontier_service_create_meta_schema
 
-        Create metaschema
+        Create metaschema  # noqa: E501
         """
         pass
 
     def test_frontier_service_delete_meta_schema(self) -> None:
         """Test case for frontier_service_delete_meta_schema
 
-        Delete metaschema
+        Delete metaschema  # noqa: E501
         """
         pass
 
     def test_frontier_service_get_meta_schema(self) -> None:
         """Test case for frontier_service_get_meta_schema
 
-        Get metaschema
+        Get metaschema  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_meta_schemas(self) -> None:
         """Test case for frontier_service_list_meta_schemas
 
-        List metaschemas
+        List metaschemas  # noqa: E501
         """
         pass
 
     def test_frontier_service_update_meta_schema(self) -> None:
         """Test case for frontier_service_update_meta_schema
 
-        Update metaschema
+        Update metaschema  # noqa: E501
         """
         pass
 

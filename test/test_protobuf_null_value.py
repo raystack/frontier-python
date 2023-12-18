@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.protobuf_null_value import ProtobufNullValue
+from frontier_api.models.protobuf_null_value import ProtobufNullValue  # noqa: E501
 
 class TestProtobufNullValue(unittest.TestCase):
     """ProtobufNullValue unit test stubs"""

@@ -15,14 +15,14 @@
 
 import unittest
 
-from frontier_api.api.usage_api import UsageApi
+from frontier_api.api.usage_api import UsageApi  # noqa: E501
 
 
 class TestUsageApi(unittest.TestCase):
     """UsageApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = UsageApi()
+        self.api = UsageApi()  # noqa: E501
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestUsageApi(unittest.TestCase):
     def test_frontier_service_create_billing_usage(self) -> None:
         """Test case for frontier_service_create_billing_usage
 
-        Create billing usage
+        Create billing usage  # noqa: E501
         """
         pass
 

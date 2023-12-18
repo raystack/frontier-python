@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.v1beta1_secret_credential import V1beta1SecretCredential
+from frontier_api.models.v1beta1_secret_credential import V1beta1SecretCredential  # noqa: E501
 
 class TestV1beta1SecretCredential(unittest.TestCase):
     """V1beta1SecretCredential unit test stubs"""
@@ -34,7 +34,7 @@ class TestV1beta1SecretCredential(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `V1beta1SecretCredential`
         """
-        model = V1beta1SecretCredential()
+        model = V1beta1SecretCredential()  # noqa: E501
         if include_optional:
             return V1beta1SecretCredential(
                 id = '',

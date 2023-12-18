@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.v1beta1_group import V1beta1Group
+from frontier_api.models.v1beta1_group import V1beta1Group  # noqa: E501
 
 class TestV1beta1Group(unittest.TestCase):
     """V1beta1Group unit test stubs"""
@@ -34,7 +34,7 @@ class TestV1beta1Group(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `V1beta1Group`
         """
-        model = V1beta1Group()
+        model = V1beta1Group()  # noqa: E501
         if include_optional:
             return V1beta1Group(
                 id = '',
@@ -55,7 +55,8 @@ class TestV1beta1Group(unittest.TestCase):
                         updated_at = '2023-06-07T05:39:56.961Z', 
                         state = 'enabled', 
                         avatar = '', )
-                    ]
+                    ],
+                members_count = 2
             )
         else:
             return V1beta1Group(

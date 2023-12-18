@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.v1beta1_auth_token_request import V1beta1AuthTokenRequest
+from frontier_api.models.v1beta1_auth_token_request import V1beta1AuthTokenRequest  # noqa: E501
 
 class TestV1beta1AuthTokenRequest(unittest.TestCase):
     """V1beta1AuthTokenRequest unit test stubs"""
@@ -34,7 +34,7 @@ class TestV1beta1AuthTokenRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `V1beta1AuthTokenRequest`
         """
-        model = V1beta1AuthTokenRequest()
+        model = V1beta1AuthTokenRequest()  # noqa: E501
         if include_optional:
             return V1beta1AuthTokenRequest(
                 grant_type = '',

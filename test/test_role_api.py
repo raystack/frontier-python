@@ -15,14 +15,14 @@
 
 import unittest
 
-from frontier_api.api.role_api import RoleApi
+from frontier_api.api.role_api import RoleApi  # noqa: E501
 
 
 class TestRoleApi(unittest.TestCase):
     """RoleApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = RoleApi()
+        self.api = RoleApi()  # noqa: E501
 
     def tearDown(self) -> None:
         pass
@@ -30,63 +30,63 @@ class TestRoleApi(unittest.TestCase):
     def test_admin_service_create_role(self) -> None:
         """Test case for admin_service_create_role
 
-        Create platform role
+        Create platform role  # noqa: E501
         """
         pass
 
     def test_admin_service_delete_role(self) -> None:
         """Test case for admin_service_delete_role
 
-        Delete platform role
+        Delete platform role  # noqa: E501
         """
         pass
 
     def test_admin_service_update_role(self) -> None:
         """Test case for admin_service_update_role
 
-        Update role
+        Update role  # noqa: E501
         """
         pass
 
     def test_frontier_service_create_organization_role(self) -> None:
         """Test case for frontier_service_create_organization_role
 
-        Create organization role
+        Create organization role  # noqa: E501
         """
         pass
 
     def test_frontier_service_delete_organization_role(self) -> None:
         """Test case for frontier_service_delete_organization_role
 
-        Delete organization role
+        Delete organization role  # noqa: E501
         """
         pass
 
     def test_frontier_service_get_organization_role(self) -> None:
         """Test case for frontier_service_get_organization_role
 
-        Get organization role
+        Get organization role  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_organization_roles(self) -> None:
         """Test case for frontier_service_list_organization_roles
 
-        List organization roles
+        List organization roles  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_roles(self) -> None:
         """Test case for frontier_service_list_roles
 
-        List platform roles
+        List platform roles  # noqa: E501
         """
         pass
 
     def test_frontier_service_update_organization_role(self) -> None:
         """Test case for frontier_service_update_organization_role
 
-        Update organization role
+        Update organization role  # noqa: E501
         """
         pass
 

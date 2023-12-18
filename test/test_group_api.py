@@ -15,14 +15,14 @@
 
 import unittest
 
-from frontier_api.api.group_api import GroupApi
+from frontier_api.api.group_api import GroupApi  # noqa: E501
 
 
 class TestGroupApi(unittest.TestCase):
     """GroupApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = GroupApi()
+        self.api = GroupApi()  # noqa: E501
 
     def tearDown(self) -> None:
         pass
@@ -30,77 +30,77 @@ class TestGroupApi(unittest.TestCase):
     def test_admin_service_list_groups(self) -> None:
         """Test case for admin_service_list_groups
 
-        List all groups
+        List all groups  # noqa: E501
         """
         pass
 
     def test_frontier_service_add_group_users(self) -> None:
         """Test case for frontier_service_add_group_users
 
-        Add group user
+        Add group user  # noqa: E501
         """
         pass
 
     def test_frontier_service_create_group(self) -> None:
         """Test case for frontier_service_create_group
 
-        Create group
+        Create group  # noqa: E501
         """
         pass
 
     def test_frontier_service_delete_group(self) -> None:
         """Test case for frontier_service_delete_group
 
-        Delete group
+        Delete group  # noqa: E501
         """
         pass
 
     def test_frontier_service_disable_group(self) -> None:
         """Test case for frontier_service_disable_group
 
-        Disable group
+        Disable group  # noqa: E501
         """
         pass
 
     def test_frontier_service_enable_group(self) -> None:
         """Test case for frontier_service_enable_group
 
-        Enable group
+        Enable group  # noqa: E501
         """
         pass
 
     def test_frontier_service_get_group(self) -> None:
         """Test case for frontier_service_get_group
 
-        Get group
+        Get group  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_group_users(self) -> None:
         """Test case for frontier_service_list_group_users
 
-        List group users
+        List group users  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_organization_groups(self) -> None:
         """Test case for frontier_service_list_organization_groups
 
-        List organization groups
+        List organization groups  # noqa: E501
         """
         pass
 
     def test_frontier_service_remove_group_user(self) -> None:
         """Test case for frontier_service_remove_group_user
 
-        Remove group user
+        Remove group user  # noqa: E501
         """
         pass
 
     def test_frontier_service_update_group(self) -> None:
         """Test case for frontier_service_update_group
 
-        Update group
+        Update group  # noqa: E501
         """
         pass
 

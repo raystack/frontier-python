@@ -19,73 +19,56 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, ClassVar, Dict, List, Optional, Union
-from pydantic import BaseModel, StrictStr
-from pydantic import Field
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Any, Dict, Optional
+from pydantic import BaseModel, Field, StrictStr
 
 class V1beta1PermissionRequestBody(BaseModel):
     """
     V1beta1PermissionRequestBody
-    """ # noqa: E501
-    name: Optional[StrictStr] = Field(default=None, description="The name of the permission. It should be unique across a Frontier instance and can contain only alphanumeric characters.")
-    namespace: Optional[StrictStr] = Field(default=None, description="The namespace of the permission. The namespace should be in service/resource format.<br/>*Example:*`compute/guardian`")
-    metadata: Optional[Union[str, Any]] = Field(default=None, description="The metadata object for permissions that can hold key value pairs.")
-    title: Optional[StrictStr] = Field(default=None, description="The title can contain any UTF-8 character, used to provide a human-readable name for the permissions. Can also be left empty.")
-    key: Optional[StrictStr] = Field(default=None, description="Permission path key is composed of three parts, 'service.resource.verb'. Where 'service.resource' works as a namespace for the 'verb'. Namespace name cannot be `app` as it's reserved for core permissions.")
-    __properties: ClassVar[List[str]] = ["name", "namespace", "metadata", "title", "key"]
+    """
+    name: Optional[StrictStr] = Field(None, description="The name of the permission. It should be unique across a Frontier instance and can contain only alphanumeric characters.")
+    namespace: Optional[StrictStr] = Field(None, description="The namespace of the permission. The namespace should be in service/resource format.<br/>*Example:*`compute/guardian`")
+    metadata: Optional[Dict[str, Any]] = Field(None, description="The metadata object for permissions that can hold key value pairs.")
+    title: Optional[StrictStr] = Field(None, description="The title can contain any UTF-8 character, used to provide a human-readable name for the permissions. Can also be left empty.")
+    key: Optional[StrictStr] = Field(None, description="Permission path key is composed of three parts, 'service.resource.verb'. Where 'service.resource' works as a namespace for the 'verb'. Namespace name cannot be `app` as it's reserved for core permissions.")
+    __properties = ["name", "namespace", "metadata", "title", "key"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True
-    }
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> V1beta1PermissionRequestBody:
         """Create an instance of V1beta1PermissionRequestBody from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude={
-            },
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: dict) -> V1beta1PermissionRequestBody:
         """Create an instance of V1beta1PermissionRequestBody from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return V1beta1PermissionRequestBody.parse_obj(obj)
 
-        _obj = cls.model_validate({
+        _obj = V1beta1PermissionRequestBody.parse_obj({
             "name": obj.get("name"),
             "namespace": obj.get("namespace"),
             "metadata": obj.get("metadata"),

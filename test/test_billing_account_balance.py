@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.billing_account_balance import BillingAccountBalance
+from frontier_api.models.billing_account_balance import BillingAccountBalance  # noqa: E501
 
 class TestBillingAccountBalance(unittest.TestCase):
     """BillingAccountBalance unit test stubs"""
@@ -34,7 +34,7 @@ class TestBillingAccountBalance(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `BillingAccountBalance`
         """
-        model = BillingAccountBalance()
+        model = BillingAccountBalance()  # noqa: E501
         if include_optional:
             return BillingAccountBalance(
                 amount = '',

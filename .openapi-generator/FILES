@@ -3,6 +3,7 @@
 .gitlab-ci.yml
 .travis.yml
 README.md
+docs/AdminServiceDelegatedCheckoutRequest.md
 docs/AuditLogApi.md
 docs/AuthnApi.md
 docs/AuthzApi.md
@@ -104,6 +105,7 @@ docs/V1beta1CreateServiceUserResponse.md
 docs/V1beta1CreateServiceUserSecretResponse.md
 docs/V1beta1CreateUserPreferencesResponse.md
 docs/V1beta1CreateUserResponse.md
+docs/V1beta1DelegatedCheckoutResponse.md
 docs/V1beta1DescribePreferencesResponse.md
 docs/V1beta1Domain.md
 docs/V1beta1Feature.md
@@ -169,6 +171,7 @@ docs/V1beta1ListOrganizationsByUserResponse.md
 docs/V1beta1ListOrganizationsResponse.md
 docs/V1beta1ListPermissionsResponse.md
 docs/V1beta1ListPlansResponse.md
+docs/V1beta1ListPlatformUsersResponse.md
 docs/V1beta1ListPoliciesResponse.md
 docs/V1beta1ListPreferencesResponse.md
 docs/V1beta1ListProjectAdminsResponse.md
@@ -274,6 +277,7 @@ frontier_api/api_response.py
 frontier_api/configuration.py
 frontier_api/exceptions.py
 frontier_api/models/__init__.py
+frontier_api/models/admin_service_delegated_checkout_request.py
 frontier_api/models/billing_account_address.py
 frontier_api/models/billing_account_balance.py
 frontier_api/models/frontier_service_add_group_users_request.py
@@ -350,6 +354,7 @@ frontier_api/models/v1beta1_create_service_user_response.py
 frontier_api/models/v1beta1_create_service_user_secret_response.py
 frontier_api/models/v1beta1_create_user_preferences_response.py
 frontier_api/models/v1beta1_create_user_response.py
+frontier_api/models/v1beta1_delegated_checkout_response.py
 frontier_api/models/v1beta1_describe_preferences_response.py
 frontier_api/models/v1beta1_domain.py
 frontier_api/models/v1beta1_feature.py
@@ -415,6 +420,7 @@ frontier_api/models/v1beta1_list_organizations_by_user_response.py
 frontier_api/models/v1beta1_list_organizations_response.py
 frontier_api/models/v1beta1_list_permissions_response.py
 frontier_api/models/v1beta1_list_plans_response.py
+frontier_api/models/v1beta1_list_platform_users_response.py
 frontier_api/models/v1beta1_list_policies_response.py
 frontier_api/models/v1beta1_list_preferences_response.py
 frontier_api/models/v1beta1_list_project_admins_response.py
@@ -496,6 +502,7 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_admin_service_delegated_checkout_request.py
 test/test_audit_log_api.py
 test/test_authn_api.py
 test/test_authz_api.py
@@ -597,6 +604,7 @@ test/test_v1beta1_create_service_user_response.py
 test/test_v1beta1_create_service_user_secret_response.py
 test/test_v1beta1_create_user_preferences_response.py
 test/test_v1beta1_create_user_response.py
+test/test_v1beta1_delegated_checkout_response.py
 test/test_v1beta1_describe_preferences_response.py
 test/test_v1beta1_domain.py
 test/test_v1beta1_feature.py
@@ -662,6 +670,7 @@ test/test_v1beta1_list_organizations_by_user_response.py
 test/test_v1beta1_list_organizations_response.py
 test/test_v1beta1_list_permissions_response.py
 test/test_v1beta1_list_plans_response.py
+test/test_v1beta1_list_platform_users_response.py
 test/test_v1beta1_list_policies_response.py
 test/test_v1beta1_list_preferences_response.py
 test/test_v1beta1_list_project_admins_response.py

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.v1beta1_user import V1beta1User
+from frontier_api.models.v1beta1_user import V1beta1User  # noqa: E501
 
 class TestV1beta1User(unittest.TestCase):
     """V1beta1User unit test stubs"""
@@ -34,7 +34,7 @@ class TestV1beta1User(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `V1beta1User`
         """
-        model = V1beta1User()
+        model = V1beta1User()  # noqa: E501
         if include_optional:
             return V1beta1User(
                 id = '',

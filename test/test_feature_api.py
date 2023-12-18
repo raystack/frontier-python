@@ -15,14 +15,14 @@
 
 import unittest
 
-from frontier_api.api.feature_api import FeatureApi
+from frontier_api.api.feature_api import FeatureApi  # noqa: E501
 
 
 class TestFeatureApi(unittest.TestCase):
     """FeatureApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = FeatureApi()
+        self.api = FeatureApi()  # noqa: E501
 
     def tearDown(self) -> None:
         pass
@@ -30,28 +30,28 @@ class TestFeatureApi(unittest.TestCase):
     def test_frontier_service_create_feature(self) -> None:
         """Test case for frontier_service_create_feature
 
-        Create feature
+        Create feature  # noqa: E501
         """
         pass
 
     def test_frontier_service_get_feature(self) -> None:
         """Test case for frontier_service_get_feature
 
-        Get feature
+        Get feature  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_features(self) -> None:
         """Test case for frontier_service_list_features
 
-        List features
+        List features  # noqa: E501
         """
         pass
 
     def test_frontier_service_update_feature(self) -> None:
         """Test case for frontier_service_update_feature
 
-        Update feature
+        Update feature  # noqa: E501
         """
         pass
 

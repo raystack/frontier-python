@@ -19,78 +19,61 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictStr
-from pydantic import Field
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional
+from pydantic import BaseModel, Field, StrictStr
 
 class V1beta1MetaSchema(BaseModel):
     """
     V1beta1MetaSchema
-    """ # noqa: E501
-    id: Optional[StrictStr] = Field(default=None, description="The unique metaschema uuid.")
+    """
+    id: Optional[StrictStr] = Field(None, description="The unique metaschema uuid.")
     name: Optional[StrictStr] = None
-    var_schema: Optional[StrictStr] = Field(default=None, description="The metaschema json schema.", alias="schema")
-    created_at: Optional[datetime] = Field(default=None, description="The time when the metaschema was created.", alias="createdAt")
-    updated_at: Optional[datetime] = Field(default=None, description="The time when the metaschema was updated.", alias="updatedAt")
-    __properties: ClassVar[List[str]] = ["id", "name", "schema", "createdAt", "updatedAt"]
+    var_schema: Optional[StrictStr] = Field(None, alias="schema", description="The metaschema json schema.")
+    created_at: Optional[datetime] = Field(None, alias="createdAt", description="The time when the metaschema was created.")
+    updated_at: Optional[datetime] = Field(None, alias="updatedAt", description="The time when the metaschema was updated.")
+    __properties = ["id", "name", "schema", "createdAt", "updatedAt"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True
-    }
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> V1beta1MetaSchema:
         """Create an instance of V1beta1MetaSchema from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude={
-            },
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: dict) -> V1beta1MetaSchema:
         """Create an instance of V1beta1MetaSchema from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return V1beta1MetaSchema.parse_obj(obj)
 
-        _obj = cls.model_validate({
+        _obj = V1beta1MetaSchema.parse_obj({
             "id": obj.get("id"),
             "name": obj.get("name"),
-            "schema": obj.get("schema"),
-            "createdAt": obj.get("createdAt"),
-            "updatedAt": obj.get("updatedAt")
+            "var_schema": obj.get("schema"),
+            "created_at": obj.get("createdAt"),
+            "updated_at": obj.get("updatedAt")
         })
         return _obj
 

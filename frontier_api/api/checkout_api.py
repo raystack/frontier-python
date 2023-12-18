@@ -13,28 +13,27 @@
 """  # noqa: E501
 
 
+import re  # noqa: F401
 import io
 import warnings
 
-from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
-from typing import Dict, List, Optional, Tuple, Union, Any
+from pydantic import validate_arguments, ValidationError
 
-try:
-    from typing import Annotated
-except ImportError:
-    from typing_extensions import Annotated
-
-from pydantic import Field
 from typing_extensions import Annotated
-from pydantic import StrictStr
+from pydantic import Field, StrictStr
 
+from frontier_api.models.admin_service_delegated_checkout_request import AdminServiceDelegatedCheckoutRequest
 from frontier_api.models.frontier_service_create_checkout_request import FrontierServiceCreateCheckoutRequest
 from frontier_api.models.v1beta1_create_checkout_response import V1beta1CreateCheckoutResponse
+from frontier_api.models.v1beta1_delegated_checkout_response import V1beta1DelegatedCheckoutResponse
 from frontier_api.models.v1beta1_list_checkouts_response import V1beta1ListCheckoutsResponse
 
 from frontier_api.api_client import ApiClient
 from frontier_api.api_response import ApiResponse
-from frontier_api.rest import RESTResponseType
+from frontier_api.exceptions import (  # noqa: F401
+    ApiTypeError,
+    ApiValueError
+)
 
 
 class CheckoutApi:
@@ -49,620 +48,491 @@ class CheckoutApi:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
+    @validate_arguments
+    def admin_service_delegated_checkout(self, org_id : StrictStr, billing_id : Annotated[StrictStr, Field(..., description="ID of the billing account to update the subscription for")], body : AdminServiceDelegatedCheckoutRequest, **kwargs) -> V1beta1DelegatedCheckoutResponse:  # noqa: E501
+        """Checkout a feature or subscription  # noqa: E501
 
-    @validate_call
-    def frontier_service_create_checkout(
-        self,
-        org_id: StrictStr,
-        billing_id: Annotated[StrictStr, Field(description="ID of the billing account to update the subscription for")],
-        body: FrontierServiceCreateCheckoutRequest,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> V1beta1CreateCheckoutResponse:
-        """Checkout a feature or subscription
+        Checkout a feature to buy it one time or start a subscription plan on a billing account manually. It bypasses billing engine.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
 
-        Checkout a feature to buy it one time or start a subscription plan on a billing account.
+        >>> thread = api.admin_service_delegated_checkout(org_id, billing_id, body, async_req=True)
+        >>> result = thread.get()
 
         :param org_id: (required)
         :type org_id: str
         :param billing_id: ID of the billing account to update the subscription for (required)
         :type billing_id: str
         :param body: (required)
-        :type body: FrontierServiceCreateCheckoutRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
+        :type body: AdminServiceDelegatedCheckoutRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _request_timeout: timeout setting for this request.
+               If one number provided, it will be total request
+               timeout. It can also be a pair (tuple) of
+               (connection, read) timeouts.
         :return: Returns the result object.
-        """ # noqa: E501
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: V1beta1DelegatedCheckoutResponse
+        """
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
+            message = "Error! Please call the admin_service_delegated_checkout_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            raise ValueError(message)
+        return self.admin_service_delegated_checkout_with_http_info(org_id, billing_id, body, **kwargs)  # noqa: E501
 
-        _param = self._frontier_service_create_checkout_serialize(
-            org_id=org_id,
-            billing_id=billing_id,
-            body=body,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
+    @validate_arguments
+    def admin_service_delegated_checkout_with_http_info(self, org_id : StrictStr, billing_id : Annotated[StrictStr, Field(..., description="ID of the billing account to update the subscription for")], body : AdminServiceDelegatedCheckoutRequest, **kwargs) -> ApiResponse:  # noqa: E501
+        """Checkout a feature or subscription  # noqa: E501
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "V1beta1CreateCheckoutResponse",
-            '400': "RpcStatus",
-            '401': "RpcStatus",
-            '403': "RpcStatus",
-            '404': "RpcStatus",
-            '500': "RpcStatus",
-            
-            
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
+        Checkout a feature to buy it one time or start a subscription plan on a billing account manually. It bypasses billing engine.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
 
-
-    @validate_call
-    def frontier_service_create_checkout_with_http_info(
-        self,
-        org_id: StrictStr,
-        billing_id: Annotated[StrictStr, Field(description="ID of the billing account to update the subscription for")],
-        body: FrontierServiceCreateCheckoutRequest,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[V1beta1CreateCheckoutResponse]:
-        """Checkout a feature or subscription
-
-        Checkout a feature to buy it one time or start a subscription plan on a billing account.
+        >>> thread = api.admin_service_delegated_checkout_with_http_info(org_id, billing_id, body, async_req=True)
+        >>> result = thread.get()
 
         :param org_id: (required)
         :type org_id: str
         :param billing_id: ID of the billing account to update the subscription for (required)
         :type billing_id: str
         :param body: (required)
-        :type body: FrontierServiceCreateCheckoutRequest
+        :type body: AdminServiceDelegatedCheckoutRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the ApiResponse.data will
+                                 be set to none and raw_data will store the
+                                 HTTP response body without reading/decoding.
+                                 Default is True.
+        :type _preload_content: bool, optional
+        :param _return_http_data_only: response data instead of ApiResponse
+                                       object with status code, headers, etc
+        :type _return_http_data_only: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
         :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
         :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
-        """ # noqa: E501
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(V1beta1DelegatedCheckoutResponse, status_code(int), headers(HTTPHeaderDict))
+        """
 
-        _param = self._frontier_service_create_checkout_serialize(
-            org_id=org_id,
-            billing_id=billing_id,
-            body=body,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
+        _params = locals()
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "V1beta1CreateCheckoutResponse",
-            '400': "RpcStatus",
-            '401': "RpcStatus",
-            '403': "RpcStatus",
-            '404': "RpcStatus",
-            '500': "RpcStatus",
-            
-            
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def frontier_service_create_checkout_without_preload_content(
-        self,
-        org_id: StrictStr,
-        billing_id: Annotated[StrictStr, Field(description="ID of the billing account to update the subscription for")],
-        body: FrontierServiceCreateCheckoutRequest,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
+        _all_params = [
+            'org_id',
+            'billing_id',
+            'body'
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """Checkout a feature or subscription
-
-        Checkout a feature to buy it one time or start a subscription plan on a billing account.
-
-        :param org_id: (required)
-        :type org_id: str
-        :param billing_id: ID of the billing account to update the subscription for (required)
-        :type billing_id: str
-        :param body: (required)
-        :type body: FrontierServiceCreateCheckoutRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._frontier_service_create_checkout_serialize(
-            org_id=org_id,
-            billing_id=billing_id,
-            body=body,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "V1beta1CreateCheckoutResponse",
-            '400': "RpcStatus",
-            '401': "RpcStatus",
-            '403': "RpcStatus",
-            '404': "RpcStatus",
-            '500': "RpcStatus",
-            
-            
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method admin_service_delegated_checkout" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
 
-
-    def _frontier_service_create_checkout_serialize(
-        self,
-        org_id,
-        billing_id,
-        body,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> Tuple:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-            
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
-        _body_params: Optional[bytes] = None
+        _collection_formats = {}
 
         # process the path parameters
-        if org_id is not None:
-            _path_params['orgId'] = org_id
-        if billing_id is not None:
-            _path_params['billingId'] = billing_id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if body is not None:
-            _body_params = body
+        _path_params = {}
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
 
+        if _params['billing_id']:
+            _path_params['billingId'] = _params['billing_id']
+
+
+        # process the query parameters
+        _query_params = []
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        if _params['body'] is not None:
+            _body_params = _params['body']
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+            ['application/json'])  # noqa: E501
 
         # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'Basic'
-        ]
+        _auth_settings = ['Basic']  # noqa: E501
 
-        return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/v1beta1/organizations/{orgId}/billing/{billingId}/checkouts',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
+        _response_types_map = {
+            '200': "V1beta1DelegatedCheckoutResponse",
+            '400': "RpcStatus",
+            '401': "RpcStatus",
+            '403': "RpcStatus",
+            '404': "RpcStatus",
+            '500': "RpcStatus",
+        }
+
+        return self.api_client.call_api(
+            '/v1beta1/admin/organizations/{orgId}/billing/{billingId}/checkouts', 'POST',
+            _path_params,
+            _query_params,
+            _header_params,
             body=_body_params,
             post_params=_form_params,
             files=_files,
+            response_types_map=_response_types_map,
             auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
+            _request_auth=_params.get('_request_auth'))
 
+    @validate_arguments
+    def frontier_service_create_checkout(self, org_id : StrictStr, billing_id : Annotated[StrictStr, Field(..., description="ID of the billing account to update the subscription for")], body : FrontierServiceCreateCheckoutRequest, **kwargs) -> V1beta1CreateCheckoutResponse:  # noqa: E501
+        """Checkout a feature or subscription  # noqa: E501
 
+        Checkout a feature to buy it one time or start a subscription plan on a billing account.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
 
-
-    @validate_call
-    def frontier_service_list_checkouts(
-        self,
-        org_id: StrictStr,
-        billing_id: Annotated[StrictStr, Field(description="ID of the billing account to update the subscription for")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> V1beta1ListCheckoutsResponse:
-        """List checkouts
-
-        List all checkouts of a billing account.
+        >>> thread = api.frontier_service_create_checkout(org_id, billing_id, body, async_req=True)
+        >>> result = thread.get()
 
         :param org_id: (required)
         :type org_id: str
         :param billing_id: ID of the billing account to update the subscription for (required)
         :type billing_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
+        :param body: (required)
+        :type body: FrontierServiceCreateCheckoutRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _request_timeout: timeout setting for this request.
+               If one number provided, it will be total request
+               timeout. It can also be a pair (tuple) of
+               (connection, read) timeouts.
         :return: Returns the result object.
-        """ # noqa: E501
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: V1beta1CreateCheckoutResponse
+        """
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
+            message = "Error! Please call the frontier_service_create_checkout_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            raise ValueError(message)
+        return self.frontier_service_create_checkout_with_http_info(org_id, billing_id, body, **kwargs)  # noqa: E501
 
-        _param = self._frontier_service_list_checkouts_serialize(
-            org_id=org_id,
-            billing_id=billing_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
+    @validate_arguments
+    def frontier_service_create_checkout_with_http_info(self, org_id : StrictStr, billing_id : Annotated[StrictStr, Field(..., description="ID of the billing account to update the subscription for")], body : FrontierServiceCreateCheckoutRequest, **kwargs) -> ApiResponse:  # noqa: E501
+        """Checkout a feature or subscription  # noqa: E501
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "V1beta1ListCheckoutsResponse",
-            '400': "RpcStatus",
-            '401': "RpcStatus",
-            '403': "RpcStatus",
-            '404': "RpcStatus",
-            '500': "RpcStatus",
-            
-            
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
+        Checkout a feature to buy it one time or start a subscription plan on a billing account.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
 
-
-    @validate_call
-    def frontier_service_list_checkouts_with_http_info(
-        self,
-        org_id: StrictStr,
-        billing_id: Annotated[StrictStr, Field(description="ID of the billing account to update the subscription for")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[V1beta1ListCheckoutsResponse]:
-        """List checkouts
-
-        List all checkouts of a billing account.
+        >>> thread = api.frontier_service_create_checkout_with_http_info(org_id, billing_id, body, async_req=True)
+        >>> result = thread.get()
 
         :param org_id: (required)
         :type org_id: str
         :param billing_id: ID of the billing account to update the subscription for (required)
         :type billing_id: str
+        :param body: (required)
+        :type body: FrontierServiceCreateCheckoutRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the ApiResponse.data will
+                                 be set to none and raw_data will store the
+                                 HTTP response body without reading/decoding.
+                                 Default is True.
+        :type _preload_content: bool, optional
+        :param _return_http_data_only: response data instead of ApiResponse
+                                       object with status code, headers, etc
+        :type _return_http_data_only: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
         :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
         :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
-        """ # noqa: E501
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(V1beta1CreateCheckoutResponse, status_code(int), headers(HTTPHeaderDict))
+        """
 
-        _param = self._frontier_service_list_checkouts_serialize(
-            org_id=org_id,
-            billing_id=billing_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
+        _params = locals()
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "V1beta1ListCheckoutsResponse",
-            '400': "RpcStatus",
-            '401': "RpcStatus",
-            '403': "RpcStatus",
-            '404': "RpcStatus",
-            '500': "RpcStatus",
-            
-            
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def frontier_service_list_checkouts_without_preload_content(
-        self,
-        org_id: StrictStr,
-        billing_id: Annotated[StrictStr, Field(description="ID of the billing account to update the subscription for")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
+        _all_params = [
+            'org_id',
+            'billing_id',
+            'body'
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """List checkouts
-
-        List all checkouts of a billing account.
-
-        :param org_id: (required)
-        :type org_id: str
-        :param billing_id: ID of the billing account to update the subscription for (required)
-        :type billing_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._frontier_service_list_checkouts_serialize(
-            org_id=org_id,
-            billing_id=billing_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "V1beta1ListCheckoutsResponse",
-            '400': "RpcStatus",
-            '401': "RpcStatus",
-            '403': "RpcStatus",
-            '404': "RpcStatus",
-            '500': "RpcStatus",
-            
-            
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method frontier_service_create_checkout" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
 
-
-    def _frontier_service_list_checkouts_serialize(
-        self,
-        org_id,
-        billing_id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> Tuple:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-            
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
-        _body_params: Optional[bytes] = None
+        _collection_formats = {}
 
         # process the path parameters
-        if org_id is not None:
-            _path_params['orgId'] = org_id
-        if billing_id is not None:
-            _path_params['billingId'] = billing_id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
+        _path_params = {}
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
 
+        if _params['billing_id']:
+            _path_params['billingId'] = _params['billing_id']
+
+
+        # process the query parameters
+        _query_params = []
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        if _params['body'] is not None:
+            _body_params = _params['body']
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+            ['application/json'])  # noqa: E501
 
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'Basic'
-        ]
+        _auth_settings = ['Basic']  # noqa: E501
 
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/v1beta1/organizations/{orgId}/billing/{billingId}/checkouts',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
+        _response_types_map = {
+            '200': "V1beta1CreateCheckoutResponse",
+            '400': "RpcStatus",
+            '401': "RpcStatus",
+            '403': "RpcStatus",
+            '404': "RpcStatus",
+            '500': "RpcStatus",
+        }
+
+        return self.api_client.call_api(
+            '/v1beta1/organizations/{orgId}/billing/{billingId}/checkouts', 'POST',
+            _path_params,
+            _query_params,
+            _header_params,
             body=_body_params,
             post_params=_form_params,
             files=_files,
+            response_types_map=_response_types_map,
             auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_params.get('_request_auth'))
+
+    @validate_arguments
+    def frontier_service_list_checkouts(self, org_id : StrictStr, billing_id : Annotated[StrictStr, Field(..., description="ID of the billing account to update the subscription for")], **kwargs) -> V1beta1ListCheckoutsResponse:  # noqa: E501
+        """List checkouts  # noqa: E501
+
+        List all checkouts of a billing account.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.frontier_service_list_checkouts(org_id, billing_id, async_req=True)
+        >>> result = thread.get()
+
+        :param org_id: (required)
+        :type org_id: str
+        :param billing_id: ID of the billing account to update the subscription for (required)
+        :type billing_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _request_timeout: timeout setting for this request.
+               If one number provided, it will be total request
+               timeout. It can also be a pair (tuple) of
+               (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: V1beta1ListCheckoutsResponse
+        """
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
+            message = "Error! Please call the frontier_service_list_checkouts_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            raise ValueError(message)
+        return self.frontier_service_list_checkouts_with_http_info(org_id, billing_id, **kwargs)  # noqa: E501
+
+    @validate_arguments
+    def frontier_service_list_checkouts_with_http_info(self, org_id : StrictStr, billing_id : Annotated[StrictStr, Field(..., description="ID of the billing account to update the subscription for")], **kwargs) -> ApiResponse:  # noqa: E501
+        """List checkouts  # noqa: E501
+
+        List all checkouts of a billing account.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.frontier_service_list_checkouts_with_http_info(org_id, billing_id, async_req=True)
+        >>> result = thread.get()
+
+        :param org_id: (required)
+        :type org_id: str
+        :param billing_id: ID of the billing account to update the subscription for (required)
+        :type billing_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the ApiResponse.data will
+                                 be set to none and raw_data will store the
+                                 HTTP response body without reading/decoding.
+                                 Default is True.
+        :type _preload_content: bool, optional
+        :param _return_http_data_only: response data instead of ApiResponse
+                                       object with status code, headers, etc
+        :type _return_http_data_only: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(V1beta1ListCheckoutsResponse, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        _params = locals()
+
+        _all_params = [
+            'org_id',
+            'billing_id'
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
         )
 
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method frontier_service_list_checkouts" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
 
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+        if _params['org_id']:
+            _path_params['orgId'] = _params['org_id']
+
+        if _params['billing_id']:
+            _path_params['billingId'] = _params['billing_id']
+
+
+        # process the query parameters
+        _query_params = []
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # authentication setting
+        _auth_settings = ['Basic']  # noqa: E501
+
+        _response_types_map = {
+            '200': "V1beta1ListCheckoutsResponse",
+            '400': "RpcStatus",
+            '401': "RpcStatus",
+            '403': "RpcStatus",
+            '404': "RpcStatus",
+            '500': "RpcStatus",
+        }
+
+        return self.api_client.call_api(
+            '/v1beta1/organizations/{orgId}/billing/{billingId}/checkouts', 'GET',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))

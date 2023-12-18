@@ -15,14 +15,14 @@
 
 import unittest
 
-from frontier_api.api.organization_api import OrganizationApi
+from frontier_api.api.organization_api import OrganizationApi  # noqa: E501
 
 
 class TestOrganizationApi(unittest.TestCase):
     """OrganizationApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = OrganizationApi()
+        self.api = OrganizationApi()  # noqa: E501
 
     def tearDown(self) -> None:
         pass
@@ -30,175 +30,175 @@ class TestOrganizationApi(unittest.TestCase):
     def test_admin_service_list_all_organizations(self) -> None:
         """Test case for admin_service_list_all_organizations
 
-        List all organizations
+        List all organizations  # noqa: E501
         """
         pass
 
     def test_frontier_service_accept_organization_invitation(self) -> None:
         """Test case for frontier_service_accept_organization_invitation
 
-        Accept pending invitation
+        Accept pending invitation  # noqa: E501
         """
         pass
 
     def test_frontier_service_add_organization_users(self) -> None:
         """Test case for frontier_service_add_organization_users
 
-        Add organization user
+        Add organization user  # noqa: E501
         """
         pass
 
     def test_frontier_service_create_organization(self) -> None:
         """Test case for frontier_service_create_organization
 
-        Create organization
+        Create organization  # noqa: E501
         """
         pass
 
     def test_frontier_service_create_organization_domain(self) -> None:
         """Test case for frontier_service_create_organization_domain
 
-        Create org domain
+        Create org domain  # noqa: E501
         """
         pass
 
     def test_frontier_service_create_organization_invitation(self) -> None:
         """Test case for frontier_service_create_organization_invitation
 
-        Invite user
+        Invite user  # noqa: E501
         """
         pass
 
     def test_frontier_service_delete_organization(self) -> None:
         """Test case for frontier_service_delete_organization
 
-        Delete organization
+        Delete organization  # noqa: E501
         """
         pass
 
     def test_frontier_service_delete_organization_domain(self) -> None:
         """Test case for frontier_service_delete_organization_domain
 
-        Delete org domain
+        Delete org domain  # noqa: E501
         """
         pass
 
     def test_frontier_service_delete_organization_invitation(self) -> None:
         """Test case for frontier_service_delete_organization_invitation
 
-        Delete pending invitation
+        Delete pending invitation  # noqa: E501
         """
         pass
 
     def test_frontier_service_disable_organization(self) -> None:
         """Test case for frontier_service_disable_organization
 
-        Disable organization
+        Disable organization  # noqa: E501
         """
         pass
 
     def test_frontier_service_enable_organization(self) -> None:
         """Test case for frontier_service_enable_organization
 
-        Enable organization
+        Enable organization  # noqa: E501
         """
         pass
 
     def test_frontier_service_get_organization(self) -> None:
         """Test case for frontier_service_get_organization
 
-        Get organization
+        Get organization  # noqa: E501
         """
         pass
 
     def test_frontier_service_get_organization_domain(self) -> None:
         """Test case for frontier_service_get_organization_domain
 
-        Get org domain
+        Get org domain  # noqa: E501
         """
         pass
 
     def test_frontier_service_get_organization_invitation(self) -> None:
         """Test case for frontier_service_get_organization_invitation
 
-        Get pending invitation
+        Get pending invitation  # noqa: E501
         """
         pass
 
     def test_frontier_service_join_organization(self) -> None:
         """Test case for frontier_service_join_organization
 
-        Join organization
+        Join organization  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_organization_admins(self) -> None:
         """Test case for frontier_service_list_organization_admins
 
-        List organization admins
+        List organization admins  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_organization_domains(self) -> None:
         """Test case for frontier_service_list_organization_domains
 
-        List org domains
+        List org domains  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_organization_invitations(self) -> None:
         """Test case for frontier_service_list_organization_invitations
 
-        List pending invitations
+        List pending invitations  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_organization_projects(self) -> None:
         """Test case for frontier_service_list_organization_projects
 
-        Get organization projects
+        Get organization projects  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_organization_service_users(self) -> None:
         """Test case for frontier_service_list_organization_service_users
 
-        List organization service users
+        List organization service users  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_organization_users(self) -> None:
         """Test case for frontier_service_list_organization_users
 
-        List organization users
+        List organization users  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_organizations(self) -> None:
         """Test case for frontier_service_list_organizations
 
-        List organizations
+        List organizations  # noqa: E501
         """
         pass
 
     def test_frontier_service_remove_organization_user(self) -> None:
         """Test case for frontier_service_remove_organization_user
 
-        Remove organization user
+        Remove organization user  # noqa: E501
         """
         pass
 
     def test_frontier_service_update_organization(self) -> None:
         """Test case for frontier_service_update_organization
 
-        Update organization
+        Update organization  # noqa: E501
         """
         pass
 
     def test_frontier_service_verify_organization_domain(self) -> None:
         """Test case for frontier_service_verify_organization_domain
 
-        Verify org domain
+        Verify org domain  # noqa: E501
         """
         pass
 

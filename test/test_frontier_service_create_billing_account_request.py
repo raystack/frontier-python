@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.frontier_service_create_billing_account_request import FrontierServiceCreateBillingAccountRequest
+from frontier_api.models.frontier_service_create_billing_account_request import FrontierServiceCreateBillingAccountRequest  # noqa: E501
 
 class TestFrontierServiceCreateBillingAccountRequest(unittest.TestCase):
     """FrontierServiceCreateBillingAccountRequest unit test stubs"""
@@ -34,7 +34,7 @@ class TestFrontierServiceCreateBillingAccountRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `FrontierServiceCreateBillingAccountRequest`
         """
-        model = FrontierServiceCreateBillingAccountRequest()
+        model = FrontierServiceCreateBillingAccountRequest()  # noqa: E501
         if include_optional:
             return FrontierServiceCreateBillingAccountRequest(
                 body = frontier_api.models.v1beta1_billing_account_request_body.v1beta1BillingAccountRequestBody(

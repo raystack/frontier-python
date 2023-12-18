@@ -19,74 +19,57 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictStr
-from pydantic import Field
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional
+from pydantic import BaseModel, Field, StrictStr
 
 class V1beta1CheckResourcePermissionRequest(BaseModel):
     """
     V1beta1CheckResourcePermissionRequest
-    """ # noqa: E501
-    object_id: Optional[StrictStr] = Field(default=None, description="Deprecated. Use `resource` field instead.", alias="objectId")
-    object_namespace: Optional[StrictStr] = Field(default=None, description="Deprecated. Use `resource` field instead.", alias="objectNamespace")
-    permission: StrictStr = Field(description="the permission name to check. <br/> *Example:* `get`, `list`, `compute.instance.create`")
-    resource: Optional[StrictStr] = Field(default=None, description="`namespace:uuid` or `namespace:name` of the org or project, and `namespace:urn` of a resource under a project. In case of an org/project either provide the complete namespace (app/organization) or Frontier can also parse aliases for the same as `org` or `project`. <br/> *Example:* `organization:92f69c3a-334b-4f25-90b8-4d4f3be6b825` or `app/project:project-name` or `compute/instance:92f69c3a-334b-4f25-90b8-4d4f3be6b825`")
-    __properties: ClassVar[List[str]] = ["objectId", "objectNamespace", "permission", "resource"]
+    """
+    object_id: Optional[StrictStr] = Field(None, alias="objectId", description="Deprecated. Use `resource` field instead.")
+    object_namespace: Optional[StrictStr] = Field(None, alias="objectNamespace", description="Deprecated. Use `resource` field instead.")
+    permission: StrictStr = Field(..., description="the permission name to check. <br/> *Example:* `get`, `list`, `compute.instance.create`")
+    resource: Optional[StrictStr] = Field(None, description="`namespace:uuid` or `namespace:name` of the org or project, and `namespace:urn` of a resource under a project. In case of an org/project either provide the complete namespace (app/organization) or Frontier can also parse aliases for the same as `org` or `project`. <br/> *Example:* `organization:92f69c3a-334b-4f25-90b8-4d4f3be6b825` or `app/project:project-name` or `compute/instance:92f69c3a-334b-4f25-90b8-4d4f3be6b825`")
+    __properties = ["objectId", "objectNamespace", "permission", "resource"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True
-    }
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> V1beta1CheckResourcePermissionRequest:
         """Create an instance of V1beta1CheckResourcePermissionRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude={
-            },
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: dict) -> V1beta1CheckResourcePermissionRequest:
         """Create an instance of V1beta1CheckResourcePermissionRequest from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return V1beta1CheckResourcePermissionRequest.parse_obj(obj)
 
-        _obj = cls.model_validate({
-            "objectId": obj.get("objectId"),
-            "objectNamespace": obj.get("objectNamespace"),
+        _obj = V1beta1CheckResourcePermissionRequest.parse_obj({
+            "object_id": obj.get("objectId"),
+            "object_namespace": obj.get("objectNamespace"),
             "permission": obj.get("permission"),
             "resource": obj.get("resource")
         })

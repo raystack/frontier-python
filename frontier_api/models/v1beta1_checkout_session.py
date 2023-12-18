@@ -19,86 +19,69 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from typing import Any, ClassVar, Dict, List, Optional, Union
-from pydantic import BaseModel, StrictStr
-from pydantic import Field
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Any, Dict, Optional
+from pydantic import BaseModel, Field, StrictStr
 
 class V1beta1CheckoutSession(BaseModel):
     """
     V1beta1CheckoutSession
-    """ # noqa: E501
+    """
     id: Optional[StrictStr] = None
-    checkout_url: Optional[StrictStr] = Field(default=None, alias="checkoutUrl")
-    success_url: Optional[StrictStr] = Field(default=None, alias="successUrl")
-    cancel_url: Optional[StrictStr] = Field(default=None, alias="cancelUrl")
+    checkout_url: Optional[StrictStr] = Field(None, alias="checkoutUrl")
+    success_url: Optional[StrictStr] = Field(None, alias="successUrl")
+    cancel_url: Optional[StrictStr] = Field(None, alias="cancelUrl")
     state: Optional[StrictStr] = None
-    metadata: Optional[Union[str, Any]] = None
-    created_at: Optional[datetime] = Field(default=None, alias="createdAt")
-    updated_at: Optional[datetime] = Field(default=None, alias="updatedAt")
-    expire_at: Optional[datetime] = Field(default=None, alias="expireAt")
-    __properties: ClassVar[List[str]] = ["id", "checkoutUrl", "successUrl", "cancelUrl", "state", "metadata", "createdAt", "updatedAt", "expireAt"]
+    metadata: Optional[Dict[str, Any]] = None
+    created_at: Optional[datetime] = Field(None, alias="createdAt")
+    updated_at: Optional[datetime] = Field(None, alias="updatedAt")
+    expire_at: Optional[datetime] = Field(None, alias="expireAt")
+    __properties = ["id", "checkoutUrl", "successUrl", "cancelUrl", "state", "metadata", "createdAt", "updatedAt", "expireAt"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True
-    }
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> V1beta1CheckoutSession:
         """Create an instance of V1beta1CheckoutSession from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude={
-            },
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: dict) -> V1beta1CheckoutSession:
         """Create an instance of V1beta1CheckoutSession from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return V1beta1CheckoutSession.parse_obj(obj)
 
-        _obj = cls.model_validate({
+        _obj = V1beta1CheckoutSession.parse_obj({
             "id": obj.get("id"),
-            "checkoutUrl": obj.get("checkoutUrl"),
-            "successUrl": obj.get("successUrl"),
-            "cancelUrl": obj.get("cancelUrl"),
+            "checkout_url": obj.get("checkoutUrl"),
+            "success_url": obj.get("successUrl"),
+            "cancel_url": obj.get("cancelUrl"),
             "state": obj.get("state"),
             "metadata": obj.get("metadata"),
-            "createdAt": obj.get("createdAt"),
-            "updatedAt": obj.get("updatedAt"),
-            "expireAt": obj.get("expireAt")
+            "created_at": obj.get("createdAt"),
+            "updated_at": obj.get("updatedAt"),
+            "expire_at": obj.get("expireAt")
         })
         return _obj
 

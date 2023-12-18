@@ -15,14 +15,14 @@
 
 import unittest
 
-from frontier_api.api.billing_api import BillingApi
+from frontier_api.api.billing_api import BillingApi  # noqa: E501
 
 
 class TestBillingApi(unittest.TestCase):
     """BillingApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = BillingApi()
+        self.api = BillingApi()  # noqa: E501
 
     def tearDown(self) -> None:
         pass
@@ -30,42 +30,42 @@ class TestBillingApi(unittest.TestCase):
     def test_frontier_service_create_billing_account(self) -> None:
         """Test case for frontier_service_create_billing_account
 
-        Create billing account
+        Create billing account  # noqa: E501
         """
         pass
 
     def test_frontier_service_delete_billing_account(self) -> None:
         """Test case for frontier_service_delete_billing_account
 
-        Delete billing account
+        Delete billing account  # noqa: E501
         """
         pass
 
     def test_frontier_service_get_billing_account(self) -> None:
         """Test case for frontier_service_get_billing_account
 
-        Get billing account
+        Get billing account  # noqa: E501
         """
         pass
 
     def test_frontier_service_get_billing_balance(self) -> None:
         """Test case for frontier_service_get_billing_balance
 
-        Get billing balance
+        Get billing balance  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_billing_accounts(self) -> None:
         """Test case for frontier_service_list_billing_accounts
 
-        List billing accounts
+        List billing accounts  # noqa: E501
         """
         pass
 
     def test_frontier_service_update_billing_account(self) -> None:
         """Test case for frontier_service_update_billing_account
 
-        Update billing account
+        Update billing account  # noqa: E501
         """
         pass
 

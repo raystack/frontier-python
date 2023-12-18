@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.rpc_status import RpcStatus
+from frontier_api.models.rpc_status import RpcStatus  # noqa: E501
 
 class TestRpcStatus(unittest.TestCase):
     """RpcStatus unit test stubs"""
@@ -34,7 +34,7 @@ class TestRpcStatus(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `RpcStatus`
         """
-        model = RpcStatus()
+        model = RpcStatus()  # noqa: E501
         if include_optional:
             return RpcStatus(
                 code = 56,

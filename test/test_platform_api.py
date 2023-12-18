@@ -15,14 +15,14 @@
 
 import unittest
 
-from frontier_api.api.platform_api import PlatformApi
+from frontier_api.api.platform_api import PlatformApi  # noqa: E501
 
 
 class TestPlatformApi(unittest.TestCase):
     """PlatformApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = PlatformApi()
+        self.api = PlatformApi()  # noqa: E501
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,14 @@ class TestPlatformApi(unittest.TestCase):
     def test_admin_service_add_platform_user(self) -> None:
         """Test case for admin_service_add_platform_user
 
-        Add platform user
+        Add platform user  # noqa: E501
+        """
+        pass
+
+    def test_admin_service_list_platform_users(self) -> None:
+        """Test case for admin_service_list_platform_users
+
+        List platform users  # noqa: E501
         """
         pass
 

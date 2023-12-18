@@ -15,14 +15,14 @@
 
 import unittest
 
-from frontier_api.api.authn_api import AuthnApi
+from frontier_api.api.authn_api import AuthnApi  # noqa: E501
 
 
 class TestAuthnApi(unittest.TestCase):
     """AuthnApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = AuthnApi()
+        self.api = AuthnApi()  # noqa: E501
 
     def tearDown(self) -> None:
         pass
@@ -30,56 +30,56 @@ class TestAuthnApi(unittest.TestCase):
     def test_frontier_service_auth_callback(self) -> None:
         """Test case for frontier_service_auth_callback
 
-        Callback from a strategy
+        Callback from a strategy  # noqa: E501
         """
         pass
 
     def test_frontier_service_auth_callback2(self) -> None:
         """Test case for frontier_service_auth_callback2
 
-        Callback from a strategy
+        Callback from a strategy  # noqa: E501
         """
         pass
 
     def test_frontier_service_auth_logout(self) -> None:
         """Test case for frontier_service_auth_logout
 
-        Logout from a strategy
+        Logout from a strategy  # noqa: E501
         """
         pass
 
     def test_frontier_service_auth_logout2(self) -> None:
         """Test case for frontier_service_auth_logout2
 
-        Logout from a strategy
+        Logout from a strategy  # noqa: E501
         """
         pass
 
     def test_frontier_service_auth_token(self) -> None:
         """Test case for frontier_service_auth_token
 
-        Generate access token by given credentials
+        Generate access token by given credentials  # noqa: E501
         """
         pass
 
     def test_frontier_service_authenticate(self) -> None:
         """Test case for frontier_service_authenticate
 
-        Authenticate with a strategy
+        Authenticate with a strategy  # noqa: E501
         """
         pass
 
     def test_frontier_service_authenticate2(self) -> None:
         """Test case for frontier_service_authenticate2
 
-        Authenticate with a strategy
+        Authenticate with a strategy  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_auth_strategies(self) -> None:
         """Test case for frontier_service_list_auth_strategies
 
-        List authentication strategies
+        List authentication strategies  # noqa: E501
         """
         pass
 

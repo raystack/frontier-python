@@ -15,14 +15,14 @@
 
 import unittest
 
-from frontier_api.api.subscription_api import SubscriptionApi
+from frontier_api.api.subscription_api import SubscriptionApi  # noqa: E501
 
 
 class TestSubscriptionApi(unittest.TestCase):
     """SubscriptionApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = SubscriptionApi()
+        self.api = SubscriptionApi()  # noqa: E501
 
     def tearDown(self) -> None:
         pass
@@ -30,28 +30,28 @@ class TestSubscriptionApi(unittest.TestCase):
     def test_frontier_service_cancel_subscription(self) -> None:
         """Test case for frontier_service_cancel_subscription
 
-        Cancel subscription
+        Cancel subscription  # noqa: E501
         """
         pass
 
     def test_frontier_service_get_subscription(self) -> None:
         """Test case for frontier_service_get_subscription
 
-        Get subscription
+        Get subscription  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_subscriptions(self) -> None:
         """Test case for frontier_service_list_subscriptions
 
-        List subscriptions
+        List subscriptions  # noqa: E501
         """
         pass
 
     def test_frontier_service_update_subscription(self) -> None:
         """Test case for frontier_service_update_subscription
 
-        Update subscription
+        Update subscription  # noqa: E501
         """
         pass
 

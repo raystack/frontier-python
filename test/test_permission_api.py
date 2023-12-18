@@ -15,14 +15,14 @@
 
 import unittest
 
-from frontier_api.api.permission_api import PermissionApi
+from frontier_api.api.permission_api import PermissionApi  # noqa: E501
 
 
 class TestPermissionApi(unittest.TestCase):
     """PermissionApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = PermissionApi()
+        self.api = PermissionApi()  # noqa: E501
 
     def tearDown(self) -> None:
         pass
@@ -30,35 +30,35 @@ class TestPermissionApi(unittest.TestCase):
     def test_admin_service_create_permission(self) -> None:
         """Test case for admin_service_create_permission
 
-        Create platform permission
+        Create platform permission  # noqa: E501
         """
         pass
 
     def test_admin_service_delete_permission(self) -> None:
         """Test case for admin_service_delete_permission
 
-        Delete platform permission
+        Delete platform permission  # noqa: E501
         """
         pass
 
     def test_admin_service_update_permission(self) -> None:
         """Test case for admin_service_update_permission
 
-        Update platform permission
+        Update platform permission  # noqa: E501
         """
         pass
 
     def test_frontier_service_get_permission(self) -> None:
         """Test case for frontier_service_get_permission
 
-        Get permission
+        Get permission  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_permissions(self) -> None:
         """Test case for frontier_service_list_permissions
 
-        Get all permissions
+        Get all permissions  # noqa: E501
         """
         pass
 

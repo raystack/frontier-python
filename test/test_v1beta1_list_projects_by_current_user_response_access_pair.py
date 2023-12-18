@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.v1beta1_list_projects_by_current_user_response_access_pair import V1beta1ListProjectsByCurrentUserResponseAccessPair
+from frontier_api.models.v1beta1_list_projects_by_current_user_response_access_pair import V1beta1ListProjectsByCurrentUserResponseAccessPair  # noqa: E501
 
 class TestV1beta1ListProjectsByCurrentUserResponseAccessPair(unittest.TestCase):
     """V1beta1ListProjectsByCurrentUserResponseAccessPair unit test stubs"""
@@ -34,7 +34,7 @@ class TestV1beta1ListProjectsByCurrentUserResponseAccessPair(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `V1beta1ListProjectsByCurrentUserResponseAccessPair`
         """
-        model = V1beta1ListProjectsByCurrentUserResponseAccessPair()
+        model = V1beta1ListProjectsByCurrentUserResponseAccessPair()  # noqa: E501
         if include_optional:
             return V1beta1ListProjectsByCurrentUserResponseAccessPair(
                 project_id = '',

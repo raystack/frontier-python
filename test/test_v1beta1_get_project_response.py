@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.v1beta1_get_project_response import V1beta1GetProjectResponse
+from frontier_api.models.v1beta1_get_project_response import V1beta1GetProjectResponse  # noqa: E501
 
 class TestV1beta1GetProjectResponse(unittest.TestCase):
     """V1beta1GetProjectResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestV1beta1GetProjectResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `V1beta1GetProjectResponse`
         """
-        model = V1beta1GetProjectResponse()
+        model = V1beta1GetProjectResponse()  # noqa: E501
         if include_optional:
             return V1beta1GetProjectResponse(
                 project = frontier_api.models.v1beta1_project.v1beta1Project(
@@ -44,7 +44,8 @@ class TestV1beta1GetProjectResponse(unittest.TestCase):
                     org_id = '', 
                     metadata = frontier_api.models.metadata.metadata(), 
                     created_at = '2023-06-07T05:39:56.961Z', 
-                    updated_at = '2023-06-07T05:39:56.961Z', )
+                    updated_at = '2023-06-07T05:39:56.961Z', 
+                    members_count = 2, )
             )
         else:
             return V1beta1GetProjectResponse(

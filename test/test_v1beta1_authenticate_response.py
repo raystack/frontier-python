@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.v1beta1_authenticate_response import V1beta1AuthenticateResponse
+from frontier_api.models.v1beta1_authenticate_response import V1beta1AuthenticateResponse  # noqa: E501
 
 class TestV1beta1AuthenticateResponse(unittest.TestCase):
     """V1beta1AuthenticateResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestV1beta1AuthenticateResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `V1beta1AuthenticateResponse`
         """
-        model = V1beta1AuthenticateResponse()
+        model = V1beta1AuthenticateResponse()  # noqa: E501
         if include_optional:
             return V1beta1AuthenticateResponse(
                 endpoint = '',

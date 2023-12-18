@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.v1beta1_batch_check_permission_response_pair import V1beta1BatchCheckPermissionResponsePair
+from frontier_api.models.v1beta1_batch_check_permission_response_pair import V1beta1BatchCheckPermissionResponsePair  # noqa: E501
 
 class TestV1beta1BatchCheckPermissionResponsePair(unittest.TestCase):
     """V1beta1BatchCheckPermissionResponsePair unit test stubs"""
@@ -34,7 +34,7 @@ class TestV1beta1BatchCheckPermissionResponsePair(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `V1beta1BatchCheckPermissionResponsePair`
         """
-        model = V1beta1BatchCheckPermissionResponsePair()
+        model = V1beta1BatchCheckPermissionResponsePair()  # noqa: E501
         if include_optional:
             return V1beta1BatchCheckPermissionResponsePair(
                 body = frontier_api.models.v1beta1_batch_check_permission_body.v1beta1BatchCheckPermissionBody(

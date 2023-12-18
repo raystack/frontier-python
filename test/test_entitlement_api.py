@@ -15,14 +15,14 @@
 
 import unittest
 
-from frontier_api.api.entitlement_api import EntitlementApi
+from frontier_api.api.entitlement_api import EntitlementApi  # noqa: E501
 
 
 class TestEntitlementApi(unittest.TestCase):
     """EntitlementApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = EntitlementApi()
+        self.api = EntitlementApi()  # noqa: E501
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestEntitlementApi(unittest.TestCase):
     def test_frontier_service_check_feature_entitlement(self) -> None:
         """Test case for frontier_service_check_feature_entitlement
 
-        Check entitlement
+        Check entitlement  # noqa: E501
         """
         pass
 

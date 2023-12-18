@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.frontier_service_create_group_preferences_request import FrontierServiceCreateGroupPreferencesRequest
+from frontier_api.models.frontier_service_create_group_preferences_request import FrontierServiceCreateGroupPreferencesRequest  # noqa: E501
 
 class TestFrontierServiceCreateGroupPreferencesRequest(unittest.TestCase):
     """FrontierServiceCreateGroupPreferencesRequest unit test stubs"""
@@ -34,7 +34,7 @@ class TestFrontierServiceCreateGroupPreferencesRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `FrontierServiceCreateGroupPreferencesRequest`
         """
-        model = FrontierServiceCreateGroupPreferencesRequest()
+        model = FrontierServiceCreateGroupPreferencesRequest()  # noqa: E501
         if include_optional:
             return FrontierServiceCreateGroupPreferencesRequest(
                 bodies = [

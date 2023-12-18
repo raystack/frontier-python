@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.frontier_service_create_organization_invitation_request import FrontierServiceCreateOrganizationInvitationRequest
+from frontier_api.models.frontier_service_create_organization_invitation_request import FrontierServiceCreateOrganizationInvitationRequest  # noqa: E501
 
 class TestFrontierServiceCreateOrganizationInvitationRequest(unittest.TestCase):
     """FrontierServiceCreateOrganizationInvitationRequest unit test stubs"""
@@ -34,7 +34,7 @@ class TestFrontierServiceCreateOrganizationInvitationRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `FrontierServiceCreateOrganizationInvitationRequest`
         """
-        model = FrontierServiceCreateOrganizationInvitationRequest()
+        model = FrontierServiceCreateOrganizationInvitationRequest()  # noqa: E501
         if include_optional:
             return FrontierServiceCreateOrganizationInvitationRequest(
                 user_ids = [

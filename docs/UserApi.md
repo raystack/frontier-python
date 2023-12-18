@@ -608,7 +608,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **frontier_service_list_current_user_groups**
-> V1beta1ListCurrentUserGroupsResponse frontier_service_list_current_user_groups(org_id=org_id, with_permissions=with_permissions)
+> V1beta1ListCurrentUserGroupsResponse frontier_service_list_current_user_groups(org_id=org_id, with_permissions=with_permissions, with_member_count=with_member_count)
 
 List my groups
 
@@ -646,10 +646,11 @@ with frontier_api.ApiClient(configuration) as api_client:
     api_instance = frontier_api.UserApi(api_client)
     org_id = 'org_id_example' # str | org_id is optional filter over an organization (optional)
     with_permissions = ['with_permissions_example'] # List[str] |  (optional)
+    with_member_count = True # bool |  (optional)
 
     try:
         # List my groups
-        api_response = api_instance.frontier_service_list_current_user_groups(org_id=org_id, with_permissions=with_permissions)
+        api_response = api_instance.frontier_service_list_current_user_groups(org_id=org_id, with_permissions=with_permissions, with_member_count=with_member_count)
         print("The response of UserApi->frontier_service_list_current_user_groups:\n")
         pprint(api_response)
     except Exception as e:
@@ -664,6 +665,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org_id** | **str**| org_id is optional filter over an organization | [optional] 
  **with_permissions** | [**List[str]**](str.md)|  | [optional] 
+ **with_member_count** | **bool**|  | [optional] 
 
 ### Return type
 
@@ -940,7 +942,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **frontier_service_list_projects_by_current_user**
-> V1beta1ListProjectsByCurrentUserResponse frontier_service_list_projects_by_current_user(org_id=org_id, with_permissions=with_permissions)
+> V1beta1ListProjectsByCurrentUserResponse frontier_service_list_projects_by_current_user(org_id=org_id, with_permissions=with_permissions, non_inherited=non_inherited, with_member_count=with_member_count)
 
 Get my projects
 
@@ -980,10 +982,12 @@ with frontier_api.ApiClient(configuration) as api_client:
     api_instance = frontier_api.UserApi(api_client)
     org_id = 'org_id_example' # str | org_id is optional and filter projects by org (optional)
     with_permissions = ['with_permissions_example'] # List[str] | list of permissions needs to be checked against each project  query params are set as with_permissions=get&with_permissions=delete to be represented as array (optional)
+    non_inherited = True # bool | Note: this is a bad design and would recommend against using this filter It is used to list only projects which are explicitly given permission to user. A user could get permission to access a project either via getting access from organization level role or a group. But for some reason we want only users who could have inherited these permissions from top but we only want explictly added ones. (optional)
+    with_member_count = True # bool |  (optional)
 
     try:
         # Get my projects
-        api_response = api_instance.frontier_service_list_projects_by_current_user(org_id=org_id, with_permissions=with_permissions)
+        api_response = api_instance.frontier_service_list_projects_by_current_user(org_id=org_id, with_permissions=with_permissions, non_inherited=non_inherited, with_member_count=with_member_count)
         print("The response of UserApi->frontier_service_list_projects_by_current_user:\n")
         pprint(api_response)
     except Exception as e:
@@ -998,6 +1002,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org_id** | **str**| org_id is optional and filter projects by org | [optional] 
  **with_permissions** | [**List[str]**](str.md)| list of permissions needs to be checked against each project  query params are set as with_permissions&#x3D;get&amp;with_permissions&#x3D;delete to be represented as array | [optional] 
+ **non_inherited** | **bool**| Note: this is a bad design and would recommend against using this filter It is used to list only projects which are explicitly given permission to user. A user could get permission to access a project either via getting access from organization level role or a group. But for some reason we want only users who could have inherited these permissions from top but we only want explictly added ones. | [optional] 
+ **with_member_count** | **bool**|  | [optional] 
 
 ### Return type
 

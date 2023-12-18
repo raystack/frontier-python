@@ -15,14 +15,14 @@
 
 import unittest
 
-from frontier_api.api.audit_log_api import AuditLogApi
+from frontier_api.api.audit_log_api import AuditLogApi  # noqa: E501
 
 
 class TestAuditLogApi(unittest.TestCase):
     """AuditLogApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = AuditLogApi()
+        self.api = AuditLogApi()  # noqa: E501
 
     def tearDown(self) -> None:
         pass
@@ -30,21 +30,21 @@ class TestAuditLogApi(unittest.TestCase):
     def test_frontier_service_create_organization_audit_logs(self) -> None:
         """Test case for frontier_service_create_organization_audit_logs
 
-        Create audit log
+        Create audit log  # noqa: E501
         """
         pass
 
     def test_frontier_service_get_organization_audit_log(self) -> None:
         """Test case for frontier_service_get_organization_audit_log
 
-        Get audit log
+        Get audit log  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_organization_audit_logs(self) -> None:
         """Test case for frontier_service_list_organization_audit_logs
 
-        List audit logs
+        List audit logs  # noqa: E501
         """
         pass
 

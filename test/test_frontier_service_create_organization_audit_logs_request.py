@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.frontier_service_create_organization_audit_logs_request import FrontierServiceCreateOrganizationAuditLogsRequest
+from frontier_api.models.frontier_service_create_organization_audit_logs_request import FrontierServiceCreateOrganizationAuditLogsRequest  # noqa: E501
 
 class TestFrontierServiceCreateOrganizationAuditLogsRequest(unittest.TestCase):
     """FrontierServiceCreateOrganizationAuditLogsRequest unit test stubs"""
@@ -34,7 +34,7 @@ class TestFrontierServiceCreateOrganizationAuditLogsRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `FrontierServiceCreateOrganizationAuditLogsRequest`
         """
-        model = FrontierServiceCreateOrganizationAuditLogsRequest()
+        model = FrontierServiceCreateOrganizationAuditLogsRequest()  # noqa: E501
         if include_optional:
             return FrontierServiceCreateOrganizationAuditLogsRequest(
                 logs = [

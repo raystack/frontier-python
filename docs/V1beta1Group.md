@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **created_at** | **datetime** | The time the group was created. | [optional] 
 **updated_at** | **datetime** | The time the group was last updated. | [optional] 
 **users** | [**List[V1beta1User]**](V1beta1User.md) |  | [optional] [readonly] 
+**members_count** | **int** | The number of members explicitly added in the project. | [optional] [readonly] 
 
 ## Example
 

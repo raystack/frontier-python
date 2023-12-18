@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.v1beta1_get_policy_response import V1beta1GetPolicyResponse
+from frontier_api.models.v1beta1_get_policy_response import V1beta1GetPolicyResponse  # noqa: E501
 
 class TestV1beta1GetPolicyResponse(unittest.TestCase):
     """V1beta1GetPolicyResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestV1beta1GetPolicyResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `V1beta1GetPolicyResponse`
         """
-        model = V1beta1GetPolicyResponse()
+        model = V1beta1GetPolicyResponse()  # noqa: E501
         if include_optional:
             return V1beta1GetPolicyResponse(
                 policy = frontier_api.models.v1beta1_policy.v1beta1Policy(

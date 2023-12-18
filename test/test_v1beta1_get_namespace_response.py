@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.v1beta1_get_namespace_response import V1beta1GetNamespaceResponse
+from frontier_api.models.v1beta1_get_namespace_response import V1beta1GetNamespaceResponse  # noqa: E501
 
 class TestV1beta1GetNamespaceResponse(unittest.TestCase):
     """V1beta1GetNamespaceResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestV1beta1GetNamespaceResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `V1beta1GetNamespaceResponse`
         """
-        model = V1beta1GetNamespaceResponse()
+        model = V1beta1GetNamespaceResponse()  # noqa: E501
         if include_optional:
             return V1beta1GetNamespaceResponse(
                 namespace = frontier_api.models.v1beta1_namespace.v1beta1Namespace(

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.frontier_service_update_feature_request import FrontierServiceUpdateFeatureRequest
+from frontier_api.models.frontier_service_update_feature_request import FrontierServiceUpdateFeatureRequest  # noqa: E501
 
 class TestFrontierServiceUpdateFeatureRequest(unittest.TestCase):
     """FrontierServiceUpdateFeatureRequest unit test stubs"""
@@ -34,7 +34,7 @@ class TestFrontierServiceUpdateFeatureRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `FrontierServiceUpdateFeatureRequest`
         """
-        model = FrontierServiceUpdateFeatureRequest()
+        model = FrontierServiceUpdateFeatureRequest()  # noqa: E501
         if include_optional:
             return FrontierServiceUpdateFeatureRequest(
                 body = frontier_api.models.v1beta1_feature_request_body.v1beta1FeatureRequestBody(

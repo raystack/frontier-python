@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.v1beta1_list_organization_roles_response import V1beta1ListOrganizationRolesResponse
+from frontier_api.models.v1beta1_list_organization_roles_response import V1beta1ListOrganizationRolesResponse  # noqa: E501
 
 class TestV1beta1ListOrganizationRolesResponse(unittest.TestCase):
     """V1beta1ListOrganizationRolesResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestV1beta1ListOrganizationRolesResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `V1beta1ListOrganizationRolesResponse`
         """
-        model = V1beta1ListOrganizationRolesResponse()
+        model = V1beta1ListOrganizationRolesResponse()  # noqa: E501
         if include_optional:
             return V1beta1ListOrganizationRolesResponse(
                 roles = [

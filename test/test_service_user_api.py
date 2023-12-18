@@ -15,14 +15,14 @@
 
 import unittest
 
-from frontier_api.api.service_user_api import ServiceUserApi
+from frontier_api.api.service_user_api import ServiceUserApi  # noqa: E501
 
 
 class TestServiceUserApi(unittest.TestCase):
     """ServiceUserApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ServiceUserApi()
+        self.api = ServiceUserApi()  # noqa: E501
 
     def tearDown(self) -> None:
         pass
@@ -30,77 +30,77 @@ class TestServiceUserApi(unittest.TestCase):
     def test_frontier_service_create_service_user(self) -> None:
         """Test case for frontier_service_create_service_user
 
-        Create service user
+        Create service user  # noqa: E501
         """
         pass
 
     def test_frontier_service_create_service_user_key(self) -> None:
         """Test case for frontier_service_create_service_user_key
 
-        Create service user key
+        Create service user key  # noqa: E501
         """
         pass
 
     def test_frontier_service_create_service_user_secret(self) -> None:
         """Test case for frontier_service_create_service_user_secret
 
-        Create service user secret
+        Create service user secret  # noqa: E501
         """
         pass
 
     def test_frontier_service_delete_service_user(self) -> None:
         """Test case for frontier_service_delete_service_user
 
-        Delete service user
+        Delete service user  # noqa: E501
         """
         pass
 
     def test_frontier_service_delete_service_user_key(self) -> None:
         """Test case for frontier_service_delete_service_user_key
 
-        Delete service user key
+        Delete service user key  # noqa: E501
         """
         pass
 
     def test_frontier_service_delete_service_user_secret(self) -> None:
         """Test case for frontier_service_delete_service_user_secret
 
-        Delete service user secret
+        Delete service user secret  # noqa: E501
         """
         pass
 
     def test_frontier_service_get_service_user(self) -> None:
         """Test case for frontier_service_get_service_user
 
-        Get service user
+        Get service user  # noqa: E501
         """
         pass
 
     def test_frontier_service_get_service_user_key(self) -> None:
         """Test case for frontier_service_get_service_user_key
 
-        Get service user key
+        Get service user key  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_service_user_keys(self) -> None:
         """Test case for frontier_service_list_service_user_keys
 
-        List service user keys
+        List service user keys  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_service_user_secrets(self) -> None:
         """Test case for frontier_service_list_service_user_secrets
 
-        List service user secrets
+        List service user secrets  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_service_users(self) -> None:
         """Test case for frontier_service_list_service_users
 
-        List org service users
+        List org service users  # noqa: E501
         """
         pass
 

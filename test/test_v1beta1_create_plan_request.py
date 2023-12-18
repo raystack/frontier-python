@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.v1beta1_create_plan_request import V1beta1CreatePlanRequest
+from frontier_api.models.v1beta1_create_plan_request import V1beta1CreatePlanRequest  # noqa: E501
 
 class TestV1beta1CreatePlanRequest(unittest.TestCase):
     """V1beta1CreatePlanRequest unit test stubs"""
@@ -34,7 +34,7 @@ class TestV1beta1CreatePlanRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `V1beta1CreatePlanRequest`
         """
-        model = V1beta1CreatePlanRequest()
+        model = V1beta1CreatePlanRequest()  # noqa: E501
         if include_optional:
             return V1beta1CreatePlanRequest(
                 body = frontier_api.models.v1beta1_plan_request_body.v1beta1PlanRequestBody(

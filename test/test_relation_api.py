@@ -15,14 +15,14 @@
 
 import unittest
 
-from frontier_api.api.relation_api import RelationApi
+from frontier_api.api.relation_api import RelationApi  # noqa: E501
 
 
 class TestRelationApi(unittest.TestCase):
     """RelationApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = RelationApi()
+        self.api = RelationApi()  # noqa: E501
 
     def tearDown(self) -> None:
         pass
@@ -30,28 +30,28 @@ class TestRelationApi(unittest.TestCase):
     def test_admin_service_list_relations(self) -> None:
         """Test case for admin_service_list_relations
 
-        List all relations
+        List all relations  # noqa: E501
         """
         pass
 
     def test_frontier_service_create_relation(self) -> None:
         """Test case for frontier_service_create_relation
 
-        Create relation
+        Create relation  # noqa: E501
         """
         pass
 
     def test_frontier_service_delete_relation(self) -> None:
         """Test case for frontier_service_delete_relation
 
-        Delete relation
+        Delete relation  # noqa: E501
         """
         pass
 
     def test_frontier_service_get_relation(self) -> None:
         """Test case for frontier_service_get_relation
 
-        Get relation
+        Get relation  # noqa: E501
         """
         pass
 

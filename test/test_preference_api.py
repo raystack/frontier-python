@@ -15,14 +15,14 @@
 
 import unittest
 
-from frontier_api.api.preference_api import PreferenceApi
+from frontier_api.api.preference_api import PreferenceApi  # noqa: E501
 
 
 class TestPreferenceApi(unittest.TestCase):
     """PreferenceApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = PreferenceApi()
+        self.api = PreferenceApi()  # noqa: E501
 
     def tearDown(self) -> None:
         pass
@@ -30,91 +30,91 @@ class TestPreferenceApi(unittest.TestCase):
     def test_admin_service_create_preferences(self) -> None:
         """Test case for admin_service_create_preferences
 
-        Create platform preferences
+        Create platform preferences  # noqa: E501
         """
         pass
 
     def test_admin_service_list_preferences(self) -> None:
         """Test case for admin_service_list_preferences
 
-        List platform preferences
+        List platform preferences  # noqa: E501
         """
         pass
 
     def test_frontier_service_create_current_user_preferences(self) -> None:
         """Test case for frontier_service_create_current_user_preferences
 
-        Create current user preferences
+        Create current user preferences  # noqa: E501
         """
         pass
 
     def test_frontier_service_create_group_preferences(self) -> None:
         """Test case for frontier_service_create_group_preferences
 
-        Create group preferences
+        Create group preferences  # noqa: E501
         """
         pass
 
     def test_frontier_service_create_organization_preferences(self) -> None:
         """Test case for frontier_service_create_organization_preferences
 
-        Create organization preferences
+        Create organization preferences  # noqa: E501
         """
         pass
 
     def test_frontier_service_create_project_preferences(self) -> None:
         """Test case for frontier_service_create_project_preferences
 
-        Create project preferences
+        Create project preferences  # noqa: E501
         """
         pass
 
     def test_frontier_service_create_user_preferences(self) -> None:
         """Test case for frontier_service_create_user_preferences
 
-        Create user preferences
+        Create user preferences  # noqa: E501
         """
         pass
 
     def test_frontier_service_describe_preferences(self) -> None:
         """Test case for frontier_service_describe_preferences
 
-        Describe preferences
+        Describe preferences  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_current_user_preferences(self) -> None:
         """Test case for frontier_service_list_current_user_preferences
 
-        List current user preferences
+        List current user preferences  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_group_preferences(self) -> None:
         """Test case for frontier_service_list_group_preferences
 
-        List group preferences
+        List group preferences  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_organization_preferences(self) -> None:
         """Test case for frontier_service_list_organization_preferences
 
-        List organization preferences
+        List organization preferences  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_project_preferences(self) -> None:
         """Test case for frontier_service_list_project_preferences
 
-        List project preferences
+        List project preferences  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_user_preferences(self) -> None:
         """Test case for frontier_service_list_user_preferences
 
-        List user preferences
+        List user preferences  # noqa: E501
         """
         pass
 

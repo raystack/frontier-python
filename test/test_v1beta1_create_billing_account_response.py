@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.v1beta1_create_billing_account_response import V1beta1CreateBillingAccountResponse
+from frontier_api.models.v1beta1_create_billing_account_response import V1beta1CreateBillingAccountResponse  # noqa: E501
 
 class TestV1beta1CreateBillingAccountResponse(unittest.TestCase):
     """V1beta1CreateBillingAccountResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestV1beta1CreateBillingAccountResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `V1beta1CreateBillingAccountResponse`
         """
-        model = V1beta1CreateBillingAccountResponse()
+        model = V1beta1CreateBillingAccountResponse()  # noqa: E501
         if include_optional:
             return V1beta1CreateBillingAccountResponse(
                 billing_account = frontier_api.models.v1beta1_billing_account.v1beta1BillingAccount(

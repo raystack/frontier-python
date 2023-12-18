@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.v1beta1_get_organization_audit_log_response import V1beta1GetOrganizationAuditLogResponse
+from frontier_api.models.v1beta1_get_organization_audit_log_response import V1beta1GetOrganizationAuditLogResponse  # noqa: E501
 
 class TestV1beta1GetOrganizationAuditLogResponse(unittest.TestCase):
     """V1beta1GetOrganizationAuditLogResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestV1beta1GetOrganizationAuditLogResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `V1beta1GetOrganizationAuditLogResponse`
         """
-        model = V1beta1GetOrganizationAuditLogResponse()
+        model = V1beta1GetOrganizationAuditLogResponse()  # noqa: E501
         if include_optional:
             return V1beta1GetOrganizationAuditLogResponse(
                 log = frontier_api.models.v1beta1_audit_log.v1beta1AuditLog(

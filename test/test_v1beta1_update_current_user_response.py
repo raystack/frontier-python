@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.v1beta1_update_current_user_response import V1beta1UpdateCurrentUserResponse
+from frontier_api.models.v1beta1_update_current_user_response import V1beta1UpdateCurrentUserResponse  # noqa: E501
 
 class TestV1beta1UpdateCurrentUserResponse(unittest.TestCase):
     """V1beta1UpdateCurrentUserResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestV1beta1UpdateCurrentUserResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `V1beta1UpdateCurrentUserResponse`
         """
-        model = V1beta1UpdateCurrentUserResponse()
+        model = V1beta1UpdateCurrentUserResponse()  # noqa: E501
         if include_optional:
             return V1beta1UpdateCurrentUserResponse(
                 user = frontier_api.models.v1beta1_user.v1beta1User(

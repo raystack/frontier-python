@@ -712,7 +712,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **frontier_service_list_organization_groups**
-> V1beta1ListOrganizationGroupsResponse frontier_service_list_organization_groups(org_id, state=state, group_ids=group_ids, with_members=with_members)
+> V1beta1ListOrganizationGroupsResponse frontier_service_list_organization_groups(org_id, state=state, group_ids=group_ids, with_members=with_members, with_member_count=with_member_count)
 
 List organization groups
 
@@ -754,10 +754,11 @@ with frontier_api.ApiClient(configuration) as api_client:
     state = 'state_example' # str | The state of the group to filter by. It can be enabled or disabled. (optional)
     group_ids = ['group_ids_example'] # List[str] |  (optional)
     with_members = True # bool |  (optional)
+    with_member_count = True # bool |  (optional)
 
     try:
         # List organization groups
-        api_response = api_instance.frontier_service_list_organization_groups(org_id, state=state, group_ids=group_ids, with_members=with_members)
+        api_response = api_instance.frontier_service_list_organization_groups(org_id, state=state, group_ids=group_ids, with_members=with_members, with_member_count=with_member_count)
         print("The response of GroupApi->frontier_service_list_organization_groups:\n")
         pprint(api_response)
     except Exception as e:
@@ -774,6 +775,7 @@ Name | Type | Description  | Notes
  **state** | **str**| The state of the group to filter by. It can be enabled or disabled. | [optional] 
  **group_ids** | [**List[str]**](str.md)|  | [optional] 
  **with_members** | **bool**|  | [optional] 
+ **with_member_count** | **bool**|  | [optional] 
 
 ### Return type
 

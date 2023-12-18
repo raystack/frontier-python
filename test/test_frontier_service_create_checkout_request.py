@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.frontier_service_create_checkout_request import FrontierServiceCreateCheckoutRequest
+from frontier_api.models.frontier_service_create_checkout_request import FrontierServiceCreateCheckoutRequest  # noqa: E501
 
 class TestFrontierServiceCreateCheckoutRequest(unittest.TestCase):
     """FrontierServiceCreateCheckoutRequest unit test stubs"""
@@ -34,7 +34,7 @@ class TestFrontierServiceCreateCheckoutRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `FrontierServiceCreateCheckoutRequest`
         """
-        model = FrontierServiceCreateCheckoutRequest()
+        model = FrontierServiceCreateCheckoutRequest()  # noqa: E501
         if include_optional:
             return FrontierServiceCreateCheckoutRequest(
                 success_url = '',

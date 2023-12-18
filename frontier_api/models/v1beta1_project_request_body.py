@@ -19,76 +19,59 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, ClassVar, Dict, List, Optional, Union
-from pydantic import BaseModel, StrictStr
-from pydantic import Field
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Any, Dict, Optional
+from pydantic import BaseModel, Field, StrictStr
 
 class V1beta1ProjectRequestBody(BaseModel):
     """
     V1beta1ProjectRequestBody
-    """ # noqa: E501
-    name: StrictStr = Field(description="The name of the project. The name must be unique within the entire Frontier instance. The name can contain only alphanumeric characters, dashes and underscores.<br/> *Example:* `frontier-playground`")
-    title: Optional[StrictStr] = Field(default=None, description="The title can contain any UTF-8 character, used to provide a human-readable name for the project. Can also be left empty. <br/> *Example:* `Frontier Playground`")
-    metadata: Optional[Union[str, Any]] = Field(default=None, description="Metadata object for projects that can hold key value pairs defined in Project Metaschema.")
-    org_id: StrictStr = Field(description="unique id of the organization to which project belongs", alias="orgId")
-    __properties: ClassVar[List[str]] = ["name", "title", "metadata", "orgId"]
+    """
+    name: StrictStr = Field(..., description="The name of the project. The name must be unique within the entire Frontier instance. The name can contain only alphanumeric characters, dashes and underscores.<br/> *Example:* `frontier-playground`")
+    title: Optional[StrictStr] = Field(None, description="The title can contain any UTF-8 character, used to provide a human-readable name for the project. Can also be left empty. <br/> *Example:* `Frontier Playground`")
+    metadata: Optional[Dict[str, Any]] = Field(None, description="Metadata object for projects that can hold key value pairs defined in Project Metaschema.")
+    org_id: StrictStr = Field(..., alias="orgId", description="unique id of the organization to which project belongs")
+    __properties = ["name", "title", "metadata", "orgId"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True
-    }
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> V1beta1ProjectRequestBody:
         """Create an instance of V1beta1ProjectRequestBody from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude={
-            },
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: dict) -> V1beta1ProjectRequestBody:
         """Create an instance of V1beta1ProjectRequestBody from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return V1beta1ProjectRequestBody.parse_obj(obj)
 
-        _obj = cls.model_validate({
+        _obj = V1beta1ProjectRequestBody.parse_obj({
             "name": obj.get("name"),
             "title": obj.get("title"),
             "metadata": obj.get("metadata"),
-            "orgId": obj.get("orgId")
+            "org_id": obj.get("orgId")
         })
         return _obj
 

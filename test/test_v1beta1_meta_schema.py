@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.v1beta1_meta_schema import V1beta1MetaSchema
+from frontier_api.models.v1beta1_meta_schema import V1beta1MetaSchema  # noqa: E501
 
 class TestV1beta1MetaSchema(unittest.TestCase):
     """V1beta1MetaSchema unit test stubs"""
@@ -34,7 +34,7 @@ class TestV1beta1MetaSchema(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `V1beta1MetaSchema`
         """
-        model = V1beta1MetaSchema()
+        model = V1beta1MetaSchema()  # noqa: E501
         if include_optional:
             return V1beta1MetaSchema(
                 id = 'a9c4f4e2-9b9a-4c1a-8f1a-2b9b9b9b9b9b',

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.v1beta1_list_project_groups_response import V1beta1ListProjectGroupsResponse
+from frontier_api.models.v1beta1_list_project_groups_response import V1beta1ListProjectGroupsResponse  # noqa: E501
 
 class TestV1beta1ListProjectGroupsResponse(unittest.TestCase):
     """V1beta1ListProjectGroupsResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestV1beta1ListProjectGroupsResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `V1beta1ListProjectGroupsResponse`
         """
-        model = V1beta1ListProjectGroupsResponse()
+        model = V1beta1ListProjectGroupsResponse()  # noqa: E501
         if include_optional:
             return V1beta1ListProjectGroupsResponse(
                 groups = [
@@ -57,7 +57,8 @@ class TestV1beta1ListProjectGroupsResponse(unittest.TestCase):
                                 updated_at = '2023-06-07T05:39:56.961Z', 
                                 state = 'enabled', 
                                 avatar = '', )
-                            ], )
+                            ], 
+                        members_count = 2, )
                     ],
                 role_pairs = [
                     frontier_api.models.v1beta1_list_project_groups_response_role_pair.v1beta1ListProjectGroupsResponseRolePair(

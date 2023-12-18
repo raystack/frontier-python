@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.v1beta1_create_current_user_preferences_request import V1beta1CreateCurrentUserPreferencesRequest
+from frontier_api.models.v1beta1_create_current_user_preferences_request import V1beta1CreateCurrentUserPreferencesRequest  # noqa: E501
 
 class TestV1beta1CreateCurrentUserPreferencesRequest(unittest.TestCase):
     """V1beta1CreateCurrentUserPreferencesRequest unit test stubs"""
@@ -34,7 +34,7 @@ class TestV1beta1CreateCurrentUserPreferencesRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `V1beta1CreateCurrentUserPreferencesRequest`
         """
-        model = V1beta1CreateCurrentUserPreferencesRequest()
+        model = V1beta1CreateCurrentUserPreferencesRequest()  # noqa: E501
         if include_optional:
             return V1beta1CreateCurrentUserPreferencesRequest(
                 bodies = [

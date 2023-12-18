@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.frontier_service_authenticate2_request import FrontierServiceAuthenticate2Request
+from frontier_api.models.frontier_service_authenticate2_request import FrontierServiceAuthenticate2Request  # noqa: E501
 
 class TestFrontierServiceAuthenticate2Request(unittest.TestCase):
     """FrontierServiceAuthenticate2Request unit test stubs"""
@@ -34,7 +34,7 @@ class TestFrontierServiceAuthenticate2Request(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `FrontierServiceAuthenticate2Request`
         """
-        model = FrontierServiceAuthenticate2Request()
+        model = FrontierServiceAuthenticate2Request()  # noqa: E501
         if include_optional:
             return FrontierServiceAuthenticate2Request(
                 redirect_onstart = True,

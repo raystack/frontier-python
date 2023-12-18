@@ -15,14 +15,14 @@
 
 import unittest
 
-from frontier_api.api.user_api import UserApi
+from frontier_api.api.user_api import UserApi  # noqa: E501
 
 
 class TestUserApi(unittest.TestCase):
     """UserApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = UserApi()
+        self.api = UserApi()  # noqa: E501
 
     def tearDown(self) -> None:
         pass
@@ -30,126 +30,126 @@ class TestUserApi(unittest.TestCase):
     def test_admin_service_list_all_users(self) -> None:
         """Test case for admin_service_list_all_users
 
-        List all users
+        List all users  # noqa: E501
         """
         pass
 
     def test_frontier_service_create_user(self) -> None:
         """Test case for frontier_service_create_user
 
-        Create user
+        Create user  # noqa: E501
         """
         pass
 
     def test_frontier_service_delete_user(self) -> None:
         """Test case for frontier_service_delete_user
 
-        Delete user
+        Delete user  # noqa: E501
         """
         pass
 
     def test_frontier_service_disable_user(self) -> None:
         """Test case for frontier_service_disable_user
 
-        Disable user
+        Disable user  # noqa: E501
         """
         pass
 
     def test_frontier_service_enable_user(self) -> None:
         """Test case for frontier_service_enable_user
 
-        Enable user
+        Enable user  # noqa: E501
         """
         pass
 
     def test_frontier_service_get_current_user(self) -> None:
         """Test case for frontier_service_get_current_user
 
-        Get current user
+        Get current user  # noqa: E501
         """
         pass
 
     def test_frontier_service_get_user(self) -> None:
         """Test case for frontier_service_get_user
 
-        Get user
+        Get user  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_current_user_groups(self) -> None:
         """Test case for frontier_service_list_current_user_groups
 
-        List my groups
+        List my groups  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_current_user_invitations(self) -> None:
         """Test case for frontier_service_list_current_user_invitations
 
-        List user invitations
+        List user invitations  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_organizations_by_current_user(self) -> None:
         """Test case for frontier_service_list_organizations_by_current_user
 
-        Get my organizations
+        Get my organizations  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_organizations_by_user(self) -> None:
         """Test case for frontier_service_list_organizations_by_user
 
-        Get user organizations
+        Get user organizations  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_projects_by_current_user(self) -> None:
         """Test case for frontier_service_list_projects_by_current_user
 
-        Get my projects
+        Get my projects  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_projects_by_user(self) -> None:
         """Test case for frontier_service_list_projects_by_user
 
-        Get user projects
+        Get user projects  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_user_groups(self) -> None:
         """Test case for frontier_service_list_user_groups
 
-        List user groups
+        List user groups  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_user_invitations(self) -> None:
         """Test case for frontier_service_list_user_invitations
 
-        List user invitations
+        List user invitations  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_users(self) -> None:
         """Test case for frontier_service_list_users
 
-        List public users
+        List public users  # noqa: E501
         """
         pass
 
     def test_frontier_service_update_current_user(self) -> None:
         """Test case for frontier_service_update_current_user
 
-        Update current user
+        Update current user  # noqa: E501
         """
         pass
 
     def test_frontier_service_update_user(self) -> None:
         """Test case for frontier_service_update_user
 
-        Update user
+        Update user  # noqa: E501
         """
         pass
 

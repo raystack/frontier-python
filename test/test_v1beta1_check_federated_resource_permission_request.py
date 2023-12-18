@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.v1beta1_check_federated_resource_permission_request import V1beta1CheckFederatedResourcePermissionRequest
+from frontier_api.models.v1beta1_check_federated_resource_permission_request import V1beta1CheckFederatedResourcePermissionRequest  # noqa: E501
 
 class TestV1beta1CheckFederatedResourcePermissionRequest(unittest.TestCase):
     """V1beta1CheckFederatedResourcePermissionRequest unit test stubs"""
@@ -34,7 +34,7 @@ class TestV1beta1CheckFederatedResourcePermissionRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `V1beta1CheckFederatedResourcePermissionRequest`
         """
-        model = V1beta1CheckFederatedResourcePermissionRequest()
+        model = V1beta1CheckFederatedResourcePermissionRequest()  # noqa: E501
         if include_optional:
             return V1beta1CheckFederatedResourcePermissionRequest(
                 subject = '',

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.v1beta1_get_feature_response import V1beta1GetFeatureResponse
+from frontier_api.models.v1beta1_get_feature_response import V1beta1GetFeatureResponse  # noqa: E501
 
 class TestV1beta1GetFeatureResponse(unittest.TestCase):
     """V1beta1GetFeatureResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestV1beta1GetFeatureResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `V1beta1GetFeatureResponse`
         """
-        model = V1beta1GetFeatureResponse()
+        model = V1beta1GetFeatureResponse()  # noqa: E501
         if include_optional:
             return V1beta1GetFeatureResponse(
                 feature = frontier_api.models.v1beta1_feature.v1beta1Feature(

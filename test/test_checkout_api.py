@@ -15,29 +15,36 @@
 
 import unittest
 
-from frontier_api.api.checkout_api import CheckoutApi
+from frontier_api.api.checkout_api import CheckoutApi  # noqa: E501
 
 
 class TestCheckoutApi(unittest.TestCase):
     """CheckoutApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = CheckoutApi()
+        self.api = CheckoutApi()  # noqa: E501
 
     def tearDown(self) -> None:
+        pass
+
+    def test_admin_service_delegated_checkout(self) -> None:
+        """Test case for admin_service_delegated_checkout
+
+        Checkout a feature or subscription  # noqa: E501
+        """
         pass
 
     def test_frontier_service_create_checkout(self) -> None:
         """Test case for frontier_service_create_checkout
 
-        Checkout a feature or subscription
+        Checkout a feature or subscription  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_checkouts(self) -> None:
         """Test case for frontier_service_list_checkouts
 
-        List checkouts
+        List checkouts  # noqa: E501
         """
         pass
 

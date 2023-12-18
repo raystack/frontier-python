@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.v1beta1_create_project_resource_response import V1beta1CreateProjectResourceResponse
+from frontier_api.models.v1beta1_create_project_resource_response import V1beta1CreateProjectResourceResponse  # noqa: E501
 
 class TestV1beta1CreateProjectResourceResponse(unittest.TestCase):
     """V1beta1CreateProjectResourceResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestV1beta1CreateProjectResourceResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `V1beta1CreateProjectResourceResponse`
         """
-        model = V1beta1CreateProjectResourceResponse()
+        model = V1beta1CreateProjectResourceResponse()  # noqa: E501
         if include_optional:
             return V1beta1CreateProjectResourceResponse(
                 resource = frontier_api.models.v1beta1_resource.v1beta1Resource(

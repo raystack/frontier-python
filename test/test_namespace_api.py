@@ -15,14 +15,14 @@
 
 import unittest
 
-from frontier_api.api.namespace_api import NamespaceApi
+from frontier_api.api.namespace_api import NamespaceApi  # noqa: E501
 
 
 class TestNamespaceApi(unittest.TestCase):
     """NamespaceApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = NamespaceApi()
+        self.api = NamespaceApi()  # noqa: E501
 
     def tearDown(self) -> None:
         pass
@@ -30,14 +30,14 @@ class TestNamespaceApi(unittest.TestCase):
     def test_frontier_service_get_namespace(self) -> None:
         """Test case for frontier_service_get_namespace
 
-        Get namespace
+        Get namespace  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_namespaces(self) -> None:
         """Test case for frontier_service_list_namespaces
 
-        Get all namespaces
+        Get all namespaces  # noqa: E501
         """
         pass
 

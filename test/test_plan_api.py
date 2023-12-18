@@ -15,14 +15,14 @@
 
 import unittest
 
-from frontier_api.api.plan_api import PlanApi
+from frontier_api.api.plan_api import PlanApi  # noqa: E501
 
 
 class TestPlanApi(unittest.TestCase):
     """PlanApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = PlanApi()
+        self.api = PlanApi()  # noqa: E501
 
     def tearDown(self) -> None:
         pass
@@ -30,28 +30,28 @@ class TestPlanApi(unittest.TestCase):
     def test_frontier_service_create_plan(self) -> None:
         """Test case for frontier_service_create_plan
 
-        Create plan
+        Create plan  # noqa: E501
         """
         pass
 
     def test_frontier_service_get_plan(self) -> None:
         """Test case for frontier_service_get_plan
 
-        Get plan
+        Get plan  # noqa: E501
         """
         pass
 
     def test_frontier_service_list_plans(self) -> None:
         """Test case for frontier_service_list_plans
 
-        List plans
+        List plans  # noqa: E501
         """
         pass
 
     def test_frontier_service_update_plan(self) -> None:
         """Test case for frontier_service_update_plan
 
-        Update plan
+        Update plan  # noqa: E501
         """
         pass
 

@@ -19,84 +19,67 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from typing import Any, ClassVar, Dict, List, Optional, Union
-from pydantic import BaseModel, StrictStr
-from pydantic import Field
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Any, Dict, List, Optional
+from pydantic import BaseModel, Field, StrictStr, conlist
 
 class V1beta1Invitation(BaseModel):
     """
     V1beta1Invitation
-    """ # noqa: E501
-    id: Optional[StrictStr] = Field(default=None, description="The unique invitation identifier.")
-    user_id: Optional[StrictStr] = Field(default=None, description="The user email of the invited user.", alias="userId")
-    org_id: Optional[StrictStr] = Field(default=None, description="The organization id to which the user is invited.", alias="orgId")
-    group_ids: Optional[List[StrictStr]] = Field(default=None, description="The list of group ids to which the user is invited.", alias="groupIds")
-    metadata: Optional[Union[str, Any]] = Field(default=None, description="The metadata of the invitation.")
-    created_at: Optional[datetime] = Field(default=None, description="The time when the invitation was created.", alias="createdAt")
-    expires_at: Optional[datetime] = Field(default=None, description="The time when the invitation expires.", alias="expiresAt")
-    role_ids: Optional[List[StrictStr]] = Field(default=None, description="The list of role ids to which the user is invited in an organization.", alias="roleIds")
-    __properties: ClassVar[List[str]] = ["id", "userId", "orgId", "groupIds", "metadata", "createdAt", "expiresAt", "roleIds"]
+    """
+    id: Optional[StrictStr] = Field(None, description="The unique invitation identifier.")
+    user_id: Optional[StrictStr] = Field(None, alias="userId", description="The user email of the invited user.")
+    org_id: Optional[StrictStr] = Field(None, alias="orgId", description="The organization id to which the user is invited.")
+    group_ids: Optional[conlist(StrictStr)] = Field(None, alias="groupIds", description="The list of group ids to which the user is invited.")
+    metadata: Optional[Dict[str, Any]] = Field(None, description="The metadata of the invitation.")
+    created_at: Optional[datetime] = Field(None, alias="createdAt", description="The time when the invitation was created.")
+    expires_at: Optional[datetime] = Field(None, alias="expiresAt", description="The time when the invitation expires.")
+    role_ids: Optional[conlist(StrictStr)] = Field(None, alias="roleIds", description="The list of role ids to which the user is invited in an organization.")
+    __properties = ["id", "userId", "orgId", "groupIds", "metadata", "createdAt", "expiresAt", "roleIds"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True
-    }
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> V1beta1Invitation:
         """Create an instance of V1beta1Invitation from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude={
-            },
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: dict) -> V1beta1Invitation:
         """Create an instance of V1beta1Invitation from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return V1beta1Invitation.parse_obj(obj)
 
-        _obj = cls.model_validate({
+        _obj = V1beta1Invitation.parse_obj({
             "id": obj.get("id"),
-            "userId": obj.get("userId"),
-            "orgId": obj.get("orgId"),
-            "groupIds": obj.get("groupIds"),
+            "user_id": obj.get("userId"),
+            "org_id": obj.get("orgId"),
+            "group_ids": obj.get("groupIds"),
             "metadata": obj.get("metadata"),
-            "createdAt": obj.get("createdAt"),
-            "expiresAt": obj.get("expiresAt"),
-            "roleIds": obj.get("roleIds")
+            "created_at": obj.get("createdAt"),
+            "expires_at": obj.get("expiresAt"),
+            "role_ids": obj.get("roleIds")
         })
         return _obj
 

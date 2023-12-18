@@ -15,14 +15,14 @@
 
 import unittest
 
-from frontier_api.api.authz_api import AuthzApi
+from frontier_api.api.authz_api import AuthzApi  # noqa: E501
 
 
 class TestAuthzApi(unittest.TestCase):
     """AuthzApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = AuthzApi()
+        self.api = AuthzApi()  # noqa: E501
 
     def tearDown(self) -> None:
         pass
@@ -30,35 +30,35 @@ class TestAuthzApi(unittest.TestCase):
     def test_admin_service_check_federated_resource_permission(self) -> None:
         """Test case for admin_service_check_federated_resource_permission
 
-        Check
+        Check  # noqa: E501
         """
         pass
 
     def test_frontier_service_batch_check_permission(self) -> None:
         """Test case for frontier_service_batch_check_permission
 
-        Batch check
+        Batch check  # noqa: E501
         """
         pass
 
     def test_frontier_service_check_resource_permission(self) -> None:
         """Test case for frontier_service_check_resource_permission
 
-        Check
+        Check  # noqa: E501
         """
         pass
 
     def test_frontier_service_get_jwks(self) -> None:
         """Test case for frontier_service_get_jwks
 
-        Get well known JWKs
+        Get well known JWKs  # noqa: E501
         """
         pass
 
     def test_frontier_service_get_jwks2(self) -> None:
         """Test case for frontier_service_get_jwks2
 
-        Get well known JWKs
+        Get well known JWKs  # noqa: E501
         """
         pass
 

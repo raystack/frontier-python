@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.v1beta1_auth_callback_request import V1beta1AuthCallbackRequest
+from frontier_api.models.v1beta1_auth_callback_request import V1beta1AuthCallbackRequest  # noqa: E501
 
 class TestV1beta1AuthCallbackRequest(unittest.TestCase):
     """V1beta1AuthCallbackRequest unit test stubs"""
@@ -34,7 +34,7 @@ class TestV1beta1AuthCallbackRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `V1beta1AuthCallbackRequest`
         """
-        model = V1beta1AuthCallbackRequest()
+        model = V1beta1AuthCallbackRequest()  # noqa: E501
         if include_optional:
             return V1beta1AuthCallbackRequest(
                 strategy_name = '',

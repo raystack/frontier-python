@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from frontier_api.models.v1beta1_create_user_preferences_response import V1beta1CreateUserPreferencesResponse
+from frontier_api.models.v1beta1_create_user_preferences_response import V1beta1CreateUserPreferencesResponse  # noqa: E501
 
 class TestV1beta1CreateUserPreferencesResponse(unittest.TestCase):
     """V1beta1CreateUserPreferencesResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestV1beta1CreateUserPreferencesResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `V1beta1CreateUserPreferencesResponse`
         """
-        model = V1beta1CreateUserPreferencesResponse()
+        model = V1beta1CreateUserPreferencesResponse()  # noqa: E501
         if include_optional:
             return V1beta1CreateUserPreferencesResponse(
                 preferences = [

@@ -19,73 +19,56 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, ClassVar, Dict, List, Optional, Union
-from pydantic import BaseModel, StrictStr
-from pydantic import Field
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Any, Dict, Optional
+from pydantic import BaseModel, Field, StrictStr
 
 class V1beta1UserRequestBody(BaseModel):
     """
     V1beta1UserRequestBody
-    """ # noqa: E501
-    name: Optional[StrictStr] = Field(default=None, description="The name of the user. The name must be unique within the entire Frontier instance. The name can contain only alphanumeric characters, dashes and underscores and must start with a letter. If not provided, Frontier automatically generates a name from the user email. ")
-    email: StrictStr = Field(description="The email of the user. The email must be unique within the entire Frontier instance.<br/>*Example:*`\"john.doe@raystack.org\"`")
-    metadata: Optional[Union[str, Any]] = Field(default=None, description="Metadata object for users that can hold key value pairs pre-defined in User Metaschema. The metadata object can be used to store arbitrary information about the user such as label, description etc. By default the user metaschema contains labels and descriptions for the user. Update the same to add more fields to the user metadata object. <br/>*Example:*`{\"label\": {\"key1\": \"value1\"}, \"description\": \"User Description\"}`")
-    title: Optional[StrictStr] = Field(default=None, description="The title can contain any UTF-8 character, used to provide a human-readable name for the user. Can also be left empty. <br/>*Example:*`\"John Doe\"`")
-    avatar: Optional[StrictStr] = Field(default=None, description="The avatar is base64 encoded image data of the user. Can also be left empty. The image should be less than 200KB. Should follow the regex pattern `^data:image/(png|jpg|jpeg|gif);base64,([a-zA-Z0-9+/]+={0,2})+$`.")
-    __properties: ClassVar[List[str]] = ["name", "email", "metadata", "title", "avatar"]
+    """
+    name: Optional[StrictStr] = Field(None, description="The name of the user. The name must be unique within the entire Frontier instance. The name can contain only alphanumeric characters, dashes and underscores and must start with a letter. If not provided, Frontier automatically generates a name from the user email. ")
+    email: StrictStr = Field(..., description="The email of the user. The email must be unique within the entire Frontier instance.<br/>*Example:*`\"john.doe@raystack.org\"`")
+    metadata: Optional[Dict[str, Any]] = Field(None, description="Metadata object for users that can hold key value pairs pre-defined in User Metaschema. The metadata object can be used to store arbitrary information about the user such as label, description etc. By default the user metaschema contains labels and descriptions for the user. Update the same to add more fields to the user metadata object. <br/>*Example:*`{\"label\": {\"key1\": \"value1\"}, \"description\": \"User Description\"}`")
+    title: Optional[StrictStr] = Field(None, description="The title can contain any UTF-8 character, used to provide a human-readable name for the user. Can also be left empty. <br/>*Example:*`\"John Doe\"`")
+    avatar: Optional[StrictStr] = Field(None, description="The avatar is base64 encoded image data of the user. Can also be left empty. The image should be less than 200KB. Should follow the regex pattern `^data:image/(png|jpg|jpeg|gif);base64,([a-zA-Z0-9+/]+={0,2})+$`.")
+    __properties = ["name", "email", "metadata", "title", "avatar"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True
-    }
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> V1beta1UserRequestBody:
         """Create an instance of V1beta1UserRequestBody from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude={
-            },
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: dict) -> V1beta1UserRequestBody:
         """Create an instance of V1beta1UserRequestBody from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return V1beta1UserRequestBody.parse_obj(obj)
 
-        _obj = cls.model_validate({
+        _obj = V1beta1UserRequestBody.parse_obj({
             "name": obj.get("name"),
             "email": obj.get("email"),
             "metadata": obj.get("metadata"),
